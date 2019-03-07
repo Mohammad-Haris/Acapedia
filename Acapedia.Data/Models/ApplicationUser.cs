@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Acapedia.Data.Models
 {
-    public partial class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
         public ApplicationUser()
         {

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Acapedia.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Acapedia.Data.Models;
 
 namespace Acapedia
 {
@@ -40,7 +41,7 @@ namespace Acapedia
             services.AddDbContext<AcapediaDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<AcapediaDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

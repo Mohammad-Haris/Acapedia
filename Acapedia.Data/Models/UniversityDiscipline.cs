@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Acapedia.Data.Models
 {
-    public partial class UniversityDiscipline
+    public class UniversityDiscipline
     {
         public int Id { get; set; }
         public int UniversityId { get; set; }
