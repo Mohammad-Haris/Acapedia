@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Acapedia.Data.Contracts;
+using Acapedia.Data;
 using Acapedia.Data.Models;
 using System.Collections.Generic;
 using System;
@@ -10,9 +11,9 @@ namespace Acapedia.Service
 {
     public class ExploreService : IExplore
     {
-        private readonly AcpdiaContext _Context;
+        private readonly AcapediaDbContext _Context;
 
-        public ExploreService (AcpdiaContext context)
+        public ExploreService (AcapediaDbContext context)
         {
             _Context = context;
         }
