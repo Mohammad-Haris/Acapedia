@@ -1,0 +1,509 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/app.css")" rel="stylesheet" type="text/css" />
+}
+
+<div id="top-div">
+    <div id="h-title">
+        <p id="h-title-text">Humanities</p>
+    </div>
+    <div id="ec-buttons">
+        <div id="expand-button">
+            <p>
+                Expand All
+            </p>
+        </div>
+        <div id="collapse-button">
+            <p>
+                Collapse All
+            </p>
+        </div>
+    </div>
+    <div id="discip-list">
+        <ul>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Arts</span>
+                <ul class="children">
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Performing Arts</span>
+                        <ul class="children">
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Music</span>
+                                <ul class="children">
+                                    <li class="no-child">Accompanying</li>
+                                    <li class="no-child">Chamber Music</li>
+                                    <li class="no-child">Church Music</li>
+                                    <li>
+                                        <span class="is-icon">+</span><span class="is-parent">Conducting</span>
+                                        <ul class="children">
+                                            <li class="no-child">Choral conducting</li>
+                                            <li class="no-child">Orchestral conducting</li>
+                                            <li class="no-child">Wind ensemble conducting</li>
+                                        </ul>
+                                    </li>
+                                    <li class="no-child">Early music</li>
+                                    <li class="no-child">Jazz Studies</li>
+                                    <li class="no-child">Musical Composition</li>
+                                    <li class="no-child">Music Education</li>
+                                    <li class="no-child">Music History</li>
+                                    <li>
+                                        <span class="is-icon">+</span><span class="is-parent">Musicology</span>
+                                        <ul class="children">
+                                            <li class="no-child">Historical musicology</li>
+                                            <li class="no-child">Systematic musicology</li>
+                                        </ul>
+                                    </li>
+                                    <li class="no-child">Ethnomusicology</li>
+                                    <li class="no-child">Music theory</li>
+                                    <li class="no-child">Orchestral studies</li>
+                                    <li>
+                                        <span class="is-icon">+</span><span class="is-parent">Organology</span>
+                                        <ul class="children">
+                                            <li class="no-child">Organ and historical keyboards</li>
+                                            <li class="no-child">Piano</li>
+                                            <li class="no-child">Strings, harp, oud, and guitar (outline)</li>
+                                            <li class="no-child">Singing</li>
+                                            <li class="no-child">Woodwinds, brass, and percussion</li>
+                                        </ul>
+                                    </li>
+                                    <li class="no-child">Recording</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Dance</span>
+                                <ul class="children">
+                                    <li class="no-child">Choreography</li>
+                                    <li class="no-child">Dance notation</li>
+                                    <li class="no-child">Ethnochoreology</li>
+                                    <li class="no-child">History of dance</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Television</span>
+                                <ul class="children">
+                                    <li class="no-child">Television studies</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Theatre</span>
+                                <ul class="children">
+                                    <li class="no-child">Acting</li>
+                                    <li class="no-child">Directing</li>
+                                    <li class="no-child">Dramaturgy</li>
+                                    <li class="no-child">History</li>
+                                    <li class="no-child">Musical theatre</li>
+                                    <li class="no-child">Playwrighting</li>
+                                    <li class="no-child">Puppetry</li>
+                                    <li class="no-child">Scenography</li>
+                                    <li class="no-child">Stage design</li>
+                                    <li class="no-child">Ventriloquism</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Film</span>
+                                <ul class="children">
+                                    <li class="no-child">Animation</li>
+                                    <li class="no-child">Film criticism</li>
+                                    <li class="no-child">Film Making</li>
+                                    <li class="no-child">Film theory</li>
+                                    <li class="no-child">Live action</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Visual Arts</span>
+                        <ul class="children">
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Fine Arts</span>
+                                <ul class="children">
+                                    <li>
+                                        <span class="is-icon">+</span><span class="is-parent">Graphic Arts</span>
+                                        <ul class="children">
+                                            <li class="no-child">Drawing</li>
+                                            <li class="no-child">Painting</li>
+                                            <li class="no-child">Photography</li>
+                                        </ul>
+                                    </li>
+                                    <li class="no-child">Sculpture</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Applied Arts</span>
+                                <ul class="children">
+                                    <li class="no-child">Animation</li>
+                                    <li class="no-child">Calligraphy</li>
+                                    <li class="no-child">Decorative arts</li>
+                                    <li class="no-child">Mixed media</li>
+                                    <li class="no-child">Printmaking</li>
+                                    <li class="no-child">Studio art</li>
+                                    <li>
+                                        <span class="is-icon">+</span><span class="is-parent">Architecture</span>
+                                        <ul class="children">
+                                            <li class="no-child">Interior architecture</li>
+                                            <li class="no-child">Landscape architecture</li>
+                                            <li class="no-child">Architectural analytics</li>
+                                            <li class="no-child">Historic preservation</li>
+                                            <li class="no-child">Interior design</li>
+                                            <li class="no-child">Landscape architecture</li>
+                                            <li class="no-child">Landscape design</li>
+                                            <li class="no-child">Technical drawing</li>
+                                            <li class="no-child">Information architecture</li>
+                                            <li class="no-child">Urban planning</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="is-icon">+</span><span class="is-parent">Outline of design</span>
+                                        <ul class="children">
+                                            <li class="no-child">Fashion design</li>
+                                            <li class="no-child">Textile design</li>
+                                            <li>
+                                                <span class="is-icon">+</span><span class="is-parent">User experience design</span>
+                                                <ul class="children">
+                                                    <li class="no-child">Interaction design</li>
+                                                    <li class="no-child">User experience evaluation</li>
+                                                    <li class="no-child">User interface design</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span class="is-icon">+</span><span class="is-parent">Visual communication</span>
+                                                <ul class="children">
+                                                    <li class="no-child">Graphic design</li>
+                                                    <li>
+                                                        <span class="is-icon">+</span><span class="is-parent">Typography</span>
+                                                        <ul class="children">
+                                                            <li class="no-child">Type design</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span class="is-icon">+</span><span class="is-parent">Industrial design</span>
+                                                <ul class="children">
+                                                    <li class="no-child">Ergonomics</li>
+                                                    <li class="no-child">Game design</li>
+                                                    <li class="no-child">Toy and amusement design</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">History</span>
+                <ul class="children">
+                    <li class="no-child">African history</li>
+                    <li class="no-child">American history</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Ancient history</span>
+                        <ul class="children">
+                            <li class="no-child">Ancient Carthage</li>
+                            <li class="no-child">Ancient Egypt</li>
+                            <li class="no-child">Ancient Greek history</li>
+                            <li class="no-child">Ancient Roman history</li>
+                            <li class="no-child">History of the Indus Valley Civilization</li>
+                            <li class="no-child">History of the ancient Maya</li>
+                            <li class="no-child">History of Mesopotamia</li>
+                            <li class="no-child">History of the Yangtze civilization</li>
+                            <li class="no-child">History of the Yellow River civillization</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Asian history</span>
+                        <ul class="children">
+                            <li class="no-child">Chinese history</li>
+                            <li class="no-child">Indian history</li>
+                            <li class="no-child">Indonesian history</li>
+                            <li class="no-child">Iranian history</li>
+                            <li class="no-child">History of the Indus Valley Civilization</li>
+                            <li class="no-child">History of the ancient Maya</li>
+                            <li class="no-child">History of Mesopotamia</li>
+                            <li class="no-child">History of the Yangtze civilization</li>
+                            <li class="no-child">History of the Yellow River civillization</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Australian history</li>
+                    <li class="no-child">Ecclesiastical history of the Catholic Church</li>
+                    <li class="no-child">Economic history</li>
+                    <li class="no-child">Environmental history</li>
+                    <li class="no-child">European history</li>
+                    <li class="no-child">Intellectual history</li>
+                    <li class="no-child">Latin American history</li>
+                    <li class="no-child">Modern history</li>
+                    <li class="no-child">Political history</li>
+                    <li class="no-child">Pre-Columbian era</li>
+                    <li class="no-child">Russian history</li>
+                    <li class="no-child">History of Culture</li>
+                    <li class="no-child">Scientific history</li>
+                    <li class="no-child">Technological history</li>
+                    <li class="no-child">World history</li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Languages and Literature</span>
+                <ul class="children">
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Linguistics</span>
+                        <ul class="children">
+                            <li class="no-child">Applied linguistics</li>
+                            <li class="no-child">Composition studies</li>
+                            <li class="no-child">Computational linguistics</li>
+                            <li class="no-child">Discourse analysis</li>
+                            <li class="no-child">English studies</li>
+                            <li class="no-child">Etymology</li>
+                            <li class="no-child">Grammar</li>
+                            <li class="no-child">Historical linguistics</li>
+                            <li class="no-child">History of linguistics</li>
+                            <li class="no-child">Interlinguistics</li>
+                            <li class="no-child">Lexicology</li>
+                            <li class="no-child">Linguistic typology</li>
+                            <li class="no-child">Morphology (linguistics)</li>
+                            <li class="no-child">Natural language processing</li>
+                            <li class="no-child">Philology</li>
+                            <li class="no-child">Phonetics</li>
+                            <li class="no-child">Phonology</li>
+                            <li class="no-child">Pragmatics</li>
+                            <li class="no-child">Psycholinguistics</li>
+                            <li class="no-child">Rhetoric</li>
+                            <li class="no-child">Semantics</li>
+                            <li class="no-child">Semiotics (outline)</li>
+                            <li class="no-child">Sociolinguistics</li>
+                            <li class="no-child">Syntax</li>
+                            <li class="no-child">Usage</li>
+                            <li class="no-child">Word usage</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Comparative Literature</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Creative Writing</span>
+                        <ul class="children">
+                            <li class="no-child">Fiction</li>
+                            <li class="no-child">Non-Fiction</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">English literature</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">History of literature</span>
+                        <ul class="children">
+                            <li class="no-child">Medieval literature</li>
+                            <li class="no-child">Post-colonial literature</li>
+                            <li class="no-child">Post-modern literature</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Literary theory</span>
+                        <ul class="children">
+                            <li class="no-child">Critical theory</li>
+                            <li class="no-child">Literary criticism</li>
+                            <li class="no-child">Poetics</li>
+                            <li class="no-child">Rhetoric</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Poetry</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">World literature</span>
+                        <ul class="children">
+                            <li class="no-child">African-American literature</li>
+                            <li class="no-child">American literature</li>
+                            <li class="no-child">British literature</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Philosophy</span>
+                <ul class="children">
+                    <li class="no-child">Aesthetics</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Applied Philosophy</span>
+                        <ul class="children">
+                            <li class="no-child">Philosophy of economics</li>
+                            <li class="no-child">Philosophy of education</li>
+                            <li class="no-child">Philosophy of engineering</li>
+                            <li class="no-child">Philosophy of history</li>
+                            <li class="no-child">Philosophy of language</li>
+                            <li class="no-child">Philosophy of law</li>
+                            <li class="no-child">Philosophy of mathematics</li>
+                            <li class="no-child">Philosophy of music</li>
+                            <li class="no-child">Philosophy of psychology</li>
+                            <li class="no-child">Philosophy of religion</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Philosophy of Physical Sciences</span>
+                                <ul class="children">
+                                    <li class="no-child">Philosophy of biology</li>
+                                    <li class="no-child">Philosophy of chemistry</li>
+                                    <li class="no-child">Philosophy of physics</li>
+                                </ul>
+                            </li>
+                            <li class="no-child">Philosophy of social science</li>
+                            <li class="no-child">Philosophy of technology</li>
+                            <li class="no-child">Systems philosophy</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Epistemology</span>
+                        <ul class="children">
+                            <li class="no-child">Justification</li>
+                            <li class="no-child">Reasoning errors</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Ethics</span>
+                        <ul class="children">
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Applied Ethics</span>
+                                <ul class="children">
+                                    <li class="no-child">Animal rights</li>
+                                    <li class="no-child">Bioethics</li>
+                                    <li class="no-child">Environmental ethics</li>
+                                </ul>
+                            </li>
+                            <li class="no-child">Meta-ethics</li>
+                            <li class="no-child">Moral psychology, Descriptive ethics, Value theory</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Normative ethics</span>
+                                <ul class="children">
+                                    <li class="no-child">Virtue ethics</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">History of Philosophy</span>
+                        <ul class="children">
+                            <li class="no-child">Ancient philosophy</li>
+                            <li class="no-child">Contemporary philosophy</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Medieval philosophy</span>
+                                <ul class="children">
+                                    <li class="no-child">Humanism</li>
+                                    <li class="no-child">Scholasticism</li>
+                                </ul>
+                            </li>
+                            <li class="no-child">Modern philosophy</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Logic</span>
+                        <ul class="children">
+                            <li class="no-child">Mathematical logic</li>
+                            <li class="no-child">Philosophical logic</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Meta-philosophy</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Metaphysics</span>
+                        <ul class="children">
+                            <li class="no-child">Philosophy of Action</li>
+                            <li class="no-child">Determinism and Free will</li>
+                            <li class="no-child">Ontology</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Philosophy of mind</span>
+                                <ul class="children">
+                                    <li class="no-child">Philosophy of pain</li>
+                                    <li class="no-child">Philosophy of artificial intelligence</li>
+                                    <li class="no-child">Philosophy of perception</li>
+                                </ul>
+                            </li>
+                            <li class="no-child">Philosophy of space and time</li>
+                            <li class="no-child">Teleology</li>
+                            <li class="no-child">Theism and Atheism</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Philosophical traditions and schools</span>
+                        <ul class="children">
+                            <li class="no-child">African philosophy</li>
+                            <li class="no-child">Analytic philosophy</li>
+                            <li class="no-child">Aristotelianism</li>
+                            <li class="no-child">Continental philosophy</li>
+                            <li class="no-child">Eastern philosophy</li>
+                            <li class="no-child">Feminist philosophy</li>
+                            <li class="no-child">Platonism</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Social philosophy and political philosophy</span>
+                        <ul class="children">
+                            <li class="no-child">African philosophy</li>
+                            <li class="no-child">Anarchism</li>
+                            <li class="no-child">Libertarianism</li>
+                            <li class="no-child">Marxism</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Theology</span>
+                <ul class="children">
+                    <li class="no-child">Biblical studies</li>
+                    <li class="no-child">Biblical Hebrew, Biblical Greek, Aramaic</li>
+                    <li class="no-child">Buddhist theology</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Christian theology</span>
+                        <ul class="children">
+                            <li class="no-child">Anglican theology</li>
+                            <li class="no-child">Baptist theology</li>
+                            <li class="no-child">Catholic theology</li>
+                            <li class="no-child">Eastern Orthodox theology</li>
+                            <li class="no-child">Protestant theology</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Hindu theology</li>
+                    <li class="no-child">Jewish theology</li>
+                    <li class="no-child">Muslim theology</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="info">
+    <div id="info-heading">
+        <p id="info-heading-p">(Click on a discipline from the list on the left to view more)</p>
+        <div class="divider"></div>
+    </div>
+    <div id="info-detail">
+        <p id="info-detail-p">
+        </p>
+        <img id="info-detail-image" src="" />
+    </div>
+    <div id="road-map">
+        <p id="road-map-heading">Ancestry</p>
+        <div class="divider"></div>
+        <p id="road-map-text"></p>
+    </div>
+    <div id="on-campus-resources">
+        <p id="on-campus-resources-heading">On Campus Resources</p>
+        <div class="divider"></div>
+        <div id="curr-country-nd-search-layout">
+            <p id="current-country">Current Country: United States</p>
+            <div id="on-campus-resources-countries">
+                <div id="search-nd-icon">
+                    <input id="country-input" type="text" name="myCountry" placeholder="Search for more countries">
+                    <span id="country-search-icon"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="add-on-campus-resource">Add On Campus Resource</button>
+    <div id="online-resources">
+        <p id="online-resources-heading">Online Resources</p>
+        <div class="divider"></div>
+        <p id="online-resources-text">Coming Soon</p>
+    </div>
+    <div id="job-prospects">
+        <p id="job-prospects-heading">Job Prospects</p>
+        <div class="divider"></div>
+        <p id="job-prospects-text">Coming Soon</p>
+    </div>
+</div>
+<script src="~/js/app.js"></script>

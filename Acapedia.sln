@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acapedia", "Acapedia\Acapedia.csproj", "{4501BDAF-D6D1-415B-AAC3-BB016A04BCE9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acapedia.Data", "Acapedia.Data\Acapedia.Data.csproj", "{0AD46A5C-AFCE-4679-A864-AD31EC8942E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acapedia.Service", "Acapedia.Service\Acapedia.Service.csproj", "{24880181-8966-4F1B-8FD8-8F20E9E7BD58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4501BDAF-D6D1-415B-AAC3-BB016A04BCE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4501BDAF-D6D1-415B-AAC3-BB016A04BCE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4501BDAF-D6D1-415B-AAC3-BB016A04BCE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD46A5C-AFCE-4679-A864-AD31EC8942E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD46A5C-AFCE-4679-A864-AD31EC8942E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD46A5C-AFCE-4679-A864-AD31EC8942E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD46A5C-AFCE-4679-A864-AD31EC8942E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24880181-8966-4F1B-8FD8-8F20E9E7BD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24880181-8966-4F1B-8FD8-8F20E9E7BD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24880181-8966-4F1B-8FD8-8F20E9E7BD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24880181-8966-4F1B-8FD8-8F20E9E7BD58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,4 +11,14 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acapedia.Data\Acapedia.Data.csproj" />
+    <ProjectReference Include="..\Acapedia.Service\Acapedia.Service.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,487 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/app.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/social-sciences.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div id="top-div">
+    <div id="h-title">
+        <p id="h-title-text">Social Sciences</p>
+    </div>
+    <div id="ec-buttons">
+        <div id="expand-button">
+            <p>
+                Expand All
+            </p>
+        </div>
+        <div id="collapse-button">
+            <p>
+                Collapse All
+            </p>
+        </div>
+    </div>
+    <div id="discip-list">
+        <ul>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Anthropology</span>
+                <ul class="children">
+                    <li class="no-child">Biological anthropology</li>
+                    <li class="no-child">Linguistic anthropology</li>
+                    <li class="no-child">Cultural anthropology</li>
+                    <li class="no-child">Social anthropology</li>
+                </ul>
+            </li>
+            <li>
+                <span id="u-top-level">Archeology</span>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Economics</span>
+                <ul class="children">
+                    <li class="no-child">Agricultural economics</li>
+                    <li class="no-child">Anarchist economics</li>
+                    <li class="no-child">Applied economics</li>
+                    <li class="no-child">Behavioural economics</li>
+                    <li class="no-child">Bioeconomics</li>
+                    <li class="no-child">Complexity economics</li>
+                    <li class="no-child">Computational economics</li>
+                    <li class="no-child">Consumer economics</li>
+                    <li class="no-child">Development economics</li>
+                    <li class="no-child">Ecological economics</li>
+                    <li class="no-child">Econometrics</li>
+                    <li class="no-child">Economic geography</li>
+                    <li class="no-child">Economic history</li>
+                    <li class="no-child">Economic sociology</li>
+                    <li class="no-child">Economic systems</li>
+                    <li class="no-child">Energy economics</li>
+                    <li class="no-child">Entrepreneurial economics</li>
+                    <li class="no-child">Environmental economics</li>
+                    <li class="no-child">Evolutionary economics</li>
+                    <li class="no-child">Experimental economics</li>
+                    <li class="no-child">Feminist economics</li>
+                    <li class="no-child">Financial econometrics</li>
+                    <li class="no-child">Financial economics</li>
+                    <li class="no-child">Green economics</li>
+                    <li class="no-child">Growth economics</li>
+                    <li class="no-child">Human development theory</li>
+                    <li class="no-child">Industrial organization</li>
+                    <li class="no-child">Information economics</li>
+                    <li class="no-child">Institutional economics</li>
+                    <li class="no-child">International economics</li>
+                    <li class="no-child">Islamic economics</li>
+                    <li class="no-child">Labor economics</li>
+                    <li class="no-child">Law and economics</li>
+                    <li class="no-child">Macroeconomics</li>
+                    <li class="no-child">Managerial economics</li>
+                    <li class="no-child">Marxian economics</li>
+                    <li class="no-child">Mathematical economics</li>
+                    <li class="no-child">Microeconomics</li>
+                    <li class="no-child">Monetary economics</li>
+                    <li class="no-child">Neuroeconomics</li>
+                    <li class="no-child">Participatory economics</li>
+                    <li class="no-child">Political economy</li>
+                    <li class="no-child">Public economics</li>
+                    <li class="no-child">Public finance</li>
+                    <li class="no-child">Real estate economics</li>
+                    <li class="no-child">Resource economics</li>
+                    <li class="no-child">Social choice theory</li>
+                    <li class="no-child">Socialist economics</li>
+                    <li class="no-child">Socioeconomics</li>
+                    <li class="no-child">Transport economics</li>
+                    <li class="no-child">Welfare economics</li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Human geography</span>
+                <ul class="children">
+                    <li class="no-child">Behavioral geography</li>
+                    <li class="no-child">Cognitive geography</li>
+                    <li class="no-child">Cultural geography</li>
+                    <li class="no-child">Development geography</li>
+                    <li class="no-child">Economic geography</li>
+                    <li class="no-child">Health geography</li>
+                    <li class="no-child">Historical geography</li>
+                    <li class="no-child">Language geography</li>
+                    <li class="no-child">Marketing geography</li>
+                    <li class="no-child">Military geography</li>
+                    <li class="no-child">Political geography</li>
+                    <li class="no-child">Population geography</li>
+                    <li class="no-child">Religion geography</li>
+                    <li class="no-child">Social geography</li>
+                    <li class="no-child">Strategic geography</li>
+                    <li class="no-child">Time geography</li>
+                    <li class="no-child">Tourism geography</li>
+                    <li class="no-child">Transport geography</li>
+                    <li class="no-child">Urban geography</li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Political science</span>
+                <ul class="children">
+                    <li class="no-child">American politics</li>
+                    <li class="no-child">Canadian politics</li>
+                    <li class="no-child">Civics</li>
+                    <li class="no-child">Comparative politics</li>
+                    <li class="no-child">European studies</li>
+                    <li class="no-child">Geopolitics (Political geography)</li>
+                    <li class="no-child">International relations</li>
+                    <li class="no-child">International organizations</li>
+                    <li class="no-child">Nationalism studies</li>
+                    <li class="no-child">Peace and conflict studies</li>
+                    <li class="no-child">Policy studies</li>
+                    <li class="no-child">Political behavior</li>
+                    <li class="no-child">Political culture</li>
+                    <li class="no-child">Political economy</li>
+                    <li class="no-child">Political history</li>
+                    <li class="no-child">Political philosophy</li>
+                    <li class="no-child">Psephology</li>
+                    <li class="no-child">Social choice theory</li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Psychology</span>
+                <ul class="children">
+                    <li class="no-child">Abnormal psychology</li>
+                    <li class="no-child">Applied psychology</li>
+                    <li class="no-child">Asian psychology</li>
+                    <li class="no-child">Biological psychology</li>
+                    <li class="no-child">Black psychology</li>
+                    <li class="no-child">Clinical neuropsychology</li>
+                    <li class="no-child">Clinical psychology</li>
+                    <li class="no-child">Cognitive psychology</li>
+                    <li class="no-child">Community psychology</li>
+                    <li class="no-child">Comparative psychology</li>
+                    <li class="no-child">Conservation psychology</li>
+                    <li class="no-child">Consumer psychology</li>
+                    <li class="no-child">Counseling psychology</li>
+                    <li class="no-child">Criminal psychology</li>
+                    <li class="no-child">Cultural psychology</li>
+                    <li class="no-child">Developmental psychology</li>
+                    <li class="no-child">Differential psychology</li>
+                    <li class="no-child">Ecological psychology</li>
+                    <li class="no-child">Educational psychology</li>
+                    <li class="no-child">Environmental psychology</li>
+                    <li class="no-child">Evolutionary psychology</li>
+                    <li class="no-child">Experimental psychology</li>
+                    <li class="no-child">Group psychology</li>
+                    <li class="no-child">Family psychology</li>
+                    <li class="no-child">Feminine psychology</li>
+                    <li class="no-child">Forensic developmental psychology</li>
+                    <li class="no-child">Forensic psychology</li>
+                    <li class="no-child">Health psychology</li>
+                    <li class="no-child">Humanistic psychology</li>
+                    <li class="no-child">Indigenous psychology</li>
+                    <li class="no-child">Legal psychology</li>
+                    <li class="no-child">Masculine psychology</li>
+                    <li class="no-child">Mathematical psychology</li>
+                    <li class="no-child">Media psychology</li>
+                    <li class="no-child">Medical psychology</li>
+                    <li class="no-child">Military psychology</li>
+                    <li class="no-child">Moral psychology and Descriptive ethics</li>
+                    <li class="no-child">Music psychology</li>
+                    <li class="no-child">Neuropsychology</li>
+                    <li class="no-child">Occupational health psychology</li>
+                    <li class="no-child">Occupational psychology</li>
+                    <li class="no-child">Organizational psychology</li>
+                    <li class="no-child">Parapsychology (outline)</li>
+                    <li class="no-child">Pediatric psychology</li>
+                    <li class="no-child">Pedology (children study)</li>
+                    <li class="no-child">Personality psychology</li>
+                    <li class="no-child">Phenomenology</li>
+                    <li class="no-child">Political psychology</li>
+                    <li class="no-child">Positive psychology</li>
+                    <li class="no-child">Psychoanalysis</li>
+                    <li class="no-child">Psychobiology</li>
+                    <li class="no-child">Psychology of religion</li>
+                    <li class="no-child">Psychometrics</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Psychopathology</span>
+                        <ul class="children">
+                            <li class="no-child">Child Psychopathology</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Psychophysics</li>
+                    <li class="no-child">Quantitative psychology</li>
+                    <li class="no-child">Rehabilitation psychology</li>
+                    <li class="no-child">School psychology</li>
+                    <li class="no-child">Social psychology</li>
+                    <li class="no-child">Sport psychology</li>
+                    <li class="no-child">Traffic psychology</li>
+                    <li class="no-child">Transpersonal psychology</li>
+                </ul>
+            </li>
+            <li>
+                <span class="is-icon">+</span><span class="is-parent">Sociology</span>
+                <ul class="children">
+                    <li class="no-child">Analytical sociology</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Applied sociology</span>
+                        <ul class="children">
+                            <li class="no-child">Leisure studies</li>
+                            <li class="no-child">Political sociology</li>
+                            <li class="no-child">Public sociology</li>
+                            <li class="no-child">Social engineering</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Architectural sociology</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Area studies</span>
+                        <ul class="children">
+                            <li class="no-child">African studies</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">American studies</span>
+                                <ul class="children">
+                                    <li class="no-child">Appalachian studies</li>
+                                    <li class="no-child">Canadian studies</li>
+                                    <li class="no-child">Latin American studies</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Asian studies</span>
+                                <ul class="children">
+                                    <li class="no-child">Central Asian studies</li>
+                                    <li class="no-child">East Asian studies</li>
+                                    <li class="no-child">Indology</li>
+                                    <li class="no-child">Iranian studies</li>
+                                    <li class="no-child">Japanese studies</li>
+                                    <li class="no-child">Korean studies</li>
+                                    <li class="no-child">Pakistan studies</li>
+                                    <li class="no-child">Sindhology</li>
+                                    <li class="no-child">Sinology (outline)</li>
+                                    <li class="no-child">Southeast Asian studies</li>
+                                    <li class="no-child">Thai studies</li>
+                                </ul>
+                            </li>
+                            <li class="no-child">Australian studies</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">European studies</span>
+                                <ul class="children">
+                                    <li class="no-child">Celtic studies</li>
+                                    <li class="no-child">German studies</li>
+                                    <li class="no-child">Sociology in Poland</li>
+                                    <li class="no-child">Scandinavian studies</li>
+                                    <li class="no-child">Slavic studies</li>
+                                </ul>
+                            </li>
+                            <li class="no-child">Middle Eastern studies</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Behavioral sociology</li>
+                    <li class="no-child">Chinese sociology</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Collective behavior</span>
+                        <ul class="children">
+                            <li class="no-child">Social movements</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Community informatics</span>
+                        <ul class="children">
+                            <li class="no-child">Social network analysis</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Comparative sociology</li>
+                    <li class="no-child">Conflict theory</li>
+                    <li class="no-child">Criminology/Criminal justice (outline)</li>
+                    <li class="no-child">Critical management studies</li>
+                    <li class="no-child">Critical sociology</li>
+                    <li class="no-child">Cultural sociology</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Cultural studies/ethnic studies</span>
+                        <ul class="children">
+                            <li class="no-child">Africana studies</li>
+                            <li class="no-child">Cross-cultural studies</li>
+                            <li class="no-child">Culturology</li>
+                            <li class="no-child">Ethnology</li>
+                            <li class="no-child">Whiteness studies</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Demography/Population</li>
+                    <li class="no-child">Digital sociology</li>
+                    <li class="no-child">Dramaturgical sociology</li>
+                    <li class="no-child">Economic sociology</li>
+                    <li class="no-child">Educational sociology</li>
+                    <li class="no-child">Empirical sociology</li>
+                    <li class="no-child">Environmental sociology</li>
+                    <li class="no-child">Evolutionary sociology</li>
+                    <li class="no-child">Feminist sociology</li>
+                    <li class="no-child">Figurational sociology</li>
+                    <li class="no-child">Futures studies</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Gender studies</span>
+                        <ul class="children">
+                            <li class="no-child">Men's studies</li>
+                            <li class="no-child">Women's studies</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Historical sociology</li>
+                    <li class="no-child">Human ecology</li>
+                    <li class="no-child">Humanistic sociology</li>
+                    <li class="no-child">Industrial sociology</li>
+                    <li class="no-child">Interactionism</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Interpretive sociology</span>
+                        <ul class="children">
+                            <li class="no-child">Ethnomethodology</li>
+                            <li class="no-child">Phenomenology</li>
+                            <li class="no-child">Social constructionism</li>
+                            <li class="no-child">Symbolic interactionism</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Jealousy sociology</li>
+                    <li class="no-child">Macrosociology</li>
+                    <li class="no-child">Marxist sociology</li>
+                    <li class="no-child">Mathematical sociology</li>
+                    <li class="no-child">Medical sociology</li>
+                    <li class="no-child">Mesosociology</li>
+                    <li class="no-child">Microsociology</li>
+                    <li class="no-child">Military sociology</li>
+                    <li class="no-child">Natural resource sociology</li>
+                    <li class="no-child">Organizational studies</li>
+                    <li class="no-child">Phenomenological sociology</li>
+                    <li class="no-child">Policy sociology</li>
+                    <li class="no-child">Psychoanalytic sociology</li>
+                    <li class="no-child">Science studies/Science and technology studies</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Sexology</span>
+                        <ul class="children">
+                            <li class="no-child">Heterosexism</li>
+                            <li class="no-child">Human sexual behavior</li>
+                            <li class="no-child">Human sexuality</li>
+                            <li class="no-child">Queer studies/Queer theory</li>
+                            <li class="no-child">Sex education</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Social capital</li>
+                    <li class="no-child">Social change</li>
+                    <li class="no-child">Social conflict theory</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Social control</span>
+                        <ul class="children">
+                            <li class="no-child">Pure sociology</li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Social economy</li>
+                    <li class="no-child">Social philosophy</li>
+                    <li class="no-child">Social policy</li>
+                    <li class="no-child">Social psychology</li>
+                    <li class="no-child">Social research</li>
+                    <li class="no-child">Social stratification</li>
+                    <li class="no-child">Social theory</li>
+                    <li>
+                        <span class="is-icon">+</span><span class="is-parent">Social transformation</span>
+                        <ul class="children">
+                            <li class="no-child">Computational sociology</li>
+                            <li>
+                                <span class="is-icon">+</span><span class="is-parent">Economic sociology/Socioeconomics</span>
+                                <ul class="children">
+                                    <li class="no-child">Economic development</li>
+                                    <li class="no-child">Social development</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="no-child">Sociobiology</li>
+                    <li class="no-child">Sociocybernetics</li>
+                    <li class="no-child">Sociolinguistics</li>
+                    <li class="no-child">Sociological theory</li>
+                    <li class="no-child">Sociology of aging</li>
+                    <li class="no-child">Sociology of agriculture</li>
+                    <li class="no-child">Sociology of art</li>
+                    <li class="no-child">Sociology of autism</li>
+                    <li class="no-child">Sociology of childhood</li>
+                    <li class="no-child">Sociology of conflict</li>
+                    <li class="no-child">Sociology of culture</li>
+                    <li class="no-child">Sociology of cyberspace</li>
+                    <li class="no-child">Sociology of development</li>
+                    <li class="no-child">Sociology of deviance</li>
+                    <li class="no-child">Sociology of disaster</li>
+                    <li class="no-child">Sociology of education</li>
+                    <li class="no-child">Sociology of emotions</li>
+                    <li class="no-child">Sociology of fatherhood</li>
+                    <li class="no-child">Sociology of finance</li>
+                    <li class="no-child">Sociology of food</li>
+                    <li class="no-child">Sociology of gender</li>
+                    <li class="no-child">Sociology of generations</li>
+                    <li class="no-child">Sociology of globalization</li>
+                    <li class="no-child">Sociology of government</li>
+                    <li class="no-child">Sociology of health and illness</li>
+                    <li class="no-child">Sociology of human consciousness</li>
+                    <li class="no-child">Sociology of immigration</li>
+                    <li class="no-child">Sociology of knowledge</li>
+                    <li class="no-child">Sociology of language</li>
+                    <li class="no-child">Sociology of law</li>
+                    <li class="no-child">Sociology of leisure</li>
+                    <li class="no-child">Sociology of literature</li>
+                    <li class="no-child">Sociology of markets</li>
+                    <li class="no-child">Sociology of marriage</li>
+                    <li class="no-child">Sociology of motherhood</li>
+                    <li class="no-child">Sociology of music</li>
+                    <li class="no-child">Sociology of natural resources</li>
+                    <li class="no-child">Sociology of organizations</li>
+                    <li class="no-child">Sociology of peace, war, and social conflict</li>
+                    <li class="no-child">Sociology of punishment</li>
+                    <li class="no-child">Sociology of race and ethnic relations</li>
+                    <li class="no-child">Sociology of religion</li>
+                    <li class="no-child">Sociology of risk</li>
+                    <li class="no-child">Sociology of science</li>
+                    <li class="no-child">Sociology of scientific knowledge</li>
+                    <li class="no-child">Sociology of social change</li>
+                    <li class="no-child">Sociology of social movements</li>
+                    <li class="no-child">Sociology of space</li>
+                    <li class="no-child">Sociology of sport</li>
+                    <li class="no-child">Sociology of technology</li>
+                    <li class="no-child">Sociology of terrorism</li>
+                    <li class="no-child">Sociology of the body</li>
+                    <li class="no-child">Sociology of the family</li>
+                    <li class="no-child">Sociology of the history of science</li>
+                    <li class="no-child">Sociology of the Internet</li>
+                    <li class="no-child">Sociology of work</li>
+                    <li class="no-child">Sociomusicology</li>
+                    <li class="no-child">Structural sociology</li>
+                    <li class="no-child">Theoretical sociology</li>
+                    <li class="no-child">Urban studies or Urban sociology/Rural sociology</li>
+                    <li class="no-child">Victimology</li>
+                    <li class="no-child">Visual sociology</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="info">
+    <div id="info-heading">
+        <p id="info-heading-p">(Click on a discipline from the list on the left to view more)</p>
+        <div class="divider"></div>
+    </div>
+    <div id="info-detail">
+        <p id="info-detail-p">
+        </p>
+        <img id="info-detail-image" src="" />
+    </div>
+    <div id="road-map">
+        <p id="road-map-heading">Ancestry</p>
+        <div class="divider"></div>
+        <p id="road-map-text"></p>
+    </div>
+    <div id="job-prospects">
+        <p id="job-prospects-heading">Current Job Prospects</p>
+        <div class="divider"></div>
+        <p id="job-prospects-text">Coming Soon</p>
+    </div>
+    <div id="online-resources">
+        <p id="online-resources-heading">Online Resources</p>
+        <div class="divider"></div>
+        <p id="online-resources-text">Coming Soon</p>
+    </div>
+    <div id="on-campus-resources">
+        <p id="on-campus-resources-heading">On Campus Resources</p>
+        <div class="divider"></div>
+        <p id="on-campus-resources-text">Coming Soon</p>
+    </div>
+</div>
+<script src="~/js/app.js"></script>

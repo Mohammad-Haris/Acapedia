@@ -1,0 +1,135 @@
+﻿.wrapper {
+    background-color: rgba(107, 142, 35, 0.19);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 35% 35% 30%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.hns {
+    grid-row-start: 1;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.humanities {
+    grid-column-start: 1;
+    background-color: rgba(107, 142, 35, 0.70);   
+    overflow: hidden;
+    padding: 10px;
+    user-select: none;
+    cursor: default;
+    transition: all 0.3s;
+}
+
+    .humanities:hover {
+        background-color: rgba(107, 142, 35, 0.75);
+        box-shadow: 0 0 5px #35495e;
+        transition: all 0.3s;
+    }
+
+#humanities-heading {
+    letter-spacing: 0.2125rem;
+    font-size: 17px;
+}
+
+.social-sciences {
+    grid-column-start: 2;
+    background-color: rgba(53, 73, 94, 0.70);    
+    color: #ddd;
+    padding: 10px;
+    overflow: hidden;
+    user-select: none;
+    cursor: default;
+    transition: all 0.3s;
+}
+
+    .social-sciences:hover {
+        background-color: rgba(53, 73, 94, 0.75);
+        box-shadow: 0 0 5px #35495e;
+        transition: all 0.3s;
+    }
+
+#social-sciences-heading {
+    letter-spacing: 0.2125rem;
+    font-size: 17px;
+}
+
+.nnf {
+    grid-row-start: 2;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 50% 50%;
+}
+
+.natural-sciences {
+    grid-column-start: 1;
+    background-color: rgba(53, 73, 94, 0.70);
+    color: #ddd;
+    user-select: none;
+    cursor: default;
+    transition: all 0.3s;
+    padding: 10px;
+    overflow: hidden;
+}
+
+    .natural-sciences:hover {
+        background-color: rgba(53, 73, 94, 0.75);
+        box-shadow: 0 0 5px #35495e;
+        transition: all 0.3s;
+    }
+
+#natural-sciences-heading {
+    letter-spacing: 0.2125rem;
+    font-size: 17px;
+}
+
+.formal-sciences {
+    grid-column-start: 2;
+    background-color: rgba(107, 142, 35, 0.70);
+    user-select: none;
+    cursor: default;
+    transition: all 0.3s;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.formal-sciences:hover {
+    background-color: rgba(107, 142, 35, 0.75);
+    box-shadow: 0 0 5px #35495e;
+    transition: all 0.3s;
+}
+
+#formal-sciences-heading {
+    letter-spacing: 0.2125rem;
+    font-size: 17px;
+}
+
+.professional-and-applied-sciences {
+    grid-row-start: 3;
+    box-sizing: border-box;
+    background-color: rgba(107, 142, 35, 0.80);
+    user-select: none;
+    cursor: default;
+    transition: all 0.3s;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.professional-and-applied-sciences:hover {
+    background-color: rgba(107, 142, 35, 0.85);
+    box-shadow: 0 0 5px #35495e;
+    transition: all 0.3s;
+}
+
+#professional-and-applied-sciences-heading {
+    letter-spacing: 0.2125rem;
+    font-size: 17px;
+}
