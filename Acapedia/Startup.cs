@@ -13,6 +13,8 @@ using Acapedia.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Acapedia.Data.Models;
+using Acapedia.Data.Contracts;
+using Acapedia.Service;
 
 namespace Acapedia
 {
@@ -45,6 +47,7 @@ namespace Acapedia
                 .AddEntityFrameworkStores<AcapediaDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddScoped<IExplore, ExploreService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
