@@ -1,4 +1,4 @@
-﻿namespace Acapedia.Service.JsonModels
+﻿namespace Acapedia.Data.JsonModels
 {
     public class CD_Recieved
     {

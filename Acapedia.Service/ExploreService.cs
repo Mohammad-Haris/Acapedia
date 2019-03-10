@@ -5,7 +5,7 @@ using Acapedia.Data.Models;
 using System.Collections.Generic;
 using System;
 using Newtonsoft.Json.Linq;
-using Acapedia.Service.JsonModels;
+using Acapedia.Data.JsonModels;
 
 namespace Acapedia.Service
 {

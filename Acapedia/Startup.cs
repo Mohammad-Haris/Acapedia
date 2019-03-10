@@ -43,10 +43,25 @@ namespace Acapedia
             services.AddDbContext<AcapediaDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddEntityFrameworkStores<AcapediaDbContext>();
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<AcapediaDbContext>().AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.Configure<IdentityOptions>(options =>
+                {
+                    options.Stores.MaxLengthForKeys = 128;
+                });
+
+            services.ConfigureApplicationCookie(options =>
+                {
+                    options.LoginPath = $"/account/login";
+                    options.LogoutPath = $"/account/logout";
+                    options.AccessDeniedPath = $"/account/access-denied";
+                });
+
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<IExplore, ExploreService>();
         }
 
