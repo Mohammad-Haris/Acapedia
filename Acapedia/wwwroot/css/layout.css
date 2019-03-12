@@ -13,9 +13,10 @@
 .header {
     grid-row-start: 1;
     display: grid;
-    grid-template-columns: 140px 152px auto 100px 100px 100px 90px;
+    grid-template-columns: 140px 152px auto 100px 100px 100px 100px 30px;
     grid-template-rows: 50px;
     align-items: center;
+    overflow: auto;
 }
 
 a {
@@ -67,9 +68,20 @@ a {
 
 #about-info {
     grid-column-start: 6;
+    grid-column-end: 7;
     padding-left: 5px;
     font-size: 14px;
     color: #35495e;
+    margin: auto;
+}
+
+#login-user-info {
+    grid-column-start: 7;
+    font-size: 14px;
+    color: #35495e;
+    background-color: rgba(107, 142, 35, 0.49);
+    padding: 7px 15px 7px 15px;
+    border-radius: 1px;
     margin: auto;
 }
 
@@ -79,6 +91,10 @@ a {
 
 #about-info:hover {
     color: #999999;
+}
+
+#login-user-info:hover {
+    background-color: rgba(107, 142, 35, 0.29);
 }
 
 .content {
