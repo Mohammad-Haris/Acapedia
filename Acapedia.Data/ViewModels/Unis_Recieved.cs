@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Acapedia.Data.JsonModels
+namespace Acapedia.Data.ViewModels
 {
     public class Unis_Recieved
     {

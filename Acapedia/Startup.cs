@@ -61,7 +61,7 @@ namespace Acapedia
                     options.AccessDeniedPath = $"/account/access-denied";
                 });
 
-            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddSingleton<IEmailSender, EmailSender>();
             services.AddScoped<IExplore, ExploreService>();
         }
 

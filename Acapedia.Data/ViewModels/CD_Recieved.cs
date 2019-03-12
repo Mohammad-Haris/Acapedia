@@ -1,4 +1,4 @@
-﻿namespace Acapedia.Data.JsonModels
+﻿namespace Acapedia.Data.ViewModels
 {
     public class CD_Recieved
     {
@@ -13,3 +13,4 @@
         }
     }
 }
+
