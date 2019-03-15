@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Acapedia.Data.Contracts;
@@ -226,7 +227,7 @@ namespace Acapedia.Controllers
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);                    
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
@@ -293,7 +294,10 @@ namespace Acapedia.Controllers
                 ViewData["ReturnUrl"] = returnUrl;
                 ViewData["LoginProvider"] = info.LoginProvider;
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-                return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
+                var uname = info.Principal.FindFirstValue(ClaimTypes.Name);
+                var avatar = info.Principal.Claims.Where(x => x.Type == "profile-image-url").FirstOrDefault();
+
+                return await ExternalLoginConfirmation(new ExternalLoginViewModel { Email = email });
             }
         }
 

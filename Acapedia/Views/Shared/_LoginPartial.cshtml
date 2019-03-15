@@ -5,11 +5,13 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post">
-        <a asp-area="" asp-page="/Account/Manage/Index" title="Manage" id="login-user-info">Hello @UserManager.GetUserName(User)!</a>
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Logout" id="login-user-info" />
     </form>
 }
 else
-{    
-    <a asp-area="" asp-controller="Account" asp-action="Login" id="login-user-info">Log In</a>
+{
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <input type="submit" value="Log In" id="login-user-info" />
+    </form>
 }

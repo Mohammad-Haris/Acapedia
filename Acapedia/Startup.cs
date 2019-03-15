@@ -61,7 +61,7 @@ namespace Acapedia
                 googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
                 googleOptions.ClaimActions.MapJsonKey("urn:google:profile", "link");
                 googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-                //googleOptions.ClaimActions.MapJsonSubKey("profile-image-url", "image", "url");
+                googleOptions.ClaimActions.MapJsonSubKey("profile-image-url", "image", "url");
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
