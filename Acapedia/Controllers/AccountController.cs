@@ -282,6 +282,7 @@ namespace Acapedia.Controllers
             if (result.Succeeded)
             {
                 _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
+                returnUrl = "/Home/Redirect";
                 return RedirectToLocal(returnUrl);
             }
             if (result.IsLockedOut)
@@ -323,6 +324,7 @@ namespace Acapedia.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+                        returnUrl = "/Home/Redirect";
                         return RedirectToLocal(returnUrl);
                     }
                 }
