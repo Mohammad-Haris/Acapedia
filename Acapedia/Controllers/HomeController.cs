@@ -13,5 +13,10 @@ namespace Acapedia.Controllers
         {
             return View();
         }
+
+        public IActionResult Redirect ()
+        {
+            return View();
+        }
     }
 }

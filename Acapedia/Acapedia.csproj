@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Acapedia.Data\Acapedia.Data.csproj" />
     <ProjectReference Include="..\Acapedia.Service\Acapedia.Service.csproj" />
   </ItemGroup>

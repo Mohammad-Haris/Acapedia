@@ -18,8 +18,8 @@
                 <img id="logo" alt="Acapedia title" src="~/icons/icon-main.svg" />
             </a>
             <a id="donate" href="#">Contribute</a>
-            <a id="about-info" href="#">About</a>                        
-            @await Html.PartialAsync("_LoginPartial")            
+            <a id="about-info" href="#">About</a>
+            @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="content">
             @RenderBody()
@@ -46,6 +46,6 @@
             </div>
         </div>
     </div>
+    @RenderSection("Scripts", false)
 </body>
-@RenderSection("Scripts", false)
 </html>

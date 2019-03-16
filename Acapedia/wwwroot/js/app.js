@@ -134,6 +134,18 @@ document.getElementById("expand-button").addEventListener("click", function ()
     }
 });
 
+document.getElementById("login-user-info").addEventListener("click", function ()
+{
+    let path = document.location.pathname.split("/");
+    path.shift();
+
+    if (typeof (Storage) !== "undefined")
+    {
+        sessionStorage.setItem('First', path[0]);
+        sessionStorage.setItem('Second', path[1]);
+    }
+});
+
 function AddEventParent()
 {
     var parents = document.getElementsByClassName("is-parent");
