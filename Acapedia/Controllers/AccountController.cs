@@ -53,33 +53,6 @@ namespace Acapedia.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login (LoginViewModel model, string returnUrl = null)
-        {
-            ViewData["ReturnUrl"] = returnUrl;
-            if (ModelState.IsValid)
-            {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout ()
         {
@@ -129,9 +102,9 @@ namespace Acapedia.Controllers
                 ViewData["LoginProvider"] = info.LoginProvider;
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
                 var uname = info.Principal.FindFirstValue(ClaimTypes.Name);
-                var avatar = info.Principal.Claims.Where(x => x.Type == "profile-image-url").FirstOrDefault();
+                var avatar = info.Principal.FindFirstValue(ClaimTypes.Uri);
 
-                return await ExternalLoginConfirmation(new ExternalLoginViewModel { Email = email });
+                return await ExternalLoginConfirmation(new ExternalLoginViewModel { Email = email, Avatar = avatar, UserName = uname });
             }
         }
 
@@ -148,7 +121,7 @@ namespace Acapedia.Controllers
                 {
                     throw new ApplicationException("Error loading external login information during confirmation.");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName.Replace(" ", "_"), Email = model.Email, Avatar = model.Avatar };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

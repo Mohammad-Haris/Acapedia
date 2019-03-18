@@ -11,6 +11,11 @@ namespace Acapedia.Data.Models
             Contribution = new HashSet<Contribution>();
         }
 
+        public string Avatar
+        {
+            get; set;
+        }
+
         public ICollection<Contribution> Contribution { get; set; }
     }
 }

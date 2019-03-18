@@ -4,14 +4,16 @@ using Acapedia.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Acapedia.Data.Migrations
 {
     [DbContext(typeof(AcapediaDbContext))]
-    partial class AcapediaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190317213723_Editted Application User")]
+    partial class EdittedApplicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

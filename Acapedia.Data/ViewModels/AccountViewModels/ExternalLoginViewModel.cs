@@ -14,5 +14,15 @@ namespace Acapedia.Data.ViewModels.AccountViewModels
         {
             get; set;
         }
+
+        public string Avatar
+        {
+            get; set;
+        }
+
+        public string UserName
+        {
+            get; set;
+        }
     }
 }
