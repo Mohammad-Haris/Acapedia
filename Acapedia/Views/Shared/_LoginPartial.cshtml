@@ -1,18 +1,37 @@
 @using Microsoft.AspNetCore.Identity
 @using Acapedia.Extensions;
-@using Microsoft.AspNetCore.Http;
+@using Acapedia.Data;
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject AcapediaDbContext Context
 
 @if (SignInManager.IsSignedIn(User))
-{
-    <form method="post" asp-controller="Account" asp-action="Logout">
-        <input type="submit" value="@HttpContext." id="login-user-info" />
-    </form>
-    <img id="signed-in-user" src="" />
+{    
+    string avatar = UserManager.GetAvatar(User, Context);
+    
+    <div id="profile-manage">
+        <img id="signed-in-user" src="@avatar" />
+        <div class="profile-menu-wrapper">
+            <div id="profile-manage-dropdown">
+                <img id="signed-in-user-large" src="@avatar" />
+                <div id="signed-in-user-info">
+                    <strong>
+                        @UserManager.GetUserName(User).Replace("_", " ")
+                    </strong>
+                    <p>
+                        @UserManager.GetEmail(User, Context).Replace("@", "\n@")
+                    </p>
+                    <a href="#">Acapedia Profile</a>
+                    <form asp-controller="Account" asp-action="Logout" method="post">
+                        <button type="submit">Sign Out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 else
 {
-    <a method="post" asp-controller="Account" asp-action="Login" id="login-user-info">Log In</a>
+    <a method="post" asp-controller="Account" asp-action="Login" id="login-user-info">Sign In</a>
 }

@@ -4,21 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Acapedia.Data.Models;
+using Acapedia.Data;
 using System.Security.Claims;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 
 namespace Acapedia.Extensions
 {
     public static class UserManagerExtensions
     {
-        public static string GetAvatar(this UserManager<ApplicationUser> manager, ClaimsPrincipal principal)
-		{
-			if (principal == null)
-			{
-				throw new ArgumentNullException("principal");
-			}
+        public static string GetAvatar (this UserManager<ApplicationUser> manager, ClaimsPrincipal principal, AcapediaDbContext context)
+        {            
+            return context.ApplicationUser.Where(user => user.Id == manager.GetUserId(principal)).Select(user => user.Avatar).SingleOrDefault();
+        }
 
-			return principal.FindFirstValue(ClaimTypes.Name);			
-		}
+        public static string GetEmail (this UserManager<ApplicationUser> manager, ClaimsPrincipal principal, AcapediaDbContext context)
+        {            
+            return context.ApplicationUser.Where(user => user.Id == manager.GetUserId(principal)).Select(user => user.Email).SingleOrDefault();
+        }
     }
 }
