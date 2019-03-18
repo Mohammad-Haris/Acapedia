@@ -265,7 +265,7 @@ li {
     display: inline;
 }
 
-#road-map, #online-resources, #job-prospects {
+#road-map {
     text-align: center;
 }
 
@@ -274,97 +274,13 @@ li {
     text-align: center;
 }
 
-#curr-country-nd-search-layout {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 40% 60%;
-}
-
-#road-map-heading, #online-resources-heading, #on-campus-resources-heading, #job-prospects-heading {
+#road-map-heading {
     font-size: 16px;
     letter-spacing: 0.1125rem;
 }
 
-#road-map-text, #online-resources-text, #job-prospects-text {
+#road-map-text {
     margin: 25px;
-}
-
-#current-country {
-    color: #aaa;
-    float: left;
-    margin-left: 50px;
-    grid-column-start: 1;
-}
-
-#on-campus-resources-countries {
-    box-sizing: border-box;
-    width: 65%;
-    height: 25px;
-    margin: auto;
-    background-color: transparent;
-    border-bottom: 1px double rgba(53, 73, 94, 0.85);    
-    overflow: visible;
-    transition: all 1.5s ease;
-    grid-column-start: 2;
-}
-
-#search-nd-icon {
-    position: relative;
-}
-
-#country-input {
-    color: #aaa;
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    width: 80%;
-    margin-left: -47px;
-    padding-top: 4px;
-}
-
-    #country-input:focus {
-        outline: none;
-    }
-
-#country-search-icon {
-    display: inline-block;
-    box-sizing: border-box;
-    position: absolute;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVQ4jdWRv0tCcRTFz/mqbbWIDkEEKv4DDbXYGIh/iGhllM35IteHZUr0D9T/YD9oC4xAGuNpS4vRD3CJSN9plff8QUNDZ7zc87nn3gv8e9Fb2Kwm5txvlUGkAUQhtSCV67tPF6MAxmfuq0kqACkT4mCRMDYMT/N2PDs1wbodr5IK1HY668P1XCUZMxrcmiCXjgvO89gEINISjrxTTrYfOwCu1XdXJ64AIBoy7suoqAK6IOcnA6RW3w36plgWDIGUKz5MA5RF9zBXScaGza+ziT0AkWjPufQCfG/M2/EsiQMAVwK6BFIAIgAWKO7Xio413B/wAu4aH/crmfA5XH2RlMCzaK9d+JwJQ1RpeS3MZuP9ZmyCSdqwE5aoEoSterFd9d9gimpFxyJRkNHbb3x/qx/iJXH3nqbcUwAAAABJRU5ErkJggg==");
-    background-repeat: no-repeat;
-    background-size: 18px 18px;
-    width: 18px;
-    height: 18px;
-    right: 0;
-    bottom: 0;
-    margin: 5px 5px 0;
-}
-
-.on-campus-resources-countries-items {
-    max-height: 200px;
-    width: 70%;
-    margin: 10px auto;
-    overflow: auto;
-}
-
-    .on-campus-resources-countries-items div {
-        padding: 10px;
-        cursor: pointer;
-        background-color: rgb(53, 73, 94);
-    }
-
-        .on-campus-resources-countries-items div:hover {
-            background-color: rgb(30, 144, 255);
-        }
-
-
-#add-on-campus-resource {
-    width: 50%;
-    margin: 0 auto 0 auto;
-    background-color: rgba(107, 142, 35, 0.40);
-    border: none;
-    border-radius: 1px;
-    color: #ccc;
 }
 
 .animate-none {

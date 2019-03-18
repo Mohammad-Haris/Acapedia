@@ -137,7 +137,7 @@ a {
     border-radius: 90px;
     margin-left: 25px;
     margin-top: 30px;
-    grid-column-start: 1;
+    grid-column-start: 1;    
 }
 
 #signed-in-user-info {
@@ -149,6 +149,7 @@ a {
         margin-top: 20px;
         margin-bottom: 6px;
         hyphens: manual;
+        letter-spacing: 0.1027rem;
     }
 
     #signed-in-user-info p {
