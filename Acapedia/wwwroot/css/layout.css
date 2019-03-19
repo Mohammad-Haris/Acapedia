@@ -150,6 +150,7 @@ a {
         margin-bottom: 6px;
         hyphens: manual;
         letter-spacing: 0.1027rem;
+        white-space: nowrap;
     }
 
     #signed-in-user-info p {
@@ -169,7 +170,7 @@ a {
         color: #656565;
         background-color: #eee;
         border: 1px double #aaa;
-        margin: 30px 0 0 90px;
+        margin: 20px 0 0 110px;
         border-radius: 1px;
 
     }

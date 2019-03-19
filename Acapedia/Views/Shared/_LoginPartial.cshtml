@@ -17,7 +17,7 @@
                 <img id="signed-in-user-large" src="@avatar" />
                 <div id="signed-in-user-info">
                     <strong>
-                        @UserManager.GetUserName(User).Replace("_", " ")
+                        @UserManager.GetUserName(User).Replace("_", " ")                        
                     </strong>
                     <p>
                         @UserManager.GetEmail(User, Context).Replace("@", "\n@")
