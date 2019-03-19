@@ -344,7 +344,87 @@ if (document.getElementById("signed-in-user"))
         });
 }
 
+function _SelectTab(selected) 
+{
+    selected.classList.add("tab-select");
+    selected.querySelector(".arrow").classList.add("arrow-down");
+    selected.querySelector(".arrow-inner").classList.add("arrow-down-inner");
+}
 
+document.querySelector(".basic-info-tab").addEventListener("click", function ()
+{
+    if (!this.classList.contains("tab-select"))
+    {
+        _SelectTab(this);
+        this.querySelector(".tab-img-white").classList.remove("active-icon");
+        this.querySelector(".tab-img-green").classList.add("active-icon");
+        document.querySelector(".jobs-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".jobs-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".search-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".search-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".info-tab-content").classList.add("active");
+        document.querySelector(".jobs").classList.remove("active");
+        document.querySelector(".search").classList.remove("active");
+    }
+
+    document.querySelector(".jobs-tab").classList.remove("tab-select");
+    document.querySelector(".jobs-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".jobs-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+    document.querySelector(".search-tab").classList.remove("tab-select");
+    document.querySelector(".search-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".search-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");    
+});
+
+document.querySelector(".jobs-tab").addEventListener("click", function ()
+{
+    if (!this.classList.contains("tab-select"))
+    {
+        _SelectTab(this);
+        this.querySelector(".tab-img-white").classList.remove("active-icon");
+        this.querySelector(".tab-img-green").classList.add("active-icon");
+        document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".search-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".search-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".jobs").classList.add("active");
+        document.querySelector(".info-tab-content").classList.remove("active");
+        document.querySelector(".search").classList.remove("active");
+    }
+
+    document.querySelector(".basic-info-tab").classList.remove("tab-select");
+    document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+    document.querySelector(".search-tab").classList.remove("tab-select");
+    document.querySelector(".search-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".search-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+});
+
+document.querySelector(".search-tab").addEventListener("click", function ()
+{
+    if (!this.classList.contains("tab-select"))
+    {
+        _SelectTab(this);
+        this.querySelector(".tab-img-white").classList.remove("active-icon");
+        this.querySelector(".tab-img-green").classList.add("active-icon");
+        document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".jobs-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".jobs-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".search").classList.add("active");
+        document.querySelector(".info-tab-content").classList.remove("active");
+        document.querySelector(".jobs").classList.remove("active");
+    }
+
+    document.querySelector(".basic-info-tab").classList.remove("tab-select");
+    document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+    document.querySelector(".jobs-tab").classList.remove("tab-select");
+    document.querySelector(".jobs-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".jobs-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+});
 
 AddEventIsIcon();
 AddEventChildren();

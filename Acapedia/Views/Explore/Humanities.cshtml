@@ -466,46 +466,52 @@
     </div>
 </div>
 <div id="tabs-nd-content">
-    <div id="info-header"></div>
     <div id="tabs-top">
-        <div class="basic-info-tab">
-            <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-            <img src="~/icons/info-green.png" class="tab-img"/>
+        <div class="basic-info-tab tab-select">
+            <div class="arrow arrow-down"><div class="arrow-inner arrow-down-inner"></div></div>
+            <img src="~/icons/info-green.png" class="tab-img-green active-icon" />
+            <img src="~/icons/info-white.png" class="tab-img-white" />
             <p>Info</p>
         </div>
         <div class="jobs-tab">
-            <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-            <img src="~/icons/job-white-euro.png" class="tab-img" />
+            <div class="arrow"><div class="arrow-inner"></div></div>
+            <img src="~/icons/job-white-euro.png" class="tab-img-white active-icon" />
+            <img src="~/icons/job-green-euro.png" class="tab-img-green" />
             <p>Job Prospects</p>
-
         </div>
         <div class="search-tab">
-            <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-            <img src="~/icons/search-white.png" class="tab-img" />
+            <div class="arrow"><div class="arrow-inner"></div></div>
+            <img src="~/icons/search-white.png" class="tab-img-white active-icon" />
+            <img src="~/icons/search-green.png" class="tab-img-green" />
             <p>Search Engine</p>
         </div>
     </div>
-
-    <div id="info">
-        <div id="info-heading">
-            <p id="info-heading-p">(Click on a discipline from the list on the left to view more)</p>
-            <div class="divider"></div>
-        </div>
-        <div id="info-detail">
-            <p id="info-detail-p">
-            </p>
-            <img id="info-detail-image" src="" />
-        </div>
-        <div id="road-map">
-            <p id="road-map-heading">Ancestry</p>
-            <div class="divider"></div>
-
-            <p id="road-map-text"></p>
+    
+    <div class="info-tab-content">
+        <div id="info">
+            <div id="info-heading">
+                <p id="info-heading-p">(Click on a discipline from the list on the left to view more)</p>
+                <div class="divider"></div>
+            </div>
+            <div id="info-detail">
+                <p id="info-detail-p">
+                </p>
+                <img id="info-detail-image" src="" />
+            </div>
+            <div id="road-map">
+                <p id="road-map-heading">Ancestry</p>
+                <div class="divider"></div>
+                <p id="road-map-text"></p>
+            </div>
         </div>
     </div>
 
-    <div id="jobs"></div>
+    <div class="jobs">
+        jobs
+    </div>
 
-    <div id="search"></div>
+    <div class="search">
+        search
+    </div>
 </div>
 <script src="~/js/app.js"></script>
