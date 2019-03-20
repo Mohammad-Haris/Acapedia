@@ -1,5 +1,4 @@
 ﻿var prevSelect;
-var prevCoun;
 
 function AddEventIsIcon()
 {
@@ -365,6 +364,7 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         document.querySelector(".info-tab-content").classList.add("active");
         document.querySelector(".jobs").classList.remove("active");
         document.querySelector(".search").classList.remove("active");
+        document.querySelector(".search").classList.remove("hide-overflow");
     }
 
     document.querySelector(".jobs-tab").classList.remove("tab-select");
@@ -390,6 +390,7 @@ document.querySelector(".jobs-tab").addEventListener("click", function ()
         document.querySelector(".jobs").classList.add("active");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".search").classList.remove("active");
+        document.querySelector(".search").classList.remove("hide-overflow");
     }
 
     document.querySelector(".basic-info-tab").classList.remove("tab-select");
@@ -413,6 +414,7 @@ document.querySelector(".search-tab").addEventListener("click", function ()
         document.querySelector(".jobs-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".jobs-tab").querySelector(".tab-img-green").classList.remove("active-icon");
         document.querySelector(".search").classList.add("active");
+        document.querySelector(".search").classList.add("hide-overflow");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".jobs").classList.remove("active");
     }
@@ -426,6 +428,58 @@ document.querySelector(".search-tab").addEventListener("click", function ()
     document.querySelector(".jobs-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
 });
 
+function Init()
+{
+    if (!document.querySelector(".info-tab-content").classList.contains("active"))
+    {
+        document.querySelector(".info-tab-content").classList.add("active");
+    }
+}
+
+function _GetScrollBarWidth()
+{
+    var inner = document.createElement('p');
+    inner.style.width = "100%";
+    inner.style.height = "200px";
+
+    var outer = document.createElement('div');
+    outer.style.position = "absolute";
+    outer.style.top = "0px";
+    outer.style.left = "0px";
+    outer.style.visibility = "hidden";
+    outer.style.width = "200px";
+    outer.style.height = "150px";
+    outer.style.overflow = "hidden";
+    outer.appendChild(inner);
+
+    document.body.appendChild(outer);
+    var w1 = inner.offsetWidth;
+    outer.style.overflow = 'scroll';
+    var w2 = inner.offsetWidth;
+    if (w1 == w2) w2 = outer.clientWidth;
+
+    document.body.removeChild(outer);
+
+    return (w1 - w2);
+}
+
+function _GetLinks()
+{
+    let request = new XMLHttpRequest();
+    let base = "https://cors-anywhere.herokuapp.com/";
+    
+    request.open('GET', base + "https://google.com/search?q=arts", true);
+
+    request.onload = function ()
+    {
+        console.log(this.response);
+    }
+
+    request.send();
+}
+
 AddEventIsIcon();
 AddEventChildren();
 AddEventParent();
+window.onload = Init;
+_GetLinks();

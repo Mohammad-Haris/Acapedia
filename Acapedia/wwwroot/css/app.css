@@ -270,13 +270,13 @@ li {
     .basic-info-tab .tab-img-green {
         max-height: 19px;
         max-width: 19px;
-        margin-top: 17px; 
+        margin-top: 17px;
     }
 
     .basic-info-tab .tab-img-white {
         max-height: 19px;
         max-width: 19px;
-        margin-top: 17px;        
+        margin-top: 17px;
     }
 
 .jobs-tab {
@@ -412,6 +412,11 @@ li {
     color: #ddd;
 }
 
+#search-frame {
+    width: 100%;
+    height: 100%;
+}
+
 .animate-none {
     animation: FadeOut 0.3s ease-out;
     animation-fill-mode: both;
@@ -453,8 +458,12 @@ li {
 }
 
 .current-selection {
-    background-color: rgba(53, 73, 94, 0.85);
+    background-color: rgb(53, 73, 94);
     color: #ddd;
+}
+
+.hide-overflow {
+    overflow: hidden;
 }
 
 .arrow {
