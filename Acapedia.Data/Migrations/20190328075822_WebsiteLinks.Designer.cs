@@ -4,14 +4,16 @@ using Acapedia.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Acapedia.Data.Migrations
 {
     [DbContext(typeof(AcapediaDbContext))]
-    partial class AcapediaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190328075822_WebsiteLinks")]
+    partial class WebsiteLinks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,18 +82,6 @@ namespace Acapedia.Data.Migrations
                     b.HasKey("CountryName");
 
                     b.ToTable("Country");
-                });
-
-            modelBuilder.Entity("Acapedia.Data.Models.Discipline", b =>
-                {
-                    b.Property<string>("DisciplineId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("DisciplineName");
-
-                    b.HasKey("DisciplineId");
-
-                    b.ToTable("Discipline");
                 });
 
             modelBuilder.Entity("Acapedia.Data.Models.WebsiteLink", b =>

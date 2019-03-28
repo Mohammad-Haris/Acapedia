@@ -4,11 +4,13 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-@inject AcapediaDbContext Context
+@inject AcapediaDbContext AcaContext
+@*There is a variable named Context from razor pages available here so I have named this one as AcaContext otherwise it hides that Context. Find out what is present
+    in that context. It is a httpcontext, BTW*@
 
 @if (SignInManager.IsSignedIn(User))
-{    
-    string avatar = UserManager.GetAvatar(User, Context);
+{   
+    string avatar = UserManager.GetAvatar(User, AcaContext);
     
     <div id="profile-manage">
         <img id="signed-in-user" src="@avatar" />
@@ -20,7 +22,7 @@
                         @UserManager.GetUserName(User).Replace("_", " ")                        
                     </strong>
                     <p>
-                        @UserManager.GetEmail(User, Context).Replace("@", "\n@")
+                        @UserManager.GetEmail(User, AcaContext).Replace("@", "\n@")
                     </p>
                     <a href="#">Acapedia Profile</a>
                     <form asp-controller="Account" asp-action="Logout" method="post">

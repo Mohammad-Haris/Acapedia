@@ -5,7 +5,6 @@ namespace Acapedia.Data.Contracts
 {
     public interface IExplore
     {
-        IEnumerable<University> GetUniversities (object _ClientSelection);
-        IEnumerable<University> InsertUniversities (object _Universities);
+        IEnumerable<WebsiteLink> GetLinks (object _ClientSelection);
     }
 }
