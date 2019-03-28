@@ -17,6 +17,7 @@ using Acapedia.Data.Contracts;
 using Acapedia.Service;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using Acapedia.Helper;
 
 namespace Acapedia
 {
@@ -82,7 +83,7 @@ namespace Acapedia
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure (IApplicationBuilder app, IHostingEnvironment env, AcapediaDbContext _DbContext)
         {
             if (env.IsDevelopment())
             {
@@ -107,6 +108,9 @@ namespace Acapedia
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            Persister _Persister = new Persister(_DbContext);
+            _Persister.PersistLinks();
         }
     }
 }

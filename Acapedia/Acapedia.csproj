@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Acapedia.Data\Acapedia.Data.csproj" />
+    <ProjectReference Include="..\Acapedia.Helper\Acapedia.Helper.csproj" />
     <ProjectReference Include="..\Acapedia.Service\Acapedia.Service.csproj" />
   </ItemGroup>
 
