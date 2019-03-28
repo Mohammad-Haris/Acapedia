@@ -39,11 +39,31 @@ namespace Acapedia.Helper
 
                         for (int itr = 0; itr < _Length; itr++)
                         {
+                            if (String.IsNullOrEmpty(_CurrResults[itr]["snippet"].ToString()) || String.IsNullOrEmpty(_CurrResults[itr]["title"].ToString()))
+                            {
+                                MetaInformation MetaData = MetaScraper.GetMetaDataFromUrl(_CurrResults[itr]["link"].ToString());
+
+                                if (MetaData.HasData)
+                                {
+                                    _Context.Add(new WebsiteLink
+                                    {
+                                        LinkUrl = _CurrResults[itr]["link"].ToString(),
+                                        Title = _CurrResults[itr]["title"].ToString().Length > 27 ? _CurrResults[itr]["title"].ToString().Substring(0, 26) + " ..." :
+                                        _CurrResults[itr]["title"].ToString(),
+                                        Description = MetaData.Description,
+                                        LinkCountryName = "Australia",
+                                        LinkDisciplineId = "SomeID"
+                                    });
+                                    continue;
+                                }
+                            }
+
                             _Context.Add(new WebsiteLink
                             {
                                 LinkUrl = _CurrResults[itr]["link"].ToString(),
-                                Title = _CurrResults[itr]["title"].ToString(),
-                                Description = _CurrResults[itr]["title"].ToString(),
+                                Title = _CurrResults[itr]["title"].ToString().Length > 27 ? _CurrResults[itr]["title"].ToString().Substring(0, 26) + " ..." :
+                                _CurrResults[itr]["title"].ToString(),
+                                Description = _CurrResults[itr]["snippet"].ToString(),
                                 LinkCountryName = "Australia",
                                 LinkDisciplineId = "SomeID"
                             });
@@ -55,8 +75,6 @@ namespace Acapedia.Helper
                     else
                     {
                         File.AppendAllText(@"..\Acapedia.Helper\DataFolder\leftovers.txt", "study " + _CurrLine + " universities australia\n");
-                        //MetaInformation MetaData = MetaScraper.GetMetaDataFromUrl(DJObject["study " + _Reader.ReadLine() + " universities australia"]["results"]
-                        //    [0]["link"].ToString());
                     }
                 }
             }
