@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Newtonsoft.Json.Linq;
 using Acapedia.Data;
 using Acapedia.Data.Models;
+using System.Linq;
 
 namespace Acapedia.Helper
 {
@@ -20,62 +19,64 @@ namespace Acapedia.Helper
         public void PersistLinks ()
         {
             var DJObject = JObject.Parse(File.ReadAllText(@"..\Acapedia.Helper\DataFolder\country-links.json"));
-            string _CurrLine;
+            string _CurrLine, _DiscipId, _CurrCountry = "Bangladesh";
             JArray _CurrResults;
-            int _Length;
+            int _Length, itr, _DoneCount = 0;
 
             using (FileStream _Read = new FileStream(@"..\Acapedia.Helper\DataFolder\discips.txt", FileMode.Open))
             {
                 using (StreamReader _Reader = new StreamReader(_Read))
                 {
-                    _CurrLine = _Reader.ReadLine();
-
-                    if (DJObject["study " + _CurrLine + " universities australia"] != null
-                        && DJObject["study " + _CurrLine + " universities australia"]["results"] != null)
+                    while ((_CurrLine = _Reader.ReadLine()) != null)
                     {
-                        _CurrResults = (JArray)DJObject["study " + _CurrLine + " universities australia"]["results"];
-                        _Length = _CurrResults.Count;
-                        Console.WriteLine("Inside");
-
-                        for (int itr = 0; itr < _Length; itr++)
+                        if (DJObject["study " + _CurrLine + " universities " + _CurrCountry.ToLower()] != null
+                            && DJObject["study " + _CurrLine + " universities " + _CurrCountry.ToLower()]["results"] != null)
                         {
-                            if (String.IsNullOrEmpty(_CurrResults[itr]["snippet"].ToString()) || String.IsNullOrEmpty(_CurrResults[itr]["title"].ToString()))
-                            {
-                                MetaInformation MetaData = MetaScraper.GetMetaDataFromUrl(_CurrResults[itr]["link"].ToString());
+                            _DiscipId = _Context.Discipline.Where(sel => sel.DisciplineName == _CurrLine).Select(sel => sel.DisciplineId).FirstOrDefault();
+                            _CurrResults = (JArray)DJObject["study " + _CurrLine + " universities " + _CurrCountry.ToLower()]["results"];
+                            _Length = _CurrResults.Count;
 
-                                if (MetaData.HasData)
+                            for (itr = 0; itr < _Length; itr++)
+                            {
+                                if (String.IsNullOrEmpty(_CurrResults[itr]["snippet"].ToString()) || String.IsNullOrEmpty(_CurrResults[itr]["title"].ToString()))
                                 {
-                                    _Context.Add(new WebsiteLink
+                                    MetaInformation MetaData = MetaScraper.GetMetaDataFromUrl(_CurrResults[itr]["link"].ToString());
+
+                                    if (MetaData.HasData)
                                     {
-                                        LinkUrl = _CurrResults[itr]["link"].ToString(),
-                                        Title = _CurrResults[itr]["title"].ToString().Length > 27 ? _CurrResults[itr]["title"].ToString().Substring(0, 26) + " ..." :
-                                        _CurrResults[itr]["title"].ToString(),
-                                        Description = MetaData.Description,
-                                        LinkCountryName = "Australia",
-                                        LinkDisciplineId = "SomeID"
-                                    });
-                                    continue;
+                                        _Context.Add(new WebsiteLink
+                                        {
+                                            LinkUrl = _CurrResults[itr]["link"].ToString(),
+                                            Title = _CurrResults[itr]["title"].ToString().Length > 27 ? _CurrResults[itr]["title"].ToString().Substring(0, 26) + " ..." :
+                                            _CurrResults[itr]["title"].ToString(),
+                                            Description = MetaData.Description,
+                                            LinkCountryName = _CurrCountry,
+                                            LinkDisciplineId = _DiscipId
+                                        });
+                                        continue;
+                                    }
                                 }
+
+                                _Context.Add(new WebsiteLink
+                                {
+                                    LinkUrl = _CurrResults[itr]["link"].ToString(),
+                                    Title = _CurrResults[itr]["title"].ToString().Length > 27 ? _CurrResults[itr]["title"].ToString().Substring(0, 26) + " ..." :
+                                    _CurrResults[itr]["title"].ToString(),
+                                    Description = _CurrResults[itr]["snippet"].ToString(),
+                                    LinkCountryName = _CurrCountry,
+                                    LinkDisciplineId = _DiscipId
+                                });
                             }
-
-
-                            _Context.Add(new WebsiteLink
-                            {
-                                LinkUrl = _CurrResults[itr]["link"].ToString(),
-                                Title = _CurrResults[itr]["title"].ToString().Length > 27 ? _CurrResults[itr]["title"].ToString().Substring(0, 26) + " ..." :
-                                _CurrResults[itr]["title"].ToString(),
-                                Description = _CurrResults[itr]["snippet"].ToString(),
-                                LinkCountryName = "Australia",
-                                LinkDisciplineId = "SomeID"
-                            });
+                            _Context.SaveChanges();
+                            _DoneCount++;
+                            Console.WriteLine(_DoneCount);
                         }
 
-                        _Context.SaveChanges();
-                    }
-
-                    else
-                    {
-                        File.AppendAllText(@"..\Acapedia.Helper\DataFolder\leftovers.txt", "study " + _CurrLine + " universities australia\n");
+                        else
+                        {
+                            File.AppendAllText(@"..\Acapedia.Helper\DataFolder\leftovers.txt", "study " + _CurrLine + " universities " + _CurrCountry.ToLower() + 
+                                Environment.NewLine);
+                        }
                     }
                 }
             }

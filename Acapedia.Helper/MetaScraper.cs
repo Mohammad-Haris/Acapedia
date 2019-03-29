@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using HtmlAgilityPack;
+using System.Threading.Tasks;
 
 namespace Acapedia.Helper
 {
@@ -16,55 +17,65 @@ namespace Acapedia.Helper
         {
             // Get the URL specified
             var webGet = new HtmlWeb();
-            var document = webGet.Load(url);
-            var metaTags = document.DocumentNode.SelectNodes("//meta");
-            MetaInformation metaInfo = new MetaInformation(url);
-            if (metaTags != null)
+            try
             {
-                int matchCount = 0;
-                foreach (var tag in metaTags)
+                var document = webGet.Load(url);
+                var metaTags = document.DocumentNode.SelectNodes("//meta");
+                MetaInformation metaInfo = new MetaInformation(url);
+                if (metaTags != null)
                 {
-                    var tagName = tag.Attributes["name"];
-                    var tagContent = tag.Attributes["content"];
-                    var tagProperty = tag.Attributes["property"];
-                    if (tagName != null && tagContent != null)
+                    int matchCount = 0;
+                    foreach (var tag in metaTags)
                     {
-                        switch (tagName.Value.ToLower())
+                        var tagName = tag.Attributes["name"];
+                        var tagContent = tag.Attributes["content"];
+                        var tagProperty = tag.Attributes["property"];
+                        if (tagName != null && tagContent != null)
                         {
-                            case "title":
-                                metaInfo.Title = tagContent.Value;
-                                matchCount++;
-                                break;
-                            case "description":
-                                metaInfo.Description = tagContent.Value;
-                                matchCount++;
-                                break;
+                            switch (tagName.Value.ToLower())
+                            {
+                                case "title":
+                                    metaInfo.Title = tagContent.Value;
+                                    matchCount++;
+                                    break;
+                                case "description":
+                                    metaInfo.Description = tagContent.Value;
+                                    matchCount++;
+                                    break;
+                            }
+                        }
+                        else if (tagProperty != null && tagContent != null)
+                        {
+                            switch (tagProperty.Value.ToLower())
+                            {
+                                case "og:title":
+                                    if (String.IsNullOrEmpty(metaInfo.Title))
+                                    {
+                                        metaInfo.Title = string.IsNullOrEmpty(metaInfo.Title) ? tagContent.Value : metaInfo.Title;
+                                        matchCount++;
+                                    }
+                                    break;
+                                case "og:description":
+                                    if (String.IsNullOrEmpty(metaInfo.Description))
+                                    {
+                                        metaInfo.Description = string.IsNullOrEmpty(metaInfo.Description) ? tagContent.Value : metaInfo.Description;
+                                        matchCount++;
+                                    }
+                                    break;
+                            }
                         }
                     }
-                    else if (tagProperty != null && tagContent != null)
-                    {
-                        switch (tagProperty.Value.ToLower())
-                        {
-                            case "og:title":
-                            if(String.IsNullOrEmpty(metaInfo.Title))
-                            {
-                                metaInfo.Title = string.IsNullOrEmpty(metaInfo.Title) ? tagContent.Value : metaInfo.Title;
-                                matchCount++;
-                            }
-                                break;
-                            case "og:description":
-                            if(String.IsNullOrEmpty(metaInfo.Description))
-                            {
-                                metaInfo.Description = string.IsNullOrEmpty(metaInfo.Description) ? tagContent.Value : metaInfo.Description;
-                                matchCount++;
-                            }
-                                break;
-                        }
-                    }
+                    metaInfo.HasData = matchCount > 0;
                 }
-                metaInfo.HasData = matchCount > 0;
+                return metaInfo;
             }
-            return metaInfo;
+            catch
+            {
+                return new MetaInformation(url)
+                {
+                    HasData = false
+                };
+            }
         }
     }
 }

@@ -110,7 +110,7 @@ namespace Acapedia
             });
 
             Persister _Persister = new Persister(_DbContext);
-            _Persister.PersistDisciplines();
+            _Persister.PersistLinks();
         }
     }
 }
