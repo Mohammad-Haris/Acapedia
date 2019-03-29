@@ -58,6 +58,7 @@ namespace Acapedia.Helper
                                 }
                             }
 
+
                             _Context.Add(new WebsiteLink
                             {
                                 LinkUrl = _CurrResults[itr]["link"].ToString(),
@@ -76,6 +77,27 @@ namespace Acapedia.Helper
                     {
                         File.AppendAllText(@"..\Acapedia.Helper\DataFolder\leftovers.txt", "study " + _CurrLine + " universities australia\n");
                     }
+                }
+            }
+        }
+
+        public void PersistDisciplines ()
+        {
+            using (FileStream _Read = new FileStream(@"..\Acapedia.Helper\DataFolder\discips.txt", FileMode.Open))
+            {
+                string _CurrLine;
+
+                using (StreamReader __Reader = new StreamReader(_Read))
+                {
+                    while ((_CurrLine = __Reader.ReadLine()) != null)
+                    {
+                        _Context.Add(new Discipline
+                        {
+                            DisciplineName = _CurrLine
+                        });
+                    }
+
+                    _Context.SaveChanges();
                 }
             }
         }
