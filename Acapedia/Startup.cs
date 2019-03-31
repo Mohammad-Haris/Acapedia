@@ -108,9 +108,6 @@ namespace Acapedia
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            Persister _Persister = new Persister(_DbContext);
-            _Persister.PersistLinks();
         }
     }
 }
