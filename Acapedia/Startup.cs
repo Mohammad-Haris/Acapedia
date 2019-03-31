@@ -77,8 +77,7 @@ namespace Acapedia
                     options.LogoutPath = $"/account/logout";
                     options.AccessDeniedPath = $"/account/access-denied";
                 });
-
-            services.AddSingleton<IEmailSender, EmailSender>();
+            
             services.AddScoped<IExplore, ExploreService>();
         }
 
