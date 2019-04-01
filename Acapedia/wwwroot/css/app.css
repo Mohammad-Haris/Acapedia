@@ -268,18 +268,18 @@ li {
     }
 
     .basic-info-tab .tab-img-green {
-        max-height: 19px;
-        max-width: 19px;
+        max-height: 18px;
+        max-width: 18px;
         margin-top: 17px;
     }
 
     .basic-info-tab .tab-img-white {
-        max-height: 19px;
-        max-width: 19px;
+        max-height: 18px;
+        max-width: 18px;
         margin-top: 17px;
     }
 
-.jobs-tab {
+.uni-tab {
     grid-column-start: 2;
     position: relative;
     transition: all 0.2s linear;
@@ -287,27 +287,27 @@ li {
     box-sizing: border-box;
 }
 
-    .jobs-tab:hover {
+    .uni-tab:hover {
         background-color: rgb(53, 73, 94);
     }
 
-    .jobs-tab .tab-img-white {
+    .uni-tab .tab-img-white {
         max-height: 20px;
         max-width: 20px;
         margin-top: 16px;
     }
 
-    .jobs-tab .tab-img-green {
+    .uni-tab .tab-img-green {
         max-height: 20px;
         max-width: 20px;
         margin-top: 16px;
     }
 
-    .jobs-tab p {
+    .uni-tab p {
         margin: 5px 0;
     }
 
-.search-tab {
+.online-tab {
     grid-column-start: 3;
     position: relative;
     transition: all 0.2s linear;
@@ -315,25 +315,25 @@ li {
     box-sizing: border-box;
 }
 
-    .search-tab:hover {
+    .online-tab:hover {
         background-color: rgb(53, 73, 94);
     }
 
-    .search-tab p {
-        margin: 2px 0;
+    .online-tab p {
+        margin: 4px 0;
     }
 
 
-    .search-tab .tab-img-white {
-        max-height: 25px;
-        max-width: 25px;
-        margin-top: 14px;
+    .online-tab .tab-img-white {
+        max-height: 20px;
+        max-width: 20px;
+        margin-top: 16px;
     }
 
-    .search-tab .tab-img-green {
-        max-height: 25px;
-        max-width: 25px;
-        margin-top: 14px;
+    .online-tab .tab-img-green {
+        max-height: 20px;
+        max-width: 20px;
+        margin-top: 16px;
     }
 
 .info-tab-content {
@@ -396,15 +396,35 @@ li {
     margin: 25px;
 }
 
-.jobs {
+.unis {
     display: none;
     grid-row-start: 2;
     width: 100%;
     height: 100%;
     color: #ddd;
+    text-align: right;
+    font-size: 14px;
 }
 
-.search {
+#uni-country {
+    background-color: #4F6170;
+    height: 27px;
+    width: 200px;
+    text-align: center;
+    margin: 10px 10px 0 0;
+    border: none;
+    color: #ddd;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 1px;
+}
+
+#unis-heading {
+    margin: 20px 0 0 25px;
+    text-align: left;
+}
+
+.online {
     display: none;
     grid-row-start: 2;
     width: 100%;

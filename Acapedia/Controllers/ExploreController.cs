@@ -17,18 +17,22 @@ namespace Acapedia.Controllers
             _ExploreService = service;
         }
 
-        public IActionResult GetLinks ([FromBody] object data)
+        public IActionResult GetUniversities ([FromBody] JArray _Data)
         {
-            //var unis = _ExploreService.GetUniversities(data);
-            //JArray _ToClient = new JArray();
+            var _Unis = _ExploreService.GetUniversities(_Data);
+            JArray _ToClient = new JArray();
 
-            //foreach (var uni in unis)
-            //{
-            //    _ToClient.Add(uni.UniversityName);
-            //}
+            foreach (var _Uni in _Unis)
+            {
+                var _Juni = new JObject();
+                _Juni.Add("Link", _Uni.LinkUrl);
+                _Juni.Add("Title", _Uni.Title);
+                _Juni.Add("Description", _Uni.Description);
 
-            //return Content(_ToClient.ToString());
-            return View();
+                _ToClient.Add(_Juni);
+            }
+
+            return Content(_ToClient.ToString());
         }
 
         public IActionResult Humanities ()

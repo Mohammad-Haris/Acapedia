@@ -18,9 +18,27 @@ namespace Acapedia.Service
             _Context = context;
         }
 
-        public IEnumerable<WebsiteLink> GetLinks (object _ClientSelection)
+        public IEnumerable<WebsiteLink> GetUniversities (JArray _ClientSelection)
         {
-            return new List<WebsiteLink>();
-        }        
+            List<string> _Countries = _Context.Country.Where(coun => coun.CountryName != "Online").Select(coun => coun.CountryName).ToList();
+            List<string> _Disciplines = _Context.Discipline.Select(discip => discip.DisciplineName).ToList();
+
+            string _Country = _ClientSelection[0].ToString();
+            string _Discipline = _ClientSelection[1].ToString();
+
+            if (_Countries.Contains(_Country) && _Disciplines.Contains(_Discipline))
+            {
+                string _DiscipId = _Context.Discipline.Where(dis => dis.DisciplineName == _Discipline).Select(dis => dis.DisciplineId).FirstOrDefault();
+                var _QueryResult = _Context.WebsiteLink.Where(sel => sel.LinkCountryName == _Country).Where(sel => sel.LinkDisciplineId == _DiscipId).Select(sel => sel);
+
+                return _QueryResult.ToList();
+            }
+
+            else
+            {
+                return new List<WebsiteLink>();
+            }
+
+        }
     }
 }

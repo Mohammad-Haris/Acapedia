@@ -357,26 +357,26 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         _SelectTab(this);
         this.querySelector(".tab-img-white").classList.remove("active-icon");
         this.querySelector(".tab-img-green").classList.add("active-icon");
-        document.querySelector(".jobs-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".jobs-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-        document.querySelector(".search-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".search-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
         document.querySelector(".info-tab-content").classList.add("active");
-        document.querySelector(".jobs").classList.remove("active");
-        document.querySelector(".search").classList.remove("active");
-        document.querySelector(".search").classList.remove("hide-overflow");
+        document.querySelector(".unis").classList.remove("active");
+        document.querySelector(".online").classList.remove("active");
+        document.querySelector(".online").classList.remove("hide-overflow");
     }
 
-    document.querySelector(".jobs-tab").classList.remove("tab-select");
-    document.querySelector(".jobs-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".jobs-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    document.querySelector(".uni-tab").classList.remove("tab-select");
+    document.querySelector(".uni-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".uni-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
 
-    document.querySelector(".search-tab").classList.remove("tab-select");
-    document.querySelector(".search-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".search-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");    
+    document.querySelector(".online-tab").classList.remove("tab-select");
+    document.querySelector(".online-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".online-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
 });
 
-document.querySelector(".jobs-tab").addEventListener("click", function ()
+document.querySelector(".uni-tab").addEventListener("click", function ()
 {
     if (!this.classList.contains("tab-select"))
     {
@@ -385,24 +385,40 @@ document.querySelector(".jobs-tab").addEventListener("click", function ()
         this.querySelector(".tab-img-green").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-        document.querySelector(".search-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".search-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-        document.querySelector(".jobs").classList.add("active");
+        document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".unis").classList.add("active");
         document.querySelector(".info-tab-content").classList.remove("active");
-        document.querySelector(".search").classList.remove("active");
-        document.querySelector(".search").classList.remove("hide-overflow");
+        document.querySelector(".online").classList.remove("active");
+        document.querySelector(".online").classList.remove("hide-overflow");
     }
 
     document.querySelector(".basic-info-tab").classList.remove("tab-select");
     document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
     document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
 
-    document.querySelector(".search-tab").classList.remove("tab-select");
-    document.querySelector(".search-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".search-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    document.querySelector(".online-tab").classList.remove("tab-select");
+    document.querySelector(".online-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".online-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+    if (prevSelect)
+    {
+        let _CountrySelect = document.getElementById("uni-country");
+        let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
+        let _Discip = prevSelect.innerHTML;
+
+        console.log(_Country + " " + _Discip);
+
+        GetUniversities(_Country, _Discip);
+    }
+
+    else
+    {
+        console.log("Select a discipline from the left");
+    }
 });
 
-document.querySelector(".search-tab").addEventListener("click", function ()
+document.querySelector(".online-tab").addEventListener("click", function ()
 {
     if (!this.classList.contains("tab-select"))
     {
@@ -411,75 +427,55 @@ document.querySelector(".search-tab").addEventListener("click", function ()
         this.querySelector(".tab-img-green").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-        document.querySelector(".jobs-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".jobs-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-        document.querySelector(".search").classList.add("active");
-        document.querySelector(".search").classList.add("hide-overflow");
+        document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
+        document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        document.querySelector(".online").classList.add("active");
+        document.querySelector(".online").classList.add("hide-overflow");
         document.querySelector(".info-tab-content").classList.remove("active");
-        document.querySelector(".jobs").classList.remove("active");
+        document.querySelector(".unis").classList.remove("active");
     }
 
     document.querySelector(".basic-info-tab").classList.remove("tab-select");
     document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
     document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
 
-    document.querySelector(".jobs-tab").classList.remove("tab-select");
-    document.querySelector(".jobs-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".jobs-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    document.querySelector(".uni-tab").classList.remove("tab-select");
+    document.querySelector(".uni-tab").querySelector(".arrow").classList.remove("arrow-down");
+    document.querySelector(".uni-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
 });
 
-function Init()
+function GetUniversities(_Country, _Discipline)
 {
-    if (!document.querySelector(".info-tab-content").classList.contains("active"))
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function ()
     {
-        document.querySelector(".info-tab-content").classList.add("active");
-    }
+        if (request.readyState == XMLHttpRequest.DONE)
+        {
+            if (request.status == 200)
+            {
+                console.log(request.responseText);
+            }
+
+            else if (request.status == 400)
+            {
+                console.log("There was an error!");
+            }
+
+            else 
+            {
+                console.log(request.status);
+            }
+        }
+    };
+
+    request.open("POST", "/Explore/GetUniversities", true);
+
+    request.setRequestHeader("Content-Type", "application/json");
+
+    request.send(JSON.stringify([_Country, _Discipline]));
 }
 
-function _GetScrollBarWidth()
-{
-    var inner = document.createElement('p');
-    inner.style.width = "100%";
-    inner.style.height = "200px";
-
-    var outer = document.createElement('div');
-    outer.style.position = "absolute";
-    outer.style.top = "0px";
-    outer.style.left = "0px";
-    outer.style.visibility = "hidden";
-    outer.style.width = "200px";
-    outer.style.height = "150px";
-    outer.style.overflow = "hidden";
-    outer.appendChild(inner);
-
-    document.body.appendChild(outer);
-    var w1 = inner.offsetWidth;
-    outer.style.overflow = 'scroll';
-    var w2 = inner.offsetWidth;
-    if (w1 == w2) w2 = outer.clientWidth;
-
-    document.body.removeChild(outer);
-
-    return (w1 - w2);
-}
-
-function _GetLinks()
-{
-    let request = new XMLHttpRequest();
-    let base = "https://cors-anywhere.herokuapp.com/";
-    
-    request.open('GET', base + "https://google.com/search?q=arts", true);
-
-    request.onload = function ()
-    {
-        console.log(this.response);
-    }
-
-    request.send();
-}
-
-AddEventIsIcon();
 AddEventChildren();
 AddEventParent();
-window.onload = Init;
-_GetLinks();
+AddEventIsIcon();

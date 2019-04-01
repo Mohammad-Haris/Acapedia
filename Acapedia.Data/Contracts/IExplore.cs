@@ -1,10 +1,11 @@
 ﻿using Acapedia.Data.Models;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Acapedia.Data.Contracts
 {
     public interface IExplore
     {
-        IEnumerable<WebsiteLink> GetLinks (object _ClientSelection);
+        IEnumerable<WebsiteLink> GetUniversities (JArray _ClientSelection);
     }
 }

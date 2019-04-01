@@ -45,7 +45,8 @@ namespace Acapedia
 
             services.AddDbContext<AcapediaDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    sqlServerOptions => sqlServerOptions.CommandTimeout(120)));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<AcapediaDbContext>().AddDefaultTokenProviders();

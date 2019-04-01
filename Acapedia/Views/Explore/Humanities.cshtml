@@ -473,21 +473,21 @@
             <img src="~/icons/info-white.png" class="tab-img-white" />
             <p>Info</p>
         </div>
-        <div class="jobs-tab">
+        <div class="uni-tab">
             <div class="arrow"><div class="arrow-inner"></div></div>
-            <img src="~/icons/job-white-euro.png" class="tab-img-white active-icon" />
-            <img src="~/icons/job-green-euro.png" class="tab-img-green" />
-            <p>Job Prospects</p>
+            <img src="~/icons/university-white.png" class="tab-img-white active-icon" />
+            <img src="~/icons/university-green.png" class="tab-img-green" />
+            <p>On-Campus Resources</p>
         </div>
-        <div class="search-tab">
+        <div class="online-tab">
             <div class="arrow"><div class="arrow-inner"></div></div>
-            <img src="~/icons/search-white.png" class="tab-img-white active-icon" />
-            <img src="~/icons/search-green.png" class="tab-img-green" />
-            <p>Search Engine</p>
+            <img src="~/icons/online-white.png" class="tab-img-white active-icon" />
+            <img src="~/icons/online-green.png" class="tab-img-green" />
+            <p>Online Resources</p>
         </div>
     </div>
-    
-    <div class="info-tab-content">
+
+    <div class="info-tab-content active">
         <div id="info">
             <div id="info-heading">
                 <p id="info-heading-p">(Click on a discipline from the list on the left to view more)</p>
@@ -506,11 +506,23 @@
         </div>
     </div>
 
-    <div class="jobs">
-        jobs
+    <div class="unis">
+        <select id="uni-country">
+            <option value="Australia">Australia</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Brazil">Brazil</option>
+            <option value="China">China</option>
+            <option value="Germany">Germany</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+        </select>
+        <p id="unis-heading">Found x results for y universities in z</p>
     </div>
 
-    <div class="search">
+    <div class="online">
+        online
     </div>
 </div>
 <script src="~/js/app.js"></script>
