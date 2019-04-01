@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20190328075019_WebsiteLinks.cs" />
+    <Compile Remove="Migrations\20190401202854_AddDisciplineNameIndex.cs" />
+    <Compile Remove="Migrations\20190401204648_AddDisciplineNameIndex.cs" />
+    <Compile Remove="Migrations\20190401205700_AddDisciplineNameIndex.cs" />
   </ItemGroup>
 
   <ItemGroup>
