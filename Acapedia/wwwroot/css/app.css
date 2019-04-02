@@ -404,6 +404,7 @@ li {
     color: #ddd;
     text-align: right;
     font-size: 14px;
+    overflow: auto;
 }
 
 #uni-country {
@@ -419,9 +420,42 @@ li {
     border-radius: 1px;
 }
 
-#unis-heading {
+.unis-found {
     margin: 20px 0 0 25px;
     text-align: left;
+    color: #aaa;
+}
+
+.unis-titles {
+    margin: 25px 0 0 35px;
+    text-align: left;
+    color: #ddd;
+    display: block;
+    width: 300px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+    .unis-titles:hover {
+        text-decoration: underline;
+    }
+
+.unis-links {
+    margin: 0 0 10px 35px;
+    text-align: left;
+    color: #99cb32;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 65%;
+}
+
+.unis-descrips {
+    margin: 5px 0 30px 35px;
+    text-align: left;
+    color: #ddd;
+    width: 90%;
 }
 
 .online {
