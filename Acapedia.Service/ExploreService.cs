@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System;
 using Newtonsoft.Json.Linq;
 using Acapedia.Data.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Acapedia.Service
 {
@@ -20,16 +22,16 @@ namespace Acapedia.Service
 
         public IEnumerable<WebsiteLink> GetUniversities (JArray _ClientSelection)
         {
-            List<string> _Countries = _Context.Country.Where(coun => coun.CountryName != "Online").Select(coun => coun.CountryName).ToList();
-            List<string> _Disciplines = _Context.Discipline.Select(discip => discip.DisciplineName).ToList();
+            var _Countries = _Context.Country.AsNoTracking().Where(coun => coun.CountryName != "Online").Select(coun => coun.CountryName);
+            var _Disciplines = _Context.Discipline.AsNoTracking().Select(discip => discip.DisciplineName);
 
             string _Country = _ClientSelection[0].ToString();
             string _Discipline = _ClientSelection[1].ToString();
 
-            if (_Countries.Contains(_Country) && _Disciplines.Contains(_Discipline))
+            if (_Countries.ToList().Contains(_Country) && _Disciplines.ToList().Contains(_Discipline))
             {
-                string _DiscipId = _Context.Discipline.Where(dis => dis.DisciplineName == _Discipline).Select(dis => dis.DisciplineId).FirstOrDefault();
-                var _QueryResult = _Context.WebsiteLink.Where(sel => sel.LinkCountryName == _Country).Where(sel => sel.LinkDisciplineId == _DiscipId).Select(sel => sel);
+                string _DiscipId = _Context.Discipline.AsNoTracking().Where(dis => dis.DisciplineName == _Discipline).Select(dis => dis.DisciplineId).FirstOrDefault();
+                var _QueryResult = _Context.WebsiteLink.AsNoTracking().Where(sel => sel.LinkCountryName == _Country).Where(sel => sel.LinkDisciplineId == _DiscipId).Select(sel => sel);
 
                 return _QueryResult.ToList();
             }
@@ -38,7 +40,6 @@ namespace Acapedia.Service
             {
                 return new List<WebsiteLink>();
             }
-
         }
     }
 }

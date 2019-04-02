@@ -19,7 +19,7 @@ namespace Acapedia.Controllers
 
         public IActionResult GetUniversities ([FromBody] JArray _Data)
         {
-            var _Unis = _ExploreService.GetUniversities(_Data);
+            var _Unis =  _ExploreService.GetUniversities(_Data);
             JArray _ToClient = new JArray();
 
             foreach (var _Uni in _Unis)

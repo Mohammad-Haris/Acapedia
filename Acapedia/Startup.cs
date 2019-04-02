@@ -45,8 +45,7 @@ namespace Acapedia
 
             services.AddDbContext<AcapediaDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection"),
-                    sqlServerOptions => sqlServerOptions.CommandTimeout(11120)));
+                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<AcapediaDbContext>().AddDefaultTokenProviders();
@@ -61,7 +60,6 @@ namespace Acapedia
                 googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Uri, "picture");
                 googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
                 googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
-                googleOptions.ClaimActions.MapJsonKey("urn:google:profile", "link");
                 googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
             });
 
@@ -83,7 +81,7 @@ namespace Acapedia
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env, AcapediaDbContext _DbContext)
+        public void Configure (IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
