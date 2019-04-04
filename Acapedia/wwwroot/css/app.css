@@ -32,6 +32,7 @@
     height: 110px;
     box-sizing: border-box;
     overflow: hidden;
+    cursor: default;
 }
 
 #hns {
@@ -56,7 +57,7 @@
 
     .humanities p {
         color: #35495e;
-        text-decoration: none;
+        text-decoration: none;        
     }
 
     .humanities .mask {
@@ -515,6 +516,7 @@ li {
     color: #ddd;
     box-sizing: border-box;
     height: 100%;
+    cursor: default;
 }
 
 .tab-img-white {
@@ -614,6 +616,7 @@ li {
 .info-tab-content {
     display: none;
     grid-row-start: 2;
+    overflow: auto;
 }
 
 #info {
@@ -621,8 +624,7 @@ li {
     grid-template-rows: 40px auto;
     grid-template-columns: 100%;
     color: #ddd;
-    background-color: rgba(53, 73, 94, 0.85);
-    overflow: auto;
+    background-color: rgb(53, 73, 94);
 }
 
 #info-heading {
@@ -663,6 +665,7 @@ li {
 }
 
 #road-map-heading {
+    margin-top: 20px;
     font-size: 16px;
     letter-spacing: 0.1125rem;
 }
@@ -809,6 +812,20 @@ li {
 .active-discip-list {
     display: block;
 }
+
+.wiki-page-link {
+    color: #ddd;
+    margin-left: 15px;
+    background-color: rgba(107, 142, 35, 0.5);
+    padding: 7px 7px 7px 10px;
+    font-size: 14px;
+    width: 270px;    
+}
+
+    .wiki-page-link:after {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACN1BMVEUAAABEREBEREBEREBERECPj4YHBwcBAQEBAQEBAQEBAQEBAQFEREBEREBISEMmJiQJCQgICAcCAgIBAQEBAQFXV1KEhHyLi4OLi4KLi4KLi4KNjYVnZ2FFRUBEREBKSkZ+fncDAwMBAQECAgIBAQEODg0ICAcHBwcHBwcHBwcHBwcKCgo6OjZKSkZiYlwDAwMBAQEDAwMGBgUBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQECAgIZGReAgHkDAwMBAQEDAwP///8JCQgBAQEBAQEEBAQICAcHBwcKCgpISEQDAwMBAQFiYl1NTUgmJiQICAcBAQEICAeLi4KKioKcnJN5eXMDAwMBAQEDAwNeXllJSUVEREBISEOJiYEBAQEHBweKioJEREBEREBJSUVhYVwDAwMBAQEDAwNGRkIYGBc5OTZFRUFEREBEREABAQEHBweKioJJSUVhYVwDAwMBAQEDAwP///8KCgoCAgIKCgpnZ2EBAQGKioJGRkJEREADAwMBAQFiYl2iopkHBwcBAQEHBweLi4IBAQGvr6UGBgYBAQEDAwNiYl1JSUWKioIHBwcHBweLi4IBAQGKioJWVlEODg4GBgUvLy1JSUWLi4JEREBEREBMTEdsbGdHR0KLi4IICAcICAcBAQEHBweLi4IBAQEEBAQICAcHBwcHBwcICAcEBAQBAQEICAeEhHxEREBEREABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQERERBWVlFEREAAAADp4WrCAAAAvHRSTlMAAwMDAwIfwd7c+PkEBAQHHiJy5fgDAgICAgICAwQEAwFSyHPcDiMkJCQlGgUEAlTMUiLcqsfCwsLCxZAKAVTMVAAeweBBIiUaA1TMAgMHH9wiAgICAVTMVAIEBAQC3CQCBAQEAlTMVAMLBQQEA9wkAgQCVMxUARqQGgPcAgQEVMwCAiTCJALcASzBVAIEAiQkAtwCAxIsBAQCAwQDAgQCIiLCJALgQSIkJCJCxiICBAPB4dzd3d3jqg4DA6aEgM8AAAABYktHRACIBR1IAAAAB3RJTUUH4wQEDyUxlJdl+wAAAQ9JREFUGNNjYGRiZmFhBkJWNnYOTi5uBiYeXgjg4xcQFBIWYRAVE5eQlJKWkZWTV1BUUlZhUFVT19DU0NLW0dXTNzA0MmYwMTUzt7C0sraxtbN3cHRyZnBxdQOqcPfw9PJ28PH182cICGQIkgwOCQ0Lj4iMio6JZYiLT0hMSk5JTUvPyMzKzsllyMsvSCosKi4pLSuvqKwCClTH19TW1TeUNjY1t7S2AQXa4ws6Oru6e3r7+s0nTAQKTIqfPGXqtOkzkiZOMO+fmTMLZOjsOXPnJSXOn2ChOR+oImABg6SUZJCEJMPCRYuXAAWWLlu+YiUQrli1es3ades3MGzctHnL1m1btm3ZvH3Hzl0bdgMAl6BaReYinEYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDQtMDRUMTU6Mzc6NDktMDQ6MDBavEwUAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA0LTA0VDE1OjM3OjQ5LTA0OjAwK+H0qAAAAABJRU5ErkJggg==');
+        margin-left: 10px;
+    }
 
 .arrow {
 }

@@ -59,7 +59,7 @@ function AddEventChildren()
 
             var request = new XMLHttpRequest();
 
-            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + this.innerHTML, true);
+            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + this.innerHTML.split(" ").join("_"), true);
 
             request.onload = function ()
             {
@@ -68,6 +68,19 @@ function AddEventChildren()
                 if (request.status >= 200 && request.status < 400)
                 {
                     document.getElementById("info-detail-p").innerHTML = data.extract_html;
+
+                    if (document.querySelector(".wiki-page-link"))
+                    {
+                        document.querySelector(".wiki-page-link").remove();
+                    }
+
+                    let elm = document.createElement("a");
+                    let node = document.createTextNode("View full page on Wikipedia.org");
+                    elm.appendChild(node);
+                    elm.setAttribute("href", data.content_urls.desktop.page);
+                    elm.setAttribute("target", "_blank");
+                    elm.classList.add("wiki-page-link");
+                    document.getElementById("info-detail").appendChild(elm);
 
                     if (typeof data.thumbnail === "undefined")
                     {
@@ -81,6 +94,10 @@ function AddEventChildren()
                 }
                 else
                 {
+                    if (document.querySelector(".wiki-page-link"))
+                    {
+                        document.querySelector(".wiki-page-link").remove();
+                    }
                     document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
                     document.getElementById("info-detail-image").src = "";
                 }
@@ -94,7 +111,8 @@ function AddEventChildren()
 
 document.getElementById("collapse-button").addEventListener("click", function ()
 {
-    let children = document.querySelectorAll("ul.children");
+    let parent = document.querySelector(".active-discip-list");
+    let children = parent.querySelectorAll("ul.children");
     for (let i = 0; i < children.length; i++)
     {
         if (children[i].classList.contains("active"))
@@ -103,7 +121,7 @@ document.getElementById("collapse-button").addEventListener("click", function ()
         }
     }
 
-    let plus = document.querySelectorAll("span.is-icon");
+    let plus = parent.querySelectorAll("span.is-icon");
     for (let i = 0; i < plus.length; i++)
     {
         plus[i].innerHTML = "+";
@@ -112,7 +130,8 @@ document.getElementById("collapse-button").addEventListener("click", function ()
 
 document.getElementById("expand-button").addEventListener("click", function ()
 {
-    let children = document.querySelectorAll("ul.children");
+    let parent = document.querySelector(".active-discip-list");
+    let children = parent.querySelectorAll("ul.children");
     let i;
     for (i = 0; i < children.length; i++)
     {
@@ -127,7 +146,7 @@ document.getElementById("expand-button").addEventListener("click", function ()
         }
     }
 
-    let plus = document.querySelectorAll("span.is-icon");
+    let plus = parent.querySelectorAll("span.is-icon");
     for (i = 0; i < plus.length; i++)
     {
         plus[i].innerHTML = "-";
@@ -177,6 +196,19 @@ function AddEventParent()
                 {
                     document.getElementById("info-detail-p").innerHTML = data.extract_html;
 
+                    if (document.querySelector(".wiki-page-link"))
+                    {
+                        document.querySelector(".wiki-page-link").remove();
+                    }
+
+                    let elm = document.createElement("a");
+                    let node = document.createTextNode("View full page on Wikipedia.org");
+                    elm.appendChild(node);
+                    elm.setAttribute("href", data.content_urls.desktop.page);
+                    elm.setAttribute("target", "_blank");
+                    elm.classList.add("wiki-page-link");
+                    document.getElementById("info-detail").appendChild(elm);
+
                     if (typeof data.thumbnail === "undefined")
                     {
                         document.getElementById("info-detail-image").src = "";
@@ -189,6 +221,10 @@ function AddEventParent()
                 }
                 else
                 {
+                    if (document.querySelector(".wiki-page-link"))
+                    {
+                        document.querySelector(".wiki-page-link").remove();
+                    }
                     document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
                     document.getElementById("info-detail-image").src = "";
                 }
@@ -205,7 +241,8 @@ function GetParents_Parents(selection)
 {
     let map = [];
     map.push(selection.innerHTML);
-    let topli = document.querySelector("ul").children;
+    let parent = document.querySelector(".active-discip-list");
+    let topli = parent.querySelector("ul").children;
     let top = [];
     for (let i = 0; i < topli.length; i++)
     {
@@ -246,7 +283,8 @@ function GetParents_Child(selection)
 {
     let map = [];
     map.push(selection.innerHTML);
-    let topli = document.querySelector("ul").children;
+    let parent = document.querySelector(".active-discip-list");
+    let topli = parent.querySelector("ul").children;
     let top = [];
     for (let i = 0; i < topli.length; i++)
     {
