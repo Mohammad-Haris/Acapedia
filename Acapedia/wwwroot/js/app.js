@@ -174,66 +174,7 @@ function AddEventParent()
 
     for (let i = 0; i < parents.length; i++)
     {
-        parents[i].addEventListener("click", function ()
-        {
-            if (prevSelect != null)
-            {
-                prevSelect.classList.remove("current-selection");
-            }
-
-            this.classList.add("current-selection");
-            prevSelect = this;
-            document.getElementById("info-heading-p").innerHTML = this.innerHTML;
-            var request = new XMLHttpRequest();
-
-            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + this.innerHTML, true);
-
-            request.onload = function ()
-            {
-                let data = JSON.parse(this.response);
-
-                if (request.status >= 200 && request.status < 400)
-                {
-                    document.getElementById("info-detail-p").innerHTML = data.extract_html;
-
-                    if (document.querySelector(".wiki-page-link"))
-                    {
-                        document.querySelector(".wiki-page-link").remove();
-                    }
-
-                    let elm = document.createElement("a");
-                    let node = document.createTextNode("View full page on Wikipedia.org");
-                    elm.appendChild(node);
-                    elm.setAttribute("href", data.content_urls.desktop.page);
-                    elm.setAttribute("target", "_blank");
-                    elm.classList.add("wiki-page-link");
-                    document.getElementById("info-detail").appendChild(elm);
-
-                    if (typeof data.thumbnail === "undefined")
-                    {
-                        document.getElementById("info-detail-image").src = "";
-                    }
-
-                    else
-                    {
-                        document.getElementById("info-detail-image").src = data.thumbnail.source;
-                    }
-                }
-                else
-                {
-                    if (document.querySelector(".wiki-page-link"))
-                    {
-                        document.querySelector(".wiki-page-link").remove();
-                    }
-                    document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
-                    document.getElementById("info-detail-image").src = "";
-                }
-            }
-
-            request.send();
-
-            GetParents_Parents(this);
-        });
+        parents[i].addEventListener("click", ParentClick);
     }
 }
 
@@ -607,6 +548,78 @@ function DisplayLinks(_LinkInfo, _Country)
         _UnisDiv.appendChild(anchor);
         _UnisDiv.appendChild(description);
     }
+}
+
+function ParentClick ()
+{
+    if (prevSelect != null)
+    {
+        prevSelect.classList.remove("current-selection");
+    }
+
+    this.classList.add("current-selection");
+    prevSelect = this;    
+
+    switch (document.querySelector(".tab-select").getElementsByTagName("p")[0].innerHTML)
+    {
+        case "Info":
+            InfoTab();
+            break;        
+    }
+}
+
+function InfoTab()
+{
+    document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
+    var request = new XMLHttpRequest();
+
+    request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML, true);
+
+    request.onload = function ()
+    {
+        let data = JSON.parse(this.response);
+
+        if (request.status >= 200 && request.status < 400)
+        {
+            document.getElementById("info-detail-p").innerHTML = data.extract_html;
+
+            if (document.querySelector(".wiki-page-link"))
+            {
+                document.querySelector(".wiki-page-link").remove();
+            }
+
+            let elm = document.createElement("a");
+            let node = document.createTextNode("View complete page on Wikipedia.org");
+            elm.appendChild(node);
+            elm.setAttribute("href", data.content_urls.desktop.page);
+            elm.setAttribute("target", "_blank");
+            elm.classList.add("wiki-page-link");
+            document.getElementById("info-detail").appendChild(elm);
+
+            if (typeof data.thumbnail === "undefined")
+            {
+                document.getElementById("info-detail-image").src = "";
+            }
+
+            else
+            {
+                document.getElementById("info-detail-image").src = data.thumbnail.source;
+            }
+        }
+        else
+        {
+            if (document.querySelector(".wiki-page-link"))
+            {
+                document.querySelector(".wiki-page-link").remove();
+            }
+            document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
+            document.getElementById("info-detail-image").src = "";
+        }
+    }
+
+    request.send();
+
+    GetParents_Parents(prevSelect);
 }
 
 AddEventChildren();
