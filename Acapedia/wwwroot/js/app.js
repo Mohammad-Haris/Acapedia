@@ -480,7 +480,16 @@ document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .fo
                 document.querySelector(".active-discip-heading").classList.remove("active-discip-heading");
             }
 
+
             this.classList.add("active-discip-heading");
+
+            if (document.querySelector(".active-discip-list"))
+            {
+                document.querySelector(".active-discip-list").classList.remove("active-discip-list");
+            }
+
+            document.querySelector("." + this.classList[0] + "-discips").classList.add("active-discip-list");
+
         });
     });
 
