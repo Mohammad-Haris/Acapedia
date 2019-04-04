@@ -470,6 +470,20 @@ document.getElementById("uni-country").addEventListener("change", function ()
     }
 });
 
+document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .formal-sciences, .prof-nd-app-sciences").forEach(
+    function (elmt)
+    {
+        elmt.addEventListener("click", function ()
+        {
+            if (document.querySelector(".active-discip-heading"))
+            {
+                document.querySelector(".active-discip-heading").classList.remove("active-discip-heading");
+            }
+
+            this.classList.add("active-discip-heading");
+        });
+    });
+
 function GetAndDisplayUniversities(_Country, _Discipline)
 {
     var request = new XMLHttpRequest();
