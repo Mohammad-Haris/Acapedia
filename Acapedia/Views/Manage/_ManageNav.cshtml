@@ -1,4 +1,8 @@
-﻿@inject SignInManager<ApplicationUser> SignInManager
+﻿@using Acapedia.Data.Models
+@using Microsoft.AspNetCore.Identity
+@using Acapedia.Views.Manage
+
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

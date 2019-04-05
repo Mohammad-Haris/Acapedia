@@ -53,7 +53,7 @@ namespace Acapedia.Controllers
             return Content(_ToClient.ToString());
         }
 
-        public IActionResult Humanities ()
+        public IActionResult Index ()
         {
             return View();
         }

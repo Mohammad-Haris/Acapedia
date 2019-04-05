@@ -1,6 +1,8 @@
 @using Microsoft.AspNetCore.Identity
 @using Acapedia.Extensions;
 @using Acapedia.Data;
+@using Acapedia.Data.Models
+
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -9,9 +11,9 @@
     in that context. It is a httpcontext, BTW*@
 
 @if (SignInManager.IsSignedIn(User))
-{   
+{
     string avatar = UserManager.GetAvatar(User, AcaContext);
-    
+
     <div id="profile-manage">
         <img id="signed-in-user" src="@avatar" />
         <div class="profile-menu-wrapper">
@@ -19,7 +21,7 @@
                 <img id="signed-in-user-large" src="@avatar" />
                 <div id="signed-in-user-info">
                     <strong>
-                        @UserManager.GetUserName(User).Replace("_", " ")                        
+                        @UserManager.GetUserName(User).Replace("_", " ")
                     </strong>
                     <p>
                         @UserManager.GetEmail(User, AcaContext).Replace("@", "\n@")
@@ -35,5 +37,5 @@
 }
 else
 {
-    <a method="post" asp-controller="Account" asp-action="Login" id="login-user-info">Sign In</a>
+    <a href="/Account/Login" id="login-user-info">Sign In</a>
 }

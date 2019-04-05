@@ -1,6 +1,5 @@
 ﻿.wrapper {
     grid-template-rows: 50px auto;
-    background-color: rgba(107, 142, 35, 0.19);
 }
 
 .content {

@@ -734,6 +734,16 @@ function ChildClick()
     GetParents_Child(this);
 }
 
+function Init()
+{
+    let select = document.querySelector(".humanities-discips").querySelector(".is-parent");
+    select.classList.add("current-selection");
+    prevSelect = select;
+    InfoTab();
+    GetParents_Parents(prevSelect);
+}
+
+window.onload = Init;
 AddEventChildren();
 AddEventParent();
 AddEventIsIcon();

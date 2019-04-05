@@ -2,12 +2,16 @@
 @using System.Linq
 @using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Http.Authentication
+@using Acapedia.Data.Models
+@using Acapedia.Data.ViewModels.AccountViewModels
+@using Microsoft.AspNetCore.Identity
+
 @model LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 
 
 <h2>Log In</h2>
-<div>   
+<div>
     <div>
         <section>
             <h4>Select a service to log in: </h4>
@@ -25,12 +29,12 @@
 
                 else
                 {
-                    <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
                         <div>
                             <p>
                                 @foreach (var provider in loginProviders)
                                 {
-                                    <button type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                                    <input type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" />                                        
                                 }
                             </p>
                         </div>
@@ -42,5 +46,5 @@
 </div>
 
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")    
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

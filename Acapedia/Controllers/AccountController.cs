@@ -138,10 +138,9 @@ namespace Acapedia.Controllers
             return View(nameof(ExternalLogin), model);
         }
 
-        [HttpGet]
-        public IActionResult AccessDenied ()
+        public IActionResult Index ()
         {
-            return View();
+            return View ();
         }
 
         #region Helpers

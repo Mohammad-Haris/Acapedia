@@ -4,36 +4,2821 @@
 }
 
 @section Styles {
-    <link href="@Url.Content("~/css/explore.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/app.css")" rel="stylesheet" type="text/css" />
 }
 
-<body>
-    <div class="hns">
-        <div class="humanities">
-            <p id="humanities-heading">Humanities</p>
-            <p>Humanities are academic disciplines that study aspects of human society and culture.</p>
-            <p>Main fields of humanities include ancient and modern languages, literature, philosophy, history, human geography, law, politics, religion, and art</p>
-        </div>
-        <div class="social-sciences">
-            <p id="social-sciences-heading">Social Sciences</p>
-            <p>Social science is a category of academic disciplines, concerned with society and the relationships among individuals within a society. Social science as a whole has many branches</p>
-            <p>Main fields include anthropology, archaeology, communication studies, economics, history, human geography, jurisprudence, linguistics, political science, psychology, public health, and sociology.</p>
+<div id="top-div">
+    <div id="h-title">
+        <div id="discips-header">
+            <div id="hns">
+                <div class="humanities active-discip-heading">
+                    <p>Humanities</p>
+                    <div class="mask"></div>
+                </div>
+                <div class="social-sciences">
+                    <p>Social Sciences</p>
+                    <div class="mask"></div>
+                </div>
+            </div>
+            <div id="nnf">
+                <div class="natural-sciences">
+                    <p>Natural Sciences</p>
+                    <div class="mask"></div>
+                </div>
+                <div class="formal-sciences">
+                    <p>Formal Sciences</p>
+                    <div class="mask"></div>
+                </div>
+            </div>
+            <div id="pna">
+                <div class="prof-nd-app-sciences">
+                    <p>Professional and Applied Sciences</p>
+                    <div class="mask"></div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="nnf">
-        <div class="natural-sciences">
-            <p id="natural-sciences-heading">Natural Scienes</p>
-            <p>Natural science is a branch of science concerned with the description, prediction, and understanding of natural phenomena, based on empirical evidence from observation and experimentation.</p>
-            <p>Natural science can be divided into two main branches: life science (or biological science) and physical science. Physical science is subdivided into branches, including physics, chemistry, astronomy and earth science.</p>
+    <div id="ec-buttons">
+        <div id="expand-button">
+            <p>
+                Expand All
+            </p>
         </div>
-        <div class="formal-sciences">
-            <p id="formal-sciences-heading">Formal Sciences</p>
-            <p>Formal sciences are formal language disciplines concerned with formal systems, such as logic, mathematics, statistics, theoretical computer science, robotics, information theory, game theory, systems theory, decision theory, and theoretical linguistics.</p>
+        <div id="collapse-button">
+            <p>
+                Collapse All
+            </p>
         </div>
     </div>
-    <div class="professional-and-applied-sciences">
-        <p id="professional-and-applied-sciences-heading">Professional and Applied Sciences</p>        
-        <p>A profession is an occupation founded upon specialized educational training and Applied science is the application of existing scientific knowledge to practical applications, like technology or inventions.</p>
-        <p>Main fields include agriculture, business, engineering, and medicine.</p>
+    <div id="discip-list">
+        <div class="humanities-discips active-discip-list">
+            <ul>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Arts</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Performing Arts</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Music</span>
+                                    <ul class="children">
+                                        <li class="no-child">Accompanying</li>
+                                        <li class="no-child">Chamber Music</li>
+                                        <li class="no-child">Church Music</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Conducting</span>
+                                            <ul class="children">
+                                                <li class="no-child">Choral conducting</li>
+                                                <li class="no-child">Orchestral conducting</li>
+                                                <li class="no-child">Wind ensemble conducting</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Early music</li>
+                                        <li class="no-child">Jazz Studies</li>
+                                        <li class="no-child">Musical Composition</li>
+                                        <li class="no-child">Music Education</li>
+                                        <li class="no-child">Music History</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Musicology</span>
+                                            <ul class="children">
+                                                <li class="no-child">Historical musicology</li>
+                                                <li class="no-child">Systematic musicology</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Ethnomusicology</li>
+                                        <li class="no-child">Music theory</li>
+                                        <li class="no-child">Orchestral studies</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Organology</span>
+                                            <ul class="children">
+                                                <li class="no-child">Organ and historical keyboards</li>
+                                                <li class="no-child">Piano</li>
+                                                <li class="no-child">Strings, harp, oud, and guitar (outline)</li>
+                                                <li class="no-child">Singing</li>
+                                                <li class="no-child">Woodwinds, brass, and percussion</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Recording</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Dance</span>
+                                    <ul class="children">
+                                        <li class="no-child">Choreography</li>
+                                        <li class="no-child">Dance notation</li>
+                                        <li class="no-child">Ethnochoreology</li>
+                                        <li class="no-child">History of dance</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Television</span>
+                                    <ul class="children">
+                                        <li class="no-child">Television studies</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Theatre</span>
+                                    <ul class="children">
+                                        <li class="no-child">Acting</li>
+                                        <li class="no-child">Directing</li>
+                                        <li class="no-child">Dramaturgy</li>
+                                        <li class="no-child">History</li>
+                                        <li class="no-child">Musical theatre</li>
+                                        <li class="no-child">Playwrighting</li>
+                                        <li class="no-child">Puppetry</li>
+                                        <li class="no-child">Scenography</li>
+                                        <li class="no-child">Stage design</li>
+                                        <li class="no-child">Ventriloquism</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Film</span>
+                                    <ul class="children">
+                                        <li class="no-child">Animation</li>
+                                        <li class="no-child">Film criticism</li>
+                                        <li class="no-child">Film Making</li>
+                                        <li class="no-child">Film theory</li>
+                                        <li class="no-child">Live action</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Visual Arts</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Fine Arts</span>
+                                    <ul class="children">
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Graphic Arts</span>
+                                            <ul class="children">
+                                                <li class="no-child">Drawing</li>
+                                                <li class="no-child">Painting</li>
+                                                <li class="no-child">Photography</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Sculpture</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Applied Arts</span>
+                                    <ul class="children">
+                                        <li class="no-child">Animation</li>
+                                        <li class="no-child">Calligraphy</li>
+                                        <li class="no-child">Decorative arts</li>
+                                        <li class="no-child">Mixed media</li>
+                                        <li class="no-child">Printmaking</li>
+                                        <li class="no-child">Studio art</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Architecture</span>
+                                            <ul class="children">
+                                                <li class="no-child">Interior architecture</li>
+                                                <li class="no-child">Landscape architecture</li>
+                                                <li class="no-child">Architectural analytics</li>
+                                                <li class="no-child">Historic preservation</li>
+                                                <li class="no-child">Interior design</li>
+                                                <li class="no-child">Landscape architecture</li>
+                                                <li class="no-child">Landscape design</li>
+                                                <li class="no-child">Technical drawing</li>
+                                                <li class="no-child">Information architecture</li>
+                                                <li class="no-child">Urban planning</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Outline of design</span>
+                                            <ul class="children">
+                                                <li class="no-child">Fashion design</li>
+                                                <li class="no-child">Textile design</li>
+                                                <li>
+                                                    <span class="is-icon">+</span><span class="is-parent">User experience design</span>
+                                                    <ul class="children">
+                                                        <li class="no-child">Interaction design</li>
+                                                        <li class="no-child">User experience evaluation</li>
+                                                        <li class="no-child">User interface design</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <span class="is-icon">+</span><span class="is-parent">Visual communication</span>
+                                                    <ul class="children">
+                                                        <li class="no-child">Graphic design</li>
+                                                        <li>
+                                                            <span class="is-icon">+</span><span class="is-parent">Typography</span>
+                                                            <ul class="children">
+                                                                <li class="no-child">Type design</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <span class="is-icon">+</span><span class="is-parent">Industrial design</span>
+                                                    <ul class="children">
+                                                        <li class="no-child">Ergonomics</li>
+                                                        <li class="no-child">Game design</li>
+                                                        <li class="no-child">Toy and amusement design</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">History</span>
+                    <ul class="children">
+                        <li class="no-child">African history</li>
+                        <li class="no-child">American history</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Ancient history</span>
+                            <ul class="children">
+                                <li class="no-child">Ancient Carthage</li>
+                                <li class="no-child">Ancient Egypt</li>
+                                <li class="no-child">Ancient Greek history</li>
+                                <li class="no-child">Ancient Roman history</li>
+                                <li class="no-child">History of the Indus Valley Civilization</li>
+                                <li class="no-child">History of the ancient Maya</li>
+                                <li class="no-child">History of Mesopotamia</li>
+                                <li class="no-child">History of the Yangtze civilization</li>
+                                <li class="no-child">History of the Yellow River civillization</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Asian history</span>
+                            <ul class="children">
+                                <li class="no-child">Chinese history</li>
+                                <li class="no-child">Indian history</li>
+                                <li class="no-child">Indonesian history</li>
+                                <li class="no-child">Iranian history</li>
+                                <li class="no-child">History of the Indus Valley Civilization</li>
+                                <li class="no-child">History of the ancient Maya</li>
+                                <li class="no-child">History of Mesopotamia</li>
+                                <li class="no-child">History of the Yangtze civilization</li>
+                                <li class="no-child">History of the Yellow River civillization</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Australian history</li>
+                        <li class="no-child">Ecclesiastical history of the Catholic Church</li>
+                        <li class="no-child">Economic history</li>
+                        <li class="no-child">Environmental history</li>
+                        <li class="no-child">European history</li>
+                        <li class="no-child">Intellectual history</li>
+                        <li class="no-child">Latin American history</li>
+                        <li class="no-child">Modern history</li>
+                        <li class="no-child">Political history</li>
+                        <li class="no-child">Pre-Columbian era</li>
+                        <li class="no-child">Russian history</li>
+                        <li class="no-child">History of Culture</li>
+                        <li class="no-child">Scientific history</li>
+                        <li class="no-child">Technological history</li>
+                        <li class="no-child">World history</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Languages and Literature</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Linguistics</span>
+                            <ul class="children">
+                                <li class="no-child">Applied linguistics</li>
+                                <li class="no-child">Composition studies</li>
+                                <li class="no-child">Computational linguistics</li>
+                                <li class="no-child">Discourse analysis</li>
+                                <li class="no-child">English studies</li>
+                                <li class="no-child">Etymology</li>
+                                <li class="no-child">Grammar</li>
+                                <li class="no-child">Historical linguistics</li>
+                                <li class="no-child">History of linguistics</li>
+                                <li class="no-child">Interlinguistics</li>
+                                <li class="no-child">Lexicology</li>
+                                <li class="no-child">Linguistic typology</li>
+                                <li class="no-child">Morphology (linguistics)</li>
+                                <li class="no-child">Natural language processing</li>
+                                <li class="no-child">Philology</li>
+                                <li class="no-child">Phonetics</li>
+                                <li class="no-child">Phonology</li>
+                                <li class="no-child">Pragmatics</li>
+                                <li class="no-child">Psycholinguistics</li>
+                                <li class="no-child">Rhetoric</li>
+                                <li class="no-child">Semantics</li>
+                                <li class="no-child">Semiotics (outline)</li>
+                                <li class="no-child">Sociolinguistics</li>
+                                <li class="no-child">Syntax</li>
+                                <li class="no-child">Usage</li>
+                                <li class="no-child">Word usage</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Comparative Literature</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Creative Writing</span>
+                            <ul class="children">
+                                <li class="no-child">Fiction</li>
+                                <li class="no-child">Non-Fiction</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">English literature</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">History of literature</span>
+                            <ul class="children">
+                                <li class="no-child">Medieval literature</li>
+                                <li class="no-child">Post-colonial literature</li>
+                                <li class="no-child">Post-modern literature</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Literary theory</span>
+                            <ul class="children">
+                                <li class="no-child">Critical theory</li>
+                                <li class="no-child">Literary criticism</li>
+                                <li class="no-child">Poetics</li>
+                                <li class="no-child">Rhetoric</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Poetry</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">World literature</span>
+                            <ul class="children">
+                                <li class="no-child">African-American literature</li>
+                                <li class="no-child">American literature</li>
+                                <li class="no-child">British literature</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Philosophy</span>
+                    <ul class="children">
+                        <li class="no-child">Aesthetics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Applied Philosophy</span>
+                            <ul class="children">
+                                <li class="no-child">Philosophy of economics</li>
+                                <li class="no-child">Philosophy of education</li>
+                                <li class="no-child">Philosophy of engineering</li>
+                                <li class="no-child">Philosophy of history</li>
+                                <li class="no-child">Philosophy of language</li>
+                                <li class="no-child">Philosophy of law</li>
+                                <li class="no-child">Philosophy of mathematics</li>
+                                <li class="no-child">Philosophy of music</li>
+                                <li class="no-child">Philosophy of psychology</li>
+                                <li class="no-child">Philosophy of religion</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Philosophy of Physical Sciences</span>
+                                    <ul class="children">
+                                        <li class="no-child">Philosophy of biology</li>
+                                        <li class="no-child">Philosophy of chemistry</li>
+                                        <li class="no-child">Philosophy of physics</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Philosophy of social science</li>
+                                <li class="no-child">Philosophy of technology</li>
+                                <li class="no-child">Systems philosophy</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Epistemology</span>
+                            <ul class="children">
+                                <li class="no-child">Justification</li>
+                                <li class="no-child">Reasoning errors</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Ethics</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Applied Ethics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Animal rights</li>
+                                        <li class="no-child">Bioethics</li>
+                                        <li class="no-child">Environmental ethics</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Meta-ethics</li>
+                                <li class="no-child">Moral psychology, Descriptive ethics, Value theory</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Normative ethics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Virtue ethics</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">History of Philosophy</span>
+                            <ul class="children">
+                                <li class="no-child">Ancient philosophy</li>
+                                <li class="no-child">Contemporary philosophy</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Medieval philosophy</span>
+                                    <ul class="children">
+                                        <li class="no-child">Humanism</li>
+                                        <li class="no-child">Scholasticism</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Modern philosophy</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Logic</span>
+                            <ul class="children">
+                                <li class="no-child">Mathematical logic</li>
+                                <li class="no-child">Philosophical logic</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Meta-philosophy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Metaphysics</span>
+                            <ul class="children">
+                                <li class="no-child">Philosophy of Action</li>
+                                <li class="no-child">Determinism and Free will</li>
+                                <li class="no-child">Ontology</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Philosophy of mind</span>
+                                    <ul class="children">
+                                        <li class="no-child">Philosophy of pain</li>
+                                        <li class="no-child">Philosophy of artificial intelligence</li>
+                                        <li class="no-child">Philosophy of perception</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Philosophy of space and time</li>
+                                <li class="no-child">Teleology</li>
+                                <li class="no-child">Theism and Atheism</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Philosophical traditions and schools</span>
+                            <ul class="children">
+                                <li class="no-child">African philosophy</li>
+                                <li class="no-child">Analytic philosophy</li>
+                                <li class="no-child">Aristotelianism</li>
+                                <li class="no-child">Continental philosophy</li>
+                                <li class="no-child">Eastern philosophy</li>
+                                <li class="no-child">Feminist philosophy</li>
+                                <li class="no-child">Platonism</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Social philosophy and political philosophy</span>
+                            <ul class="children">
+                                <li class="no-child">African philosophy</li>
+                                <li class="no-child">Anarchism</li>
+                                <li class="no-child">Libertarianism</li>
+                                <li class="no-child">Marxism</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Theology</span>
+                    <ul class="children">
+                        <li class="no-child">Biblical studies</li>
+                        <li class="no-child">Biblical Hebrew, Biblical Greek, Aramaic</li>
+                        <li class="no-child">Buddhist theology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Christian theology</span>
+                            <ul class="children">
+                                <li class="no-child">Anglican theology</li>
+                                <li class="no-child">Baptist theology</li>
+                                <li class="no-child">Catholic theology</li>
+                                <li class="no-child">Eastern Orthodox theology</li>
+                                <li class="no-child">Protestant theology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Hindu theology</li>
+                        <li class="no-child">Jewish theology</li>
+                        <li class="no-child">Muslim theology</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="social-sciences-discips">
+            <ul>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Anthropology</span>
+                    <ul class="children">
+                        <li class="no-child">Biological anthropology</li>
+                        <li class="no-child">Linguistic anthropology</li>
+                        <li class="no-child">Cultural anthropology</li>
+                        <li class="no-child">Social anthropology</li>
+                    </ul>
+                </li>
+                <li>
+                    <span id="u-top-level">Archeology</span>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Economics</span>
+                    <ul class="children">
+                        <li class="no-child">Agricultural economics</li>
+                        <li class="no-child">Anarchist economics</li>
+                        <li class="no-child">Applied economics</li>
+                        <li class="no-child">Behavioural economics</li>
+                        <li class="no-child">Bioeconomics</li>
+                        <li class="no-child">Complexity economics</li>
+                        <li class="no-child">Computational economics</li>
+                        <li class="no-child">Consumer economics</li>
+                        <li class="no-child">Development economics</li>
+                        <li class="no-child">Ecological economics</li>
+                        <li class="no-child">Econometrics</li>
+                        <li class="no-child">Economic geography</li>
+                        <li class="no-child">Economic history</li>
+                        <li class="no-child">Economic sociology</li>
+                        <li class="no-child">Economic systems</li>
+                        <li class="no-child">Energy economics</li>
+                        <li class="no-child">Entrepreneurial economics</li>
+                        <li class="no-child">Environmental economics</li>
+                        <li class="no-child">Evolutionary economics</li>
+                        <li class="no-child">Experimental economics</li>
+                        <li class="no-child">Feminist economics</li>
+                        <li class="no-child">Financial econometrics</li>
+                        <li class="no-child">Financial economics</li>
+                        <li class="no-child">Green economics</li>
+                        <li class="no-child">Growth economics</li>
+                        <li class="no-child">Human development theory</li>
+                        <li class="no-child">Industrial organization</li>
+                        <li class="no-child">Information economics</li>
+                        <li class="no-child">Institutional economics</li>
+                        <li class="no-child">International economics</li>
+                        <li class="no-child">Islamic economics</li>
+                        <li class="no-child">Labor economics</li>
+                        <li class="no-child">Law and economics</li>
+                        <li class="no-child">Macroeconomics</li>
+                        <li class="no-child">Managerial economics</li>
+                        <li class="no-child">Marxian economics</li>
+                        <li class="no-child">Mathematical economics</li>
+                        <li class="no-child">Microeconomics</li>
+                        <li class="no-child">Monetary economics</li>
+                        <li class="no-child">Neuroeconomics</li>
+                        <li class="no-child">Participatory economics</li>
+                        <li class="no-child">Political economy</li>
+                        <li class="no-child">Public economics</li>
+                        <li class="no-child">Public finance</li>
+                        <li class="no-child">Real estate economics</li>
+                        <li class="no-child">Resource economics</li>
+                        <li class="no-child">Social choice theory</li>
+                        <li class="no-child">Socialist economics</li>
+                        <li class="no-child">Socioeconomics</li>
+                        <li class="no-child">Transport economics</li>
+                        <li class="no-child">Welfare economics</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Human geography</span>
+                    <ul class="children">
+                        <li class="no-child">Behavioral geography</li>
+                        <li class="no-child">Cognitive geography</li>
+                        <li class="no-child">Cultural geography</li>
+                        <li class="no-child">Development geography</li>
+                        <li class="no-child">Economic geography</li>
+                        <li class="no-child">Health geography</li>
+                        <li class="no-child">Historical geography</li>
+                        <li class="no-child">Language geography</li>
+                        <li class="no-child">Marketing geography</li>
+                        <li class="no-child">Military geography</li>
+                        <li class="no-child">Political geography</li>
+                        <li class="no-child">Population geography</li>
+                        <li class="no-child">Religion geography</li>
+                        <li class="no-child">Social geography</li>
+                        <li class="no-child">Strategic geography</li>
+                        <li class="no-child">Time geography</li>
+                        <li class="no-child">Tourism geography</li>
+                        <li class="no-child">Transport geography</li>
+                        <li class="no-child">Urban geography</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Political science</span>
+                    <ul class="children">
+                        <li class="no-child">American politics</li>
+                        <li class="no-child">Canadian politics</li>
+                        <li class="no-child">Civics</li>
+                        <li class="no-child">Comparative politics</li>
+                        <li class="no-child">European studies</li>
+                        <li class="no-child">Geopolitics (Political geography)</li>
+                        <li class="no-child">International relations</li>
+                        <li class="no-child">International organizations</li>
+                        <li class="no-child">Nationalism studies</li>
+                        <li class="no-child">Peace and conflict studies</li>
+                        <li class="no-child">Policy studies</li>
+                        <li class="no-child">Political behavior</li>
+                        <li class="no-child">Political culture</li>
+                        <li class="no-child">Political economy</li>
+                        <li class="no-child">Political history</li>
+                        <li class="no-child">Political philosophy</li>
+                        <li class="no-child">Psephology</li>
+                        <li class="no-child">Social choice theory</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Psychology</span>
+                    <ul class="children">
+                        <li class="no-child">Abnormal psychology</li>
+                        <li class="no-child">Applied psychology</li>
+                        <li class="no-child">Asian psychology</li>
+                        <li class="no-child">Biological psychology</li>
+                        <li class="no-child">Black psychology</li>
+                        <li class="no-child">Clinical neuropsychology</li>
+                        <li class="no-child">Clinical psychology</li>
+                        <li class="no-child">Cognitive psychology</li>
+                        <li class="no-child">Community psychology</li>
+                        <li class="no-child">Comparative psychology</li>
+                        <li class="no-child">Conservation psychology</li>
+                        <li class="no-child">Consumer psychology</li>
+                        <li class="no-child">Counseling psychology</li>
+                        <li class="no-child">Criminal psychology</li>
+                        <li class="no-child">Cultural psychology</li>
+                        <li class="no-child">Developmental psychology</li>
+                        <li class="no-child">Differential psychology</li>
+                        <li class="no-child">Ecological psychology</li>
+                        <li class="no-child">Educational psychology</li>
+                        <li class="no-child">Environmental psychology</li>
+                        <li class="no-child">Evolutionary psychology</li>
+                        <li class="no-child">Experimental psychology</li>
+                        <li class="no-child">Group psychology</li>
+                        <li class="no-child">Family psychology</li>
+                        <li class="no-child">Feminine psychology</li>
+                        <li class="no-child">Forensic developmental psychology</li>
+                        <li class="no-child">Forensic psychology</li>
+                        <li class="no-child">Health psychology</li>
+                        <li class="no-child">Humanistic psychology</li>
+                        <li class="no-child">Indigenous psychology</li>
+                        <li class="no-child">Legal psychology</li>
+                        <li class="no-child">Masculine psychology</li>
+                        <li class="no-child">Mathematical psychology</li>
+                        <li class="no-child">Media psychology</li>
+                        <li class="no-child">Medical psychology</li>
+                        <li class="no-child">Military psychology</li>
+                        <li class="no-child">Moral psychology and Descriptive ethics</li>
+                        <li class="no-child">Music psychology</li>
+                        <li class="no-child">Neuropsychology</li>
+                        <li class="no-child">Occupational health psychology</li>
+                        <li class="no-child">Occupational psychology</li>
+                        <li class="no-child">Organizational psychology</li>
+                        <li class="no-child">Parapsychology (outline)</li>
+                        <li class="no-child">Pediatric psychology</li>
+                        <li class="no-child">Pedology (children study)</li>
+                        <li class="no-child">Personality psychology</li>
+                        <li class="no-child">Phenomenology</li>
+                        <li class="no-child">Political psychology</li>
+                        <li class="no-child">Positive psychology</li>
+                        <li class="no-child">Psychoanalysis</li>
+                        <li class="no-child">Psychobiology</li>
+                        <li class="no-child">Psychology of religion</li>
+                        <li class="no-child">Psychometrics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Psychopathology</span>
+                            <ul class="children">
+                                <li class="no-child">Child Psychopathology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Psychophysics</li>
+                        <li class="no-child">Quantitative psychology</li>
+                        <li class="no-child">Rehabilitation psychology</li>
+                        <li class="no-child">School psychology</li>
+                        <li class="no-child">Social psychology</li>
+                        <li class="no-child">Sport psychology</li>
+                        <li class="no-child">Traffic psychology</li>
+                        <li class="no-child">Transpersonal psychology</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Sociology</span>
+                    <ul class="children">
+                        <li class="no-child">Analytical sociology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Applied sociology</span>
+                            <ul class="children">
+                                <li class="no-child">Leisure studies</li>
+                                <li class="no-child">Political sociology</li>
+                                <li class="no-child">Public sociology</li>
+                                <li class="no-child">Social engineering</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Architectural sociology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Area studies</span>
+                            <ul class="children">
+                                <li class="no-child">African studies</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">American studies</span>
+                                    <ul class="children">
+                                        <li class="no-child">Appalachian studies</li>
+                                        <li class="no-child">Canadian studies</li>
+                                        <li class="no-child">Latin American studies</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Asian studies</span>
+                                    <ul class="children">
+                                        <li class="no-child">Central Asian studies</li>
+                                        <li class="no-child">East Asian studies</li>
+                                        <li class="no-child">Indology</li>
+                                        <li class="no-child">Iranian studies</li>
+                                        <li class="no-child">Japanese studies</li>
+                                        <li class="no-child">Korean studies</li>
+                                        <li class="no-child">Pakistan studies</li>
+                                        <li class="no-child">Sindhology</li>
+                                        <li class="no-child">Sinology (outline)</li>
+                                        <li class="no-child">Southeast Asian studies</li>
+                                        <li class="no-child">Thai studies</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Australian studies</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">European studies</span>
+                                    <ul class="children">
+                                        <li class="no-child">Celtic studies</li>
+                                        <li class="no-child">German studies</li>
+                                        <li class="no-child">Sociology in Poland</li>
+                                        <li class="no-child">Scandinavian studies</li>
+                                        <li class="no-child">Slavic studies</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Middle Eastern studies</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Behavioral sociology</li>
+                        <li class="no-child">Chinese sociology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Collective behavior</span>
+                            <ul class="children">
+                                <li class="no-child">Social movements</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Community informatics</span>
+                            <ul class="children">
+                                <li class="no-child">Social network analysis</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Comparative sociology</li>
+                        <li class="no-child">Conflict theory</li>
+                        <li class="no-child">Criminology/Criminal justice (outline)</li>
+                        <li class="no-child">Critical management studies</li>
+                        <li class="no-child">Critical sociology</li>
+                        <li class="no-child">Cultural sociology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Cultural studies/ethnic studies</span>
+                            <ul class="children">
+                                <li class="no-child">Africana studies</li>
+                                <li class="no-child">Cross-cultural studies</li>
+                                <li class="no-child">Culturology</li>
+                                <li class="no-child">Ethnology</li>
+                                <li class="no-child">Whiteness studies</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Demography/Population</li>
+                        <li class="no-child">Digital sociology</li>
+                        <li class="no-child">Dramaturgical sociology</li>
+                        <li class="no-child">Economic sociology</li>
+                        <li class="no-child">Educational sociology</li>
+                        <li class="no-child">Empirical sociology</li>
+                        <li class="no-child">Environmental sociology</li>
+                        <li class="no-child">Evolutionary sociology</li>
+                        <li class="no-child">Feminist sociology</li>
+                        <li class="no-child">Figurational sociology</li>
+                        <li class="no-child">Futures studies</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Gender studies</span>
+                            <ul class="children">
+                                <li class="no-child">Men's studies</li>
+                                <li class="no-child">Women's studies</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Historical sociology</li>
+                        <li class="no-child">Human ecology</li>
+                        <li class="no-child">Humanistic sociology</li>
+                        <li class="no-child">Industrial sociology</li>
+                        <li class="no-child">Interactionism</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Interpretive sociology</span>
+                            <ul class="children">
+                                <li class="no-child">Ethnomethodology</li>
+                                <li class="no-child">Phenomenology</li>
+                                <li class="no-child">Social constructionism</li>
+                                <li class="no-child">Symbolic interactionism</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Jealousy sociology</li>
+                        <li class="no-child">Macrosociology</li>
+                        <li class="no-child">Marxist sociology</li>
+                        <li class="no-child">Mathematical sociology</li>
+                        <li class="no-child">Medical sociology</li>
+                        <li class="no-child">Mesosociology</li>
+                        <li class="no-child">Microsociology</li>
+                        <li class="no-child">Military sociology</li>
+                        <li class="no-child">Natural resource sociology</li>
+                        <li class="no-child">Organizational studies</li>
+                        <li class="no-child">Phenomenological sociology</li>
+                        <li class="no-child">Policy sociology</li>
+                        <li class="no-child">Psychoanalytic sociology</li>
+                        <li class="no-child">Science studies/Science and technology studies</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Sexology</span>
+                            <ul class="children">
+                                <li class="no-child">Heterosexism</li>
+                                <li class="no-child">Human sexual behavior</li>
+                                <li class="no-child">Human sexuality</li>
+                                <li class="no-child">Queer studies/Queer theory</li>
+                                <li class="no-child">Sex education</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Social capital</li>
+                        <li class="no-child">Social change</li>
+                        <li class="no-child">Social conflict theory</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Social control</span>
+                            <ul class="children">
+                                <li class="no-child">Pure sociology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Social economy</li>
+                        <li class="no-child">Social philosophy</li>
+                        <li class="no-child">Social policy</li>
+                        <li class="no-child">Social psychology</li>
+                        <li class="no-child">Social research</li>
+                        <li class="no-child">Social stratification</li>
+                        <li class="no-child">Social theory</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Social transformation</span>
+                            <ul class="children">
+                                <li class="no-child">Computational sociology</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Economic sociology/Socioeconomics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Economic development</li>
+                                        <li class="no-child">Social development</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Sociobiology</li>
+                        <li class="no-child">Sociocybernetics</li>
+                        <li class="no-child">Sociolinguistics</li>
+                        <li class="no-child">Sociological theory</li>
+                        <li class="no-child">Sociology of aging</li>
+                        <li class="no-child">Sociology of agriculture</li>
+                        <li class="no-child">Sociology of art</li>
+                        <li class="no-child">Sociology of autism</li>
+                        <li class="no-child">Sociology of childhood</li>
+                        <li class="no-child">Sociology of conflict</li>
+                        <li class="no-child">Sociology of culture</li>
+                        <li class="no-child">Sociology of cyberspace</li>
+                        <li class="no-child">Sociology of development</li>
+                        <li class="no-child">Sociology of deviance</li>
+                        <li class="no-child">Sociology of disaster</li>
+                        <li class="no-child">Sociology of education</li>
+                        <li class="no-child">Sociology of emotions</li>
+                        <li class="no-child">Sociology of fatherhood</li>
+                        <li class="no-child">Sociology of finance</li>
+                        <li class="no-child">Sociology of food</li>
+                        <li class="no-child">Sociology of gender</li>
+                        <li class="no-child">Sociology of generations</li>
+                        <li class="no-child">Sociology of globalization</li>
+                        <li class="no-child">Sociology of government</li>
+                        <li class="no-child">Sociology of health and illness</li>
+                        <li class="no-child">Sociology of human consciousness</li>
+                        <li class="no-child">Sociology of immigration</li>
+                        <li class="no-child">Sociology of knowledge</li>
+                        <li class="no-child">Sociology of language</li>
+                        <li class="no-child">Sociology of law</li>
+                        <li class="no-child">Sociology of leisure</li>
+                        <li class="no-child">Sociology of literature</li>
+                        <li class="no-child">Sociology of markets</li>
+                        <li class="no-child">Sociology of marriage</li>
+                        <li class="no-child">Sociology of motherhood</li>
+                        <li class="no-child">Sociology of music</li>
+                        <li class="no-child">Sociology of natural resources</li>
+                        <li class="no-child">Sociology of organizations</li>
+                        <li class="no-child">Sociology of peace, war, and social conflict</li>
+                        <li class="no-child">Sociology of punishment</li>
+                        <li class="no-child">Sociology of race and ethnic relations</li>
+                        <li class="no-child">Sociology of religion</li>
+                        <li class="no-child">Sociology of risk</li>
+                        <li class="no-child">Sociology of science</li>
+                        <li class="no-child">Sociology of scientific knowledge</li>
+                        <li class="no-child">Sociology of social change</li>
+                        <li class="no-child">Sociology of social movements</li>
+                        <li class="no-child">Sociology of space</li>
+                        <li class="no-child">Sociology of sport</li>
+                        <li class="no-child">Sociology of technology</li>
+                        <li class="no-child">Sociology of terrorism</li>
+                        <li class="no-child">Sociology of the body</li>
+                        <li class="no-child">Sociology of the family</li>
+                        <li class="no-child">Sociology of the history of science</li>
+                        <li class="no-child">Sociology of the Internet</li>
+                        <li class="no-child">Sociology of work</li>
+                        <li class="no-child">Sociomusicology</li>
+                        <li class="no-child">Structural sociology</li>
+                        <li class="no-child">Theoretical sociology</li>
+                        <li class="no-child">Urban studies or Urban sociology/Rural sociology</li>
+                        <li class="no-child">Victimology</li>
+                        <li class="no-child">Visual sociology</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="natural-sciences-discips">
+            <ul>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Biology</span>
+                    <ul class="children">
+                        <li class="no-child">Aerobiology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Anatomy</span>
+                            <ul class="children">
+                                <li class="no-child">Comparative anatomy</li>
+                                <li class="no-child">Human anatomy</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Biochemistry</li>
+                        <li class="no-child">Bioinformatics</li>
+                        <li class="no-child">Biophysics</li>
+                        <li class="no-child">Biotechnology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Botany</span>
+                            <ul class="children">
+                                <li class="no-child">Ethnobotany</li>
+                                <li class="no-child">Phycology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Cell biology</li>
+                        <li class="no-child">Chronobiology</li>
+                        <li class="no-child">Computational biology</li>
+                        <li class="no-child">Cryobiology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Developmental biology</span>
+                            <ul class="children">
+                                <li class="no-child">Embryology</li>
+                                <li class="no-child">Teratology</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Ecology</span>
+                            <ul class="children">
+                                <li class="no-child">Agroecology</li>
+                                <li class="no-child">Ethnoecology</li>
+                                <li class="no-child">Human ecology</li>
+                                <li class="no-child">Landscape ecology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Endocrinology</li>
+                        <li class="no-child">Evolutionary biology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Genetics</span>
+                            <ul class="children">
+                                <li class="no-child">Behavioural genetics</li>
+                                <li class="no-child">Molecular genetics</li>
+                                <li class="no-child">Population genetics</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Histology</li>
+                        <li class="no-child">Human biology</li>
+                        <li class="no-child">Immunology (outline)</li>
+                        <li class="no-child">Limnology</li>
+                        <li class="no-child">Linnaean taxonomy</li>
+                        <li class="no-child">Marine biology</li>
+                        <li class="no-child">Mathematical biology</li>
+                        <li class="no-child">Microbiology</li>
+                        <li class="no-child">Molecular biology</li>
+                        <li class="no-child">Mycology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Neuroscience</span>
+                            <ul class="children">
+                                <li class="no-child">Neuroscience</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Nutrition</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Paleobiology</span>
+                            <ul class="children">
+                                <li class="no-child">Paleontology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Parasitology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Pathology</span>
+                            <ul class="children">
+                                <li class="no-child">Anatomical pathology</li>
+                                <li class="no-child">Clinical pathology</li>
+                                <li class="no-child">Dermatopathology</li>
+                                <li class="no-child">Forensic pathology</li>
+                                <li class="no-child">Hematopathology</li>
+                                <li class="no-child">Histopathology</li>
+                                <li class="no-child">Molecular pathology</li>
+                                <li class="no-child">Surgical pathology</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Physiology</span>
+                            <ul class="children">
+                                <li class="no-child">Human physiology</li>
+                                <li class="no-child">Exercise physiology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Structural Biology</li>
+                        <li class="no-child">Systematics</li>
+                        <li class="no-child">Systems biology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Virology</span>
+                            <ul class="children">
+                                <li class="no-child">Molecular virology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Xenobiology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Zoology</span>
+                            <ul class="children">
+                                <li class="no-child">Animal communications</li>
+                                <li class="no-child">Apiology</li>
+                                <li class="no-child">Arachnology</li>
+                                <li class="no-child">Carcinology</li>
+                                <li class="no-child">Cetology</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Entomology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Forensic entomology</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Ethnozoology</li>
+                                <li class="no-child">Ethology</li>
+                                <li class="no-child">Helminthology</li>
+                                <li class="no-child">Herpetology</li>
+                                <li class="no-child">Ichthyology (outline)</li>
+                                <li class="no-child">Mammalogy</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Malacology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Conchology</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Myrmecology (outline)</li>
+                                <li class="no-child">Nematology</li>
+                                <li class="no-child">Neuroethology</li>
+                                <li class="no-child">Oology</li>
+                                <li class="no-child">Ornithology (outline)</li>
+                                <li class="no-child">Planktology</li>
+                                <li class="no-child">Primatology</li>
+                                <li class="no-child">Zootomy</li>
+                                <li class="no-child">Zoosemiotics</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Chemistry</span>
+                    <ul class="children">
+                        <li class="no-child">Agrochemistry</li>
+                        <li class="no-child">Analytical chemistry</li>
+                        <li class="no-child">Astrochemistry</li>
+                        <li class="no-child">Atmospheric chemistry</li>
+                        <li class="no-child">Biochemistry (outline)</li>
+                        <li class="no-child">Chemical biology</li>
+                        <li class="no-child">Chemical engineering (outline)</li>
+                        <li class="no-child">Cheminformatics</li>
+                        <li class="no-child">Computational chemistry</li>
+                        <li class="no-child">Cosmochemistry</li>
+                        <li class="no-child">Electrochemistry</li>
+                        <li class="no-child">Environmental chemistry</li>
+                        <li class="no-child">Femtochemistry</li>
+                        <li class="no-child">Flavor</li>
+                        <li class="no-child">Flow chemistry</li>
+                        <li class="no-child">Geochemistry</li>
+                        <li class="no-child">Green chemistry</li>
+                        <li class="no-child">Histochemistry</li>
+                        <li class="no-child">Hydrogenation</li>
+                        <li class="no-child">Immunochemistry</li>
+                        <li class="no-child">Inorganic chemistry</li>
+                        <li class="no-child">Marine chemistry</li>
+                        <li class="no-child">Mathematical chemistry</li>
+                        <li class="no-child">Mechanochemistry</li>
+                        <li class="no-child">Medicinal chemistry</li>
+                        <li class="no-child">Molecular biology</li>
+                        <li class="no-child">Molecular mechanics</li>
+                        <li class="no-child">Nanotechnology</li>
+                        <li class="no-child">Natural product chemistry</li>
+                        <li class="no-child">Neurochemistry</li>
+                        <li class="no-child">Oenology</li>
+                        <li class="no-child">Organic chemistry (outline)</li>
+                        <li class="no-child">Organometallic chemistry</li>
+                        <li class="no-child">Petrochemistry</li>
+                        <li class="no-child">Pharmacology</li>
+                        <li class="no-child">Photochemistry</li>
+                        <li class="no-child">Physical chemistry</li>
+                        <li class="no-child">Physical organic chemistry</li>
+                        <li class="no-child">Phytochemistry</li>
+                        <li class="no-child">Polymer chemistry</li>
+                        <li class="no-child">Quantum chemistry</li>
+                        <li class="no-child">Radiochemistry</li>
+                        <li class="no-child">Solid-state chemistry</li>
+                        <li class="no-child">Sonochemistry</li>
+                        <li class="no-child">Supramolecular chemistry</li>
+                        <li class="no-child">Surface chemistry</li>
+                        <li class="no-child">Synthetic chemistry</li>
+                        <li class="no-child">Theoretical chemistry</li>
+                        <li class="no-child">Thermochemistry</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Earth Sciences</span>
+                    <ul class="children">
+                        <li class="no-child">Edaphology</li>
+                        <li class="no-child">Environmental chemistry</li>
+                        <li class="no-child">Environmental science</li>
+                        <li class="no-child">Gemology</li>
+                        <li class="no-child">Geochemistry</li>
+                        <li class="no-child">Geodesy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Physical geography</span>
+                            <ul class="children">
+                                <li class="no-child">Atmospheric science / Meteorology (outline)</li>
+                                <li class="no-child">Biogeography / Phytogeography</li>
+                                <li class="no-child">Climatology / Paleoclimatology / Palaeogeography</li>
+                                <li class="no-child">Coastal geography / Oceanography</li>
+                                <li class="no-child">Edaphology / Pedology or Soil science</li>
+                                <li class="no-child">Geobiology</li>
+                                <li class="no-child">Geology (outline) (Geomorphology, Mineralogy, Petrology, Sedimentology, Speleology, Tectonics, Volcanology)</li>
+                                <li class="no-child">Geostatistics</li>
+                                <li class="no-child">Glaciology</li>
+                                <li class="no-child">Hydrology (outline)/ Limnology / Hydrogeology</li>
+                                <li class="no-child">Landscape ecology</li>
+                                <li class="no-child">Quaternary science</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Geophysics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Paleontology</span>
+                            <ul class="children">
+                                <li class="no-child">Paleobiology</li>
+                                <li class="no-child">Paleoecology</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Space Sciences</span>
+                    <ul class="children">
+                        <li class="no-child">Astrobiology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Astronomy</span>
+                            <ul class="children">
+                                <li class="no-child">Observational astronomy</li>
+                                <li class="no-child">Gamma ray astronomy</li>
+                                <li class="no-child">Infrared astronomy</li>
+                                <li class="no-child">Microwave astronomy</li>
+                                <li class="no-child">Optical astronomy</li>
+                                <li class="no-child">Radio astronomy</li>
+                                <li class="no-child">UV astronomy</li>
+                                <li class="no-child">X-ray astronomy</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Astrophysics</span>
+                            <ul class="children">
+                                <li class="no-child">Gravitational astronomy</li>
+                                <li class="no-child">Black holes</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">X-ray astronomy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Numerical simulations</span>
+                            <ul class="children">
+                                <li class="no-child">Astrophysical plasma</li>
+                                <li class="no-child">Galaxy formation and evolution</li>
+                                <li class="no-child">High-energy astrophysics</li>
+                                <li class="no-child">Hydrodynamics</li>
+                                <li class="no-child">Magnetohydrodynamics</li>
+                                <li class="no-child">Star formation</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Physical cosmology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Stellar astrophysics</span>
+                            <ul class="children">
+                                <li class="no-child">Helioseismology</li>
+                                <li class="no-child">Stellar evolution</li>
+                                <li class="no-child">Stellar nucleosynthesis</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Planetary science</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Physics</span>
+                    <ul class="children">
+                        <li class="no-child">Acoustics</li>
+                        <li class="no-child">Applied physics</li>
+                        <li class="no-child">Astrophysics</li>
+                        <li class="no-child">Atomic, molecular, and optical physics</li>
+                        <li class="no-child">Biophysics (outline)</li>
+                        <li class="no-child">Computational physics</li>
+                        <li class="no-child">Condensed matter physics</li>
+                        <li class="no-child">Cryogenics</li>
+                        <li class="no-child">Electromagnetism</li>
+                        <li class="no-child">Elementary particle physics</li>
+                        <li class="no-child">Experimental physics</li>
+                        <li class="no-child">Fluid dynamics</li>
+                        <li class="no-child">Mathematical physics</li>
+                        <li class="no-child">Mechanics</li>
+                        <li class="no-child">Medical physics</li>
+                        <li class="no-child">Molecular physics</li>
+                        <li class="no-child">Newtonian dynamics</li>
+                        <li class="no-child">Nuclear physics</li>
+                        <li class="no-child">Optics</li>
+                        <li class="no-child">Plasma physics</li>
+                        <li class="no-child">Quantum physics</li>
+                        <li class="no-child">Solid mechanics</li>
+                        <li class="no-child">Solid state physics</li>
+                        <li class="no-child">Statistical mechanics</li>
+                        <li class="no-child">Theoretical physics</li>
+                        <li class="no-child">Thermodynamics</li>
+                        <li class="no-child">Vehicle dynamics</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="formal-sciences-discips">
+            <ul>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Computer Science</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Logic in computer science</span>
+                            <ul class="children">
+                                <li class="no-child">Formal methods</li>
+                                <li class="no-child">Logic programming</li>
+                                <li class="no-child">Multi-valued logic</li>
+                                <li class="no-child">Fuzzy logic</li>
+                                <li class="no-child">Programming language semantics</li>
+                                <li class="no-child">Type theory</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Algorithms</span>
+                            <ul class="children">
+                                <li class="no-child">Computational geometry</li>
+                                <li class="no-child">Distributed algorithms</li>
+                                <li class="no-child">Parallel algorithms</li>
+                                <li class="no-child">Randomized algorithms</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Artificial intelligence</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Cognitive science</span>
+                                    <ul class="children">
+                                        <li class="no-child">Automated reasoning</li>
+                                        <li class="no-child">Computer vision</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Machine learning</span>
+                                            <ul class="children">
+                                                <li class="no-child">Artificial neural network</li>
+                                                <li class="no-child">Support vector machine</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Natural language processing</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Expert systems</li>
+                                <li class="no-child">Robotics</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Data structures</li>
+                        <li class="no-child">Computer architecture</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Computer graphics</span>
+                            <ul class="children">
+                                <li class="no-child">Image processing</li>
+                                <li class="no-child">Scientific visualization</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Computer communications</span>
+                            <ul class="children">
+                                <li class="no-child">Cloud computing</li>
+                                <li class="no-child">Information theory</li>
+                                <li class="no-child">Internet, World Wide Web</li>
+                                <li class="no-child">Ubiquitous computing</li>
+                                <li class="no-child">Wireless computing (Mobile computing)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Computer security and reliability</span>
+                            <ul class="children">
+                                <li class="no-child">Cryptography</li>
+                                <li class="no-child">Fault-tolerant computing</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Computing in mathematics, natural sciences, engineering, and medicine</span>
+                            <ul class="children">
+                                <li class="no-child">Algebraic (symbolic) computation</li>
+                                <li class="no-child">Computational biology (bioinformatics)</li>
+                                <li class="no-child">Computational chemistry</li>
+                                <li class="no-child">Computational mathematics</li>
+                                <li class="no-child">Computational neuroscience</li>
+                                <li class="no-child">Computational number theory</li>
+                                <li class="no-child">Computational physics</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Computer-aided engineering</span>
+                                    <ul class="children">
+                                        <li class="no-child">Computational fluid dynamics</li>
+                                        <li class="no-child">Finite element analysis</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Numerical analysis</li>
+                                <li class="no-child">Scientific computing (Computational science)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Computing in social sciences, arts, humanities, and professions</span>
+                            <ul class="children">
+                                <li class="no-child">Community informatics</li>
+                                <li class="no-child">Computational economics</li>
+                                <li class="no-child">Computational finance</li>
+                                <li class="no-child">Computational sociology</li>
+                                <li class="no-child">Digital humanities</li>
+                                <li class="no-child">History of computer hardware</li>
+                                <li class="no-child">History of computer science</li>
+                                <li class="no-child">Humanistic informatics</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Database</span>
+                                    <ul class="children">
+                                        <li class="no-child">Distributed database</li>
+                                        <li class="no-child">Object database</li>
+                                        <li class="no-child">Relational database</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Data management</li>
+                                <li class="no-child">Data mining</li>
+                                <li class="no-child">Information management</li>
+                                <li class="no-child">Information retrieval</li>
+                                <li class="no-child">Knowledge management</li>
+                                <li class="no-child">Multimedia, hypermedia</li>
+                                <li class="no-child">Sound and music computing</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Distributed computing</span>
+                            <ul class="children">
+                                <li class="no-child">Grid computing</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Human-computer interaction</li>
+                        <li class="no-child">Operating systems</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Parallel computing</span>
+                            <ul class="children">
+                                <li class="no-child">High-performance computing</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Programming languages</span>
+                            <ul class="children">
+                                <li class="no-child">Compilers</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Programming paradigms</span>
+                                    <ul class="children">
+                                        <li class="no-child">Concurrent programming</li>
+                                        <li class="no-child">Functional programming</li>
+                                        <li class="no-child">Imperative programming</li>
+                                        <li class="no-child">Logic programming</li>
+                                        <li class="no-child">Object-oriented programming</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Program semantics</li>
+                                <li class="no-child">Type theory</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Quantum computing</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Programming paradigms</span>
+                            <ul class="children">
+                                <li class="no-child">Automata theory</li>
+                                <li class="no-child">Computability theory</li>
+                                <li class="no-child">Computational complexity theory</li>
+                                <li class="no-child">Concurrency theory</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">VLSI design</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Mathematics</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Pure Mathematics</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Mathematical logic and Foundations of mathematics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Intuitionistic logic</li>
+                                        <li class="no-child">Modal logic</li>
+                                        <li class="no-child">Model theory</li>
+                                        <li class="no-child">Proof theory</li>
+                                        <li class="no-child">Recursion theory</li>
+                                        <li class="no-child">Set theory</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Algebra</span>
+                                    <ul class="children">
+                                        <li class="no-child">Associative algebra</li>
+                                        <li class="no-child">Category theory</li>
+                                        <li class="no-child">Topos theory</li>
+                                        <li class="no-child">Differential algebra</li>
+                                        <li class="no-child">Field theory</li>
+                                        <li class="no-child">Group theory</li>
+                                        <li class="no-child">Homological algebra</li>
+                                        <li class="no-child">K-theory</li>
+                                        <li class="no-child">Lattice theory (Order theory)</li>
+                                        <li class="no-child">Lie algebra</li>
+                                        <li class="no-child">Linear algebra (Vector space)</li>
+                                        <li class="no-child">Multilinear algebra</li>
+                                        <li class="no-child">Non-associative algebra</li>
+                                        <li class="no-child">Representation theory</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Ring theory</span>
+                                            <ul class="children">
+                                                <li class="no-child">Commutative algebra</li>
+                                                <li class="no-child">Noncommutative algebra</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Universal algebra</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Analysis</span>
+                                    <ul class="children">
+                                        <li class="no-child">Complex analysis</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Functional analysis</span>
+                                            <ul class="children">
+                                                <li class="no-child">Operator theory</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Harmonic analysis</span>
+                                            <ul class="children">
+                                                <li class="no-child">Fourier analysis</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Non-standard analysis</li>
+                                        <li class="no-child">Ordinary differential equations</li>
+                                        <li class="no-child">p-adic analysis</li>
+                                        <li class="no-child">Partial differential equations</li>
+                                        <li class="no-child">Real analysis</li>
+                                        <li class="no-child">Calculus</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Probability theory</span>
+                                    <ul class="children">
+                                        <li class="no-child">Ergodic theory</li>
+                                        <li>
+                                            <span class="is-icon">+</span><span class="is-parent">Measure theory</span>
+                                            <ul class="children">
+                                                <li class="no-child">Integral geometry</li>
+                                            </ul>
+                                        </li>
+                                        <li class="no-child">Stochastic process</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Geometry and Topology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Affine geometry</li>
+                                        <li class="no-child">Algebraic geometry</li>
+                                        <li class="no-child">Algebraic topology</li>
+                                        <li class="no-child">Convex geometry</li>
+                                        <li class="no-child">Differential topology</li>
+                                        <li class="no-child">Discrete geometry</li>
+                                        <li class="no-child">Finite geometry</li>
+                                        <li class="no-child">Galois geometry</li>
+                                        <li class="no-child">General topology</li>
+                                        <li class="no-child">Geometric topology</li>
+                                        <li class="no-child">Integral geometry</li>
+                                        <li class="no-child">Noncommutative geometry</li>
+                                        <li class="no-child">Non-Euclidean geometry</li>
+                                        <li class="no-child">Projective geometry</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Number theory</span>
+                                    <ul class="children">
+                                        <li class="no-child">Algebraic number theory</li>
+                                        <li class="no-child">Analytic number theory</li>
+                                        <li class="no-child">Arithmetic combinatorics</li>
+                                        <li class="no-child">Geometric number theory</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Applied mathematics</span>
+                            <ul class="children">
+                                <li class="no-child">Approximation theory</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Combinatorics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Coding theory</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Cryptography</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Dynamical systems</span>
+                                    <ul class="children">
+                                        <li class="no-child">Chaos theory</li>
+                                        <li class="no-child">Fractal geometry</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Game theory</li>
+                                <li class="no-child">Graph theory</li>
+                                <li class="no-child">Information theory</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Mathematical physics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Quantum field theory</li>
+                                        <li class="no-child">Quantum gravity</li>
+                                        <li class="no-child">String theory</li>
+                                        <li class="no-child">Quantum mechanics</li>
+                                        <li class="no-child">Statistical mechanics</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Numerical analysis</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Operations research</span>
+                                    <ul class="children">
+                                        <li class="no-child">Assignment problem</li>
+                                        <li class="no-child">Decision analysis</li>
+                                        <li class="no-child">Dynamic programming</li>
+                                        <li class="no-child">Inventory theory</li>
+                                        <li class="no-child">Linear programming</li>
+                                        <li class="no-child">Mathematical optimization</li>
+                                        <li class="no-child">Optimal maintenance</li>
+                                        <li class="no-child">Real options analysis</li>
+                                        <li class="no-child">Scheduling</li>
+                                        <li class="no-child">Stochastic processes</li>
+                                        <li class="no-child">Systems analysis</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Statistics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Actuarial science</li>
+                                        <li class="no-child">Demography</li>
+                                        <li class="no-child">Econometrics</li>
+                                        <li class="no-child">Mathematical statistics</li>
+                                        <li class="no-child">Data visualization</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Theory of computation</span>
+                                    <ul class="children">
+                                        <li class="no-child">Computational complexity theory</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Systems science</span>
+                    <ul class="children">
+                        <li class="no-child">Network science</li>
+                        <li class="no-child">Chaos theory</li>
+                        <li class="no-child">Conceptual systems</li>
+                        <li class="no-child">Complex systems</li>
+                        <li class="no-child">Complex system</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Cybernetics</span>
+                            <ul class="children">
+                                <li class="no-child">Biocybernetics</li>
+                                <li class="no-child">Engineering cybernetics</li>
+                                <li class="no-child">Management cybernetics</li>
+                                <li class="no-child">Medical cybernetics</li>
+                                <li class="no-child">New Cybernetics</li>
+                                <li class="no-child">Second-order cybernetics</li>
+                                <li class="no-child">Sociocybernetics</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Control Theory</span>
+                            <ul class="children">
+                                <li class="no-child">Affect control theory</li>
+                                <li class="no-child">Control engineering</li>
+                                <li class="no-child">Control systems</li>
+                                <li class="no-child">Dynamical systems</li>
+                                <li class="no-child">Perceptual control theory</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Operations research</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Systems biology</span>
+                            <ul class="children">
+                                <li class="no-child">Computational systems biology</li>
+                                <li class="no-child">Synthetic biology</li>
+                                <li class="no-child">Systems immunology</li>
+                                <li class="no-child">Systems neuroscience</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">System dynamics</li>
+                        <li class="no-child">Social dynamics</li>
+                        <li class="no-child">Systems ecology</li>
+                        <li class="no-child">Ecosystem ecology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Systems engineering</span>
+                            <ul class="children">
+                                <li class="no-child">Biological systems engineering</li>
+                                <li class="no-child">Earth systems engineering and management</li>
+                                <li class="no-child">Enterprise systems engineering</li>
+                                <li class="no-child">Systems analysis</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Systems theory in anthropology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Systems psychology</span>
+                            <ul class="children">
+                                <li class="no-child">Ergonomics</li>
+                                <li class="no-child">Family systems theory</li>
+                                <li class="no-child">Systemic therapy</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Systems Theory</span>
+                            <ul class="children">
+                                <li class="no-child">Biochemical systems theory</li>
+                                <li class="no-child">Ecological systems theory</li>
+                                <li class="no-child">Developmental systems theory</li>
+                                <li class="no-child">General systems theory</li>
+                                <li class="no-child">Living systems theory</li>
+                                <li class="no-child">LTI system theory</li>
+                                <li class="no-child">Sociotechnical systems theory</li>
+                                <li class="no-child">Mathematical system theory</li>
+                                <li class="no-child">World-systems theory</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Statistics</span>
+                    <ul class="children">
+                        <li class="no-child">Mathematical statistics</li>
+                        <li class="no-child">Econometrics</li>
+                        <li class="no-child">Actuarial science</li>
+                        <li class="no-child">Demography</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Computational Statistics</span>
+                            <ul class="children">
+                                <li class="no-child">Data mining</li>
+                                <li class="no-child">Regression</li>
+                                <li class="no-child">Simulation</li>
+                                <li class="no-child">Bootstrap (statistics)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Design of experiments</span>
+                            <ul class="children">
+                                <li class="no-child">Block design and Analysis of variance</li>
+                                <li class="no-child">Response surface methodology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Sample Survey</li>
+                        <li class="no-child">Sampling theory</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Statistical modelling</span>
+                            <ul class="children">
+                                <li class="no-child">Biostatistics</li>
+                                <li class="no-child">Epidemiology</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Multivariate analysis</span>
+                                    <ul class="children">
+                                        <li class="no-child">Structural equation model</li>
+                                        <li class="no-child">Time series</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Reliability theory</li>
+                                <li class="no-child">Quality control</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Statistical theory</span>
+                            <ul class="children">
+                                <li class="no-child">Decision theory</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Mathematical statistics</span>
+                                    <ul class="children">
+                                        <li class="no-child">Probability</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Survey methodology</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="prof-nd-app-sciences-discips">
+            <ul>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Agriculture</span>
+                    <ul class="children">
+                        <li class="no-child">Agroecology</li>
+                        <li class="no-child">Agronomy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Animal husbandry (Animal science)</span>
+                            <ul class="children">
+                                <li class="no-child">Beekeeping (Apiculture)</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Agrology</li>
+                        <li class="no-child">Entomology</li>
+                        <li class="no-child">Agricultural economics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Agricultural engineering</span>
+                            <ul class="children">
+                                <li class="no-child">Biological systems engineering</li>
+                                <li class="no-child">Food engineering</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Aquaculture</li>
+                        <li class="no-child">Enology</li>
+                        <li class="no-child">Food science</li>
+                        <li class="no-child">Horticulture</li>
+                        <li class="no-child">Culinary arts</li>
+                        <li class="no-child">Hydrology (outline)</li>
+                        <li class="no-child">Pedology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Plant Science</span>
+                            <ul class="children">
+                                <li class="no-child">Pomology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Pest control</li>
+                        <li class="no-child">Purification</li>
+                        <li class="no-child">Viticulture</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Architecture and design</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Architecture</span>
+                            <ul class="children">
+                                <li class="no-child">Interior architecture</li>
+                                <li class="no-child">Landscape architecture</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Architectural analytics</li>
+                        <li class="no-child">Historic preservation</li>
+                        <li class="no-child">Interior design (interior architecture)</li>
+                        <li class="no-child">Landscape architecture (landscape planning)</li>
+                        <li class="no-child">Landscape design</li>
+                        <li class="no-child">Urban planning (urban design)</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Visual communication</span>
+                            <ul class="children">
+                                <li class="no-child">Graphic design</li>
+                                <li class="no-child">Type design</li>
+                                <li class="no-child">Technical drawing</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Industrial design</span>
+                            <ul class="children">
+                                <li class="no-child">Ergonomics (outline)</li>
+                                <li class="no-child">Game design</li>
+                                <li class="no-child">Toy and amusement design</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">User experience design</span>
+                            <ul class="children">
+                                <li class="no-child">Interaction design</li>
+                                <li class="no-child">Information architecture</li>
+                                <li class="no-child">User experience evaluation</li>
+                                <li class="no-child">User interface design</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Decorative arts</li>
+                        <li class="no-child">Fashion design</li>
+                        <li class="no-child">Textile design</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Business</span>
+                    <ul class="children">
+                        <li class="no-child">Accounting</li>
+                        <li class="no-child">Accounting scholarship</li>
+                        <li class="no-child">Business administration</li>
+                        <li class="no-child">Business analysis</li>
+                        <li class="no-child">Business ethics</li>
+                        <li class="no-child">Business law</li>
+                        <li class="no-child">E-Business</li>
+                        <li class="no-child">Entrepreneurship</li>
+                        <li class="no-child">Finance (outline)</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Industrial and labor relations</span>
+                            <ul class="children">
+                                <li class="no-child">Collective bargaining</li>
+                                <li class="no-child">Human resources</li>
+                                <li class="no-child">Organizational studies</li>
+                                <li class="no-child">Labor economics</li>
+                                <li class="no-child">Labor history</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Information systems (Business informatics)</span>
+                            <ul class="children">
+                                <li class="no-child">Management information systems</li>
+                                <li class="no-child">Health informatics</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Information technology (outline)</li>
+                        <li class="no-child">International trade</li>
+                        <li class="no-child">Management (outline)</li>
+                        <li class="no-child">Marketing (outline)</li>
+                        <li class="no-child">Operations management</li>
+                        <li class="no-child">Purchasing</li>
+                        <li class="no-child">Risk management and insurance</li>
+                        <li class="no-child">Systems science</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Divinity</span>
+                    <ul class="children">
+                        <li class="no-child">Canon law</li>
+                        <li class="no-child">Church history</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Field ministry</span>
+                            <ul class="children">
+                                <li class="no-child">Pastoral counseling</li>
+                                <li class="no-child">Pastoral theology</li>
+                                <li class="no-child">Religious education techniques</li>
+                                <li class="no-child">Homiletics</li>
+                                <li class="no-child">Liturgy</li>
+                                <li class="no-child">Sacred music</li>
+                                <li class="no-child">Missiology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Hermeneutics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Scriptural study and languages</span>
+                            <ul class="children">
+                                <li class="no-child">Biblical Hebrew</li>
+                                <li class="no-child">Biblical studies/Sacred scripture</li>
+                                <li class="no-child">New Testament Greek</li>
+                                <li class="no-child">Latin</li>
+                                <li class="no-child">Old Church Slavonic</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Theology</span>
+                            <ul class="children">
+                                <li class="no-child">Dogmatic theology</li>
+                                <li class="no-child">Ecclesiology</li>
+                                <li class="no-child">Sacramental theology</li>
+                                <li class="no-child">Systematic theology</li>
+                                <li class="no-child">Christian ethics</li>
+                                <li class="no-child">Moral theology</li>
+                                <li class="no-child">Historical theology</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Education</span>
+                    <ul class="children">
+                        <li class="no-child">Comparative education</li>
+                        <li class="no-child">Critical pedagogy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Curriculum and instruction</span>
+                            <ul class="children">
+                                <li class="no-child">Alternative education</li>
+                                <li class="no-child">Early childhood education</li>
+                                <li class="no-child">Elementary education</li>
+                                <li class="no-child">Secondary education</li>
+                                <li class="no-child">Higher education</li>
+                                <li class="no-child">Mastery learning</li>
+                                <li class="no-child">Cooperative learning</li>
+                                <li class="no-child">Agricultural education</li>
+                                <li class="no-child">Art education</li>
+                                <li class="no-child">Bilingual education</li>
+                                <li class="no-child">Chemistry education</li>
+                                <li class="no-child">Counselor education</li>
+                                <li class="no-child">Language education</li>
+                                <li class="no-child">Legal education</li>
+                                <li class="no-child">Mathematics education</li>
+                                <li class="no-child">Medical education</li>
+                                <li class="no-child">Military education and training</li>
+                                <li class="no-child">Music education</li>
+                                <li class="no-child">Nursing education</li>
+                                <li class="no-child">Outdoor education</li>
+                                <li class="no-child">Peace education</li>
+                                <li class="no-child">Physical education/Sports coaching</li>
+                                <li class="no-child">Physics education</li>
+                                <li class="no-child">Reading education</li>
+                                <li class="no-child">Religious education</li>
+                                <li class="no-child">Science education</li>
+                                <li class="no-child">Special education</li>
+                                <li class="no-child">Sex education</li>
+                                <li class="no-child">Sociology of education</li>
+                                <li class="no-child">Technology education</li>
+                                <li class="no-child">Vocational education</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Educational leadership</li>
+                        <li class="no-child">Educational philosophy</li>
+                        <li class="no-child">Educational psychology</li>
+                        <li class="no-child">Educational technology</li>
+                        <li class="no-child">Distance education</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Engineering and Technology</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Chemical Engineering</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Bioengineering</span>
+                                    <ul class="children">
+                                        <li class="no-child">Biochemical engineering</li>
+                                        <li class="no-child">Biomolecular engineering</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Catalysis</li>
+                                <li class="no-child">Materials engineering</li>
+                                <li class="no-child">Molecular engineering</li>
+                                <li class="no-child">Nanotechnology</li>
+                                <li class="no-child">Polymer engineering</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Process design</span>
+                                    <ul class="children">
+                                        <li class="no-child">Petroleum engineering</li>
+                                        <li class="no-child">Nuclear engineering</li>
+                                        <li class="no-child">Food engineering</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Process engineering</li>
+                                <li class="no-child">Reaction engineering</li>
+                                <li class="no-child">Thermodynamics</li>
+                                <li class="no-child">Transport phenomena</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Civil Engineering</span>
+                            <ul class="children">
+                                <li class="no-child">Coastal engineering</li>
+                                <li class="no-child">Earthquake engineering</li>
+                                <li class="no-child">Ecological engineering</li>
+                                <li class="no-child">Environmental engineering</li>
+                                <li class="no-child">Geotechnical engineering</li>
+                                <li class="no-child">Hydraulic engineering</li>
+                                <li class="no-child">Mining engineering</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Transportation engineering</span>
+                                    <ul class="children">
+                                        <li class="no-child">Highway engineering</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Structural engineering</span>
+                                    <ul class="children">
+                                        <li class="no-child">Architectural engineering</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Structural mechanics</li>
+                                <li class="no-child">Surveying</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Educational Technology</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Instructional design</span>
+                                    <ul class="children">
+                                        <li class="no-child">Distance education</li>
+                                        <li class="no-child">Instructional simulation</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Human performance technology</li>
+                                <li class="no-child">Knowledge management</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Electrical Engineering</span>
+                            <ul class="children">
+                                <li class="no-child">Applied physics</li>
+                                <li class="no-child">Computer engineering</li>
+                                <li class="no-child">Computer science</li>
+                                <li class="no-child">Control systems engineering</li>
+                                <li class="no-child">Electronic engineering</li>
+                                <li class="no-child">Instrumentation engineering</li>
+                                <li class="no-child">Engineering physics</li>
+                                <li class="no-child">Photonics</li>
+                                <li class="no-child">Information theory</li>
+                                <li class="no-child">Mechatronics</li>
+                                <li class="no-child">Power engineering</li>
+                                <li class="no-child">Quantum computing</li>
+                                <li class="no-child">Robotics (outline)</li>
+                                <li class="no-child">Semiconductors</li>
+                                <li class="no-child">Telecommunications engineering</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Materials Science and Engineering</span>
+                            <ul class="children">
+                                <li class="no-child">Biomaterials</li>
+                                <li class="no-child">Ceramic engineering</li>
+                                <li class="no-child">Crystallography</li>
+                                <li class="no-child">Nanomaterials</li>
+                                <li class="no-child">Photonics</li>
+                                <li class="no-child">Physical Metallurgy</li>
+                                <li class="no-child">Polymer engineering</li>
+                                <li class="no-child">Polymer science</li>
+                                <li class="no-child">Semiconductors</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Mechanical Engineering</span>
+                            <ul class="children">
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Aerospace engineering</span>
+                                    <ul class="children">
+                                        <li class="no-child">Aeronautics</li>
+                                        <li class="no-child">Astronautics</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Acoustical engineering</li>
+                                <li class="no-child">Automotive engineering</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Biomedical engineering</span>
+                                    <ul class="children">
+                                        <li class="no-child">Biomechanical engineering</li>
+                                        <li class="no-child">Neural engineering</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Continuum mechanics</li>
+                                <li class="no-child">Fluid mechanics</li>
+                                <li class="no-child">Heat transfer</li>
+                                <li class="no-child">Industrial engineering</li>
+                                <li class="no-child">Manufacturing engineering</li>
+                                <li class="no-child">Marine engineering</li>
+                                <li class="no-child">Mass transfer</li>
+                                <li class="no-child">Mechatronics</li>
+                                <li class="no-child">Nanoengineering</li>
+                                <li class="no-child">Ocean engineering</li>
+                                <li class="no-child">Optical engineering</li>
+                                <li class="no-child">Robotics</li>
+                                <li class="no-child">Thermodynamics</li>
+                                <li class="no-child">Vehicle engineering</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Environmental studies and forestry</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Environmental management</span>
+                            <ul class="children">
+                                <li class="no-child">Coastal management</li>
+                                <li class="no-child">Fisheries management</li>
+                                <li class="no-child">Land management</li>
+                                <li class="no-child">Natural resource management</li>
+                                <li class="no-child">Waste management</li>
+                                <li class="no-child">Wildlife management</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Environmental policy</li>
+                        <li class="no-child">Wildlife observation</li>
+                        <li class="no-child">Recreation ecology</li>
+                        <li class="no-child">Silviculture</li>
+                        <li class="no-child">Sustainability studies</li>
+                        <li class="no-child">Sustainable development</li>
+                        <li class="no-child">Toxicology</li>
+                        <li class="no-child">Ecology</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Family and consumer science</span>
+                    <ul class="children">
+                        <li class="no-child">Consumer education</li>
+                        <li class="no-child">Housing</li>
+                        <li class="no-child">Interior design</li>
+                        <li class="no-child">Nutrition (outline)</li>
+                        <li class="no-child">Foodservice management</li>
+                        <li class="no-child">Textiles</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Human physical performance and recreation</span>
+                    <ul class="children">
+                        <li class="no-child">Biomechanics / Sports biomechanics</li>
+                        <li class="no-child">Sports coaching</li>
+                        <li class="no-child">Dance (outline)</li>
+                        <li class="no-child">Escapology</li>
+                        <li class="no-child">Ergonomics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Physical fitness</span>
+                            <ul class="children">
+                                <li class="no-child">Aerobics</li>
+                                <li class="no-child">Personal trainer / Personal fitness training</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Game design</li>
+                        <li class="no-child">Exercise physiology</li>
+                        <li class="no-child">Kinesiology / Exercise physiology / Performance science</li>
+                        <li class="no-child">Leisure studies</li>
+                        <li class="no-child">Navigation</li>
+                        <li class="no-child">Outdoor activity</li>
+                        <li class="no-child">Physical activity</li>
+                        <li class="no-child">Physical education / Pedagogy</li>
+                        <li class="no-child">Sociology of sport</li>
+                        <li class="no-child">Sexology</li>
+                        <li class="no-child">Sports journalism / sportscasting</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Sport management</span>
+                            <ul class="children">
+                                <li class="no-child">Athletic director</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Sport psychology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Sports medicine</span>
+                            <ul class="children">
+                                <li class="no-child">Athletic training</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Survival skills</span>
+                            <ul class="children">
+                                <li class="no-child">Batoning</li>
+                                <li class="no-child">Bushcraft</li>
+                                <li class="no-child">Scoutcraft</li>
+                                <li class="no-child">Woodcraft</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Toy and amusement design</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Journalism, media studies and communication</span>
+                    <ul class="children">
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Journalism</span>
+                            <ul class="children">
+                                <li class="no-child">Broadcast journalism</li>
+                                <li class="no-child">Digital journalism</li>
+                                <li class="no-child">Literary journalism</li>
+                                <li class="no-child">New media journalism</li>
+                                <li class="no-child">Print journalism</li>
+                                <li class="no-child">Sports journalism / sportscasting</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Media studies (Mass media)</span>
+                            <ul class="children">
+                                <li class="no-child">Newspaper</li>
+                                <li class="no-child">Magazine</li>
+                                <li class="no-child">Radio (outline)</li>
+                                <li class="no-child">Television studies</li>
+                                <li class="no-child">Film studies</li>
+                                <li class="no-child">Internet (outline)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Communication studies</span>
+                            <ul class="children">
+                                <li class="no-child">Advertising</li>
+                                <li class="no-child">Animal communication</li>
+                                <li class="no-child">Communication design</li>
+                                <li class="no-child">Conspiracy theory</li>
+                                <li class="no-child">Digital media</li>
+                                <li class="no-child">Electronic media</li>
+                                <li class="no-child">Environmental communication</li>
+                                <li class="no-child">Hoax</li>
+                                <li class="no-child">Information theory</li>
+                                <li class="no-child">Intercultural communication</li>
+                                <li class="no-child">Marketing (outline)</li>
+                                <li class="no-child">Mass communication</li>
+                                <li class="no-child">Nonverbal communication</li>
+                                <li class="no-child">Organizational communication</li>
+                                <li class="no-child">Popular culture studies</li>
+                                <li class="no-child">Propaganda</li>
+                                <li class="no-child">Public relations (outline)</li>
+                                <li class="no-child">Speech communication</li>
+                                <li class="no-child">Technical writing</li>
+                                <li class="no-child">Translation</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Law</span>
+                    <ul class="children">
+                        <li class="no-child">Administrative law</li>
+                        <li class="no-child">Canon law</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Civil law</span>
+                            <ul class="children">
+                                <li class="no-child">Admiralty law</li>
+                                <li class="no-child">Animal law/Animal rights</li>
+                                <li class="no-child">Civil procedure</li>
+                                <li class="no-child">Common law</li>
+                                <li class="no-child">Contract law</li>
+                                <li class="no-child">Corporations</li>
+                                <li class="no-child">Environmental law</li>
+                                <li class="no-child">Family law</li>
+                                <li class="no-child">Federal law</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">International law</span>
+                                    <ul class="children">
+                                        <li class="no-child">Public international law</li>
+                                        <li class="no-child">Supranational law</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Labor law</li>
+                                <li class="no-child">Property law</li>
+                                <li class="no-child">Tax law</li>
+                                <li class="no-child">Tort law</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Comparative law</li>
+                        <li class="no-child">Competition law</li>
+                        <li class="no-child">Constitutional law</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Criminal law</span>
+                            <ul class="children">
+                                <li class="no-child">Criminal justice</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Criminal procedure</span>
+                                    <ul class="children">
+                                        <li class="no-child">Forensic science</li>
+                                        <li class="no-child">Police science</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Islamic law</li>
+                        <li class="no-child">Jewish law</li>
+                        <li class="no-child">Jurisprudence (Philosophy of Law)</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Legal management</span>
+                            <ul class="children">
+                                <li class="no-child">Business law</li>
+                                <li class="no-child">Mercantile law</li>
+                                <li class="no-child">Corporate law</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Procedural law</li>
+                        <li class="no-child">Substantive law</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Library and museum studies</span>
+                    <ul class="children">
+                        <li class="no-child">Archival science</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Bibliometrics</span>
+                            <ul class="children">
+                                <li class="no-child">Citation analysis</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Conservation science</li>
+                        <li class="no-child">Informatics</li>
+                        <li class="no-child">Information architecture</li>
+                        <li class="no-child">Information science (outline)</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Museology</span>
+                            <ul class="children">
+                                <li class="no-child">Museum administration</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Medicine and Health</span>
+                    <ul class="children">
+                        <li class="no-child">Alternative medicine</li>
+                        <li class="no-child">Cleaning</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Clinical laboratory sciences/Clinical pathology/Laboratory medicine</span>
+                            <ul class="children">
+                                <li class="no-child">Clinical biochemistry</li>
+                                <li class="no-child">Cytogenetics</li>
+                                <li class="no-child">Cytohematology</li>
+                                <li class="no-child">Cytology (outline)</li>
+                                <li class="no-child">Haemostasiology</li>
+                                <li class="no-child">Histology</li>
+                                <li class="no-child">Clinical immunology</li>
+                                <li class="no-child">Clinical microbiology</li>
+                                <li class="no-child">Molecular genetics</li>
+                                <li class="no-child">Parasitology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Clinical physiology</li>
+                        <li class="no-child">Cosmetology</li>
+                        <li class="no-child">Decontamination</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Dentistry (outline)</span>
+                            <ul class="children">
+                                <li class="no-child">Dental hygiene and epidemiology</li>
+                                <li class="no-child">Dental surgery</li>
+                                <li class="no-child">Endodontics</li>
+                                <li class="no-child">Orthodontics</li>
+                                <li class="no-child">Oral and maxillofacial surgery</li>
+                                <li class="no-child">Periodontics</li>
+                                <li class="no-child">Prosthodontics</li>
+                                <li class="no-child">Implantology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Dermatology</li>
+                        <li class="no-child">Emergency medicine (outline)</li>
+                        <li class="no-child">Health informatics/Clinical informatics</li>
+                        <li class="no-child">Music therapy</li>
+                        <li class="no-child">Nursing</li>
+                        <li class="no-child">Nutrition (outline) and dietetics</li>
+                        <li class="no-child">Optometry</li>
+                        <li class="no-child">Orthoptics</li>
+                        <li class="no-child">Osteopathy</li>
+                        <li class="no-child">Physiotherapy</li>
+                        <li class="no-child">Occupational therapy</li>
+                        <li class="no-child">Speech and language pathology</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Internal medicine</span>
+                            <ul class="children">
+                                <li class="no-child">Preventive medicine</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Cardiology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Cardiac electrophysiology</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Dermatology</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Pulmonology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Medical toxicology</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Endocrinology</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Gastroenterology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Hepatology</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Oncology</li>
+                                <li class="no-child">Geriatrics</li>
+                                <li class="no-child">Gynaecology</li>
+                                <li class="no-child">Hematology</li>
+                                <li class="no-child">Infectious disease</li>
+                                <li class="no-child">Nephrology</li>
+                                <li class="no-child">Neurology</li>
+                                <li class="no-child">Neurosurgery</li>
+                                <li class="no-child">Obstetrics (outline)</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Ophthalmology</span>
+                                    <ul class="children">
+                                        <li class="no-child">Neuro-ophthalmology</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Orthopedic surgery</li>
+                                <li class="no-child">Otolaryngology</li>
+                                <li class="no-child">Pathology</li>
+                                <li class="no-child">Pediatrics</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Pharmacy</li>
+                        <li class="no-child">Pharmaceutical sciences</li>
+                        <li class="no-child">Pharmacognosy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Physical fitness</span>
+                            <ul class="children">
+                                <li class="no-child">Personal fitness training</li>
+                                <li class="no-child">Aerobics</li>
+                                <li class="no-child">Kinesiology / Exercise physiology / Performance science</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Physical therapy</li>
+                        <li class="no-child">Podiatry</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Primary care</span>
+                            <ul class="children">
+                                <li class="no-child">General practice</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Psychiatry (outline)</li>
+                        <li class="no-child">Psychology (outline)</li>
+                        <li class="no-child">Psychosomatic</li>
+                        <li class="no-child">Psychotherapy</li>
+                        <li class="no-child">Public health</li>
+                        <li class="no-child">Radiology</li>
+                        <li class="no-child">Recreation therapy</li>
+                        <li class="no-child">Rehabilitation medicine</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Respiratory medicine</span>
+                            <ul class="children">
+                                <li class="no-child">Pulmonology</li>
+                                <li class="no-child">Sleep medicine</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Respiratory therapy</li>
+                        <li class="no-child">Rheumatology</li>
+                        <li class="no-child">Sports medicine</li>
+                        <li class="no-child">Sterilization (microbiology)</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Surgery</span>
+                            <ul class="children">
+                                <li class="no-child">Bariatric surgery</li>
+                                <li class="no-child">Cardiothoracic surgery</li>
+                                <li class="no-child">Neurosurgery</li>
+                                <li class="no-child">Plastic surgery</li>
+                                <li class="no-child">Trauma surgery</li>
+                                <li class="no-child">Traumatology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Traditional medicine</li>
+                        <li class="no-child">Therapy</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Urology</span>
+                            <ul class="children">
+                                <li class="no-child">Andrology</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Veterinary medicine</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Military sciences</span>
+                    <ul class="children">
+                        <li class="no-child">Amphibious warfare</li>
+                        <li class="no-child">Artillery</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Battlespace</span>
+                            <ul class="children">
+                                <li class="no-child">Air</li>
+                                <li class="no-child">Information</li>
+                                <li class="no-child">Land</li>
+                                <li class="no-child">Sea</li>
+                                <li class="no-child">Space</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Campaigning</li>
+                        <li class="no-child">Military engineering</li>
+                        <li class="no-child">Doctrine</li>
+                        <li class="no-child">Espionage</li>
+                        <li class="no-child">Game theory</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Grand strategy</span>
+                            <ul class="children">
+                                <li class="no-child">Containment</li>
+                                <li class="no-child">Limited war</li>
+                                <li class="no-child">Military science</li>
+                                <li class="no-child">Philosophy of war</li>
+                                <li class="no-child">Strategic studies</li>
+                                <li class="no-child">Total war</li>
+                                <li class="no-child">War</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Leadership</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Military history</span>
+                            <ul class="children">
+                                <li class="no-child">Prehistoric</li>
+                                <li class="no-child">Ancient</li>
+                                <li class="no-child">Medieval</li>
+                                <li class="no-child">Early modern</li>
+                                <li class="no-child">Industrial</li>
+                                <li class="no-child">Modern</li>
+                                <li class="no-child">Fourth-generation warfare</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Logistics</span>
+                            <ul class="children">
+                                <li class="no-child">Materiel</li>
+                                <li class="no-child">Supply chain management</li>
+                                <li class="no-child">Medieval</li>
+                                <li class="no-child">Early modern</li>
+                                <li class="no-child">Industrial</li>
+                                <li class="no-child">Modern</li>
+                                <li class="no-child">Fourth-generation warfare</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Military operation</li>
+                        <li class="no-child">Military intelligence</li>
+                        <li class="no-child">Military law</li>
+                        <li class="no-child">Military medicine</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Naval Science</span>
+                            <ul class="children">
+                                <li class="no-child">Naval engineering</li>
+                                <li class="no-child">Naval tactics</li>
+                                <li class="no-child">Naval architecture</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Organization</span>
+                            <ul class="children">
+                                <li class="no-child">Command and control</li>
+                                <li class="no-child">Doctrine</li>
+                                <li class="no-child">Education and training</li>
+                                <li class="no-child">Engineers</li>
+                                <li class="no-child">Intelligence</li>
+                                <li class="no-child">Ranks</li>
+                                <li class="no-child">Staff</li>
+                                <li class="no-child">Technology and equipment</li>
+                                <li class="no-child">Military exercises</li>
+                                <li class="no-child">Military simulation</li>
+                                <li class="no-child">Military sports</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Strategy</span>
+                            <ul class="children">
+                                <li class="no-child">Attrition</li>
+                                <li class="no-child">Deception</li>
+                                <li class="no-child">Defensive</li>
+                                <li class="no-child">Offensive</li>
+                                <li class="no-child">Counter-offensive</li>
+                                <li class="no-child">Maneuver</li>
+                                <li class="no-child">Goal</li>
+                                <li class="no-child">Naval</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Tactics</span>
+                            <ul class="children">
+                                <li class="no-child">Aerial</li>
+                                <li class="no-child">Battle</li>
+                                <li class="no-child">Cavalry</li>
+                                <li class="no-child">Charge</li>
+                                <li class="no-child">Cover</li>
+                                <li class="no-child">Counter-attack</li>
+                                <li class="no-child">Counter-insurgency</li>
+                                <li class="no-child">Counter-intelligence</li>
+                                <li class="no-child">Counter-terrorism</li>
+                                <li class="no-child">Foxhole</li>
+                                <li class="no-child">Endemic warfare</li>
+                                <li class="no-child">Guerrilla warfare</li>
+                                <li class="no-child">Infiltration</li>
+                                <li class="no-child">Irregular warfare</li>
+                                <li class="no-child">Morale</li>
+                                <li class="no-child">Naval tactics</li>
+                                <li class="no-child">Siege</li>
+                                <li class="no-child">Surgical strike</li>
+                                <li class="no-child">Tactical objective</li>
+                                <li class="no-child">Trench warfare</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Military weapons</span>
+                            <ul class="children">
+                                <li class="no-child">Armor</li>
+                                <li class="no-child">Artillery</li>
+                                <li class="no-child">Biological</li>
+                                <li class="no-child">Cavalry</li>
+                                <li class="no-child">Conventional</li>
+                                <li class="no-child">Chemical</li>
+                                <li class="no-child">Cyberwarfare</li>
+                                <li class="no-child">Cyber</li>
+                                <li class="no-child">Economic</li>
+                                <li class="no-child">Electronic</li>
+                                <li class="no-child">Infantry</li>
+                                <li class="no-child">Nuclear</li>
+                                <li class="no-child">Psychological</li>
+                                <li class="no-child">Unconventional</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Other Military</span>
+                            <ul class="children">
+                                <li class="no-child">Arms control</li>
+                                <li class="no-child">Arms race</li>
+                                <li class="no-child">Assassination</li>
+                                <li class="no-child">Asymmetric warfare</li>
+                                <li class="no-child">Civil defense</li>
+                                <li class="no-child">Clandestine operation</li>
+                                <li class="no-child">Collateral damage</li>
+                                <li class="no-child">Cold war (general term)</li>
+                                <li class="no-child">Combat</li>
+                                <li class="no-child">Covert operation</li>
+                                <li class="no-child">Defense industry</li>
+                                <li class="no-child">Disarmament</li>
+                                <li class="no-child">Intelligence agency</li>
+                                <li class="no-child">Laws of war</li>
+                                <li class="no-child">Mercenary</li>
+                                <li class="no-child">Military campaign</li>
+                                <li class="no-child">Military operation</li>
+                                <li class="no-child">Mock combat</li>
+                                <li class="no-child">Network-centric warfare</li>
+                                <li class="no-child">Paramilitary</li>
+                                <li class="no-child">Principles of war</li>
+                                <li class="no-child">Private defense agency</li>
+                                <li class="no-child">Private military company</li>
+                                <li class="no-child">Proxy war</li>
+                                <li class="no-child">Religious war</li>
+                                <li class="no-child">Security</li>
+                                <li class="no-child">Special forces</li>
+                                <li class="no-child">Special operations</li>
+                                <li class="no-child">Theater (warfare)</li>
+                                <li class="no-child">Theft</li>
+                                <li class="no-child">Undercover</li>
+                                <li class="no-child">War crimes</li>
+                                <li class="no-child">Warrior</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Public Administration</span>
+                    <ul class="children">
+                        <li class="no-child">Civil service</li>
+                        <li class="no-child">Corrections</li>
+                        <li class="no-child">Conservation biology</li>
+                        <li class="no-child">Criminal justice (outline)</li>
+                        <li class="no-child">Disaster research</li>
+                        <li class="no-child">Disaster response</li>
+                        <li class="no-child">Emergency management</li>
+                        <li class="no-child">Emergency services</li>
+                        <li class="no-child">Fire safety (Structural fire protection)</li>
+                        <li class="no-child">Fire ecology (Wildland fire management)</li>
+                        <li class="no-child">Governmental affairs</li>
+                        <li class="no-child">International affairs</li>
+                        <li class="no-child">Law enforcement</li>
+                        <li class="no-child">Peace and conflict studies</li>
+                        <li class="no-child">Police science</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Policy Studies</span>
+                            <ul class="children">
+                                <li class="no-child">Policy Analysis</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Public administration</span>
+                            <ul class="children">
+                                <li class="no-child">Nonprofit administration</li>
+                                <li class="no-child">Non-governmental organization (NGO) administration</li>
+                                <li class="no-child">Public policy doctrine</li>
+                                <li class="no-child">Public policy school</li>
+                                <li class="no-child">Regulation</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Public safety</li>
+                        <li class="no-child">Public service</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Public Policy</span>
+                            <ul class="children">
+                                <li class="no-child">Agricultural policy</li>
+                                <li class="no-child">Commercial policy</li>
+                                <li class="no-child">Cultural policy</li>
+                                <li class="no-child">Domestic policy</li>
+                                <li class="no-child">Drug policy</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Economic policy</span>
+                                    <ul class="children">
+                                        <li class="no-child">Fiscal policy</li>
+                                        <li class="no-child">Incomes policy</li>
+                                        <li class="no-child">Industrial policy</li>
+                                        <li class="no-child">Investment policy</li>
+                                        <li class="no-child">Monetary policy</li>
+                                        <li class="no-child">Tax policy</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Education policy</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Energy policy</span>
+                                    <ul class="children">
+                                        <li class="no-child">Nuclear energy policy</li>
+                                        <li class="no-child">Renewable energy policy</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Environmental policy</li>
+                                <li class="no-child">Food policy</li>
+                                <li class="no-child">Foreign policy</li>
+                                <li>
+                                    <span class="is-icon">+</span><span class="is-parent">Health policy</span>
+                                    <ul class="children">
+                                        <li class="no-child">Pharmaceutical policy</li>
+                                        <li class="no-child">Vaccination policy</li>
+                                    </ul>
+                                </li>
+                                <li class="no-child">Housing policy</li>
+                                <li class="no-child">Immigration policy</li>
+                                <li class="no-child">Knowledge policy</li>
+                                <li class="no-child">Language policy</li>
+                                <li class="no-child">Military policy</li>
+                                <li class="no-child">Science policy</li>
+                                <li class="no-child">Security policy</li>
+                                <li class="no-child">Social policy</li>
+                                <li class="no-child">Public policy by country</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Social Work</span>
+                    <ul class="children">
+                        <li class="no-child">Child welfare</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Community practice</span>
+                            <ul class="children">
+                                <li class="no-child">Community organizing</li>
+                                <li class="no-child">Social policy</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Human Services</li>
+                        <li class="no-child">Corrections</li>
+                        <li class="no-child">Gerontology</li>
+                        <li class="no-child">Medical social work</li>
+                        <li class="no-child">Mental health</li>
+                        <li class="no-child">School social work</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="is-icon">+</span><span class="is-parent">Transportation</span>
+                    <ul class="children">
+                        <li class="no-child">Highway safety</li>
+                        <li class="no-child">Infographics</li>
+                        <li class="no-child">Intermodal transportation studies</li>
+                        <li class="no-child">Logistics</li>
+                        <li>
+                            <span class="is-icon">+</span><span class="is-parent">Marine Transportation</span>
+                            <ul class="children">
+                                <li class="no-child">Port Management</li>
+                                <li class="no-child">Seafaring</li>
+                            </ul>
+                        </li>
+                        <li class="no-child">Operations research</li>
+                        <li class="no-child">Mass transit</li>
+                        <li class="no-child">Travel</li>
+                        <li class="no-child">Vehicles</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</body>
+</div>
+<div id="tabs-nd-content">
+    <div id="tabs-top">
+        <div class="basic-info-tab tab-select">
+            <div class="arrow arrow-down"><div class="arrow-inner arrow-down-inner"></div></div>
+            <img src="~/icons/info-green.png" class="tab-img-green active-icon" />
+            <img src="~/icons/info-white.png" class="tab-img-white" />
+            <p>Info</p>
+        </div>
+        <div class="uni-tab">
+            <div class="arrow"><div class="arrow-inner"></div></div>
+            <img src="~/icons/university-white.png" class="tab-img-white active-icon" />
+            <img src="~/icons/university-green.png" class="tab-img-green" />
+            <p>On-Campus Resources</p>
+        </div>
+        <div class="online-tab">
+            <div class="arrow"><div class="arrow-inner"></div></div>
+            <img src="~/icons/online-white.png" class="tab-img-white active-icon" />
+            <img src="~/icons/online-green.png" class="tab-img-green" />
+            <p>Online Resources</p>
+        </div>
+    </div>
+
+    <div class="info-tab-content active">
+        <div id="info">
+            <div id="info-heading">
+                <p id="info-heading-p">(Click on a discipline from the list on the left to view more)</p>
+                <div class="divider"></div>
+            </div>
+            <div id="info-detail">
+                <p id="info-detail-p">
+                </p>
+                <img id="info-detail-image" src="" />
+            </div>
+            <div id="road-map">
+                <p id="road-map-heading">Ancestry</p>
+                <div class="divider"></div>
+                <p id="road-map-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="unis">
+        <select id="uni-country">
+            <option value="Australia">Australia</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Brazil">Brazil</option>
+            <option value="China">China</option>
+            <option value="Germany">Germany</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+        </select>
+    </div>
+
+    <div class="online">
+    </div>
+</div>
+<script src="~/js/app.js"></script>
