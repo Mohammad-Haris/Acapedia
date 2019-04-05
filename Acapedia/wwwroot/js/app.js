@@ -1,5 +1,6 @@
 ﻿var prevSelect;
 var prevUniCall = new Array(2);
+var prevOnCall;
 
 function AddEventIsIcon()
 {
@@ -143,6 +144,7 @@ function GetParents_Parents(selection)
 
     if (top.indexOf(selection.innerHTML) !== -1)
     {
+        map.unshift(document.querySelector(".active-discip-heading").getElementsByTagName("p")[0].innerHTML);
         document.getElementById("road-map-text").innerHTML = map.join("  -->  ");
     }
 
@@ -190,6 +192,7 @@ function GetParents_Child(selection)
             map.unshift(name);
         }
 
+        map.unshift(document.querySelector(".active-discip-heading").getElementsByTagName("p")[0].innerHTML);
         document.getElementById("road-map-text").innerHTML = map.join("  -->  ");
     }
 
@@ -287,7 +290,6 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         document.querySelector(".info-tab-content").classList.add("active");
         document.querySelector(".unis").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
-        document.querySelector(".online").classList.remove("hide-overflow");
         InfoTab();
     }
 
@@ -314,7 +316,6 @@ document.querySelector(".uni-tab").addEventListener("click", function ()
         document.querySelector(".unis").classList.add("active");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
-        document.querySelector(".online").classList.remove("hide-overflow");
 
         if (prevSelect)
         {
@@ -326,8 +327,6 @@ document.querySelector(".uni-tab").addEventListener("click", function ()
             {
                 prevUniCall[0] = _Country;
                 prevUniCall[1] = _Discip;
-
-                console.log(_Country + " " + _Discip);
 
                 GetAndDisplayUniversities(_Country, _Discip);
             }
@@ -355,7 +354,6 @@ document.querySelector(".online-tab").addEventListener("click", function ()
         document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
         document.querySelector(".online").classList.add("active");
-        document.querySelector(".online").classList.add("hide-overflow");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".unis").classList.remove("active");
 
@@ -363,11 +361,9 @@ document.querySelector(".online-tab").addEventListener("click", function ()
         {
             let _Discip = prevSelect.innerHTML;
 
-            if (!prevUniCall || prevUniCall[1] !== _Discip)
+            if (!prevOnCall || prevOnCall !== _Discip)
             {
-                prevUniCall[1] = _Discip;
-
-                console.log(_Discip);
+                prevOnCall = _Discip;
 
                 GetAndDisplayOnline(_Discip);
             }
@@ -614,6 +610,20 @@ function ParentClick()
                 }
             }
             break;
+
+        case "Online Resources":
+            if (prevSelect)
+            {
+                let _Discip = prevSelect.innerHTML;
+
+                if (!prevOnCall || prevOnCall !== _Discip)
+                {
+                    prevOnCall = _Discip;
+
+                    GetAndDisplayOnline(_Discip);
+                }
+            }
+            break;
     }
 
     GetParents_Parents(this);
@@ -702,6 +712,20 @@ function ChildClick()
                     console.log(_Country + " " + _Discip);
 
                     GetAndDisplayUniversities(_Country, _Discip);
+                }
+            }
+            break;
+
+        case "Online Resources":
+            if (prevSelect)
+            {
+                let _Discip = prevSelect.innerHTML;
+
+                if (!prevOnCall || prevOnCall !== _Discip)
+                {
+                    prevOnCall = _Discip;
+
+                    GetAndDisplayOnline(_Discip);
                 }
             }
             break;

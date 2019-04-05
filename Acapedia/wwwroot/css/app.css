@@ -833,10 +833,6 @@ li {
     color: #ddd;
 }
 
-.hide-overflow {
-    overflow: hidden;
-}
-
 .active-discip-heading {
     background-color: #35495e;
     box-shadow: 0 0 3px #35495e;
