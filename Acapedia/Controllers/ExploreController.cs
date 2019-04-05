@@ -35,27 +35,25 @@ namespace Acapedia.Controllers
             return Content(_ToClient.ToString());
         }
 
+        public IActionResult GetOnline ([FromBody] JArray _Data)
+        {
+            var _Unis =  _ExploreService.GetOnline(_Data);
+            JArray _ToClient = new JArray();
+
+            foreach (var _Uni in _Unis)
+            {
+                var _Juni = new JObject();
+                _Juni.Add("Link", _Uni.LinkUrl);
+                _Juni.Add("Title", _Uni.Title);
+                _Juni.Add("Description", _Uni.Description);
+
+                _ToClient.Add(_Juni);
+            }
+
+            return Content(_ToClient.ToString());
+        }
+
         public IActionResult Humanities ()
-        {
-            return View();
-        }
-
-        public IActionResult Formal_Sciences ()
-        {
-            return View();
-        }
-
-        public IActionResult Natural_Sciences ()
-        {
-            return View();
-        }
-
-        public IActionResult Social_Sciences ()
-        {
-            return View();
-        }
-
-        public IActionResult Professional_And_Applied_Sciences ()
         {
             return View();
         }

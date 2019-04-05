@@ -288,6 +288,7 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         document.querySelector(".unis").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
         document.querySelector(".online").classList.remove("hide-overflow");
+        InfoTab();
     }
 
     document.querySelector(".uni-tab").classList.remove("tab-select");
@@ -331,11 +332,6 @@ document.querySelector(".uni-tab").addEventListener("click", function ()
                 GetAndDisplayUniversities(_Country, _Discip);
             }
         }
-
-        else
-        {
-            console.log("Select a discipline from the left");
-        }
     }
 
     document.querySelector(".basic-info-tab").classList.remove("tab-select");
@@ -362,6 +358,20 @@ document.querySelector(".online-tab").addEventListener("click", function ()
         document.querySelector(".online").classList.add("hide-overflow");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".unis").classList.remove("active");
+
+        if (prevSelect)
+        {
+            let _Discip = prevSelect.innerHTML;
+
+            if (!prevUniCall || prevUniCall[1] !== _Discip)
+            {
+                prevUniCall[1] = _Discip;
+
+                console.log(_Discip);
+
+                GetAndDisplayOnline(_Discip);
+            }
+        }
     }
 
     document.querySelector(".basic-info-tab").classList.remove("tab-select");
@@ -392,28 +402,59 @@ document.getElementById("uni-country").addEventListener("change", function ()
     }
 });
 
-document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .formal-sciences, .prof-nd-app-sciences").forEach(
-    function (elmt)
+document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .formal-sciences, .prof-nd-app-sciences").forEach(function (elmt)
+{
+    elmt.addEventListener("click", function ()
     {
-        elmt.addEventListener("click", function ()
+        if (document.querySelector(".active-discip-heading"))
         {
-            if (document.querySelector(".active-discip-heading"))
-            {
-                document.querySelector(".active-discip-heading").classList.remove("active-discip-heading");
-            }
+            document.querySelector(".active-discip-heading").classList.remove("active-discip-heading");
+        }
 
 
-            this.classList.add("active-discip-heading");
+        this.classList.add("active-discip-heading");
 
-            if (document.querySelector(".active-discip-list"))
-            {
-                document.querySelector(".active-discip-list").classList.remove("active-discip-list");
-            }
+        if (document.querySelector(".active-discip-list"))
+        {
+            document.querySelector(".active-discip-list").classList.remove("active-discip-list");
+        }
 
-            document.querySelector("." + this.classList[0] + "-discips").classList.add("active-discip-list");
+        document.querySelector("." + this.classList[0] + "-discips").classList.add("active-discip-list");
 
-        });
     });
+});
+
+function GetAndDisplayOnline(_Discipline)
+{
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function ()
+    {
+        if (request.readyState == XMLHttpRequest.DONE)
+        {
+            if (request.status == 200)
+            {
+                DisplayLinksOnline(request.responseText);
+            }
+
+            else if (request.status == 400)
+            {
+                console.log("There was an error retrieving results!");
+            }
+
+            else 
+            {
+                console.log(request.status);
+            }
+        }
+    };
+
+    request.open("POST", "/Explore/GetOnline", true);
+
+    request.setRequestHeader("Content-Type", "application/json");
+
+    request.send(JSON.stringify([_Discipline]));
+}
 
 function GetAndDisplayUniversities(_Country, _Discipline)
 {
@@ -445,6 +486,52 @@ function GetAndDisplayUniversities(_Country, _Discipline)
     request.setRequestHeader("Content-Type", "application/json");
 
     request.send(JSON.stringify([_Country, _Discipline]));
+}
+
+function DisplayLinksOnline(_LinkInfo)
+{
+    let LinkInfo = JSON.parse(_LinkInfo);
+    let itr;
+    let _OnlineDiv = document.querySelector(".online");
+    let length = LinkInfo.length;
+
+    document.querySelectorAll(".online-found, .online-links, .online-titles, .online-descrips").forEach(
+        function (elmt) 
+        {
+            elmt.remove();
+        });
+
+    let found = document.createElement("p");
+    let text = document.createTextNode("Found " + length + " results for " + prevSelect.innerHTML + " courses Online");
+    found.appendChild(text);
+    found.classList.add("online-found");
+    _OnlineDiv.appendChild(found);
+
+    for (itr = 0; itr < length; itr++)
+    {
+        let anchor = document.createElement("a");
+        let node = document.createTextNode(LinkInfo[itr].Link);
+        anchor.appendChild(node);
+        anchor.setAttribute("href", LinkInfo[itr].Link);
+        anchor.setAttribute("target", "_blank");
+        anchor.classList.add("online-links");
+
+        let title = document.createElement("a");
+        node = document.createTextNode(LinkInfo[itr].Title);
+        title.appendChild(node);
+        title.setAttribute("href", LinkInfo[itr].Link);
+        title.setAttribute("target", "_blank");
+        title.classList.add("online-titles");
+
+        let description = document.createElement("p");
+        node = document.createTextNode(LinkInfo[itr].Description);
+        description.appendChild(node);
+        description.classList.add("online-descrips");
+
+        _OnlineDiv.appendChild(title);
+        _OnlineDiv.appendChild(anchor);
+        _OnlineDiv.appendChild(description);
+    }
 }
 
 function DisplayLinks(_LinkInfo, _Country)
@@ -507,6 +594,25 @@ function ParentClick()
     {
         case "Info":
             InfoTab();
+            break;
+
+        case "On-Campus Resources":
+            if (prevSelect)
+            {
+                let _CountrySelect = document.getElementById("uni-country");
+                let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
+                let _Discip = prevSelect.innerHTML;
+
+                if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
+                {
+                    prevUniCall[0] = _Country;
+                    prevUniCall[1] = _Discip;
+
+                    console.log(_Country + " " + _Discip);
+
+                    GetAndDisplayUniversities(_Country, _Discip);
+                }
+            }
             break;
     }
 
@@ -579,6 +685,25 @@ function ChildClick()
     {
         case "Info":
             InfoTab();
+            break;
+
+        case "On-Campus Resources":
+            if (prevSelect)
+            {
+                let _CountrySelect = document.getElementById("uni-country");
+                let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
+                let _Discip = prevSelect.innerHTML;
+
+                if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
+                {
+                    prevUniCall[0] = _Country;
+                    prevUniCall[1] = _Discip;
+
+                    console.log(_Country + " " + _Discip);
+
+                    GetAndDisplayUniversities(_Country, _Discip);
+                }
+            }
             break;
     }
 

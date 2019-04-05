@@ -41,5 +41,26 @@ namespace Acapedia.Service
                 return new List<WebsiteLink>();
             }
         }
+
+        public IEnumerable<WebsiteLink> GetOnline (JArray _ClientSelection)
+        {
+            var _Disciplines = _Context.Discipline.AsNoTracking().Select(discip => discip.DisciplineName);
+
+            var _Country = "Online";
+            var _Discipline = _ClientSelection[0].ToString();
+
+            if (_Disciplines.ToList().Contains(_Discipline))
+            {
+                string _DiscipId = _Context.Discipline.AsNoTracking().Where(dis => dis.DisciplineName == _Discipline).Select(dis => dis.DisciplineId).FirstOrDefault();
+                var _QueryResult = _Context.WebsiteLink.AsNoTracking().Where(sel => sel.LinkCountryName == _Country).Where(sel => sel.LinkDisciplineId == _DiscipId).Select(sel => sel);
+
+                return _QueryResult.ToList();
+            }
+
+            else
+            {
+                return new List<WebsiteLink>();
+            }
+        }
     }
 }

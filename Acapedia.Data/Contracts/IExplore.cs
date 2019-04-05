@@ -7,5 +7,6 @@ namespace Acapedia.Data.Contracts
     public interface IExplore
     {
         IEnumerable<WebsiteLink> GetUniversities (JArray _ClientSelection);
+        IEnumerable<WebsiteLink> GetOnline (JArray _ClientSelection);
     }
 }
