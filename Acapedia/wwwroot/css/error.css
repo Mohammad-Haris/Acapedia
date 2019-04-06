@@ -1,0 +1,104 @@
+﻿.wrapper {
+    grid-template-rows: auto;
+}
+
+.header {
+    display: none;
+}
+
+#error-info {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-color: rgb(53, 73, 94);
+    color: #00bfff;
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+#error-type {
+    position: relative;
+    display: inline;
+    
+}
+
+.typed-cursor {
+    padding-left: 7px;
+}
+
+#error-code {
+    color: #00bfff;
+    margin: 10% 0 10px 30px;
+}
+
+    #error-code i {
+        color: #74ff14;
+    }
+
+#error-url {
+    color: #00bfff;
+    margin: 20px 0 10px 30px;
+}
+
+    #error-url i {
+        color: #74ff14;
+    }
+
+#error-descrip {
+    color: #00bfff;
+    margin: 20px 0 10px 30px;
+}
+
+    #error-descrip i {
+        color: #74ff14;
+    }
+
+#error-cause {
+    color: #00bfff;
+    margin: 20px 0 10px 30px;
+}
+
+    #error-cause i {
+        color: #74ff14;
+    }
+
+#some-pages {
+    color: #00bfff;
+    margin: 40px 0 10px 30px;
+}
+
+    #some-pages a {
+        color: #f0c674;
+    }
+
+#error-request {
+    color: #00bfff;
+    margin: 10px 0 10px 30px;
+}
+
+    #error-request a {
+        color: #f0c674;
+    }
+
+#error-support {
+    color: #00bfff;
+    margin: 10px 0 10px 30px;
+}
+
+    #error-support a {
+        color: #f0c674;
+    }
+
+#error-end {
+    color: #00bfff;
+    margin: 30px 0 10px 30px;
+    display: inline-block;
+}
+
+.footer {
+    display: none;
+}

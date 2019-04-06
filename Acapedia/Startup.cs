@@ -75,7 +75,7 @@ namespace Acapedia
                     options.LoginPath = $"/account/login";
                     options.LogoutPath = $"/account/logout";
                 });
-            
+
             services.AddScoped<IExplore, ExploreService>();
         }
 
