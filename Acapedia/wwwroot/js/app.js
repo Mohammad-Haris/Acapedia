@@ -121,9 +121,16 @@ function AddEventParent()
 }
 
 function GetParents_Parents(selection)
-{
+{    
     let map = [];
     map.push(selection.innerHTML);
+    
+    if (map[0] === "Archeology")
+    {
+        document.getElementById("road-map-text").innerHTML = "Social Sciences --> Archeology";
+        return;
+    }
+
     let parent = document.querySelector(".active-discip-list");
     let topli = parent.querySelector("ul").children;
     let top = [];
@@ -212,58 +219,11 @@ function GetParents_Child(selection)
 
 }
 
-if (document.getElementById("u-top-level"))
-{
-    document.getElementById("u-top-level").addEventListener("click", function ()
-    {
-        if (prevSelect != null)
-        {
-            prevSelect.classList.remove("current-selection");
-        }
-
-        this.classList.add("current-selection");
-        prevSelect = this;
-        document.getElementById("info-heading-p").innerHTML = this.innerHTML;
-
-        var request = new XMLHttpRequest();
-
-        request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + this.innerHTML, true);
-
-        request.onload = function ()
-        {
-            let data = JSON.parse(this.response);
-
-            if (request.status >= 200 && request.status < 400)
-            {
-                document.getElementById("info-detail-p").innerHTML = data.extract_html;
-
-                if (typeof data.thumbnail == "undefined")
-                {
-                    document.getElementById("info-detail-image").src = "";
-                }
-
-                else
-                {
-                    document.getElementById("info-detail-image").src = data.thumbnail.source;
-                }
-            }
-            else
-            {
-                document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
-                document.getElementById("info-detail-image").src = "";
-            }
-        }
-
-        request.send();
-
-        document.getElementById("road-map-text").innerHTML = "Archeology";
-    });
-}
+document.getElementById("u-top-level").addEventListener("click", ParentClick);
 
 if (document.getElementById("signed-in-user"))
 {
-    document.getElementById("signed-in-user").addEventListener("click",
-        function ()
+    document.getElementById("signed-in-user").addEventListener("click", function ()
         {
             document.querySelector(".profile-menu-wrapper").classList.toggle("profile-dropdown-active");
         });

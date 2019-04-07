@@ -13,7 +13,7 @@
     grid-column-start: 1;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 110px 20px 40px 20px auto;
+    grid-template-rows: 110px 20px 40px 5px auto;
     border-top: 1px double rgba(53, 73, 94, 0.85);
 }
 
