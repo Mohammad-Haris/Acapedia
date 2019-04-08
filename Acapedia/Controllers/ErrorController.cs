@@ -1,5 +1,4 @@
 ﻿using Acapedia.Data.ViewModels.ErrorViewModels;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acapedia.Controllers
@@ -8,12 +7,26 @@ namespace Acapedia.Controllers
     {
         public IActionResult Index ()
         {
-            var ErrorInfo = new ErrorViewModel();
+            string _Path = HttpContext.Request.Path.ToString().ToLower();
 
-            ErrorInfo.StatusCode = HttpContext.Response.StatusCode.ToString();
-            ErrorInfo.Description = Microsoft.AspNetCore.WebUtilities.ReasonPhrases.GetReasonPhrase(HttpContext.Response.StatusCode);            
+            if (_Path == "/error/index" || _Path == "/error" || _Path == "/error/" || _Path == "/error/index/")
+            {
+                return View(new ErrorViewModel
+                {
+                    StatusCode = "404",
+                    Description = "Not Found"
+                });
+            }
 
-            return View(ErrorInfo);
+            else
+            {
+                var ErrorInfo = new ErrorViewModel();
+
+                ErrorInfo.StatusCode = HttpContext.Response.StatusCode.ToString();
+                ErrorInfo.Description = Microsoft.AspNetCore.WebUtilities.ReasonPhrases.GetReasonPhrase(HttpContext.Response.StatusCode);
+
+                return View(ErrorInfo);
+            }
         }
     }
 }

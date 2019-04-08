@@ -9,42 +9,36 @@
 @model LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<h2>Log In</h2>
+@section Styles{
+    <link href="~/css/login.css" rel="stylesheet" type="text/css">
+}
+
 <div>
-    <div>
-        <section>
-            <h4>Select a service to log in: </h4>
-            <hr />
+    <div id="login-cover-div">
+        <section id="login-text">
+            <p>Select a service to log in: </p>
             @{
                 var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-                if (loginProviders.Count == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured.
-                        </p>
-                    </div>
-                }
+                var _ButtonIdText = "-signin-button";
+                string _ButtonId;
 
-                else
-                {
-                    <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-                        <div>
-                            <p>
-                                @foreach (var provider in loginProviders)
-                                {
-                                    <input type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" />                                        
-                                }
-                            </p>
+                <form asp-controller="Account" asp-action="ExternalLogin" method="post">
+                    @foreach (var provider in loginProviders)
+                    {
+                        _ButtonId = @provider.Name.ToString().ToLower() + _ButtonIdText;
+                        <div id="@_ButtonId">
+                            <span></span>
+                            <input type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account" />
                         </div>
-                    </form>
-                }
+                    }
+                </form>
             }
         </section>
+        <p class="extra-login-info">- For now, log in is experimental and doesn't serve much of a purpose.</p>
+        <p class="extra-login-info">- More providers and useable functionality coming soon.</p>
     </div>
 </div>
-
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}
