@@ -221,14 +221,6 @@ function GetParents_Child(selection)
 
 document.getElementById("u-top-level").addEventListener("click", ParentClick);
 
-if (document.getElementById("signed-in-user"))
-{
-    document.getElementById("signed-in-user").addEventListener("click", function ()
-        {
-            document.querySelector(".profile-menu-wrapper").classList.toggle("profile-dropdown-active");
-        });
-}
-
 function _SelectTab(selected) 
 {
     selected.classList.add("tab-select");

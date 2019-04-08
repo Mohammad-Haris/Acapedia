@@ -91,6 +91,7 @@ a {
     grid-column-start: 7;
     position: relative;
     overflow: visible;
+    z-index: 1;
 }
 
 .profile-menu-wrapper {

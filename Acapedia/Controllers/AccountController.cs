@@ -28,7 +28,7 @@ namespace Acapedia.Controllers
             ILogger<AccountController> logger)
         {
             _userManager = userManager;
-            _signInManager = signInManager;            
+            _signInManager = signInManager;
             _logger = logger;
         }
 
@@ -85,11 +85,11 @@ namespace Acapedia.Controllers
             }
 
             // Sign in the user with this external login provider if the user already has a login.
-            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: true, bypassTwoFactor: true);
             if (result.Succeeded)
             {
                 _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
-                returnUrl = "/Home/Redirect";
+                returnUrl = "/Account/Redirect";
                 return RedirectToLocal(returnUrl);
             }
             else
@@ -127,7 +127,7 @@ namespace Acapedia.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
-                        returnUrl = "/Home/Redirect";
+                        returnUrl = "/Account/Redirect";
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -137,10 +137,10 @@ namespace Acapedia.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View(nameof(ExternalLogin), model);
         }
-
-        public IActionResult Index ()
+        
+        public IActionResult Redirect ()
         {
-            return View ();
+            return View();
         }
 
         #region Helpers
