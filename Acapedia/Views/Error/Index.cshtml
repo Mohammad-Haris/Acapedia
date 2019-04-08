@@ -8,8 +8,12 @@
 }
 
 <div id="error-info">
-    <div id="error-type"></div>    
+    <div id="error-type">        
+    </div>
 </div>
+
+<input type="hidden" id="error-status-code" value="@Model.StatusCode">
+<input type="hidden" id="error-description" value="@Model.Description">
 
 <script src="~/js/typed.js"></script>
 <script src="~/js/error.js"></script>

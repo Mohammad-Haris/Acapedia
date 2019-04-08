@@ -15,12 +15,12 @@ namespace Acapedia.Extensions
     {
         public static string GetAvatar (this UserManager<ApplicationUser> manager, ClaimsPrincipal principal, AcapediaDbContext context)
         {            
-            return context.ApplicationUser.Where(user => user.Id == manager.GetUserId(principal)).Select(user => user.Avatar).SingleOrDefault();
+            return context.ApplicationUser.AsNoTracking().Where(user => user.Id == manager.GetUserId(principal)).Select(user => user.Avatar).SingleOrDefault();
         }
 
         public static string GetEmail (this UserManager<ApplicationUser> manager, ClaimsPrincipal principal, AcapediaDbContext context)
         {            
-            return context.ApplicationUser.Where(user => user.Id == manager.GetUserId(principal)).Select(user => user.Email).SingleOrDefault();
+            return context.ApplicationUser.AsNoTracking().Where(user => user.Id == manager.GetUserId(principal)).Select(user => user.Email).SingleOrDefault();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acapedia.Controllers
@@ -15,11 +16,6 @@ namespace Acapedia.Controllers
         }
 
         public IActionResult Redirect ()
-        {
-            return View();
-        }
-
-        public IActionResult Error ()
         {
             return View();
         }
