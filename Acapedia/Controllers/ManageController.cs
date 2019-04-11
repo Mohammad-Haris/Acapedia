@@ -5,7 +5,6 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Acapedia.Data.Contracts;
 using Acapedia.Data.Models;
-using Acapedia.Data.ViewModels.ManageViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,16 +17,13 @@ namespace Acapedia.Controllers
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
 
         public ManageController (
           UserManager<ApplicationUser> userManager,
-          SignInManager<ApplicationUser> signInManager,
           ILogger<ManageController> logger)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _logger = logger;
         }
         
@@ -35,19 +31,14 @@ namespace Acapedia.Controllers
         public async Task<IActionResult> Index ()
         {
             var user = await _userManager.GetUserAsync(User);
+
             if (user == null)
             {
                 _logger.LogError($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return View("/Home/Index");
             }
 
-            var model = new IndexViewModel
-            {
-                Username = user.UserName,
-                Email = user.Email
-            };
-
-            return View(model);
+            return View();
         }
 
         #region Helpers
