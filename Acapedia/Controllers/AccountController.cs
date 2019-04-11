@@ -65,7 +65,7 @@ namespace Acapedia.Controllers
         {
             if (remoteError != null)
             {
-                _logger.LogInformation("External login 'remoteerror' while calling ExternalLoginCallback");
+                _logger.LogInformation("External login 'remoteError' while calling ExternalLoginCallback");
                 return RedirectToLocal(_Redirect);
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();

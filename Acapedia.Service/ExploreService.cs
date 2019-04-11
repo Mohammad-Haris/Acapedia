@@ -1,13 +1,10 @@
-﻿using System.Linq;
-using Acapedia.Data.Contracts;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Acapedia.Data;
+using Acapedia.Data.Contracts;
 using Acapedia.Data.Models;
-using System.Collections.Generic;
-using System;
-using Newtonsoft.Json.Linq;
-using Acapedia.Data.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Acapedia.Service
 {
