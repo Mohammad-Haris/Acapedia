@@ -1,5 +1,4 @@
 @using Microsoft.AspNetCore.Identity
-@using Acapedia.Extensions;
 @using Acapedia.Data;
 @using Acapedia.Data.Models
 
@@ -9,37 +8,39 @@
 @inject AcapediaDbContext AcaContext
 @*There is a variable named Context from razor pages available here so I have named this one as AcaContext otherwise it hides that Context. Find out what is present
     in that context. It is a httpcontext, BTW*@
-
-@if (await UserManager.GetUserAsync(User) != null)
-{
-    if (SignInManager.IsSignedIn(User))
+@{
+    var _User = await UserManager.GetUserAsync(User);
+    if (_User != null)
     {
-        string avatar = UserManager.GetAvatar(User, AcaContext);
+        if (SignInManager.IsSignedIn(User))
+        {
+            string avatar = _User.Avatar;
 
-        <div id="profile-manage">
-            <img id="signed-in-user" src="@avatar" />
-            <div class="profile-menu-wrapper">
-                <div id="profile-manage-dropdown">
-                    <img id="signed-in-user-large" src="@avatar" />
-                    <div id="signed-in-user-info">
-                        <strong>
-                            @UserManager.GetUserName(User).Replace("_", " ")
-                        </strong>
-                        <p>
-                            @UserManager.GetEmail(User, AcaContext).Replace("@", "\n@")
-                        </p>
-                        <a href="#">Acapedia Profile</a>
-                        <form asp-controller="Account" asp-action="Logout" method="post">
-                            <button type="submit">Log Out</button>
-                        </form>
+            <div id="profile-manage">
+                <img id="signed-in-user" src="@avatar" />
+                <div class="profile-menu-wrapper">
+                    <div id="profile-manage-dropdown">
+                        <img id="signed-in-user-large" src="@avatar" />
+                        <div id="signed-in-user-info">
+                            <strong>
+                                @_User.UserName.Replace("_", " ")
+                            </strong>
+                            <p>
+                                @_User.Email.Replace("@", "\n@")
+                            </p>
+                            <a href="#">Acapedia Profile</a>
+                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                <button type="submit">Log Out</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     }
-}
 
-else
-{
-    <a href="/Account/Login" id="login-user-info">Log In</a>
+    else
+    {
+        <a href="/Account/Login" id="login-user-info">Log In</a>
+    }
 }

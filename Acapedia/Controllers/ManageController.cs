@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Acapedia.Data.Contracts;
 using Acapedia.Data.Models;
 using Acapedia.Data.ViewModels.ManageViewModels;
-using Acapedia.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +15,6 @@ using Microsoft.Extensions.Logging;
 namespace Acapedia.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -32,7 +30,7 @@ namespace Acapedia.Controllers
             _signInManager = signInManager;
             _logger = logger;
         }
-
+        
         [HttpGet]
         public async Task<IActionResult> Index ()
         {

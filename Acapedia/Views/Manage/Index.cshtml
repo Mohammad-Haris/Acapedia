@@ -1,26 +1,27 @@
 ﻿@using Acapedia.Data.ViewModels.ManageViewModels
 
 @model IndexViewModel
+
 @{
-    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-6">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username"></label>
-                <input asp-for="Username" class="form-control" disabled />
-            </div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
+@section Styles {
+    <link href="~/css/manage.css" rel="stylesheet" type="text/css" />
+}
 
-                <div class="input-group">
-                    <input asp-for="Email" class="form-control" disabled />
-                    <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
-                </div>
-
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+<div id="manage-div">
+    <div id="manage-profile-info">        
+        <img id="manage-avatar"/>
+        <strong id="manage-username"></strong>
+        <p id="manage-email"></p>
+    </div>
+    <div id="manage-contributions">
+        <p id="manage-contributions-heading">Posts and Recommendations</p>
+        <p id="manage-contributions-text">Coming Soon!</p>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/manage.js"></script>
+}
