@@ -53,7 +53,6 @@ namespace Acapedia.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ExternalLogin (string provider)
         {
-            // Request a redirect to the external login provider.
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account");
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return Challenge(properties, provider);
@@ -65,7 +64,7 @@ namespace Acapedia.Controllers
         {
             if (remoteError != null)
             {
-                _logger.LogInformation("External login 'remoteError' while calling ExternalLoginCallback");
+                _logger.LogInformation("External login 'remoteError'");
                 return RedirectToLocal(_Redirect);
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();
@@ -88,18 +87,18 @@ namespace Acapedia.Controllers
             else
             {
                 // If the user does not have an account, then create an account.
-                
-                return await ExternalLoginPersist(new ExternalLoginViewModel 
-                { 
-                    Email = info.Principal.FindFirstValue(ClaimTypes.Email), 
+
+                return await ExternalLoginPersist(new ExternalLoginViewModel
+                {
+                    Email = info.Principal.FindFirstValue(ClaimTypes.Email),
                     Avatar = info.Principal.FindFirstValue(ClaimTypes.Uri),
-                    UserName = info.Principal.FindFirstValue(ClaimTypes.Name) 
+                    UserName = info.Principal.FindFirstValue(ClaimTypes.Name)
                 },
                 info);
             }
         }
 
-        // how is the anti forgery token being validated without post?
+        // How is the anti forgery token being validated without post?
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ExternalLoginPersist (ExternalLoginViewModel model, ExternalLoginInfo info)
