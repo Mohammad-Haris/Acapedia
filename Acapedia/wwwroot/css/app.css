@@ -306,6 +306,50 @@
     display: none;
 }
 
+@keyframes glitch-text {
+    0% {
+        transform: translate3d(calc(-1 * 10px), 0, 0) scale3d(-1, -1, 1);
+        clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    }
+
+    2% {
+        clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    }
+
+    4% {
+        clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    }
+
+    5% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+
+    6% {
+        clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    }
+
+    7% {
+        clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+
+    8% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    }
+
+    9% {
+        clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    }
+
+    9.9% {
+        transform: translate3d(calc(-1 * 10px), 0, 0) scale3d(-1, -1, 1);
+    }
+
+    10%, 100% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
 @keyframes FadeIn {
     0% {
         -webkit-transform: scaleY(0);
@@ -343,8 +387,7 @@ ul {
     list-style-type: none;
     padding: 15px 10px 15px 5px;
     margin: 0;
-    animation: FadeIn 0.4s ease-out;
-    animation-fill-mode: both;
+    animation: FadeIn 0.3s ease-in;
 }
 
     ul .children {
@@ -548,12 +591,13 @@ li {
     overflow: auto;
 }
 
-#info {
+.info {
     display: grid;
     grid-template-rows: 40px auto;
     grid-template-columns: 100%;
     color: #ddd;
     background-color: rgb(53, 73, 94);
+    animation: glitch-text 4s ease-in;
 }
 
 #info-heading {
@@ -617,10 +661,10 @@ li {
     text-align: right;
     font-size: 14px;
     overflow: auto;
+    animation: glitch-text 4s ease-in;
 }
 
 #uni-country {
-    background-color: #4F6170;
     height: 27px;
     width: 200px;
     text-align: center;
@@ -630,6 +674,7 @@ li {
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 1px;
+    background: url('../icons/country-arrow-down.png') 95% no-repeat #4F6170;
 }
 
 .unis-found {
@@ -677,6 +722,7 @@ li {
     height: 100%;
     color: #ddd;
     overflow: auto;
+    animation: glitch-text 4s ease-in;
 }
 
 .online-found {
@@ -795,12 +841,6 @@ li {
         content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACN1BMVEUAAABEREBEREBEREBERECPj4YHBwcBAQEBAQEBAQEBAQEBAQFEREBEREBISEMmJiQJCQgICAcCAgIBAQEBAQFXV1KEhHyLi4OLi4KLi4KLi4KNjYVnZ2FFRUBEREBKSkZ+fncDAwMBAQECAgIBAQEODg0ICAcHBwcHBwcHBwcHBwcKCgo6OjZKSkZiYlwDAwMBAQEDAwMGBgUBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQECAgIZGReAgHkDAwMBAQEDAwP///8JCQgBAQEBAQEEBAQICAcHBwcKCgpISEQDAwMBAQFiYl1NTUgmJiQICAcBAQEICAeLi4KKioKcnJN5eXMDAwMBAQEDAwNeXllJSUVEREBISEOJiYEBAQEHBweKioJEREBEREBJSUVhYVwDAwMBAQEDAwNGRkIYGBc5OTZFRUFEREBEREABAQEHBweKioJJSUVhYVwDAwMBAQEDAwP///8KCgoCAgIKCgpnZ2EBAQGKioJGRkJEREADAwMBAQFiYl2iopkHBwcBAQEHBweLi4IBAQGvr6UGBgYBAQEDAwNiYl1JSUWKioIHBwcHBweLi4IBAQGKioJWVlEODg4GBgUvLy1JSUWLi4JEREBEREBMTEdsbGdHR0KLi4IICAcICAcBAQEHBweLi4IBAQEEBAQICAcHBwcHBwcICAcEBAQBAQEICAeEhHxEREBEREABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQERERBWVlFEREAAAADp4WrCAAAAvHRSTlMAAwMDAwIfwd7c+PkEBAQHHiJy5fgDAgICAgICAwQEAwFSyHPcDiMkJCQlGgUEAlTMUiLcqsfCwsLCxZAKAVTMVAAeweBBIiUaA1TMAgMHH9wiAgICAVTMVAIEBAQC3CQCBAQEAlTMVAMLBQQEA9wkAgQCVMxUARqQGgPcAgQEVMwCAiTCJALcASzBVAIEAiQkAtwCAxIsBAQCAwQDAgQCIiLCJALgQSIkJCJCxiICBAPB4dzd3d3jqg4DA6aEgM8AAAABYktHRACIBR1IAAAAB3RJTUUH4wQEDyUxlJdl+wAAAQ9JREFUGNNjYGRiZmFhBkJWNnYOTi5uBiYeXgjg4xcQFBIWYRAVE5eQlJKWkZWTV1BUUlZhUFVT19DU0NLW0dXTNzA0MmYwMTUzt7C0sraxtbN3cHRyZnBxdQOqcPfw9PJ28PH182cICGQIkgwOCQ0Lj4iMio6JZYiLT0hMSk5JTUvPyMzKzsllyMsvSCosKi4pLSuvqKwCClTH19TW1TeUNjY1t7S2AQXa4ws6Oru6e3r7+s0nTAQKTIqfPGXqtOkzkiZOMO+fmTMLZOjsOXPnJSXOn2ChOR+oImABg6SUZJCEJMPCRYuXAAWWLlu+YiUQrli1es3ades3MGzctHnL1m1btm3ZvH3Hzl0bdgMAl6BaReYinEYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDQtMDRUMTU6Mzc6NDktMDQ6MDBavEwUAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA0LTA0VDE1OjM3OjQ5LTA0OjAwK+H0qAAAAABJRU5ErkJggg==');
         margin-left: 10px;
     }
-
-.arrow {
-}
-
-.arrow-inner {
-}
 
 .footer {
     display: none;
