@@ -242,7 +242,7 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         document.querySelector(".info-tab-content").classList.add("active");
         document.querySelector(".unis").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
-        InfoTab();
+        InfoTab(true);
     }
 
     document.querySelector(".uni-tab").classList.remove("tab-select");
@@ -542,18 +542,19 @@ function DisplayLinks(_LinkInfo, _Country)
 
 function ParentClick()
 {
-    if (prevSelect != null)
+    if (prevSelect)
     {
         prevSelect.classList.remove("current-selection");
     }
 
     this.classList.add("current-selection");
+    let _Changed = prevSelect !== this;
     prevSelect = this;
 
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
     {
         case "Info":
-            InfoTab();
+            InfoTab(_Changed);
             break;
 
         case "On-Campus Resources":
@@ -591,60 +592,63 @@ function ParentClick()
     GetParents_Parents(this);
 }
 
-function InfoTab()
+function InfoTab(_IsChanged)
 {   
-    document.querySelector(".info-tab-content").classList.remove("active");
-    document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
-    var request = new XMLHttpRequest();
-
-    request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
-
-    request.onload = function ()
+    if (_IsChanged)
     {
-        let data = JSON.parse(this.response);
+        document.querySelector(".info-tab-content").classList.remove("active");
+        document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
+        var request = new XMLHttpRequest();
 
-        if (request.status >= 200 && request.status < 400)
+        request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
+
+        request.onload = function ()
         {
-            document.getElementById("info-detail-p").innerHTML = data.extract_html;
+            let data = JSON.parse(this.response);
 
-            if (document.querySelector(".wiki-page-link"))
+            if (request.status >= 200 && request.status < 400)
             {
-                document.querySelector(".wiki-page-link").remove();
+                document.getElementById("info-detail-p").innerHTML = data.extract_html;
+
+                if (document.querySelector(".wiki-page-link"))
+                {
+                    document.querySelector(".wiki-page-link").remove();
+                }
+
+                let elm = document.createElement("a");
+                let node = document.createTextNode("View complete page on Wikipedia.org");
+                elm.appendChild(node);
+                elm.setAttribute("href", data.content_urls.desktop.page);
+                elm.setAttribute("target", "_blank");
+                elm.classList.add("wiki-page-link");
+                document.getElementById("info-detail").appendChild(elm);
+
+                if (typeof data.thumbnail === "undefined")
+                {
+                    document.getElementById("info-detail-image").src = "";
+                }
+
+                else
+                {
+                    document.getElementById("info-detail-image").src = data.thumbnail.source;
+                }
+
             }
-
-            let elm = document.createElement("a");
-            let node = document.createTextNode("View complete page on Wikipedia.org");
-            elm.appendChild(node);
-            elm.setAttribute("href", data.content_urls.desktop.page);
-            elm.setAttribute("target", "_blank");
-            elm.classList.add("wiki-page-link");
-            document.getElementById("info-detail").appendChild(elm);
-
-            if (typeof data.thumbnail === "undefined")
+            else
             {
+                if (document.querySelector(".wiki-page-link"))
+                {
+                    document.querySelector(".wiki-page-link").remove();
+                }
+                document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
                 document.getElementById("info-detail-image").src = "";
             }
 
-            else
-            {
-                document.getElementById("info-detail-image").src = data.thumbnail.source;
-            }
-
-        }
-        else
-        {
-            if (document.querySelector(".wiki-page-link"))
-            {
-                document.querySelector(".wiki-page-link").remove();
-            }
-            document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
-            document.getElementById("info-detail-image").src = "";
+            document.querySelector(".info-tab-content").classList.add("active");
         }
 
-        document.querySelector(".info-tab-content").classList.add("active");
+        request.send();
     }
-
-    request.send();
 }
 
 function ChildClick() 
@@ -655,12 +659,13 @@ function ChildClick()
     }
 
     this.classList.add("current-selection");
+    let _Changed = prevSelect !== this;
     prevSelect = this;
 
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
     {
         case "Info":
-            InfoTab();
+            InfoTab(_Changed);
             break;
 
         case "On-Campus Resources":
@@ -705,7 +710,7 @@ function Init()
     let select = document.querySelector(".humanities-discips").querySelector(".is-parent");
     select.classList.add("current-selection");
     prevSelect = select;
-    InfoTab();
+    InfoTab(true);
     GetParents_Parents(prevSelect);
 }
 

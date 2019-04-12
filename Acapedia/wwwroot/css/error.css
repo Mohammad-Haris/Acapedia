@@ -6,6 +6,12 @@
     display: none;
 }
 
+
+
+a {
+    color: #f0c674;
+}
+
 #error-info {
     position: absolute;
     top: 5%;
@@ -76,27 +82,15 @@
     margin: 40px 0 10px 30px;
 }
 
-    #some-pages a {
-        color: #f0c674;
-    }
-
 #error-request {
     color: #00bfff;
     margin: 10px 0 10px 30px;
 }
 
-    #error-request a {
-        color: #f0c674;
-    }
-
 #error-support {
     color: #00bfff;
     margin: 10px 0 10px 30px;
 }
-
-    #error-support a {
-        color: #f0c674;
-    }
 
 #error-end {
     color: #00bfff;

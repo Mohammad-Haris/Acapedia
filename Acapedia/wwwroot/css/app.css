@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 110px 20px 40px 5px auto;
-    border-top: 1px double rgba(53, 73, 94, 0.85);
+    border-top: 1px double var(--faded-out-blue);
 }
 
 #h-title {
@@ -46,7 +46,7 @@
 }
 
 .humanities {
-    letter-spacing: 0.1325rem;
+    letter-spacing: var(--letter-space);
     overflow: hidden;
     position: relative;
     transition: background 1s;
@@ -55,22 +55,22 @@
 }
 
     .humanities p {
-        color: #35495e;
+        color: var(--main-blue-color);
         text-decoration: none;
     }
 
     .humanities:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 5px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 5px var(--main-blue-color);
         transition: background 0s;
     }
 
         .humanities:hover p {
-            color: #ddd;
+            color: var(--dimmed-white);
         }
 
 .social-sciences {
-    letter-spacing: 0.1325rem;
+    letter-spacing: var(--letter-space);
     overflow: hidden;
     position: relative;
     transition: background 1s;
@@ -78,18 +78,18 @@
 }
 
     .social-sciences p {
-        color: #35495e;
+        color: var(--main-blue-color);
         text-decoration: none;
     }
 
     .social-sciences:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 5px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 5px var(--main-blue-color);
         transition: background 0s;
     }
 
         .social-sciences:hover p {
-            color: #ddd;
+            color: var(--dimmed-white);
         }
 
 #nnf {
@@ -105,7 +105,7 @@
 }
 
 .natural-sciences {
-    letter-spacing: 0.1325rem;
+    letter-spacing: var(--letter-space);
     overflow: hidden;
     position: relative;
     transition: background 1s;
@@ -113,22 +113,22 @@
 }
 
     .natural-sciences p {
-        color: #35495e;
+        color: var(--main-blue-color);
         text-decoration: none;
     }
 
     .natural-sciences:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 5px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 5px var(--main-blue-color);
         transition: background 0s;
     }
 
         .natural-sciences:hover p {
-            color: #ddd;
+            color: var(--dimmed-white);
         }
 
 .formal-sciences {
-    letter-spacing: 0.1325rem;
+    letter-spacing: var(--letter-space);
     overflow: hidden;
     position: relative;
     transition: background 1s;
@@ -136,18 +136,18 @@
 }
 
     .formal-sciences p {
-        color: #35495e;
+        color: var(--main-blue-color);
         text-decoration: none;
     }
 
     .formal-sciences:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 5px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 5px var(--main-blue-color);
         transition: background 0s;
     }
 
         .formal-sciences:hover p {
-            color: #ddd;
+            color: var(--dimmed-white);
         }
 
 #pna {
@@ -163,7 +163,7 @@
     height: 100%;
     width: 100%;
     position: relative;
-    letter-spacing: 0.1325rem;
+    letter-spacing: var(--letter-space);
     overflow: hidden;
     transition: background 1s;
     user-select: none;
@@ -174,18 +174,18 @@
         position: absolute;
         top: 10px;
         left: calc(20% - 4.5px);
-        color: #35495e;
+        color: var(--main-blue-color);
         text-decoration: none;
     }
 
     .prof-nd-app-sciences:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 5px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 5px var(--main-blue-color);
         transition: background 0s;
     }
 
         .prof-nd-app-sciences:hover p {
-            color: #ddd;
+            color: var(--dimmed-white);
         }
 
 #ec-buttons {
@@ -208,21 +208,21 @@
     position: relative;
     user-select: none;
     border-radius: 1px;
-    background-color: rgba(53, 73, 94, 0.85);
+    background-color: var(--faded-out-blue);
 }
 
     #expand-button p {
-        color: #ddd;
+        color: var(--dimmed-white);
         margin: 10px 10px 10px 13px;
     }
 
     #expand-button:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 2px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 2px var(--main-blue-color);
     }
 
         #expand-button:hover p {
-            color: #ccc;
+            color: var(--dimmed-white);
         }
 
 #collapse-button {
@@ -237,21 +237,21 @@
     position: relative;
     user-select: none;
     border-radius: 1px;
-    background-color: rgba(53, 73, 94, 0.85);
+    background-color: var(--faded-out-blue);
 }
 
     #collapse-button p {
-        color: #ddd;
+        color: var(--dimmed-white);
         margin: 10px 10px 10px 13px;
     }
 
     #collapse-button:hover {
-        background-color: #35495e;
-        box-shadow: 0 0 2px #35495e;
+        background-color: var(--main-blue-color);
+        box-shadow: 0 0 2px var(--main-blue-color);
     }
 
         #collapse-button:hover p {
-            color: #ccc;
+            color: var(--dimmed-white);
         }
 
 #discip-list {
@@ -288,9 +288,9 @@
     }
 
     #u-top-level:hover {
-        background-color: rgba(53, 73, 94, 0.85);
-        color: #ddd;
-        box-shadow: 0 0 1px #35495e;
+        background-color: var(--faded-out-blue);
+        color: var(--dimmed-white);
+        box-shadow: 0 0 1px var(--main-blue-color);
         border-radius: 1px;
     }
 
@@ -306,47 +306,33 @@
     display: none;
 }
 
-@keyframes glitch-text {
+@-webkit-keyframes tracking-in-expand {
     0% {
-        transform: translate3d(calc(-1 * 10px), 0, 0) scale3d(-1, -1, 1);
-        clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+        letter-spacing: -0.5em;
+        opacity: 0;
     }
 
-    2% {
-        clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    40% {
+        opacity: 0.6;
     }
 
-    4% {
-        clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
     }
 
-    5% {
-        clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    40% {
+        opacity: 0.6;
     }
 
-    6% {
-        clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
-    }
-
-    7% {
-        clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
-    }
-
-    8% {
-        clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
-    }
-
-    9% {
-        clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
-    }
-
-    9.9% {
-        transform: translate3d(calc(-1 * 10px), 0, 0) scale3d(-1, -1, 1);
-    }
-
-    10%, 100% {
-        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    100% {
+        opacity: 1;
     }
 }
 
@@ -367,6 +353,38 @@
 }
 
 @keyframes FadeOut {
+    0% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+}
+
+@-webkit-keyframes FadeIn {
+    0% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+}
+
+@-webkit-keyframes FadeOut {
     0% {
         -webkit-transform: scaleY(1);
         transform: scaleY(1);
@@ -418,9 +436,9 @@ li {
         }
 
         li .no-child:hover {
-            background-color: rgba(53, 73, 94, 0.85);
-            color: #ddd;
-            box-shadow: 0 0 1px #35495e;
+            background-color: var(--faded-out-blue);
+            color: var(--dimmed-white);
+            box-shadow: 0 0 1px var(--main-blue-color);
             border-radius: 1px;
         }
 
@@ -445,9 +463,9 @@ li {
     }
 
     .is-parent:hover {
-        background-color: rgba(53, 73, 94, 0.85);
-        color: #ddd;
-        box-shadow: 0 0 1px #35495e;
+        background-color: var(--faded-out-blue);
+        color: var(--dimmed-white);
+        box-shadow: 0 0 1px var(--main-blue-color);
         border-radius: 1px;
     }
 
@@ -467,7 +485,7 @@ li {
     border-radius: 14px;
     padding: 1px 0 0 4px;
     cursor: pointer;
-    background-color: rgba(107, 142, 35, 0.50);
+    background-color: var(--button-color);
 }
 
 #tabs-nd-content {
@@ -475,7 +493,7 @@ li {
     display: grid;
     grid-template-rows: 67px auto;
     grid-template-columns: 100%;
-    background-color: rgb(53, 73, 94);
+    background-color: var(--main-blue-color);
 }
 
 #tabs-top {
@@ -484,8 +502,8 @@ li {
     grid-template-columns: 33.33% 33.33% 33.33%;
     grid-template-rows: auto;
     text-align: center;
-    background-color: #4F6170;
-    color: #ddd;
+    background-color: var(--faded-out-blue);
+    color: var(--dimmed-white);
     box-sizing: border-box;
     height: 100%;
     cursor: default;
@@ -509,7 +527,7 @@ li {
 }
 
     .basic-info-tab:hover {
-        background-color: rgb(53, 73, 94);
+        background-color: var(--main-blue-color);
     }
 
     .basic-info-tab p {
@@ -537,7 +555,7 @@ li {
 }
 
     .uni-tab:hover {
-        background-color: rgb(53, 73, 94);
+        background-color: var(--main-blue-color);
     }
 
     .uni-tab .tab-img-white {
@@ -565,7 +583,7 @@ li {
 }
 
     .online-tab:hover {
-        background-color: rgb(53, 73, 94);
+        background-color: var(--main-blue-color);
     }
 
     .online-tab p {
@@ -595,9 +613,10 @@ li {
     display: grid;
     grid-template-rows: 40px auto;
     grid-template-columns: 100%;
-    color: #ddd;
-    background-color: rgb(53, 73, 94);
-    animation: glitch-text 4s ease-in;
+    color: var(--dimmed-white);
+    background-color: var(--main-blue-color);
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
 }
 
 #info-heading {
@@ -629,7 +648,7 @@ li {
 }
 
     #info-detail-p li {
-        color: #ddd;
+        color: var(--dimmed-white);
     }
 
 
@@ -657,11 +676,12 @@ li {
     grid-row-start: 2;
     width: 100%;
     height: 100%;
-    color: #ddd;
+    color: var(--dimmed-white);
     text-align: right;
     font-size: 14px;
     overflow: auto;
-    animation: glitch-text 4s ease-in;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
 }
 
 #uni-country {
@@ -670,11 +690,11 @@ li {
     text-align: center;
     margin: 10px 10px 0 0;
     border: none;
-    color: #ddd;
+    color: var(--dimmed-white);
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 1px;
-    background: url('../icons/country-arrow-down.png') 95% no-repeat #4F6170;
+    background: url('../icons/country-arrow-down.png') 95% no-repeat var(--faded-out-blue);
 }
 
 .unis-found {
@@ -686,7 +706,7 @@ li {
 .unis-titles {
     margin: 25px 0 0 35px;
     text-align: left;
-    color: #ddd;
+    color: var(--dimmed-white);
     display: block;
     width: 300px;
     font-weight: 500;
@@ -700,7 +720,7 @@ li {
 .unis-links {
     margin: 0 0 10px 35px;
     text-align: left;
-    color: #99cb32;
+    color: var(--light-green);
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -711,7 +731,7 @@ li {
 .unis-descrips {
     margin: 5px 0 30px 35px;
     text-align: left;
-    color: #ddd;
+    color: var(--dimmed-white);
     width: 90%;
 }
 
@@ -720,9 +740,10 @@ li {
     grid-row-start: 2;
     width: 100%;
     height: 100%;
-    color: #ddd;
+    color: var(--dimmed-white);
     overflow: auto;
-    animation: glitch-text 4s ease-in;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
 }
 
 .online-found {
@@ -734,7 +755,7 @@ li {
 .online-titles {
     margin: 25px 0 0 35px;
     text-align: left;
-    color: #ddd;
+    color: var(--dimmed-white);
     display: block;
     width: 300px;
     font-weight: 500;
@@ -748,7 +769,7 @@ li {
 .online-links {
     margin: 0 0 10px 35px;
     text-align: left;
-    color: #99cb32;
+    color: var(--light-green);
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -759,7 +780,7 @@ li {
 .online-descrips {
     margin: 5px 0 30px 35px;
     text-align: left;
-    color: #ddd;
+    color: var(--dimmed-white);
     width: 90%;
 }
 
@@ -778,7 +799,7 @@ li {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 9px solid #99cb32;
+    border-top: 9px solid var(--light-green);
     position: absolute;
     top: 1px;
     left: calc(50% - 10px);
@@ -789,15 +810,15 @@ li {
     height: 0;
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
-    border-top: 8px solid #4F6170;
+    border-top: 8px solid var(--main-blue-color);
     position: absolute;
     top: -11px;
     left: -13px;
 }
 
 .tab-select {
-    border-bottom: 1px solid #99cb32;
-    background-color: rgb(53, 73, 94);
+    border-bottom: 1px solid var(--light-green);
+    background-color: var(--main-blue-color);
 }
 
 .active {
@@ -809,19 +830,19 @@ li {
 }
 
 .current-selection {
-    background-color: rgb(53, 73, 94);
-    color: #ddd;
+    background-color: var(--main-blue-color);
+    color: var(--dimmed-white);
 }
 
 .active-discip-heading {
-    background-color: #35495e;
-    box-shadow: 0 0 3px #35495e;
+    background-color: var(--main-blue-color);
+    box-shadow: 0 0 3px var(--main-blue-color);
     pointer-events: none;
     box-sizing: border-box;
 }
 
     .active-discip-heading p {
-        color: #ddd;
+        color: var(--dimmed-white);
     }
 
 .active-discip-list {
@@ -829,9 +850,9 @@ li {
 }
 
 .wiki-page-link {
-    color: #ddd;
+    color: var(--dimmed-white);
     margin-left: 15px;
-    background-color: rgba(107, 142, 35, 0.5);
+    background-color: var(--button-color);
     padding: 7px 7px 7px 15px;
     font-size: 14px;
     width: 300px;
