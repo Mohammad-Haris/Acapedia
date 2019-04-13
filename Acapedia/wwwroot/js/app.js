@@ -532,8 +532,6 @@ function GetAndDisplayWiki(_IsChanged)
 
         var request = new XMLHttpRequest();
 
-        request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
-
         request.onload = function ()
         {
             DisplayWiki(this.response, request.status);
@@ -541,9 +539,13 @@ function GetAndDisplayWiki(_IsChanged)
             document.querySelector(".info-tab-content").classList.add("active");
         }
 
+        request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
+
+        request.setRequestHeader("Api-User-Agent", "enigmaticapparition@gmail.com");
+        
         request.send();
     }
-}
+}       // enter your acapedia email in this method
 
 function ChildClick() 
 {
