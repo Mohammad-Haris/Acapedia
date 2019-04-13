@@ -14,7 +14,7 @@ function AddEventIsIcon()
             if (child.classList.contains("active"))
             {
                 child.classList.add("animate-none");
-                await sleep(280);
+                await Sleep(280);
                 child.classList.remove("active");
             }
             else
@@ -36,7 +36,7 @@ function AddEventIsIcon()
     }
 }
 
-function sleep(ms)
+function Sleep(ms)
 {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -376,27 +376,23 @@ document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .fo
 
 function GetAndDisplayOnline(_Discipline)
 {
-    document.querySelector(".online").classList.remove("active");
+    document.querySelector(".online-content").classList.add("remove-display");
 
     var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function ()
+    request.onload = function ()
     {
-        if (request.readyState == XMLHttpRequest.DONE)
+        if (request.status == 200)
         {
-            if (request.status == 200)
-            {
-                DisplayLinksOnline(request.responseText);
-            }
-
-            else 
-            {
-                console.log("There was an error retrieving results!");                
-            }
-            
-            document.querySelector(".online").classList.add("active");
+            DisplayLinksOnline(request.responseText);
         }
 
+        else 
+        {
+            console.log("There was an error retrieving results!");
+        }
+
+        document.querySelector(".online-content").classList.remove("remove-display");
     };
 
     request.open("POST", "/Explore/GetOnline", true);
@@ -408,27 +404,23 @@ function GetAndDisplayOnline(_Discipline)
 
 function GetAndDisplayUniversities(_Country, _Discipline)
 {
-    document.querySelector(".unis").classList.remove("active");
+    document.querySelector(".unis-content").classList.add("remove-display");
 
     var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function ()
+    request.onload = function ()
     {
-        if (request.readyState == XMLHttpRequest.DONE)
+        if (request.status == 200)
         {
-            if (request.status == 200)
-            {
-                DisplayLinksUniversities(request.responseText, _Country);
-            }
-
-            else 
-            {
-                console.log("There was an error retrieving results!");
-            }
-
-            document.querySelector(".unis").classList.add("active");
+            DisplayLinksUniversities(request.responseText, _Country);
         }
 
+        else
+        {
+            console.log("There was an error retrieving results!");
+        }
+
+        document.querySelector(".unis-content").classList.remove("remove-display");
     };
 
     request.open("POST", "/Explore/GetUniversities", true);
@@ -442,7 +434,7 @@ function DisplayLinksOnline(_LinkInfo)
 {
     let LinkInfo = JSON.parse(_LinkInfo);
     let itr;
-    let _OnlineDiv = document.querySelector(".online");
+    let _OnlineDiv = document.querySelector(".online-content");    
     let length = LinkInfo.length;
     let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
 
@@ -462,7 +454,7 @@ function DisplayLinksUniversities(_LinkInfo, _Country)
 {
     let LinkInfo = JSON.parse(_LinkInfo);
     let itr;
-    let _UnisDiv = document.querySelector(".unis");
+    let _UnisDiv = document.querySelector(".unis-content");
     let length = LinkInfo.length;
     let text = "Found " + length + " results for " + prevSelect.innerHTML + " universities in " + _Country;
 
@@ -582,8 +574,6 @@ function ChildClick()
                     prevUniCall[0] = _Country;
                     prevUniCall[1] = _Discip;
 
-                    console.log(_Country + " " + _Discip);
-
                     GetAndDisplayUniversities(_Country, _Discip);
                 }
             }
@@ -611,24 +601,16 @@ function DisplayWiki(_ResponseData, _Status)
 {
     if (_Status == 200)
     {
+        RemovePreviousWikiInfo();
+
         let data = JSON.parse(_ResponseData);
 
         document.getElementById("info-detail-p").innerHTML = data.extract_html;
 
-        if (document.querySelector(".wiki-page-link"))
-        {
-            document.querySelector(".wiki-page-link").remove();
-        }
+        document.getElementById("info-detail").appendChild(CreateElement("a", "View complete page on Wikipedia.org", data.content_urls.desktop.page, "_blank",
+            "wiki-page-link"));
 
-        let elm = document.createElement("a");
-        let node = document.createTextNode("View complete page on Wikipedia.org");
-        elm.appendChild(node);
-        elm.setAttribute("href", data.content_urls.desktop.page);
-        elm.setAttribute("target", "_blank");
-        elm.classList.add("wiki-page-link");
-        document.getElementById("info-detail").appendChild(elm);
-
-        if (typeof data.thumbnail === "undefined")
+        if (!data.thumbnail)
         {
             document.getElementById("info-detail-image").src = "";
         }
@@ -689,6 +671,14 @@ function RemovePreviousUniLinks()
         {
             elmt.remove();
         });
+}
+
+function RemovePreviousWikiInfo() 
+{
+    if (document.querySelector(".wiki-page-link"))
+    {
+        document.querySelector(".wiki-page-link").remove();
+    }
 }
 
 function Init()
