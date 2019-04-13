@@ -121,10 +121,10 @@ function AddEventParent()
 }
 
 function GetParents_Parents(selection)
-{    
+{
     let map = [];
     map.push(selection.innerHTML);
-    
+
     if (map[0] === "Archeology")
     {
         document.getElementById("road-map-text").innerHTML = "Social Sciences --> Archeology";
@@ -242,7 +242,7 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         document.querySelector(".info-tab-content").classList.add("active");
         document.querySelector(".unis").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
-        InfoTab(true);
+        GetAndDisplayWiki(true);
     }
 
     document.querySelector(".uni-tab").classList.remove("tab-select");
@@ -389,15 +389,11 @@ function GetAndDisplayOnline(_Discipline)
                 DisplayLinksOnline(request.responseText);
             }
 
-            else if (request.status == 400)
-            {
-                console.log("There was an error retrieving results!");
-            }
-
             else 
             {
-                console.log(request.status);
+                console.log("There was an error retrieving results!");                
             }
+            
             document.querySelector(".online").classList.add("active");
         }
 
@@ -418,27 +414,21 @@ function GetAndDisplayUniversities(_Country, _Discipline)
 
     request.onreadystatechange = function ()
     {
-
         if (request.readyState == XMLHttpRequest.DONE)
         {
             if (request.status == 200)
             {
-                DisplayLinks(request.responseText, _Country);
-            }
-
-            else if (request.status == 400)
-            {
-                console.log("There was an error retrieving results!");
+                DisplayLinksUniversities(request.responseText, _Country);
             }
 
             else 
             {
-                console.log(request.status);
+                console.log("There was an error retrieving results!");
             }
 
             document.querySelector(".unis").classList.add("active");
-
         }
+
     };
 
     request.open("POST", "/Explore/GetUniversities", true);
@@ -454,89 +444,37 @@ function DisplayLinksOnline(_LinkInfo)
     let itr;
     let _OnlineDiv = document.querySelector(".online");
     let length = LinkInfo.length;
+    let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
 
-    document.querySelectorAll(".online-found, .online-links, .online-titles, .online-descrips").forEach(
-        function (elmt) 
-        {
-            elmt.remove();
-        });
+    RemovePreviousOnlineLinks();
 
-    let found = document.createElement("p");
-    let text = document.createTextNode("Found " + length + " results for " + prevSelect.innerHTML + " courses Online");
-    found.appendChild(text);
-    found.classList.add("online-found");
-    _OnlineDiv.appendChild(found);
+    _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
 
     for (itr = 0; itr < length; itr++)
     {
-        let anchor = document.createElement("a");
-        let node = document.createTextNode(LinkInfo[itr].Link);
-        anchor.appendChild(node);
-        anchor.setAttribute("href", LinkInfo[itr].Link);
-        anchor.setAttribute("target", "_blank");
-        anchor.classList.add("online-links");
-
-        let title = document.createElement("a");
-        node = document.createTextNode(LinkInfo[itr].Title);
-        title.appendChild(node);
-        title.setAttribute("href", LinkInfo[itr].Link);
-        title.setAttribute("target", "_blank");
-        title.classList.add("online-titles");
-
-        let description = document.createElement("p");
-        node = document.createTextNode(LinkInfo[itr].Description);
-        description.appendChild(node);
-        description.classList.add("online-descrips");
-
-        _OnlineDiv.appendChild(title);
-        _OnlineDiv.appendChild(anchor);
-        _OnlineDiv.appendChild(description);
+        _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
+        _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
+        _OnlineDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
     }
 }
 
-function DisplayLinks(_LinkInfo, _Country)
+function DisplayLinksUniversities(_LinkInfo, _Country)
 {
     let LinkInfo = JSON.parse(_LinkInfo);
     let itr;
     let _UnisDiv = document.querySelector(".unis");
     let length = LinkInfo.length;
+    let text = "Found " + length + " results for " + prevSelect.innerHTML + " universities in " + _Country;
 
-    document.querySelectorAll(".unis-found, .unis-links, .unis-titles, .unis-descrips").forEach(
-        function (elmt) 
-        {
-            elmt.remove();
-        });
+    RemovePreviousUniLinks();
 
-    let found = document.createElement("p");
-    let text = document.createTextNode("Found " + length + " results for " + prevSelect.innerHTML + " universities in " + _Country);
-    found.appendChild(text);
-    found.classList.add("unis-found");
-    _UnisDiv.appendChild(found);
+    _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
 
     for (itr = 0; itr < length; itr++)
     {
-        let anchor = document.createElement("a");
-        let node = document.createTextNode(LinkInfo[itr].Link);
-        anchor.appendChild(node);
-        anchor.setAttribute("href", LinkInfo[itr].Link);
-        anchor.setAttribute("target", "_blank");
-        anchor.classList.add("unis-links");
-
-        let title = document.createElement("a");
-        node = document.createTextNode(LinkInfo[itr].Title);
-        title.appendChild(node);
-        title.setAttribute("href", LinkInfo[itr].Link);
-        title.setAttribute("target", "_blank");
-        title.classList.add("unis-titles");
-
-        let description = document.createElement("p");
-        node = document.createTextNode(LinkInfo[itr].Description);
-        description.appendChild(node);
-        description.classList.add("unis-descrips");
-
-        _UnisDiv.appendChild(title);
-        _UnisDiv.appendChild(anchor);
-        _UnisDiv.appendChild(description);
+        _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
+        _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
+        _UnisDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
     }
 }
 
@@ -554,7 +492,7 @@ function ParentClick()
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
     {
         case "Info":
-            InfoTab(_Changed);
+            GetAndDisplayWiki(_Changed);
             break;
 
         case "On-Campus Resources":
@@ -592,57 +530,21 @@ function ParentClick()
     GetParents_Parents(this);
 }
 
-function InfoTab(_IsChanged)
-{   
+function GetAndDisplayWiki(_IsChanged)
+{
     if (_IsChanged)
     {
         document.querySelector(".info-tab-content").classList.remove("active");
+
         document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
+
         var request = new XMLHttpRequest();
 
         request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
 
         request.onload = function ()
         {
-            let data = JSON.parse(this.response);
-
-            if (request.status >= 200 && request.status < 400)
-            {
-                document.getElementById("info-detail-p").innerHTML = data.extract_html;
-
-                if (document.querySelector(".wiki-page-link"))
-                {
-                    document.querySelector(".wiki-page-link").remove();
-                }
-
-                let elm = document.createElement("a");
-                let node = document.createTextNode("View complete page on Wikipedia.org");
-                elm.appendChild(node);
-                elm.setAttribute("href", data.content_urls.desktop.page);
-                elm.setAttribute("target", "_blank");
-                elm.classList.add("wiki-page-link");
-                document.getElementById("info-detail").appendChild(elm);
-
-                if (typeof data.thumbnail === "undefined")
-                {
-                    document.getElementById("info-detail-image").src = "";
-                }
-
-                else
-                {
-                    document.getElementById("info-detail-image").src = data.thumbnail.source;
-                }
-
-            }
-            else
-            {
-                if (document.querySelector(".wiki-page-link"))
-                {
-                    document.querySelector(".wiki-page-link").remove();
-                }
-                document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
-                document.getElementById("info-detail-image").src = "";
-            }
+            DisplayWiki(this.response, request.status);
 
             document.querySelector(".info-tab-content").classList.add("active");
         }
@@ -665,7 +567,7 @@ function ChildClick()
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
     {
         case "Info":
-            InfoTab(_Changed);
+            GetAndDisplayWiki(_Changed);
             break;
 
         case "On-Campus Resources":
@@ -705,12 +607,96 @@ function ChildClick()
     GetParents_Child(this);
 }
 
+function DisplayWiki(_ResponseData, _Status)
+{
+    if (_Status == 200)
+    {
+        let data = JSON.parse(_ResponseData);
+
+        document.getElementById("info-detail-p").innerHTML = data.extract_html;
+
+        if (document.querySelector(".wiki-page-link"))
+        {
+            document.querySelector(".wiki-page-link").remove();
+        }
+
+        let elm = document.createElement("a");
+        let node = document.createTextNode("View complete page on Wikipedia.org");
+        elm.appendChild(node);
+        elm.setAttribute("href", data.content_urls.desktop.page);
+        elm.setAttribute("target", "_blank");
+        elm.classList.add("wiki-page-link");
+        document.getElementById("info-detail").appendChild(elm);
+
+        if (typeof data.thumbnail === "undefined")
+        {
+            document.getElementById("info-detail-image").src = "";
+        }
+
+        else
+        {
+            document.getElementById("info-detail-image").src = data.thumbnail.source;
+        }
+    }
+
+    else
+    {
+        if (document.querySelector(".wiki-page-link"))
+        {
+            document.querySelector(".wiki-page-link").remove();
+        }
+        document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
+        document.getElementById("info-detail-image").src = "";
+    }
+}
+
+function CreateElement(_type, _content, _href, _target, _class)
+{
+    let elmt = document.createElement(_type);
+    elmt.appendChild(document.createTextNode(_content));
+
+    if (_href)
+    {
+        elmt.setAttribute("href", _href);
+    }
+
+    if (_target)
+    {
+        elmt.setAttribute("target", "_blank");
+    }
+
+    if (_class)
+    {
+        elmt.classList.add(_class);
+    }
+
+    return elmt;
+}
+
+function RemovePreviousOnlineLinks()
+{
+    document.querySelectorAll(".online-found, .online-links, .online-titles, .online-descrips").forEach(
+        function (elmt) 
+        {
+            elmt.remove();
+        });
+}
+
+function RemovePreviousUniLinks() 
+{
+    document.querySelectorAll(".unis-found, .unis-links, .unis-titles, .unis-descrips").forEach(
+        function (elmt) 
+        {
+            elmt.remove();
+        });
+}
+
 function Init()
 {
     let select = document.querySelector(".humanities-discips").querySelector(".is-parent");
     select.classList.add("current-selection");
     prevSelect = select;
-    InfoTab(true);
+    GetAndDisplayWiki(true);
     GetParents_Parents(prevSelect);
 }
 
