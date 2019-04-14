@@ -41,16 +41,6 @@ function Sleep(ms)
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function AddEventChildren()
-{
-    var noChildren = document.getElementsByClassName("no-child");
-
-    for (let i = 0; i < noChildren.length; i++)
-    {
-        noChildren[i].addEventListener("click", ChildClick);
-    }
-}
-
 document.getElementById("collapse-button").addEventListener("click", function ()
 {
     let parent = document.querySelector(".active-discip-list");
@@ -95,19 +85,14 @@ document.getElementById("expand-button").addEventListener("click", function ()
     }
 });
 
-if (document.getElementById("login-user-info"))
+function AddEventChildren()
 {
-    document.getElementById("login-user-info").addEventListener("click", function ()
-    {
-        let path = document.location.pathname.split("/");
-        path.shift();
+    var noChildren = document.getElementsByClassName("no-child");
 
-        if (typeof (Storage) !== "undefined")
-        {
-            sessionStorage.setItem('First', path[0]);
-            sessionStorage.setItem('Second', path[1]);
-        }
-    });
+    for (let i = 0; i < noChildren.length; i++)
+    {
+        noChildren[i].addEventListener("click", ChildClick);
+    }
 }
 
 function AddEventParent()
@@ -120,7 +105,7 @@ function AddEventParent()
     }
 }
 
-function GetParents_Parents(selection)
+function GetAndDisplayParents_Parents(selection)
 {
     let map = [];
     map.push(selection.innerHTML);
@@ -134,6 +119,7 @@ function GetParents_Parents(selection)
     let parent = document.querySelector(".active-discip-list");
     let topli = parent.querySelector("ul").children;
     let top = [];
+
     for (let i = 0; i < topli.length; i++)
     {
         if (topli[i].querySelector("span.is-parent"))
@@ -152,7 +138,6 @@ function GetParents_Parents(selection)
     if (top.indexOf(selection.innerHTML) !== -1)
     {
         map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
-        document.getElementById("road-map-text").innerHTML = map.join("  -->  ");
     }
 
     else
@@ -166,18 +151,19 @@ function GetParents_Parents(selection)
 
         map.unshift(name);
         map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
-        document.getElementById("road-map-text").innerHTML = map.join("  -->  ");
     }
 
+    DisplayParents(map);
 }
 
-function GetParents_Child(selection)
+function GetAndDisplayParents_Child(selection)
 {
     let map = [];
     map.push(selection.innerHTML);
     let parent = document.querySelector(".active-discip-list");
     let topli = parent.querySelector("ul").children;
     let top = [];
+
     for (let i = 0; i < topli.length; i++)
     {
         if (topli[i].querySelector("span.is-parent"))
@@ -190,6 +176,7 @@ function GetParents_Child(selection)
             top.push(topli[i].querySelector("span#u-top-level").innerHTML);
         }
     }
+
     let name = selection.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
 
     if (top.indexOf(name) !== -1)
@@ -200,7 +187,6 @@ function GetParents_Child(selection)
         }
 
         map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
-        document.getElementById("road-map-text").innerHTML = map.join("  -->  ");
     }
 
     else
@@ -214,9 +200,14 @@ function GetParents_Child(selection)
 
         map.unshift(name);
         map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
-        document.getElementById("road-map-text").innerHTML = map.join("  -->  ");
     }
+    
+    DisplayParents(map);
+}
 
+function DisplayParents(_parents)
+{
+    document.getElementById("road-map-text").innerHTML = _parents.join("  -->  ");    
 }
 
 document.getElementById("u-top-level").addEventListener("click", ParentClick);
@@ -226,6 +217,8 @@ function _SelectTab(selected)
     selected.classList.add("tab-select");
     selected.querySelector(".arrow").classList.add("arrow-down");
     selected.querySelector(".arrow-inner").classList.add("arrow-down-inner");
+    selected.querySelector(".tab-img-white").classList.remove("active-icon");
+    selected.querySelector(".tab-img-green").classList.add("active-icon");
 }
 
 document.querySelector(".basic-info-tab").addEventListener("click", function ()
@@ -233,15 +226,17 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
     if (!this.classList.contains("tab-select"))
     {
         _SelectTab(this);
-        this.querySelector(".tab-img-white").classList.remove("active-icon");
-        this.querySelector(".tab-img-green").classList.add("active-icon");
+
         document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
         document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
         document.querySelector(".info-tab-content").classList.add("active");
         document.querySelector(".unis").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
+        
         GetAndDisplayWiki(true);
     }
 
@@ -259,12 +254,13 @@ document.querySelector(".uni-tab").addEventListener("click", function ()
     if (!this.classList.contains("tab-select"))
     {
         _SelectTab(this);
-        this.querySelector(".tab-img-white").classList.remove("active-icon");
-        this.querySelector(".tab-img-green").classList.add("active-icon");
+
         document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
         document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
         document.querySelector(".unis").classList.add("active");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
@@ -299,16 +295,17 @@ document.querySelector(".online-tab").addEventListener("click", function ()
 {
     if (!this.classList.contains("tab-select"))
     {
-        _SelectTab(this);
-        this.querySelector(".tab-img-white").classList.remove("active-icon");
-        this.querySelector(".tab-img-green").classList.add("active-icon");
+        _SelectTab(this);  
+        
         document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
         document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+        
+        document.querySelector(".online").classList.add("active");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".unis").classList.remove("active");
-        document.querySelector(".online").classList.add("active");
 
         if (prevSelect)
         {
@@ -341,14 +338,7 @@ document.getElementById("uni-country").addEventListener("change", function ()
         let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
         let _Discip = prevSelect.innerHTML;
 
-        console.log(_Country + " " + _Discip);
-
         GetAndDisplayUniversities(_Country, _Discip);
-    }
-
-    else
-    {
-        console.log("Select a discipline from the left");
     }
 });
 
@@ -471,15 +461,8 @@ function DisplayLinksUniversities(_LinkInfo, _Country)
 }
 
 function ParentClick()
-{
-    if (prevSelect)
-    {
-        prevSelect.classList.remove("current-selection");
-    }
-
-    this.classList.add("current-selection");
-    let _Changed = prevSelect !== this;
-    prevSelect = this;
+{    
+    let _Changed = SelectDiscip(this);
 
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
     {
@@ -519,7 +502,7 @@ function ParentClick()
             break;
     }
 
-    GetParents_Parents(this);
+    GetAndDisplayParents_Parents(this);
 }
 
 function GetAndDisplayWiki(_IsChanged)
@@ -527,8 +510,6 @@ function GetAndDisplayWiki(_IsChanged)
     if (_IsChanged)
     {
         document.querySelector(".info-tab-content").classList.remove("active");
-
-        document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
 
         var request = new XMLHttpRequest();
 
@@ -540,23 +521,14 @@ function GetAndDisplayWiki(_IsChanged)
         }
 
         request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
-
-        request.setRequestHeader("Api-User-Agent", "enigmaticapparition@gmail.com");
         
         request.send();
     }
-}       // enter your acapedia email in this method
+}
 
 function ChildClick() 
 {
-    if (prevSelect != null)
-    {
-        prevSelect.classList.remove("current-selection");
-    }
-
-    this.classList.add("current-selection");
-    let _Changed = prevSelect !== this;
-    prevSelect = this;
+    let _Changed = SelectDiscip(this);
 
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
     {
@@ -596,7 +568,7 @@ function ChildClick()
             break;
     }
 
-    GetParents_Child(this);
+    GetAndDisplayParents_Child(this);
 }
 
 function DisplayWiki(_ResponseData, _Status)
@@ -604,6 +576,8 @@ function DisplayWiki(_ResponseData, _Status)
     if (_Status == 200)
     {
         RemovePreviousWikiInfo();
+
+        document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
 
         let data = JSON.parse(_ResponseData);
 
@@ -683,13 +657,27 @@ function RemovePreviousWikiInfo()
     }
 }
 
+function SelectDiscip(_Current)
+{
+    if (prevSelect)
+    {
+        prevSelect.classList.remove("current-selection");
+    }
+
+    _Current.classList.add("current-selection");
+    let _Changed = _Current !== prevSelect;
+    prevSelect = _Current;
+
+    return _Changed;
+}
+
 function Init()
 {
     let select = document.querySelector(".humanities-discips").querySelector(".is-parent");
     select.classList.add("current-selection");
     prevSelect = select;
     GetAndDisplayWiki(true);
-    GetParents_Parents(prevSelect);
+    GetAndDisplayParents_Parents(prevSelect);
 }
 
 window.onload = Init;

@@ -18,3 +18,16 @@ function _TitleCase(str)
     }
     return splitStr.join(' ');
 }
+
+if (document.getElementById("login-user-info"))
+{
+    document.getElementById("login-user-info").addEventListener("click", function ()
+    {
+        let path = document.location.pathname;
+
+        if (typeof (Storage) !== "undefined")
+        {            
+            sessionStorage.setItem("_path", path);            
+        }
+    });
+}
