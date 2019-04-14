@@ -573,11 +573,11 @@ function ChildClick()
 
 function DisplayWiki(_ResponseData, _Status)
 {
+    document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
+    
     if (_Status == 200)
     {
         RemovePreviousWikiInfo();
-
-        document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
 
         let data = JSON.parse(_ResponseData);
 
