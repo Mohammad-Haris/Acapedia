@@ -2,37 +2,39 @@
 var prevUniCall = new Array(2);
 var prevOnCall;
 
-function AddEventIsIcon()
+function AddEventIsCEIcon()
 {
     let toggler = document.getElementsByClassName("is-icon");
     for (let i = 0; i < toggler.length; i++)
     {
-        toggler[i].addEventListener("click", async function ()
-        {
-            let child = this.parentElement.querySelector(".children");
+        toggler[i].addEventListener("click", CEEvent);
+    }
+}
 
-            if (child.classList.contains("active"))
-            {
-                child.classList.add("animate-none");
-                await Sleep(280);
-                child.classList.remove("active");
-            }
-            else
-            {
-                child.classList.remove("animate-none");
-                child.classList.add("active");
-            }
+async function CEEvent()
+{
+    let child = this.parentElement.querySelector(".children");
 
-            if (this.innerHTML === "+")
-            {
-                this.innerHTML = "-";
-            }
+    if (child.classList.contains("active"))
+    {
+        child.classList.add("animate-none");
+        await Sleep(280);
+        child.classList.remove("active");
+    }
+    else
+    {
+        child.classList.remove("animate-none");
+        child.classList.add("active");
+    }
 
-            else
-            {
-                this.innerHTML = "+";
-            }
-        });
+    if (this.innerHTML === "+")
+    {
+        this.innerHTML = "-";
+    }
+
+    else
+    {
+        this.innerHTML = "+";
     }
 }
 
@@ -201,13 +203,13 @@ function GetAndDisplayParents_Child(selection)
         map.unshift(name);
         map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
     }
-    
+
     DisplayParents(map);
 }
 
 function DisplayParents(_parents)
 {
-    document.getElementById("road-map-text").innerHTML = _parents.join("  -->  ");    
+    document.getElementById("road-map-text").innerHTML = _parents.join("  -->  ");
 }
 
 document.getElementById("u-top-level").addEventListener("click", ParentClick);
@@ -236,7 +238,7 @@ document.querySelector(".basic-info-tab").addEventListener("click", function ()
         document.querySelector(".info-tab-content").classList.add("active");
         document.querySelector(".unis").classList.remove("active");
         document.querySelector(".online").classList.remove("active");
-        
+
         GetAndDisplayWiki(true);
     }
 
@@ -295,14 +297,14 @@ document.querySelector(".online-tab").addEventListener("click", function ()
 {
     if (!this.classList.contains("tab-select"))
     {
-        _SelectTab(this);  
-        
+        _SelectTab(this);
+
         document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
 
         document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
         document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-        
+
         document.querySelector(".online").classList.add("active");
         document.querySelector(".info-tab-content").classList.remove("active");
         document.querySelector(".unis").classList.remove("active");
@@ -372,15 +374,7 @@ function GetAndDisplayOnline(_Discipline)
 
     request.onload = function ()
     {
-        if (request.status == 200)
-        {
-            DisplayLinksOnline(request.responseText);
-        }
-
-        else 
-        {
-            console.log("There was an error retrieving results!");
-        }
+        DisplayLinksOnline(this.response, request.status);
 
         document.querySelector(".online-content").classList.remove("remove-display");
     };
@@ -400,15 +394,7 @@ function GetAndDisplayUniversities(_Country, _Discipline)
 
     request.onload = function ()
     {
-        if (request.status == 200)
-        {
-            DisplayLinksUniversities(request.responseText, _Country);
-        }
-
-        else
-        {
-            console.log("There was an error retrieving results!");
-        }
+        DisplayLinksUniversities(this.response, _Country, request.status);
 
         document.querySelector(".unis-content").classList.remove("remove-display");
     };
@@ -420,27 +406,35 @@ function GetAndDisplayUniversities(_Country, _Discipline)
     request.send(JSON.stringify([_Country, _Discipline]));
 }
 
-function DisplayLinksOnline(_LinkInfo)
+function DisplayLinksOnline(_LinkInfo, _RequestStatus)
 {
     let LinkInfo = JSON.parse(_LinkInfo);
     let itr;
-    let _OnlineDiv = document.querySelector(".online-content");    
+    let _OnlineDiv = document.querySelector(".online-content");
     let length = LinkInfo.length;
     let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
 
     RemovePreviousOnlineLinks();
 
-    _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
-
-    for (itr = 0; itr < length; itr++)
+    if (_RequestStatus == 200)
     {
-        _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
-        _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
-        _OnlineDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
+        _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
+
+        for (itr = 0; itr < length; itr++)
+        {
+            _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
+            _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
+            _OnlineDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
+        }
+    }
+
+    else 
+    {
+        console.log("There was an error retrieving results!");
     }
 }
 
-function DisplayLinksUniversities(_LinkInfo, _Country)
+function DisplayLinksUniversities(_LinkInfo, _Country, _RequestStatus)
 {
     let LinkInfo = JSON.parse(_LinkInfo);
     let itr;
@@ -450,18 +444,26 @@ function DisplayLinksUniversities(_LinkInfo, _Country)
 
     RemovePreviousUniLinks();
 
-    _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
-
-    for (itr = 0; itr < length; itr++)
+    if (_RequestStatus == 200)
     {
-        _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
-        _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
-        _UnisDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
+        _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
+
+        for (itr = 0; itr < length; itr++)
+        {
+            _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
+            _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
+            _UnisDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
+        }
+    }
+
+    else
+    {
+        console.log("There was an error retrieving results!");
     }
 }
 
 function ParentClick()
-{    
+{
     let _Changed = SelectDiscip(this);
 
     switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
@@ -521,7 +523,7 @@ function GetAndDisplayWiki(_IsChanged)
         }
 
         request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
-        
+
         request.send();
     }
 }
@@ -574,7 +576,7 @@ function ChildClick()
 function DisplayWiki(_ResponseData, _Status)
 {
     document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
-    
+
     if (_Status == 200)
     {
         RemovePreviousWikiInfo();
@@ -683,4 +685,4 @@ function Init()
 window.onload = Init;
 AddEventChildren();
 AddEventParent();
-AddEventIsIcon();
+AddEventCEIcon();
