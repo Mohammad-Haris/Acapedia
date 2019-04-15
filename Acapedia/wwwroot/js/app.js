@@ -1,688 +1,707 @@
-﻿var prevSelect;
-var prevUniCall = new Array(2);
-var prevOnCall;
+﻿Main();
 
-function AddEventIsCEIcon()
+function Main()
 {
-    let toggler = document.getElementsByClassName("is-icon");
-    for (let i = 0; i < toggler.length; i++)
-    {
-        toggler[i].addEventListener("click", CEEvent);
-    }
-}
+    var prevSelect;
+    var prevUniCall = new Array(2);
+    var prevOnCall;
 
-async function CEEvent()
-{
-    let child = this.parentElement.querySelector(".children");
-
-    if (child.classList.contains("active"))
+    function AddEventCEIcon()
     {
-        child.classList.add("animate-none");
-        await Sleep(280);
-        child.classList.remove("active");
-    }
-    else
-    {
-        child.classList.remove("animate-none");
-        child.classList.add("active");
-    }
-
-    if (this.innerHTML === "+")
-    {
-        this.innerHTML = "-";
-    }
-
-    else
-    {
-        this.innerHTML = "+";
-    }
-}
-
-function Sleep(ms)
-{
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-document.getElementById("collapse-button").addEventListener("click", function ()
-{
-    let parent = document.querySelector(".active-discip-list");
-    let children = parent.querySelectorAll("ul.children");
-    for (let i = 0; i < children.length; i++)
-    {
-        if (children[i].classList.contains("active"))
+        let toggler = document.getElementsByClassName("is-icon");
+        for (let i = 0; i < toggler.length; i++)
         {
-            children[i].classList.remove("active");
+            toggler[i].addEventListener("click", CEEvent);
         }
     }
 
-    let plus = parent.querySelectorAll("span.is-icon");
-    for (let i = 0; i < plus.length; i++)
+    async function CEEvent()
     {
-        plus[i].innerHTML = "+";
-    }
-});
+        let child = this.parentElement.querySelector(".children");
 
-document.getElementById("expand-button").addEventListener("click", function ()
-{
-    let parent = document.querySelector(".active-discip-list");
-    let children = parent.querySelectorAll("ul.children");
-    let i;
-    for (i = 0; i < children.length; i++)
-    {
-        children[i].classList.remove("animate-none");
-    }
-
-    for (i = 0; i < children.length; i++)
-    {
-        if (!children[i].classList.contains("active"))
+        if (child.classList.contains("active"))
         {
-            children[i].classList.add("active");
+            child.classList.add("animate-none");
+            await Sleep(280);
+            child.classList.remove("active");
         }
-    }
-
-    let plus = parent.querySelectorAll("span.is-icon");
-    for (i = 0; i < plus.length; i++)
-    {
-        plus[i].innerHTML = "-";
-    }
-});
-
-function AddEventChildren()
-{
-    var noChildren = document.getElementsByClassName("no-child");
-
-    for (let i = 0; i < noChildren.length; i++)
-    {
-        noChildren[i].addEventListener("click", ChildClick);
-    }
-}
-
-function AddEventParent()
-{
-    var parents = document.getElementsByClassName("is-parent");
-
-    for (let i = 0; i < parents.length; i++)
-    {
-        parents[i].addEventListener("click", ParentClick);
-    }
-}
-
-function GetAndDisplayParents_Parents(selection)
-{
-    let map = [];
-    map.push(selection.innerHTML);
-
-    if (map[0] === "Archeology")
-    {
-        document.getElementById("road-map-text").innerHTML = "Social Sciences --> Archeology";
-        return;
-    }
-
-    let parent = document.querySelector(".active-discip-list");
-    let topli = parent.querySelector("ul").children;
-    let top = [];
-
-    for (let i = 0; i < topli.length; i++)
-    {
-        if (topli[i].querySelector("span.is-parent"))
+        else
         {
-            top.push(topli[i].querySelector("span.is-parent").innerHTML);
+            child.classList.remove("animate-none");
+            child.classList.add("active");
+        }
+
+        if (this.innerHTML === "+")
+        {
+            this.innerHTML = "-";
         }
 
         else
         {
-            top.push(topli[i].querySelector("span#u-top-level").innerHTML);
+            this.innerHTML = "+";
         }
     }
 
-    let name = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
-
-    if (top.indexOf(selection.innerHTML) !== -1)
+    function Sleep(ms)
     {
-        map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    else
+    document.getElementById("collapse-button").addEventListener("click", CollapseAllClick);
+
+    document.getElementById("expand-button").addEventListener("click", ExpandAllClick);
+
+    function AddEventChildren()
     {
-        while (top.indexOf(name) === -1)
+        var noChildren = document.getElementsByClassName("no-child");
+
+        for (let i = 0; i < noChildren.length; i++)
         {
-            map.unshift(name);
-            selection = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent");
-            name = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
+            noChildren[i].addEventListener("click", ChildClick);
+        }
+    }
+
+    function AddEventParent()
+    {
+        var parents = document.getElementsByClassName("is-parent");
+
+        for (let i = 0; i < parents.length; i++)
+        {
+            parents[i].addEventListener("click", ParentClick);
+        }
+    }
+
+    document.querySelector(".basic-info-tab").addEventListener("click", BasicInfoTabClick);
+
+    document.querySelector(".uni-tab").addEventListener("click", UniTabClick);
+
+    document.querySelector(".online-tab").addEventListener("click", OnlineTabClick);
+
+    document.getElementById("uni-country").addEventListener("change", CountryChange);
+
+    function GetAndDisplayParents_Parents(selection)
+    {
+        let map = [];
+        map.push(selection.innerHTML);
+
+        if (map[0] === "Archeology")
+        {
+            document.getElementById("road-map-text").innerHTML = "Social Sciences --> Archeology";
+            return;
         }
 
-        map.unshift(name);
-        map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
-    }
+        let parent = document.querySelector(".active-discip-list");
+        let topli = parent.querySelector("ul").children;
+        let top = [];
 
-    DisplayParents(map);
-}
-
-function GetAndDisplayParents_Child(selection)
-{
-    let map = [];
-    map.push(selection.innerHTML);
-    let parent = document.querySelector(".active-discip-list");
-    let topli = parent.querySelector("ul").children;
-    let top = [];
-
-    for (let i = 0; i < topli.length; i++)
-    {
-        if (topli[i].querySelector("span.is-parent"))
+        for (let i = 0; i < topli.length; i++)
         {
-            top.push(topli[i].querySelector("span.is-parent").innerHTML);
+            if (topli[i].querySelector("span.is-parent"))
+            {
+                top.push(topli[i].querySelector("span.is-parent").innerHTML);
+            }
+
+            else
+            {
+                top.push(topli[i].querySelector("span#u-top-level").innerHTML);
+            }
+        }
+
+        let name = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
+
+        if (top.indexOf(selection.innerHTML) !== -1)
+        {
+            map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
         }
 
         else
         {
-            top.push(topli[i].querySelector("span#u-top-level").innerHTML);
-        }
-    }
+            while (top.indexOf(name) === -1)
+            {
+                map.unshift(name);
+                selection = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent");
+                name = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
+            }
 
-    let name = selection.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
-
-    if (top.indexOf(name) !== -1)
-    {
-        if (map.indexOf(name) == -1)
-        {
             map.unshift(name);
+            map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
         }
 
-        map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
+        DisplayParents(map);
     }
 
-    else
+    function GetAndDisplayParents_Child(selection)
     {
-        while (top.indexOf(name) === -1)
+        let map = [];
+        map.push(selection.innerHTML);
+        let parent = document.querySelector(".active-discip-list");
+        let topli = parent.querySelector("ul").children;
+        let top = [];
+
+        for (let i = 0; i < topli.length; i++)
         {
-            map.unshift(name);
-            selection = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent");
-            name = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
+            if (topli[i].querySelector("span.is-parent"))
+            {
+                top.push(topli[i].querySelector("span.is-parent").innerHTML);
+            }
+
+            else
+            {
+                top.push(topli[i].querySelector("span#u-top-level").innerHTML);
+            }
         }
 
-        map.unshift(name);
-        map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
+        let name = selection.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
+
+        if (top.indexOf(name) !== -1)
+        {
+            if (map.indexOf(name) == -1)
+            {
+                map.unshift(name);
+            }
+
+            map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
+        }
+
+        else
+        {
+            while (top.indexOf(name) === -1)
+            {
+                map.unshift(name);
+                selection = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent");
+                name = selection.parentElement.parentElement.parentElement.querySelector("span.is-parent").innerHTML;
+            }
+
+            map.unshift(name);
+            map.unshift(document.querySelector(".active-discip-heading").querySelector(".discip-heading-title").innerHTML);
+        }
+
+        DisplayParents(map);
     }
 
-    DisplayParents(map);
-}
-
-function DisplayParents(_parents)
-{
-    document.getElementById("road-map-text").innerHTML = _parents.join("  -->  ");
-}
-
-document.getElementById("u-top-level").addEventListener("click", ParentClick);
-
-function _SelectTab(selected) 
-{
-    selected.classList.add("tab-select");
-    selected.querySelector(".arrow").classList.add("arrow-down");
-    selected.querySelector(".arrow-inner").classList.add("arrow-down-inner");
-    selected.querySelector(".tab-img-white").classList.remove("active-icon");
-    selected.querySelector(".tab-img-green").classList.add("active-icon");
-}
-
-document.querySelector(".basic-info-tab").addEventListener("click", function ()
-{
-    if (!this.classList.contains("tab-select"))
+    function DisplayParents(_parents)
     {
-        _SelectTab(this);
-
-        document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-
-        document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-
-        document.querySelector(".info-tab-content").classList.add("active");
-        document.querySelector(".unis").classList.remove("active");
-        document.querySelector(".online").classList.remove("active");
-
-        GetAndDisplayWiki(true);
+        document.getElementById("road-map-text").innerHTML = _parents.join("  -->  ");
     }
 
-    document.querySelector(".uni-tab").classList.remove("tab-select");
-    document.querySelector(".uni-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".uni-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    document.getElementById("u-top-level").addEventListener("click", ParentClick);
 
-    document.querySelector(".online-tab").classList.remove("tab-select");
-    document.querySelector(".online-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".online-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
-});
-
-document.querySelector(".uni-tab").addEventListener("click", function ()
-{
-    if (!this.classList.contains("tab-select"))
+    function _SelectTab(selected) 
     {
-        _SelectTab(this);
+        selected.classList.add("tab-select");
+        selected.querySelector(".arrow").classList.add("arrow-down");
+        selected.querySelector(".arrow-inner").classList.add("arrow-down-inner");
+        selected.querySelector(".tab-img-white").classList.remove("active-icon");
+        selected.querySelector(".tab-img-green").classList.add("active-icon");
+    }
 
-        document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+    document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .formal-sciences, .prof-nd-app-sciences").forEach(TopDiscipHeadingClick);
 
-        document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+    function GetAndDisplayOnline(_Discipline)
+    {
+        document.querySelector(".online-content").classList.add("remove-display");
 
-        document.querySelector(".unis").classList.add("active");
-        document.querySelector(".info-tab-content").classList.remove("active");
-        document.querySelector(".online").classList.remove("active");
+        var request = new XMLHttpRequest();
 
+        request.onload = function ()
+        {
+            DisplayLinksOnline(this.response, request.status);
+
+            document.querySelector(".online-content").classList.remove("remove-display");
+        };
+
+        request.open("POST", "/Explore/GetOnline", true);
+
+        request.setRequestHeader("Content-Type", "application/json");
+
+        request.send(JSON.stringify([_Discipline]));
+    }
+
+    function GetAndDisplayUniversities(_Country, _Discipline)
+    {
+        document.querySelector(".unis-content").classList.add("remove-display");
+
+        var request = new XMLHttpRequest();
+
+        request.onload = function ()
+        {
+            DisplayLinksUniversities(this.response, _Country, request.status);
+
+            document.querySelector(".unis-content").classList.remove("remove-display");
+        };
+
+        request.open("POST", "/Explore/GetUniversities", true);
+
+        request.setRequestHeader("Content-Type", "application/json");
+
+        request.send(JSON.stringify([_Country, _Discipline]));
+    }
+
+    function DisplayLinksOnline(_LinkInfo, _RequestStatus)
+    {
+        let LinkInfo = JSON.parse(_LinkInfo);
+        let itr;
+        let _OnlineDiv = document.querySelector(".online-content");
+        let length = LinkInfo.length;
+        let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
+
+        RemovePreviousOnlineLinks();
+
+        if (_RequestStatus == 200)
+        {
+            _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
+
+            for (itr = 0; itr < length; itr++)
+            {
+                _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
+                _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
+                _OnlineDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
+            }
+        }
+
+        else 
+        {
+            console.log("There was an error retrieving results!");
+        }
+    }
+
+    function DisplayLinksUniversities(_LinkInfo, _Country, _RequestStatus)
+    {
+        let LinkInfo = JSON.parse(_LinkInfo);
+        let itr;
+        let _UnisDiv = document.querySelector(".unis-content");
+        let length = LinkInfo.length;
+        let text = "Found " + length + " results for " + prevSelect.innerHTML + " universities in " + _Country;
+
+        RemovePreviousUniLinks();
+
+        if (_RequestStatus == 200)
+        {
+            _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
+
+            for (itr = 0; itr < length; itr++)
+            {
+                _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
+                _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
+                _UnisDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
+            }
+        }
+
+        else
+        {
+            console.log("There was an error retrieving results!");
+        }
+    }
+
+    function ParentClick()
+    {
+        let _Changed = SelectDiscip(this);
+
+        switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
+        {
+            case "Info":
+                GetAndDisplayWiki(_Changed);
+                break;
+
+            case "On-Campus Resources":
+                if (prevSelect)
+                {
+                    let _CountrySelect = document.getElementById("uni-country");
+                    let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
+                    let _Discip = prevSelect.innerHTML;
+
+                    if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
+                    {
+                        prevUniCall[0] = _Country;
+                        prevUniCall[1] = _Discip;
+
+                        GetAndDisplayUniversities(_Country, _Discip);
+                    }
+                }
+                break;
+
+            case "Online Resources":
+                if (prevSelect)
+                {
+                    let _Discip = prevSelect.innerHTML;
+
+                    if (!prevOnCall || prevOnCall !== _Discip)
+                    {
+                        prevOnCall = _Discip;
+
+                        GetAndDisplayOnline(_Discip);
+                    }
+                }
+                break;
+        }
+
+        GetAndDisplayParents_Parents(this);
+    }
+
+    function GetAndDisplayWiki(_IsChanged)
+    {
+        if (_IsChanged)
+        {
+            document.querySelector(".info-tab-content").classList.remove("active");
+
+            var request = new XMLHttpRequest();
+
+            request.onload = function ()
+            {
+                DisplayWiki(this.response, request.status);
+
+                document.querySelector(".info-tab-content").classList.add("active");
+            }
+
+            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
+
+            request.send();
+        }
+    }
+
+    function ChildClick() 
+    {
+        let _Changed = SelectDiscip(this);
+
+        switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
+        {
+            case "Info":
+                GetAndDisplayWiki(_Changed);
+                break;
+
+            case "On-Campus Resources":
+                if (prevSelect)
+                {
+                    let _CountrySelect = document.getElementById("uni-country");
+                    let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
+                    let _Discip = prevSelect.innerHTML;
+
+                    if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
+                    {
+                        prevUniCall[0] = _Country;
+                        prevUniCall[1] = _Discip;
+
+                        GetAndDisplayUniversities(_Country, _Discip);
+                    }
+                }
+                break;
+
+            case "Online Resources":
+                if (prevSelect)
+                {
+                    let _Discip = prevSelect.innerHTML;
+
+                    if (!prevOnCall || prevOnCall !== _Discip)
+                    {
+                        prevOnCall = _Discip;
+
+                        GetAndDisplayOnline(_Discip);
+                    }
+                }
+                break;
+        }
+
+        GetAndDisplayParents_Child(this);
+    }
+
+    function DisplayWiki(_ResponseData, _Status)
+    {
+        document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
+
+        if (_Status == 200)
+        {
+            RemovePreviousWikiInfo();
+
+            let data = JSON.parse(_ResponseData);
+
+            document.getElementById("info-detail-p").innerHTML = data.extract_html;
+
+            document.getElementById("info-detail").appendChild(CreateElement("a", "View complete page on Wikipedia.org", data.content_urls.desktop.page, "_blank",
+                "wiki-page-link"));
+
+            if (!data.thumbnail)
+            {
+                document.getElementById("info-detail-image").src = "";
+            }
+
+            else
+            {
+                document.getElementById("info-detail-image").src = data.thumbnail.source;
+            }
+        }
+
+        else
+        {
+            if (document.querySelector(".wiki-page-link"))
+            {
+                document.querySelector(".wiki-page-link").remove();
+            }
+            document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
+            document.getElementById("info-detail-image").src = "";
+        }
+    }
+
+    function CollapseAllClick()
+    {
+        let parent = document.querySelector(".active-discip-list");
+        let children = parent.querySelectorAll("ul.children");
+        for (let i = 0; i < children.length; i++)
+        {
+            if (children[i].classList.contains("active"))
+            {
+                children[i].classList.remove("active");
+            }
+        }
+
+        let plus = parent.querySelectorAll("span.is-icon");
+        for (let i = 0; i < plus.length; i++)
+        {
+            plus[i].innerHTML = "+";
+        }
+    }
+
+    function ExpandAllClick()
+    {
+        let parent = document.querySelector(".active-discip-list");
+        let children = parent.querySelectorAll("ul.children");
+        let i;
+        for (i = 0; i < children.length; i++)
+        {
+            children[i].classList.remove("animate-none");
+        }
+
+        for (i = 0; i < children.length; i++)
+        {
+            if (!children[i].classList.contains("active"))
+            {
+                children[i].classList.add("active");
+            }
+        }
+
+        let plus = parent.querySelectorAll("span.is-icon");
+        for (i = 0; i < plus.length; i++)
+        {
+            plus[i].innerHTML = "-";
+        }
+    }
+
+    function BasicInfoTabClick()
+    {
+        if (!this.classList.contains("tab-select"))
+        {
+            _SelectTab(this);
+
+            document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
+            document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
+            document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
+            document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
+            document.querySelector(".info-tab-content").classList.add("active");
+            document.querySelector(".unis").classList.remove("active");
+            document.querySelector(".online").classList.remove("active");
+
+            GetAndDisplayWiki(true);
+        }
+
+        document.querySelector(".uni-tab").classList.remove("tab-select");
+        document.querySelector(".uni-tab").querySelector(".arrow").classList.remove("arrow-down");
+        document.querySelector(".uni-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+        document.querySelector(".online-tab").classList.remove("tab-select");
+        document.querySelector(".online-tab").querySelector(".arrow").classList.remove("arrow-down");
+        document.querySelector(".online-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    }
+
+    function UniTabClick()
+    {
+        if (!this.classList.contains("tab-select"))
+        {
+            _SelectTab(this);
+
+            document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
+            document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
+            document.querySelector(".online-tab").querySelector(".tab-img-white").classList.add("active-icon");
+            document.querySelector(".online-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
+            document.querySelector(".unis").classList.add("active");
+            document.querySelector(".info-tab-content").classList.remove("active");
+            document.querySelector(".online").classList.remove("active");
+
+            if (prevSelect)
+            {
+                let _CountrySelect = document.getElementById("uni-country");
+                let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
+                let _Discip = prevSelect.innerHTML;
+
+                if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
+                {
+                    prevUniCall[0] = _Country;
+                    prevUniCall[1] = _Discip;
+
+                    GetAndDisplayUniversities(_Country, _Discip);
+                }
+            }
+
+        }
+
+        document.querySelector(".basic-info-tab").classList.remove("tab-select");
+        document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
+        document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+        document.querySelector(".online-tab").classList.remove("tab-select");
+        document.querySelector(".online-tab").querySelector(".arrow").classList.remove("arrow-down");
+        document.querySelector(".online-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    }
+
+    function OnlineTabClick()
+    {
+        if (!this.classList.contains("tab-select"))
+        {
+            _SelectTab(this);
+
+            document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
+            document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
+            document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
+            document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
+
+            document.querySelector(".online").classList.add("active");
+            document.querySelector(".info-tab-content").classList.remove("active");
+            document.querySelector(".unis").classList.remove("active");
+
+            if (prevSelect)
+            {
+                let _Discip = prevSelect.innerHTML;
+
+                if (!prevOnCall || prevOnCall !== _Discip)
+                {
+                    prevOnCall = _Discip;
+
+                    GetAndDisplayOnline(_Discip);
+                }
+            }
+
+        }
+
+        document.querySelector(".basic-info-tab").classList.remove("tab-select");
+        document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
+        document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+
+        document.querySelector(".uni-tab").classList.remove("tab-select");
+        document.querySelector(".uni-tab").querySelector(".arrow").classList.remove("arrow-down");
+        document.querySelector(".uni-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+    }
+
+    function CountryChange()
+    {
         if (prevSelect)
         {
             let _CountrySelect = document.getElementById("uni-country");
             let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
             let _Discip = prevSelect.innerHTML;
 
-            if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
+            GetAndDisplayUniversities(_Country, _Discip);
+        }
+    }
+
+    function TopDiscipHeadingClick(elmt)
+    {
+        elmt.addEventListener("click", function ()
+        {
+            if (document.querySelector(".active-discip-heading"))
             {
-                prevUniCall[0] = _Country;
-                prevUniCall[1] = _Discip;
-
-                GetAndDisplayUniversities(_Country, _Discip);
+                document.querySelector(".active-discip-heading").classList.remove("active-discip-heading");
             }
-        }
 
-    }
 
-    document.querySelector(".basic-info-tab").classList.remove("tab-select");
-    document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
+            this.classList.add("active-discip-heading");
 
-    document.querySelector(".online-tab").classList.remove("tab-select");
-    document.querySelector(".online-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".online-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
-});
-
-document.querySelector(".online-tab").addEventListener("click", function ()
-{
-    if (!this.classList.contains("tab-select"))
-    {
-        _SelectTab(this);
-
-        document.querySelector(".basic-info-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".basic-info-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-
-        document.querySelector(".uni-tab").querySelector(".tab-img-white").classList.add("active-icon");
-        document.querySelector(".uni-tab").querySelector(".tab-img-green").classList.remove("active-icon");
-
-        document.querySelector(".online").classList.add("active");
-        document.querySelector(".info-tab-content").classList.remove("active");
-        document.querySelector(".unis").classList.remove("active");
-
-        if (prevSelect)
-        {
-            let _Discip = prevSelect.innerHTML;
-
-            if (!prevOnCall || prevOnCall !== _Discip)
+            if (document.querySelector(".active-discip-list"))
             {
-                prevOnCall = _Discip;
-
-                GetAndDisplayOnline(_Discip);
+                document.querySelector(".active-discip-list").classList.remove("active-discip-list");
             }
-        }
 
+            document.querySelector("." + this.classList[0] + "-discips").classList.add("active-discip-list");
+
+        });
     }
 
-    document.querySelector(".basic-info-tab").classList.remove("tab-select");
-    document.querySelector(".basic-info-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".basic-info-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
-
-    document.querySelector(".uni-tab").classList.remove("tab-select");
-    document.querySelector(".uni-tab").querySelector(".arrow").classList.remove("arrow-down");
-    document.querySelector(".uni-tab").querySelector(".arrow-inner").classList.remove("arrow-down-inner");
-});
-
-document.getElementById("uni-country").addEventListener("change", function ()
-{
-    if (prevSelect)
+    function CreateElement(_type, _content, _href, _target, _class)
     {
-        let _CountrySelect = document.getElementById("uni-country");
-        let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
-        let _Discip = prevSelect.innerHTML;
+        let elmt = document.createElement(_type);
+        elmt.appendChild(document.createTextNode(_content));
 
-        GetAndDisplayUniversities(_Country, _Discip);
-    }
-});
-
-document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .formal-sciences, .prof-nd-app-sciences").forEach(function (elmt)
-{
-    elmt.addEventListener("click", function ()
-    {
-        if (document.querySelector(".active-discip-heading"))
+        if (_href)
         {
-            document.querySelector(".active-discip-heading").classList.remove("active-discip-heading");
+            elmt.setAttribute("href", _href);
         }
 
-
-        this.classList.add("active-discip-heading");
-
-        if (document.querySelector(".active-discip-list"))
+        if (_target)
         {
-            document.querySelector(".active-discip-list").classList.remove("active-discip-list");
+            elmt.setAttribute("target", "_blank");
         }
 
-        document.querySelector("." + this.classList[0] + "-discips").classList.add("active-discip-list");
-
-    });
-});
-
-function GetAndDisplayOnline(_Discipline)
-{
-    document.querySelector(".online-content").classList.add("remove-display");
-
-    var request = new XMLHttpRequest();
-
-    request.onload = function ()
-    {
-        DisplayLinksOnline(this.response, request.status);
-
-        document.querySelector(".online-content").classList.remove("remove-display");
-    };
-
-    request.open("POST", "/Explore/GetOnline", true);
-
-    request.setRequestHeader("Content-Type", "application/json");
-
-    request.send(JSON.stringify([_Discipline]));
-}
-
-function GetAndDisplayUniversities(_Country, _Discipline)
-{
-    document.querySelector(".unis-content").classList.add("remove-display");
-
-    var request = new XMLHttpRequest();
-
-    request.onload = function ()
-    {
-        DisplayLinksUniversities(this.response, _Country, request.status);
-
-        document.querySelector(".unis-content").classList.remove("remove-display");
-    };
-
-    request.open("POST", "/Explore/GetUniversities", true);
-
-    request.setRequestHeader("Content-Type", "application/json");
-
-    request.send(JSON.stringify([_Country, _Discipline]));
-}
-
-function DisplayLinksOnline(_LinkInfo, _RequestStatus)
-{
-    let LinkInfo = JSON.parse(_LinkInfo);
-    let itr;
-    let _OnlineDiv = document.querySelector(".online-content");
-    let length = LinkInfo.length;
-    let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
-
-    RemovePreviousOnlineLinks();
-
-    if (_RequestStatus == 200)
-    {
-        _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
-
-        for (itr = 0; itr < length; itr++)
+        if (_class)
         {
-            _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
-            _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
-            _OnlineDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
+            elmt.classList.add(_class);
         }
+
+        return elmt;
     }
 
-    else 
+    function RemovePreviousOnlineLinks()
     {
-        console.log("There was an error retrieving results!");
-    }
-}
-
-function DisplayLinksUniversities(_LinkInfo, _Country, _RequestStatus)
-{
-    let LinkInfo = JSON.parse(_LinkInfo);
-    let itr;
-    let _UnisDiv = document.querySelector(".unis-content");
-    let length = LinkInfo.length;
-    let text = "Found " + length + " results for " + prevSelect.innerHTML + " universities in " + _Country;
-
-    RemovePreviousUniLinks();
-
-    if (_RequestStatus == 200)
-    {
-        _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
-
-        for (itr = 0; itr < length; itr++)
-        {
-            _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
-            _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
-            _UnisDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
-        }
-    }
-
-    else
-    {
-        console.log("There was an error retrieving results!");
-    }
-}
-
-function ParentClick()
-{
-    let _Changed = SelectDiscip(this);
-
-    switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
-    {
-        case "Info":
-            GetAndDisplayWiki(_Changed);
-            break;
-
-        case "On-Campus Resources":
-            if (prevSelect)
+        document.querySelectorAll(".online-found, .online-links, .online-titles, .online-descrips").forEach(
+            function (elmt) 
             {
-                let _CountrySelect = document.getElementById("uni-country");
-                let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
-                let _Discip = prevSelect.innerHTML;
-
-                if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
-                {
-                    prevUniCall[0] = _Country;
-                    prevUniCall[1] = _Discip;
-
-                    GetAndDisplayUniversities(_Country, _Discip);
-                }
-            }
-            break;
-
-        case "Online Resources":
-            if (prevSelect)
-            {
-                let _Discip = prevSelect.innerHTML;
-
-                if (!prevOnCall || prevOnCall !== _Discip)
-                {
-                    prevOnCall = _Discip;
-
-                    GetAndDisplayOnline(_Discip);
-                }
-            }
-            break;
+                elmt.remove();
+            });
     }
 
-    GetAndDisplayParents_Parents(this);
-}
-
-function GetAndDisplayWiki(_IsChanged)
-{
-    if (_IsChanged)
+    function RemovePreviousUniLinks() 
     {
-        document.querySelector(".info-tab-content").classList.remove("active");
-
-        var request = new XMLHttpRequest();
-
-        request.onload = function ()
-        {
-            DisplayWiki(this.response, request.status);
-
-            document.querySelector(".info-tab-content").classList.add("active");
-        }
-
-        request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
-
-        request.send();
-    }
-}
-
-function ChildClick() 
-{
-    let _Changed = SelectDiscip(this);
-
-    switch (document.querySelector(".tab-select").querySelector(".tab-name").innerHTML)
-    {
-        case "Info":
-            GetAndDisplayWiki(_Changed);
-            break;
-
-        case "On-Campus Resources":
-            if (prevSelect)
+        document.querySelectorAll(".unis-found, .unis-links, .unis-titles, .unis-descrips").forEach(
+            function (elmt) 
             {
-                let _CountrySelect = document.getElementById("uni-country");
-                let _Country = _CountrySelect.options[_CountrySelect.selectedIndex].value;
-                let _Discip = prevSelect.innerHTML;
-
-                if (!prevUniCall || (prevUniCall[0] !== _Country || prevUniCall[1] !== _Discip))
-                {
-                    prevUniCall[0] = _Country;
-                    prevUniCall[1] = _Discip;
-
-                    GetAndDisplayUniversities(_Country, _Discip);
-                }
-            }
-            break;
-
-        case "Online Resources":
-            if (prevSelect)
-            {
-                let _Discip = prevSelect.innerHTML;
-
-                if (!prevOnCall || prevOnCall !== _Discip)
-                {
-                    prevOnCall = _Discip;
-
-                    GetAndDisplayOnline(_Discip);
-                }
-            }
-            break;
+                elmt.remove();
+            });
     }
 
-    GetAndDisplayParents_Child(this);
-}
-
-function DisplayWiki(_ResponseData, _Status)
-{
-    document.getElementById("info-heading-p").innerHTML = prevSelect.innerHTML;
-
-    if (_Status == 200)
-    {
-        RemovePreviousWikiInfo();
-
-        let data = JSON.parse(_ResponseData);
-
-        document.getElementById("info-detail-p").innerHTML = data.extract_html;
-
-        document.getElementById("info-detail").appendChild(CreateElement("a", "View complete page on Wikipedia.org", data.content_urls.desktop.page, "_blank",
-            "wiki-page-link"));
-
-        if (!data.thumbnail)
-        {
-            document.getElementById("info-detail-image").src = "";
-        }
-
-        else
-        {
-            document.getElementById("info-detail-image").src = data.thumbnail.source;
-        }
-    }
-
-    else
+    function RemovePreviousWikiInfo() 
     {
         if (document.querySelector(".wiki-page-link"))
         {
             document.querySelector(".wiki-page-link").remove();
         }
-        document.getElementById("info-detail-p").innerHTML = "We had some trouble retrieving data from Wikipedia :(";
-        document.getElementById("info-detail-image").src = "";
     }
-}
 
-function CreateElement(_type, _content, _href, _target, _class)
-{
-    let elmt = document.createElement(_type);
-    elmt.appendChild(document.createTextNode(_content));
-
-    if (_href)
+    function SelectDiscip(_Current)
     {
-        elmt.setAttribute("href", _href);
-    }
-
-    if (_target)
-    {
-        elmt.setAttribute("target", "_blank");
-    }
-
-    if (_class)
-    {
-        elmt.classList.add(_class);
-    }
-
-    return elmt;
-}
-
-function RemovePreviousOnlineLinks()
-{
-    document.querySelectorAll(".online-found, .online-links, .online-titles, .online-descrips").forEach(
-        function (elmt) 
+        if (prevSelect)
         {
-            elmt.remove();
-        });
-}
+            prevSelect.classList.remove("current-selection");
+        }
 
-function RemovePreviousUniLinks() 
-{
-    document.querySelectorAll(".unis-found, .unis-links, .unis-titles, .unis-descrips").forEach(
-        function (elmt) 
-        {
-            elmt.remove();
-        });
-}
+        _Current.classList.add("current-selection");
+        let _Changed = _Current !== prevSelect;
+        prevSelect = _Current;
 
-function RemovePreviousWikiInfo() 
-{
-    if (document.querySelector(".wiki-page-link"))
-    {
-        document.querySelector(".wiki-page-link").remove();
-    }
-}
-
-function SelectDiscip(_Current)
-{
-    if (prevSelect)
-    {
-        prevSelect.classList.remove("current-selection");
+        return _Changed;
     }
 
-    _Current.classList.add("current-selection");
-    let _Changed = _Current !== prevSelect;
-    prevSelect = _Current;
+    function Init()
+    {
+        let select = document.querySelector(".humanities-discips").querySelector(".is-parent");
+        select.classList.add("current-selection");
+        prevSelect = select;
+        GetAndDisplayWiki(true);
+        GetAndDisplayParents_Parents(prevSelect);
+    }
 
-    return _Changed;
+    window.onload = Init;
+    AddEventChildren();
+    AddEventParent();
+    AddEventCEIcon();
 }
-
-function Init()
-{
-    let select = document.querySelector(".humanities-discips").querySelector(".is-parent");
-    select.classList.add("current-selection");
-    prevSelect = select;
-    GetAndDisplayWiki(true);
-    GetAndDisplayParents_Parents(prevSelect);
-}
-
-window.onload = Init;
-AddEventChildren();
-AddEventParent();
-AddEventCEIcon();
