@@ -64,7 +64,7 @@ function Main()
 
     function AddEventParent()
     {
-        var parents = document.getElementsByClassName("is-parent");
+        let parents = document.getElementsByClassName("is-parent");
 
         for (let i = 0; i < parents.length; i++)
         {
@@ -203,6 +203,7 @@ function Main()
         document.querySelector(".online-content").classList.add("remove-display");
 
         let now = new Date().getSeconds();
+
         if (last && Math.abs(last - now) < 2)
         {
             await Sleep(1000);
@@ -279,7 +280,7 @@ function Main()
 
         else 
         {
-            console.log("There was an error retrieving results!");
+            _OnlineDiv.appendChild(CreateElement("p", "There was an error retrieving results from the database :(", "", "", "online-descrips"));
         }
     }
 
@@ -307,7 +308,7 @@ function Main()
 
         else
         {
-            console.log("There was an error retrieving results!");
+            _OnlineDiv.appendChild(CreateElement("p", "There was an error retrieving results from the database :(", "", "", "unis-descrips"));
         }
     }
 
