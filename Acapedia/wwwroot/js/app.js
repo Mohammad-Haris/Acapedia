@@ -5,6 +5,7 @@ function Main()
     var prevSelect;
     var prevUniCall = new Array(2);
     var prevOnCall;
+    var last;
 
     function AddEventCEIcon()
     {
@@ -197,9 +198,17 @@ function Main()
 
     document.querySelectorAll(".humanities, .social-sciences, .natural-sciences, .formal-sciences, .prof-nd-app-sciences").forEach(TopDiscipHeadingClick);
 
-    function GetAndDisplayOnline(_Discipline)
+    async function GetAndDisplayOnline(_Discipline)
     {
         document.querySelector(".online-content").classList.add("remove-display");
+
+        let now = new Date().getSeconds();
+        if (last && Math.abs(last - now) < 2)
+        {
+            await Sleep(1000);
+        }
+
+        last = new Date().getSeconds();
 
         var request = new XMLHttpRequest();
 
@@ -217,9 +226,18 @@ function Main()
         request.send(JSON.stringify([_Discipline]));
     }
 
-    function GetAndDisplayUniversities(_Country, _Discipline)
+    async function GetAndDisplayUniversities(_Country, _Discipline)
     {
         document.querySelector(".unis-content").classList.add("remove-display");
+
+        let now = new Date().getSeconds();
+
+        if (last && Math.abs(last - now) < 2)
+        {
+            await Sleep(1000);
+        }
+
+        last = new Date().getSeconds();
 
         var request = new XMLHttpRequest();
 
@@ -338,11 +356,20 @@ function Main()
         GetAndDisplayParents_Parents(this);
     }
 
-    function GetAndDisplayWiki(_IsChanged)
+    async function GetAndDisplayWiki(_IsChanged)
     {
         if (_IsChanged)
         {
-            document.querySelector(".info-tab-content").classList.remove("active");
+            let now = new Date().getSeconds();
+
+            document.querySelector(".info-tab-content").classList.remove("active");            
+
+            if (last && Math.abs(last - now) < 2)
+            {
+                await Sleep(1000);
+            }
+
+            last = new Date().getSeconds();
 
             var request = new XMLHttpRequest();
 
