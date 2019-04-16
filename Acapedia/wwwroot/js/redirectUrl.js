@@ -1,4 +1,4 @@
-﻿setTimeout(redirecturl, 2000);
+﻿setTimeout(redirecturl, 1500);
 
 
 function redirecturl()

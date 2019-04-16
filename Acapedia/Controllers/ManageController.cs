@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace Acapedia.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
+    [Route("[controller]")]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

@@ -16,8 +16,10 @@ a {
     position: absolute;
     top: 5%;
     left: 5%;
-    background-color: rgb(53, 73, 94);
-    color: #00bfff;
+    background-color: var(--main-blue-color);
+    --console-color: #00bfff;
+    --console-info-color: #74ff14;
+    color: var(--console-color);
     width: 90%;
     height: 90%;
     border-radius: 5px;
@@ -42,58 +44,58 @@ a {
 }
 
 #error-code {
-    color: #00bfff;
+    color: var(--console-color);
     margin: 10% 0 10px 30px;
 }
 
     #error-code i {
-        color: #74ff14;
+        color: var(--console-info-color);
     }
 
 #error-url {
-    color: #00bfff;
-    margin: 20px 0 10px 30px;
+    color: var(--console-color);
+    margin: 15px 0 10px 30px;
 }
 
     #error-url i {
-        color: #74ff14;
+        color: var(--console-info-color);
     }
 
 #error-descrip {
-    color: #00bfff;
-    margin: 20px 0 10px 30px;
+    color: var(--console-color);
+    margin: 15px 0 10px 30px;
 }
 
     #error-descrip i {
-        color: #74ff14;
+        color: var(--console-info-color);
     }
 
 #error-cause {
-    color: #00bfff;
-    margin: 20px 0 10px 30px;
+    color: var(--console-color);
+    margin: 15px 0 10px 30px;
 }
 
     #error-cause i {
-        color: #74ff14;
+        color: var(--console-info-color);
     }
 
 #some-pages {
-    color: #00bfff;
+    color: var(--console-color);
     margin: 40px 0 10px 30px;
 }
 
 #error-request {
-    color: #00bfff;
-    margin: 10px 0 10px 30px;
+    color: var(--console-color);
+    margin: 15px 0 10px 30px;
 }
 
 #error-support {
-    color: #00bfff;
-    margin: 10px 0 10px 30px;
+    color: var(--console-color);
+    margin: 15px 0 10px 30px;
 }
 
 #error-end {
-    color: #00bfff;
+    color: var(--console-color);
     margin: 30px 0 10px 30px;
     display: inline-block;
 }

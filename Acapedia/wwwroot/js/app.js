@@ -1,6 +1,6 @@
-﻿Main();
+﻿AppMain();
 
-function Main()
+function AppMain()
 {
     var prevSelect;
     var prevUniCall = new Array(2);
