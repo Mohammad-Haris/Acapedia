@@ -677,8 +677,6 @@ li {
 .unis {
     display: none;
     grid-row-start: 2;
-    width: 100%;
-    height: 100%;
     color: var(--dimmed-white);
     text-align: right;
     font-size: 14px;
@@ -703,6 +701,7 @@ li {
     -moz-appearance: none;
     border-radius: 1px;
     background: url('../icons/country-arrow-down.png') 95% no-repeat var(--faded-out-blue);
+    padding-left: 10px;
 }
 
 .unis-found {
@@ -746,10 +745,8 @@ li {
 .online {
     display: none;
     grid-row-start: 2;
-    width: 100%;
-    height: 100%;
     color: var(--dimmed-white);
-    overflow: auto;    
+    overflow: auto;
 }
 
 .online-content {
