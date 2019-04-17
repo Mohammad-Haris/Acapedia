@@ -2,7 +2,6 @@
 using System.Linq;
 using Acapedia.Data;
 using Acapedia.Data.Contracts;
-using Acapedia.Data.Models;
 using Acapedia.Data.ViewModels.ExploreViewModels;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;

@@ -84,7 +84,7 @@ namespace Acapedia
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error");
                 app.UseHsts();
             }
 

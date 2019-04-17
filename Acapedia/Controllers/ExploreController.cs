@@ -13,6 +13,8 @@ namespace Acapedia.Controllers
             _ExploreService = service;
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult GetUniversities ([FromBody] JArray _Data)
         {
             var _Unis =  _ExploreService.GetUniversities(_Data);
@@ -31,6 +33,8 @@ namespace Acapedia.Controllers
             return Content(_ToClient.ToString());
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult GetOnline ([FromBody] JArray _Data)
         {
             var _Unis =  _ExploreService.GetOnline(_Data);

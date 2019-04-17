@@ -13,12 +13,12 @@
 <body>
     <div class="wrapper">
         <div class="header">
-            <a class="headericon" href="#">
+            <a class="headericon" href="/">
                 <img id="logoandtext" alt="Acapedia title" src="~/icons/icon-with-title.svg" />
                 <img id="logo" alt="Acapedia title" src="~/icons/icon-main.svg" />
             </a>
-            <a id="donate" href="#">Contribute</a>
-            <a id="about-info" href="#">About</a>
+            <a id="donate" href="/Home/Contribute">Contribute</a>
+            <a id="about-info" href="/Home/About">About</a>
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="content">
@@ -29,10 +29,10 @@
                 Copyright &copy; 2018 Acapedia Inc. All rights reserved.
             </div>
             <div class="privacypolicy">
-                <a id="privacypolicylink" href="#">Privacy Policy</a>
+                <a id="privacypolicylink" href="/Home/PrivacyPolicy">Privacy Policy</a>
             </div>
             <div class="contact">
-                <a id="contactlink" href="#">Contact</a>
+                <a id="contactlink" href="/Home/Contact">Contact</a>
             </div>
             <div class="facebookicon">
                 <a id="facebookiconlink" href="#">

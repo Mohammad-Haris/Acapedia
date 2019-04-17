@@ -224,6 +224,9 @@ function AppMain()
 
         request.setRequestHeader("Content-Type", "application/json");
 
+        request.setRequestHeader("RequestVerificationToken",
+            document.getElementById('RequestVerificationToken').value);
+
         request.send(JSON.stringify([_Discipline]));
     }
 
@@ -252,6 +255,9 @@ function AppMain()
         request.open("POST", "/Explore/GetUniversities", true);
 
         request.setRequestHeader("Content-Type", "application/json");
+
+        request.setRequestHeader("RequestVerificationToken",
+            document.getElementById('RequestVerificationToken').value);
 
         request.send(JSON.stringify([_Country, _Discipline]));
     }
