@@ -31,11 +31,11 @@ namespace Acapedia
         public void ConfigureServices (IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
-            {
+                {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+                    options.MinimumSameSitePolicy = SameSiteMode.None;
+                });
 
             services.AddDbContext<AcapediaDbContext>(options =>
                 options.UseSqlServer(
@@ -45,24 +45,24 @@ namespace Acapedia
                 .AddEntityFrameworkStores<AcapediaDbContext>().AddDefaultTokenProviders();
 
             services.AddAuthentication().AddGoogle(googleOptions =>
-            {
-                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                googleOptions.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
-                googleOptions.ClaimActions.Clear();
-                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
-                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Uri, "picture");
-                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
-                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
-                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-            });
+                   {
+                       googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                       googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                       googleOptions.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
+                       googleOptions.ClaimActions.Clear();
+                       googleOptions.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
+                       googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Uri, "picture");
+                       googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+                       googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
+                       googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                   });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.Configure<IdentityOptions>(options =>
-                {
-                    options.Stores.MaxLengthForKeys = 128;
-                });
+                        {
+                            options.Stores.MaxLengthForKeys = 128;
+                        });
 
             services.ConfigureApplicationCookie(options =>
                 {

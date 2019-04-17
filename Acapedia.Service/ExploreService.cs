@@ -19,13 +19,13 @@ namespace Acapedia.Service
 
         public IEnumerable<WebsiteLinkModel> GetUniversities (JArray _ClientSelection)
         {
-            var _Countries = _Context.Country.AsNoTracking().Where(coun => coun.CountryName != "Online").Select(coun => coun.CountryName);
-            var _Disciplines = _Context.Discipline.AsNoTracking().Select(discip => discip.DisciplineName);
+            var _Countries = _Context.Country.AsNoTracking().Where(coun => coun.CountryName != "Online").Select(coun => coun.CountryName.ToLower());
+            var _Disciplines = _Context.Discipline.AsNoTracking().Select(discip => discip.DisciplineName.ToLower());
 
             string _Country = _ClientSelection[0].ToString();
             string _Discipline = _ClientSelection[1].ToString();
 
-            if (_Countries.ToList().Contains(_Country) && _Disciplines.ToList().Contains(_Discipline))
+            if (_Countries.ToList().Contains(_Country.ToLower()) && _Disciplines.ToList().Contains(_Discipline.ToLower()))
             {
                 string _DiscipId = _Context.Discipline.AsNoTracking().Where(dis => dis.DisciplineName == _Discipline).Select(dis => dis.DisciplineId).FirstOrDefault();
                 var _QueryResult = _Context.WebsiteLink.AsNoTracking().Where(sel => sel.LinkCountryName == _Country).Where(sel => sel.LinkDisciplineId == _DiscipId)
@@ -47,12 +47,12 @@ namespace Acapedia.Service
 
         public IEnumerable<WebsiteLinkModel> GetOnline (JArray _ClientSelection)
         {
-            var _Disciplines = _Context.Discipline.AsNoTracking().Select(discip => discip.DisciplineName);
+            var _Disciplines = _Context.Discipline.AsNoTracking().Select(discip => discip.DisciplineName.ToLower());
 
             var _Country = "Online";
             var _Discipline = _ClientSelection[0].ToString();
 
-            if (_Disciplines.ToList().Contains(_Discipline))
+            if (_Disciplines.ToList().Contains(_Discipline.ToLower()))
             {
                 string _DiscipId = _Context.Discipline.AsNoTracking().Where(dis => dis.DisciplineName == _Discipline).Select(dis => dis.DisciplineId).FirstOrDefault();
                 var _QueryResult = _Context.WebsiteLink.AsNoTracking().Where(sel => sel.LinkCountryName == _Country).Where(sel => sel.LinkDisciplineId == _DiscipId)
