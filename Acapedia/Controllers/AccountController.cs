@@ -33,10 +33,28 @@ namespace Acapedia.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login ()
         {
-            // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+            var _User = await _userManager.GetUserAsync(User);
 
-            return View();
+            if (_User == null)
+            {
+                // Clear the existing external cookie to ensure a clean login process
+                await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+                return View();
+            }
+
+            if (_User != null)
+            {
+                if (!(_signInManager.IsSignedIn(User)))
+                {
+                    // Clear the existing external cookie to ensure a clean login process
+                    await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+                    return View();
+                }
+            }
+
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         [HttpPost]

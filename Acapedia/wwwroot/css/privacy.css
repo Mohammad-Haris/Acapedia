@@ -27,11 +27,13 @@
 
 #privacy-policy-heading {
     font-size: 20px;
+    letter-spacing: 0.1125em;
 }
 
 #privacy-policy-heading-text {
     margin-top: 50px;
     font-size: 17px;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-text-div {
@@ -44,11 +46,13 @@
     font-size: 15px;
     width: 500px;
     margin: auto;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-cookies {
     font-size: 17px;
     padding-top: 30px;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-cookies-text {
@@ -56,11 +60,13 @@
     width: 500px;
     margin: auto;
     padding-top: 35px;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-ads {
     font-size: 17px;
     padding-top: 30px;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-ads-text {
@@ -68,11 +74,13 @@
     width: 500px;
     margin: auto;
     padding-top: 35px;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-feedback {
     font-size: 17px;
     padding-top: 30px;
+    letter-spacing: 0.0725em;
 }
 
 #privacy-policy-feedback-text {
@@ -81,6 +89,7 @@
     margin: auto;
     padding-top: 35px;
     padding-bottom: 50px;
+    letter-spacing: 0.0725em;
 }
 
 .privacypolicy {

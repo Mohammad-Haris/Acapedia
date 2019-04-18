@@ -1,0 +1,23 @@
+﻿#contribute-div {
+    text-align: center;
+}
+
+#contribute-heading {
+    font-size: 22px;
+    margin-top: 50px;
+    letter-spacing: 0.0725em;
+}
+
+#contribute-text {
+    width: 750px;
+    margin: auto;
+    font-size: 15px;
+    letter-spacing: 0.0725em;
+    padding-top: 50px;
+}
+
+#divider {
+    border-bottom: 1px double gray;
+    width: 50%;
+    margin: -10px auto;
+}
