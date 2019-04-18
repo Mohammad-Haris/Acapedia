@@ -204,7 +204,7 @@ function AppMain()
 
         let now = new Date().getSeconds();
 
-        if (last && Math.abs(last - now) < 2)
+        if (last && Math.abs(last - now) < 3)
         {
             await Sleep(1000);
         }
@@ -236,7 +236,7 @@ function AppMain()
 
         let now = new Date().getSeconds();
 
-        if (last && Math.abs(last - now) < 2)
+        if (last && Math.abs(last - now) < 3)
         {
             await Sleep(1000);
         }
@@ -367,11 +367,11 @@ function AppMain()
     {
         if (_IsChanged)
         {
-            let now = new Date().getSeconds();
-
             document.querySelector(".info-tab-content").classList.remove("active");            
 
-            if (last && Math.abs(last - now) < 2)
+            let now = new Date().getSeconds();
+
+            if (last && Math.abs(last - now) < 3)
             {
                 await Sleep(1000);
             }

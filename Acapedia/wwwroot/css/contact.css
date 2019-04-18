@@ -1,0 +1,19 @@
+﻿#contact-div {
+    text-align: center;
+}
+
+#contact-heading{
+    font-size: 25px;
+    padding-top: 120px;
+}
+
+#divider {
+    border-bottom: 1px double gray;
+    width: 50%;
+    margin: -10px auto;
+}
+
+#contact-text {
+    padding-top: 30px;
+    font-size: 16px;
+}

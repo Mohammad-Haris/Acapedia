@@ -116,6 +116,8 @@ a {
     background-color: var(--main-background-color);
     margin: 55px 48px 0;
     display: none;
+    border: 1px var(--main-blue-color) solid;
+    border-radius: 2px;
 }
 
 #profile-manage-dropdown {
@@ -133,7 +135,7 @@ a {
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-bottom-color: var(--main-background-color);
+        border-bottom-color: var(--main-blue-color);
         border-width: 8px;
         margin-left: -8px;
     }

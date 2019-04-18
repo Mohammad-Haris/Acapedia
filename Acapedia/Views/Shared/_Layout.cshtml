@@ -9,6 +9,22 @@
     @RenderSection("Styles", false)
     <title>Acapedia</title>
     <link rel="icon" href="~/icons/favicon.png" />
+    <script>
+        function BrowserCompatibility()
+        {
+            let isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+            let isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+            let isIE = false || !!document.documentMode;
+            let isEdge = !isIE && !!window.StyleMedia;
+
+            if ((isIE || isEdge || isSafari || isOpera) && location.pathname.toLowerCase() != "/notsupported")
+            {
+                location.replace("/NotSupported");
+            }
+        }
+
+        BrowserCompatibility();
+    </script>
 </head>
 <body>
     <div class="wrapper">

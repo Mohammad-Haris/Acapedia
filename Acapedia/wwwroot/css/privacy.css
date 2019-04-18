@@ -1,0 +1,93 @@
+﻿.wrapper {
+    background-color: var(--button-color);
+}
+
+.divider {
+    border-bottom: 1px double gray;
+    width: 50%;
+    margin: -10px auto;
+}
+
+#privacy-policy-div {
+    position: relative;
+    width: 100%;    
+    height: 100%;
+    text-align: center;
+}
+
+#privacy-policy-image {
+    width: 90px;
+    height: 90px;
+    margin-top: 10px;
+}
+
+#privacy-policy-heading-div {
+    padding-bottom: 50px;
+}
+
+#privacy-policy-heading {
+    font-size: 20px;
+}
+
+#privacy-policy-heading-text {
+    margin-top: 50px;
+    font-size: 17px;
+}
+
+#privacy-policy-text-div {
+    background-color: var(--main-background-color);    
+    text-align: center;
+}
+
+#privacy-policy-text {
+    padding-top: 30px;
+    font-size: 15px;
+    width: 500px;
+    margin: auto;
+}
+
+#privacy-policy-cookies {
+    font-size: 17px;
+    padding-top: 30px;
+}
+
+#privacy-policy-cookies-text {
+    font-size: 15px;
+    width: 500px;
+    margin: auto;
+    padding-top: 35px;
+}
+
+#privacy-policy-ads {
+    font-size: 17px;
+    padding-top: 30px;
+}
+
+#privacy-policy-ads-text {
+    font-size: 15px;
+    width: 500px;
+    margin: auto;
+    padding-top: 35px;
+}
+
+#privacy-policy-feedback {
+    font-size: 17px;
+    padding-top: 30px;
+}
+
+#privacy-policy-feedback-text {
+    font-size: 15px;
+    width: 500px;
+    margin: auto;
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+.privacypolicy {
+    display: none;
+}
+
+.contact {
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
