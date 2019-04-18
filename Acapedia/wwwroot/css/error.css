@@ -1,4 +1,5 @@
 ﻿.wrapper {
+    -ms-grid-rows: auto;
     grid-template-rows: auto;
 }
 
@@ -23,6 +24,7 @@ a {
     width: 90%;
     height: 90%;
     border-radius: 5px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     white-space: nowrap;
     overflow: auto;
@@ -36,7 +38,6 @@ a {
 #error-type {
     position: relative;
     display: inline;
-    
 }
 
 .typed-cursor {

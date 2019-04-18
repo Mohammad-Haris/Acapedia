@@ -10,7 +10,7 @@
 
 #privacy-policy-div {
     position: relative;
-    width: 100%;    
+    width: 100%;
     height: 100%;
     text-align: center;
 }
@@ -35,7 +35,7 @@
 }
 
 #privacy-policy-text-div {
-    background-color: var(--main-background-color);    
+    background-color: var(--main-background-color);
     text-align: center;
 }
 
@@ -88,6 +88,8 @@
 }
 
 .contact {
+    -ms-grid-column: 3;
     grid-column-start: 3;
+    -ms-grid-row: 3;
     grid-row-start: 3;
 }

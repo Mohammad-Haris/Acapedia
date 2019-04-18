@@ -1,14 +1,64 @@
 ﻿.container {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-rows: 33.33% 33.33% 33.33%;
     grid-template-rows: 33.33% 33.33% 33.33%;
+    -ms-grid-columns: 33.33% 33.33% 33.33%;
     grid-template-columns: 33.33% 33.33% 33.33%;
     background-color: rgba(107, 142, 35, 0.19);
     height: 100vh;
     width: 100vw;
 }
 
+    .container > *:nth-child(1) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
+
+    .container > *:nth-child(2) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+    }
+
+    .container > *:nth-child(3) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 3;
+    }
+
+    .container > *:nth-child(4) {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+    }
+
+    .container > *:nth-child(5) {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+    }
+
+    .container > *:nth-child(6) {
+        -ms-grid-row: 2;
+        -ms-grid-column: 3;
+    }
+
+    .container > *:nth-child(7) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
+    }
+
+    .container > *:nth-child(8) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 2;
+    }
+
+    .container > *:nth-child(9) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 3;
+    }
+
 #redirect {
+    -ms-grid-row: 2;
     grid-row-start: 2;
+    -ms-grid-column: 2;
     grid-column-start: 2;
     font-size: 18px;
     margin: auto;
@@ -18,12 +68,15 @@
     position: relative;
     width: 64px;
     height: 64px;
+    -ms-grid-row: 2;
     grid-row-start: 2;
+    -ms-grid-column: 2;
     grid-column-start: 2;
     margin: 15px auto;
 }
 
     .lds-ring div {
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         display: block;
         position: absolute;
@@ -32,28 +85,46 @@
         margin: 6px;
         border: 6px solid rgba(53, 73, 94, 0.85);
         border-radius: 50%;
+        -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
         border-color: rgba(53, 73, 94, 0.65) transparent transparent transparent;
     }
 
         .lds-ring div:nth-child(1) {
+            -webkit-animation-delay: -0.45s;
             animation-delay: -0.45s;
         }
 
         .lds-ring div:nth-child(2) {
+            -webkit-animation-delay: -0.3s;
             animation-delay: -0.3s;
         }
 
         .lds-ring div:nth-child(3) {
+            -webkit-animation-delay: -0.15s;
             animation-delay: -0.15s;
         }
 
-@keyframes lds-ring {
+@-webkit-keyframes lds-ring {
     0% {
+        -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
 
     100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes lds-ring {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }

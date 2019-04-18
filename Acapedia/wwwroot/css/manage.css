@@ -1,12 +1,26 @@
 ﻿#manage-div {
     width: 100%;
     height: 100%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-rows: 100%;
     grid-template-rows: 100%;
+    -ms-grid-columns: 38.2% 61.8%;
     grid-template-columns: 38.2% 61.8%;
 }
 
+    #manage-div > *:nth-child(1) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
+
+    #manage-div > *:nth-child(2) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+    }
+
 #manage-profile-info {
+    -ms-grid-column: 1;
     grid-column-start: 1;
     text-align: center;
     height: 100%;
@@ -39,8 +53,10 @@
     white-space: nowrap;
 }
 
-#manage-contributions{
+#manage-contributions {
+    -ms-grid-column: 2;
     grid-column-start: 2;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     text-align: center;
 }
