@@ -5,7 +5,7 @@ function AppMain()
     var prevSelect;
     var prevUniCall = new Array(2);
     var prevOnCall;
-    var last;
+    var last = new Date().getTime();
 
     function AddEventCEIcon()
     {
@@ -202,20 +202,16 @@ function AppMain()
     {
         document.querySelector(".online-content").classList.add("remove-display");
 
-        let now = new Date().getSeconds();
-
-        if (last && Math.abs(last - now) < 3)
-        {
-            await Sleep(1000);
-        }
-
-        last = new Date().getSeconds();
+        await SendCall();
 
         var request = new XMLHttpRequest();
 
         request.onload = function ()
         {
-            DisplayLinksOnline(this.response, request.status);
+            if (this.response)
+            {
+                DisplayLinksOnline(this.response, request.status);
+            }
 
             document.querySelector(".online-content").classList.remove("remove-display");
         };
@@ -234,20 +230,16 @@ function AppMain()
     {
         document.querySelector(".unis-content").classList.add("remove-display");
 
-        let now = new Date().getSeconds();
-
-        if (last && Math.abs(last - now) < 3)
-        {
-            await Sleep(1000);
-        }
-
-        last = new Date().getSeconds();
+        await SendCall();
 
         var request = new XMLHttpRequest();
 
         request.onload = function ()
         {
-            DisplayLinksUniversities(this.response, _Country, request.status);
+            if (this.response)
+            {
+                DisplayLinksUniversities(this.response, _Country, request.status);
+            }
 
             document.querySelector(".unis-content").classList.remove("remove-display");
         };
@@ -367,16 +359,9 @@ function AppMain()
     {
         if (_IsChanged)
         {
-            document.querySelector(".info-tab-content").classList.remove("active");            
+            document.querySelector(".info-tab-content").classList.remove("active");
 
-            let now = new Date().getSeconds();
-
-            if (last && Math.abs(last - now) < 3)
-            {
-                await Sleep(1000);
-            }
-
-            last = new Date().getSeconds();
+            await SendCall();
 
             var request = new XMLHttpRequest();
 
@@ -732,6 +717,18 @@ function AppMain()
         prevSelect = select;
         GetAndDisplayWiki(true);
         GetAndDisplayParents_Parents(prevSelect);
+    }
+
+    async function SendCall()
+    {
+        let now = new Date().getTime();
+
+        if ((Math.abs(last - now) / 1000) < 3)
+        {            
+            await Sleep(1000);
+        }
+
+        last = new Date().getTime();
     }
 
     window.onload = Init;
