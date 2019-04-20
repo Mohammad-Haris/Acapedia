@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Acapedia.Data.Contracts;
 
 namespace Acapedia.Service
@@ -7,22 +8,26 @@ namespace Acapedia.Service
     {
         private DateTime Time;
         private int CallCount;
-        private int Delay;
+        private Stopwatch Watch;
 
         public RateLimitService ()
         {
             Time = DateTime.Now;
             CallCount = 0;
-            Delay = 0;
+            Watch = new Stopwatch();
         }
 
         public bool LimitRate ()
         {
-            if (Delay > 0)
+            if (Watch.IsRunning)
             {
-                Delay--;
+                if (Watch.ElapsedMilliseconds < 10000)
+                {
+                    return true;
+                }
+
                 Time = DateTime.Now;
-                return true;
+                Watch.Reset();
             }
 
             CallCount++;
@@ -31,9 +36,7 @@ namespace Acapedia.Service
 
             if (Ratio > 5)
             {
-                Delay = 50;
-
-                Time = DateTime.Now;
+                Watch.Start();
 
                 CallCount = 0;
 
