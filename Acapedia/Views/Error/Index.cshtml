@@ -7,7 +7,7 @@
 }
 
 @section Styles {
-    <link href="@Url.Content("~/css/error.css")" rel="stylesheet" type="text/css" />
+    <link href="~/css/error.css" rel="stylesheet" type="text/css" />
 }
 
 <div id="error-info">
@@ -18,5 +18,7 @@
 <input type="hidden" id="error-status-code" value="@Model.StatusCode">
 <input type="hidden" id="error-description" value="@Model.Description">
 
-<script src="~/js/typed.js"></script>
-<script src="~/js/error.js"></script>
+@section Scripts{
+    <script src="~/js/typed.js"></script>
+    <script src="~/js/error.js"></script>
+}
