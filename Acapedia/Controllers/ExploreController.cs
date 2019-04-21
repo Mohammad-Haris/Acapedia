@@ -64,7 +64,7 @@ namespace Acapedia.Controllers
 
             return Content("");
         }
-
+        
         public IActionResult Index ()
         {
             return View();

@@ -12,6 +12,12 @@
     --letter-space: 0.1325rem;
 }
 
+@font-face {
+    font-family: 'Anonymous Pro', monospace;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+}
+
 .wrapper {
     width: 100vw;
     height: 100vh;
