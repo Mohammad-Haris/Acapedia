@@ -31,8 +31,8 @@ namespace Acapedia
         {
             services.Configure<CookiePolicyOptions>(options =>
                 {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                    options.CheckConsentNeeded = context => true;
                     options.MinimumSameSitePolicy = SameSiteMode.None;
                 });
 
@@ -56,7 +56,14 @@ namespace Acapedia
                        googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
                    });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options =>
+                    {
+                        options.CacheProfiles.Add("Day",
+                            new CacheProfile()
+                            {
+                                Duration = 86400
+                            });
+                    }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.Configure<IdentityOptions>(options =>
                         {
@@ -73,7 +80,7 @@ namespace Acapedia
 
             services.AddScoped<IExplore, ExploreService>();
         }
-        
+
         public void Configure (IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
