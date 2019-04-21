@@ -1,13 +1,10 @@
 ﻿.wrapper {
-    -ms-grid-rows: auto;
     grid-template-rows: auto;
 }
 
 .header {
     display: none;
 }
-
-
 
 a {
     color: #f0c674;
