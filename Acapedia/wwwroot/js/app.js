@@ -374,6 +374,8 @@ function AppMain()
 
             request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
 
+            request.setRequestHeader("Api-User-Agent", "contact.acapedia@gmail.com");
+
             request.send();
         }
     }

@@ -14,8 +14,9 @@
         function BrowserCompatibility()
         {
             let isIE = false || !!document.documentMode;
+            var isEdge = !isIE && !!window.StyleMedia;
 
-            if (isIE)
+            if (isIE || isEdge)
             {
                 location.replace("/NotSupported");
             }

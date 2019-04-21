@@ -1,5 +1,6 @@
 ﻿.wrapper {
     grid-template-rows: 50px auto;
+    --link-title-color: #9ed4f3;
 }
 
 .content {
@@ -785,7 +786,7 @@ li {
 .unis-titles {
     margin: 25px 0 0 35px;
     text-align: left;
-    color: var(--dimmed-white);
+    color: var(--link-title-color);
     display: block;
     width: 300px;
     font-weight: 500;
@@ -838,7 +839,7 @@ li {
 .online-titles {
     margin: 25px 0 0 35px;
     text-align: left;
-    color: var(--dimmed-white);
+    color: var(--link-title-color);
     display: block;
     width: 300px;
     font-weight: 500;
