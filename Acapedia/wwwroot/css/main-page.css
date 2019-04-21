@@ -63,7 +63,7 @@
     }
 
     .explore-button .mask {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #35495e;
         height: 50px;
         position: absolute;
         -webkit-transform: translate3d(-120%, -50px, 0) rotate3d(0, 0, 1, 45deg);
