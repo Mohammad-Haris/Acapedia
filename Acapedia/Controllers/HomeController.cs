@@ -2,7 +2,6 @@
 
 namespace Acapedia.Controllers
 {
-    [ResponseCache(CacheProfileName = "Day")]
     public class HomeController : Controller
     {        
         public IActionResult Index ()

@@ -56,14 +56,7 @@ namespace Acapedia
                        googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
                    });
 
-            services.AddMvc(options =>
-                    {
-                        options.CacheProfiles.Add("Day",
-                            new CacheProfile()
-                            {
-                                Duration = 86400
-                            });
-                    }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.Configure<IdentityOptions>(options =>
                         {
