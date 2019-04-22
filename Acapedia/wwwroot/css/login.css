@@ -1,4 +1,7 @@
-﻿#login-cover-div {
+﻿#login-user-info {
+    display: none;
+}
+#login-cover-div {
     width: 400px;
     height: 400px;
     margin: -80px auto;
