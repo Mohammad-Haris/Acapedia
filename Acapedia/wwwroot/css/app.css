@@ -1,6 +1,7 @@
 ﻿.wrapper {
     grid-template-rows: 50px auto;
     --link-title-color: #9ed4f3;
+    height: 100vh;
 }
 
 .content {
@@ -193,7 +194,6 @@
     text-align: center;
     height: 100%;
     width: 100%;
-    position: relative;
     letter-spacing: var(--letter-space);
     overflow: hidden;
     -webkit-transition: background 1s;
@@ -202,13 +202,12 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+    box-sizing: border-box;
 }
 
     .prof-nd-app-sciences p {
-        margin: 0;
-        position: absolute;
-        top: 10px;
-        left: calc(20% - 4.5px);
+        margin: auto;
+        padding-top: 15px;
         color: var(--main-blue-color);
         text-decoration: none;
     }
