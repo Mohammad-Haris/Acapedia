@@ -20,7 +20,8 @@
 
 .wrapper {
     min-width: 1000px;
-    height: 100vh;
+    height: 100vh; /*fallback*/
+    height: calc(var(--vh, 1vh) * 100);
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 50px auto 40px;
