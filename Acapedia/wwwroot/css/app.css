@@ -1,7 +1,6 @@
 ﻿.wrapper {
     grid-template-rows: 50px auto;
     --link-title-color: #9ed4f3;
-    height: 100vh;
 }
 
 .content {
