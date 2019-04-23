@@ -9,11 +9,12 @@
     @RenderSection("Styles", false)
     <title>Acapedia</title>
     <link rel="icon" href="~/icons/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="~/icons/favicon.png">
     <script>
         function BrowserCompatibility()
         {
             let isIE = false || !!document.documentMode;
-            var isEdge = !isIE && !!window.StyleMedia;
+            let isEdge = !isIE && !!window.StyleMedia;
 
             if (isIE || isEdge)
             {
