@@ -208,10 +208,7 @@ function AppMain()
 
         request.onload = function ()
         {
-            if (this.response)
-            {
-                DisplayLinksOnline(this.response, request.status);
-            }
+            DisplayLinksOnline(this.response, request.status);
 
             document.querySelector(".online-content").classList.remove("remove-display");
         };
@@ -236,10 +233,7 @@ function AppMain()
 
         request.onload = function ()
         {
-            if (this.response)
-            {
-                DisplayLinksUniversities(this.response, _Country, request.status);
-            }
+            DisplayLinksUniversities(this.response, _Country, request.status);
 
             document.querySelector(".unis-content").classList.remove("remove-display");
         };
@@ -256,16 +250,16 @@ function AppMain()
 
     function DisplayLinksOnline(_LinkInfo, _RequestStatus)
     {
-        let LinkInfo = JSON.parse(_LinkInfo);
-        let itr;
-        let _OnlineDiv = document.querySelector(".online-content");
-        let length = LinkInfo.length;
-        let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
-
         RemovePreviousOnlineLinks();
+        let _OnlineDiv = document.querySelector(".online-content");
 
         if (_RequestStatus == 200)
         {
+            let LinkInfo = JSON.parse(_LinkInfo);
+            let itr;
+            let length = LinkInfo.length;
+            let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
+
             _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
 
             for (itr = 0; itr < length; itr++)
@@ -284,16 +278,16 @@ function AppMain()
 
     function DisplayLinksUniversities(_LinkInfo, _Country, _RequestStatus)
     {
-        let LinkInfo = JSON.parse(_LinkInfo);
-        let itr;
-        let _UnisDiv = document.querySelector(".unis-content");
-        let length = LinkInfo.length;
-        let text = "Found " + length + " results for " + prevSelect.innerHTML + " universities in " + _Country;
-
         RemovePreviousUniLinks();
+        let _UnisDiv = document.querySelector(".unis-content");
 
         if (_RequestStatus == 200)
         {
+            let LinkInfo = JSON.parse(_LinkInfo);
+            let itr;
+            let length = LinkInfo.length;
+            let text = `Found ${length} results for ${prevSelect.innerHTML} universities in ${_Country}`;
+
             _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
 
             for (itr = 0; itr < length; itr++)
@@ -306,7 +300,7 @@ function AppMain()
 
         else
         {
-            _OnlineDiv.appendChild(CreateElement("p", "There was an error retrieving results from the database :(", "", "", "unis-descrips"));
+            _UnisDiv.appendChild(CreateElement("p", "There was an error retrieving results from the database :(", "", "", "unis-descrips"));
         }
     }
 
@@ -500,6 +494,7 @@ function AppMain()
         }
 
         let plus = parent.querySelectorAll("span.is-icon");
+
         for (i = 0; i < plus.length; i++)
         {
             plus[i].innerHTML = "-";
@@ -726,7 +721,7 @@ function AppMain()
         let now = new Date().getTime();
 
         if ((Math.abs(last - now) / 1000) < 3)
-        {            
+        {
             await Sleep(1000);
         }
 
