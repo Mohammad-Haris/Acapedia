@@ -21,7 +21,7 @@ namespace Acapedia.Service
         {
             if (Watch.IsRunning)
             {
-                if (Watch.ElapsedMilliseconds < 10000)
+                if (Watch.ElapsedMilliseconds < 5000)
                 {
                     return true;
                 }
@@ -34,7 +34,7 @@ namespace Acapedia.Service
             double Elapsed = Time.Subtract(DateTime.Now).TotalSeconds * -1;
             double Ratio = CallCount / Elapsed;
 
-            if (Ratio > 5)
+            if (Ratio > 2)
             {
                 Watch.Start();
 
