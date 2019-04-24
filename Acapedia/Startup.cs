@@ -37,13 +37,10 @@ namespace Acapedia
             services.AddMemoryCache();
 
             //load general configuration from appsettings.json
-            services.Configure<ClientRateLimitOptions>(Configuration.GetSection("ClientRateLimiting"));
-
-            //load client rules from appsettings.json
-            services.Configure<ClientRateLimitPolicies>(Configuration.GetSection("ClientRateLimitPolicies"));
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
 
             // inject counter and rules stores
-            services.AddSingleton<IClientPolicyStore, MemoryCacheClientPolicyStore>();
+            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
             services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -91,7 +88,7 @@ namespace Acapedia
 
         public void Configure (IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseClientRateLimiting();
+            app.UseIpRateLimiting();
 
             if (env.IsDevelopment())
             {

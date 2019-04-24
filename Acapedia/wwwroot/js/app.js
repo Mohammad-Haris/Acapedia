@@ -273,6 +273,7 @@ function AppMain()
         else 
         {
             _OnlineDiv.appendChild(CreateElement("p", "There was an error retrieving results from the database :(", "", "", "online-descrips"));
+            _OnlineDiv.appendChild(CreateElement("p", "You might be sending requests too frequently.", "", "", "online-descrips"));
         }
     }
 
@@ -301,6 +302,8 @@ function AppMain()
         else
         {
             _UnisDiv.appendChild(CreateElement("p", "There was an error retrieving results from the database :(", "", "", "unis-descrips"));
+            _UnisDiv.appendChild(CreateElement("p", "You might be sending requests too frequently.", "", "", "unis-descrips"));
+
         }
     }
 
