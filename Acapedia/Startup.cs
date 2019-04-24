@@ -3,6 +3,7 @@ using Acapedia.Data;
 using Acapedia.Data.Contracts;
 using Acapedia.Data.Models;
 using Acapedia.Service;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,22 @@ namespace Acapedia
 
         public void ConfigureServices (IServiceCollection services)
         {
+            // needed to load configuration from appsettings.json
+            services.AddOptions();
+
+            // needed to store rate limit counters and ip rules
+            services.AddMemoryCache();
+
+            //load general configuration from appsettings.json
+            services.Configure<ClientRateLimitOptions>(Configuration.GetSection("ClientRateLimiting"));
+
+            //load client rules from appsettings.json
+            services.Configure<ClientRateLimitPolicies>(Configuration.GetSection("ClientRateLimitPolicies"));
+
+            // inject counter and rules stores
+            services.AddSingleton<IClientPolicyStore, MemoryCacheClientPolicyStore>();
+            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+
             services.Configure<CookiePolicyOptions>(options =>
                 {
                     // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -69,16 +86,15 @@ namespace Acapedia
                     options.LogoutPath = $"/account/logout";
                 });
 
-            services.AddSingleton<IRateLimit, RateLimitService>();
-
             services.AddScoped<IExplore, ExploreService>();
         }
 
         public void Configure (IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseClientRateLimiting();
+
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
                 app.UseStatusCodePagesWithReExecute("/Error");
                 app.UseDatabaseErrorPage();
             }
