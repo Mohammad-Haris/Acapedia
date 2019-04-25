@@ -259,15 +259,18 @@ function AppMain()
             let itr;
             let length = LinkInfo.length;
             let text = "Found " + length + " results for " + prevSelect.innerHTML + " courses Online";
+            let fragment = document.createDocumentFragment();
 
-            _OnlineDiv.appendChild(CreateElement("p", text, "", "", "online-found"));
+            fragment.appendChild(CreateElement("p", text, "", "", "online-found"));
 
             for (itr = 0; itr < length; itr++)
             {
-                _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
-                _OnlineDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
-                _OnlineDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
+                fragment.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "online-titles"));
+                fragment.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "online-links"));
+                fragment.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "online-descrips"));
             }
+
+            _OnlineDiv.appendChild(fragment);
         }
 
         else 
@@ -288,15 +291,18 @@ function AppMain()
             let itr;
             let length = LinkInfo.length;
             let text = `Found ${length} results for ${prevSelect.innerHTML} universities in ${_Country}`;
+            let fragment = document.createDocumentFragment();
 
-            _UnisDiv.appendChild(CreateElement("p", text, "", "", "unis-found"));
+            fragment.appendChild(CreateElement("p", text, "", "", "unis-found"));
 
             for (itr = 0; itr < length; itr++)
             {
-                _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
-                _UnisDiv.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
-                _UnisDiv.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
+                fragment.appendChild(CreateElement("a", LinkInfo[itr].Title, LinkInfo[itr].Link, "_blank", "unis-titles"));
+                fragment.appendChild(CreateElement("a", LinkInfo[itr].Link, LinkInfo[itr].Link, "_blank", "unis-links"));
+                fragment.appendChild(CreateElement("p", LinkInfo[itr].Description, "", "", "unis-descrips"));
             }
+
+            _UnisDiv.append(fragment);
         }
 
         else
