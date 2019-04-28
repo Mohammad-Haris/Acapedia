@@ -322,6 +322,7 @@
         content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAwklEQVQ4jWNkgAJTrwQDRoZ/AQw4wf8tp7YtPoMuyghjmHnFNfz/z1CP2wCGD//+Mlme3bXgBrIgEx4N6ECAifnvVkPPRFFyDWBgYGBUYvn/d4ODQwIHmQYwMDAwMlh95fyfQ74BDAwMjIz/eSgyABlQbAALNkEJuWcMzCx/UcT+/mFmePFIik4uwGYTSQZw831lEBB5hyL2/rUQw7fP3BhqaeOFr5+4Gb5+wrQNG6CeC/4zMG1gZPxHlKa/f/9tgrEBkxMzb34pi/oAAAAASUVORK5CYII=');
         display: inline-block;
         margin: 8px 5px 5px 0;
+        padding-left: 10px;
     }
 
     #u-top-level:hover {
