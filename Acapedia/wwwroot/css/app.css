@@ -835,8 +835,7 @@ info-content {
 #uni-country {
     height: 27px;
     width: 200px;
-    text-align: center;
-    margin: 10px 10px 0 0;
+    margin: 15px 10px 0 0;
     border: none;
     color: var(--dimmed-white);
     -webkit-appearance: none;
