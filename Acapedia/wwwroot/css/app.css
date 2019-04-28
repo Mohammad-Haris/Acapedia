@@ -331,7 +331,6 @@
         color: var(--dimmed-white);
         -webkit-box-shadow: 0 0 1px var(--main-blue-color);
         box-shadow: 0 0 1px var(--main-blue-color);
-        border-radius: 1px;
     }
 
 .natural-sciences-discips {
