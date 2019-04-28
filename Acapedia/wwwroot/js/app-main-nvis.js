@@ -5,6 +5,7 @@ function AppMain()
     var prevSelect;
     var prevUniCall = new Array(2);
     var prevOnCall;
+    var prevWikiCall;
     var last = new Date().getTime();
 
     function AddEventCEIcon()
@@ -200,7 +201,11 @@ function AppMain()
 
     async function GetAndDisplayOnline(_Discipline)
     {
-        document.querySelector(".online-content").classList.add("remove-display");
+        var OnlineContent = document.querySelector(".online-content");
+        var OnlineTabContent = document.querySelector(".online");
+        
+        OnlineContent.classList.add("remove-display");
+        OnlineTabContent.querySelector(".lds-ring").classList.add("loading");
 
         await SendCall();
 
@@ -209,8 +214,17 @@ function AppMain()
         request.onload = function ()
         {
             DisplayLinksOnline(this.response, request.status);
+            
+            OnlineTabContent.querySelector(".lds-ring").classList.remove("loading");
+            OnlineContent.classList.remove("remove-display");
+        };
 
-            document.querySelector(".online-content").classList.remove("remove-display");
+        request.onerror = function ()
+        {
+            DisplayLinksOnline(null, 500);
+
+            OnlineTabContent.querySelector(".lds-ring").classList.remove("loading");
+            OnlineContent.classList.remove("remove-display");
         };
 
         request.open("POST", "/Explore/GetOnline", true);
@@ -225,7 +239,11 @@ function AppMain()
 
     async function GetAndDisplayUniversities(_Country, _Discipline)
     {
-        document.querySelector(".unis-content").classList.add("remove-display");
+        var UniContent = document.querySelector(".unis-content");
+        var UniTabContent = document.querySelector(".unis");
+
+        UniContent.classList.add("remove-display");
+        UniTabContent.querySelector(".lds-ring").classList.add("loading");
 
         await SendCall();
 
@@ -234,8 +252,17 @@ function AppMain()
         request.onload = function ()
         {
             DisplayLinksUniversities(this.response, _Country, request.status);
+            
+            UniTabContent.querySelector(".lds-ring").classList.remove("loading");
+            UniContent.classList.remove("remove-display");
+        };
 
-            document.querySelector(".unis-content").classList.remove("remove-display");
+        request.onerror = function ()
+        {
+            DisplayLinksUniversities(null, _Country, 500);
+
+            UniTabContent.querySelector(".lds-ring").classList.remove("loading");
+            UniContent.classList.remove("remove-display");
         };
 
         request.open("POST", "/Explore/GetUniversities", true);
@@ -362,7 +389,13 @@ function AppMain()
     {
         if (_IsChanged)
         {
-            document.querySelector(".info-tab-content").classList.remove("active");
+            prevWikiCall = prevSelect;
+
+            var InfoContent = document.querySelector(".info-content");
+            var InfoTabContent = document.querySelector(".info-tab-content");
+
+            InfoContent.classList.add("remove-display");
+            InfoTabContent.querySelector(".lds-ring").classList.add("loading");
 
             await SendCall();
 
@@ -372,10 +405,19 @@ function AppMain()
             {
                 DisplayWiki(this.response, request.status);
 
-                document.querySelector(".info-tab-content").classList.add("active");
-            }
+                InfoTabContent.querySelector(".lds-ring").classList.remove("loading");
+                InfoContent.classList.remove("remove-display");
+            };
 
-            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
+            request.onerror = function ()
+            {
+                DisplayWiki(null, 500);
+
+                InfoTabContent.querySelector(".lds-ring").classList.remove("loading");
+                InfoContent.classList.remove("remove-display");
+            };
+
+            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);            
 
             request.setRequestHeader("Api-User-Agent", "contact.acapedia@gmail.com");
 
@@ -526,7 +568,7 @@ function AppMain()
             document.querySelector(".unis").classList.remove("active");
             document.querySelector(".online").classList.remove("active");
 
-            GetAndDisplayWiki(true);
+            GetAndDisplayWiki(prevSelect != prevWikiCall);
         }
 
         document.querySelector(".uni-tab").classList.remove("tab-select");
@@ -710,10 +752,9 @@ function AppMain()
         }
 
         _Current.classList.add("current-selection");
-        let _Changed = _Current !== prevSelect;
-        prevSelect = _Current;
+        prevSelect = _Current;        
 
-        return _Changed;
+        return _Current != prevWikiCall;
     }
 
     function Init()
