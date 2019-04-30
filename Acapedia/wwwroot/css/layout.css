@@ -306,3 +306,69 @@ a {
     #twittericonlink:hover {
         opacity: 1;
     }
+
+
+@media only screen and (max-width: 1000px) {
+    .wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .header {
+        grid-row-start: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50px;
+        -webkit-box-align: center;
+        align-items: center;
+        overflow: visible;
+    }
+
+    #donate {
+        display: none;
+    }
+
+    #about-info {
+        display: none;
+    }
+
+    #login-user-info {
+        display: none;
+    }
+
+    #profile-manage {
+        display: none;
+    }
+
+    .footer {
+        grid-row-start: 3;
+        display: grid;
+        grid-auto-flow: dense;
+        height: 100px;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 13px;
+        background-color: var(--footer-background-color);
+        overflow: hidden;
+    }
+
+    .copyrighttext {
+    }
+
+    .privacypolicy {
+    }
+
+    #privacypolicylink {
+    }
+
+    .contact {
+    }
+
+    .facebookicon {
+        margin: 6px 0 0 0;
+    }
+
+    .twittericon {
+        margin: 6px 0 0 0;
+    }
+}

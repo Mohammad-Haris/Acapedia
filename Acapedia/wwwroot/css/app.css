@@ -1018,3 +1018,26 @@ info-content {
 .footer {
     display: none;
 }
+
+@media only screen and (max-width: 1000px) {
+    
+    .content {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 100%;
+        overflow: auto;
+    }
+
+    #top-div {
+        display: none;
+    }
+
+    #tabs-nd-content {
+        grid-column-start: 1;
+        display: grid;
+        grid-template-rows: 67px auto;
+        grid-template-columns: 100%;
+        background-color: var(--main-blue-color);
+    }
+
+}
