@@ -106,4 +106,21 @@
         background-image: none;
         background-color: var(--button-color);
     }
+
+    .content {
+        grid-template-rows: auto 75px 80px 60px auto;
+    }
+
+    .find {
+        font-size: 14px;
+        word-wrap: break-word;
+    }
+
+    #find-text {
+        margin: 13px auto;
+        line-height: 25px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
 }
