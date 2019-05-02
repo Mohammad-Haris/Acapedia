@@ -1035,9 +1035,21 @@ info-content {
     #tabs-nd-content {
         grid-column-start: 1;
         display: grid;
-        grid-template-rows: 67px auto;
+        grid-template-rows: 80px auto;
         grid-template-columns: 100%;
         background-color: var(--main-blue-color);
+    }
+
+    .basic-info-tab {
+        height: 80px;
+    }
+
+    .uni-tab {
+        height: 80px;
+    }
+
+    .online-tab {
+        height: 80px;
     }
 
 }

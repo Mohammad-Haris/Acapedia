@@ -311,16 +311,17 @@ a {
 @media only screen and (max-width: 1000px) {
     .wrapper {
         min-width: 0;
-        width: 100%;
+        width: 100vw;
     }
 
     .header {
         grid-row-start: 1;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 0.75fr 1fr 0.75fr;
         grid-template-rows: 50px;
         -webkit-box-align: center;
         align-items: center;
+        justify-items: center;
         overflow: visible;
     }
 
@@ -341,34 +342,33 @@ a {
     }
 
     .footer {
+        height: 80px;
         grid-row-start: 3;
-        display: grid;
-        grid-auto-flow: dense;
-        height: 100px;
-        -webkit-box-align: center;
-        align-items: center;
-        font-size: 13px;
-        background-color: var(--footer-background-color);
-        overflow: hidden;
+        display: block;
+        position: relative;
     }
 
     .copyrighttext {
+        margin: 5px 0 0 5px;
     }
 
     .privacypolicy {
-    }
-
-    #privacypolicylink {
+        margin: 5px 0 0 5px;
     }
 
     .contact {
+        margin: 5px 0 0 5px;
     }
 
     .facebookicon {
-        margin: 6px 0 0 0;
+        position: absolute;
+        top: 5px;
+        right: 5px;
     }
 
     .twittericon {
-        margin: 6px 0 0 0;
+        position: absolute;
+        top: 35px;
+        right: 5px;
     }
 }
