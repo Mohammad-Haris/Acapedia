@@ -317,12 +317,12 @@ a {
     .header {
         grid-row-start: 1;
         display: grid;
-        grid-template-columns: 0.75fr 1fr 0.75fr;
+        grid-template-columns: auto minmax(120px, 160px) auto;
         grid-template-rows: 50px;
         -webkit-box-align: center;
         align-items: center;
         justify-items: center;
-        overflow: visible;
+        overflow: hidden;
     }
 
     #donate {
