@@ -46,6 +46,10 @@ a {
     text-decoration: none;
 }
 
+#hamburger {
+    display: none;
+}
+
 .headericon {
     grid-column-start: 2;
     width: 75%;
@@ -317,13 +321,26 @@ a {
     .header {
         grid-row-start: 1;
         display: grid;
-        grid-template-columns: auto minmax(120px, 160px) auto;
+        grid-template-columns: 10px 30px 0.9fr minmax(120px, 160px) 1fr;
         grid-template-rows: 50px;
         -webkit-box-align: center;
         align-items: center;
         justify-items: center;
         overflow: hidden;
     }
+
+    .headericon {
+        grid-column-start: 4;
+    }
+
+    #hamburger {
+        display: block;
+        grid-column-start: 2;
+    }
+
+        #hamburger:before {
+            content: url('../icons/hamburger-20-20.png');
+        }
 
     #donate {
         display: none;
