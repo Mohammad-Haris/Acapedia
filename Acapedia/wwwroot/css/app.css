@@ -603,6 +603,9 @@ li {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-radius: 1px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
     .basic-info-tab:hover {
@@ -610,19 +613,22 @@ li {
     }
 
     .basic-info-tab p {
-        margin: 5px 0;
+        position: absolute;
+        top: 30px;
     }
 
     .basic-info-tab .tab-img-green {
         max-height: 18px;
         max-width: 18px;
-        margin-top: 17px;
+        position: absolute;
+        top: 16px;
     }
 
     .basic-info-tab .tab-img-white {
         max-height: 18px;
         max-width: 18px;
-        margin-top: 17px;
+        position: absolute;
+        top: 16px;
     }
 
 .uni-tab {
@@ -634,6 +640,10 @@ li {
     height: 67px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    border-radius: 1px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
     .uni-tab:hover {
@@ -643,17 +653,20 @@ li {
     .uni-tab .tab-img-white {
         max-height: 20px;
         max-width: 20px;
-        margin-top: 16px;
+        position: absolute;
+        top: 16px;
     }
 
     .uni-tab .tab-img-green {
         max-height: 20px;
         max-width: 20px;
-        margin-top: 16px;
+        position: absolute;
+        top: 16px;
     }
 
     .uni-tab p {
-        margin: 5px 0;
+        position: absolute;
+        top: 30px;
     }
 
 .online-tab {
@@ -665,6 +678,10 @@ li {
     height: 67px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    border-radius: 1px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
     .online-tab:hover {
@@ -672,20 +689,23 @@ li {
     }
 
     .online-tab p {
-        margin: 4px 0;
+        position: absolute;
+        top: 30px;
     }
 
 
     .online-tab .tab-img-white {
         max-height: 20px;
         max-width: 20px;
-        margin-top: 16px;
+        position: absolute;
+        top: 16px;
     }
 
     .online-tab .tab-img-green {
         max-height: 20px;
         max-width: 20px;
-        margin-top: 16px;
+        position: absolute;
+        top: 16px;
     }
 
 .lds-ring {
@@ -1020,7 +1040,6 @@ info-content {
 }
 
 @media only screen and (max-width: 1000px) {
-
     .content {
         display: grid;
         grid-template-columns: 100%;
@@ -1035,24 +1054,24 @@ info-content {
     #tabs-nd-content {
         grid-column-start: 1;
         display: grid;
-        grid-template-rows: 80px auto;
+        grid-template-rows: 83px auto;
         grid-template-columns: 100%;
     }
 
     .basic-info-tab {
-        height: 80px;
+        height: 83px;
     }
 
     .uni-tab {
-        height: 80px;
+        height: 83px;
     }
 
     .online-tab {
-        height: 80px;
+        height: 83px;
     }
 
     .tab-name {
-        padding: 2px;
+        padding: 4px;
     }
 
     #info-detail {
