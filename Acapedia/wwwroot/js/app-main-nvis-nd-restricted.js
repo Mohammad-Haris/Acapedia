@@ -203,7 +203,7 @@ function AppMain()
     {
         var OnlineContent = document.querySelector(".online-content");
         var OnlineTabContent = document.querySelector(".online");
-        
+
         OnlineContent.classList.add("remove-display");
         OnlineTabContent.querySelector(".lds-ring").classList.add("loading");
 
@@ -214,7 +214,7 @@ function AppMain()
         request.onload = function ()
         {
             DisplayLinksOnline(this.response, request.status);
-            
+
             OnlineTabContent.querySelector(".lds-ring").classList.remove("loading");
             OnlineContent.classList.remove("remove-display");
         };
@@ -252,7 +252,7 @@ function AppMain()
         request.onload = function ()
         {
             DisplayLinksUniversities(this.response, _Country, request.status);
-            
+
             UniTabContent.querySelector(".lds-ring").classList.remove("loading");
             UniContent.classList.remove("remove-display");
         };
@@ -383,6 +383,7 @@ function AppMain()
         }
 
         GetAndDisplayParents_Parents(this);
+        HideRMenu();
     }
 
     async function GetAndDisplayWiki(_IsChanged)
@@ -417,7 +418,7 @@ function AppMain()
                 InfoContent.classList.remove("remove-display");
             };
 
-            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);            
+            request.open('GET', "https://en.wikipedia.org/api/rest_v1/page/summary/" + prevSelect.innerHTML.split(" ").join("_"), true);
 
             request.setRequestHeader("Api-User-Agent", "contact.acapedia@gmail.com");
 
@@ -468,6 +469,7 @@ function AppMain()
         }
 
         GetAndDisplayParents_Child(this);
+        HideRMenu();
     }
 
     function DisplayWiki(_ResponseData, _Status)
@@ -752,7 +754,7 @@ function AppMain()
         }
 
         _Current.classList.add("current-selection");
-        prevSelect = _Current;        
+        prevSelect = _Current;
 
         return _Current != prevWikiCall;
     }
@@ -776,6 +778,37 @@ function AppMain()
         }
 
         last = new Date().getTime();
+    }
+
+    async function ToggleRMenu()
+    {
+        var menu = document.querySelector(".top-div").classList;
+
+        if (menu.contains("hide-menu"))
+        {
+            document.querySelector(".top-div").classList.remove("hide-menu");
+        }
+
+        else
+        {
+            document.querySelector(".top-div").classList.add("slide-out-left");
+            await Sleep(210);
+            document.querySelector(".top-div").classList.add("hide-menu");
+            document.querySelector(".top-div").classList.remove("slide-out-left");
+        }        
+    }
+
+    document.getElementById("hamburger").addEventListener("click", ToggleRMenu);
+
+    async function HideRMenu()
+    {
+        if (window.screen.width <= 1000 && !document.querySelector(".top-div").classList.contains("hide-menu"))
+        {
+            document.querySelector(".top-div").classList.add("slide-out-left");
+            await Sleep(210);
+            document.querySelector(".top-div").classList.add("hide-menu");
+            document.querySelector(".top-div").classList.remove("slide-out-left");
+        }
     }
 
     window.onload = Init;
