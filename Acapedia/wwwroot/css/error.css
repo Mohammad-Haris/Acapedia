@@ -23,13 +23,14 @@ a {
     border-radius: 5px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    white-space: nowrap;
+    line-height: 20px;
     overflow: auto;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    padding-right: 15px;
 }
 
 #error-type {

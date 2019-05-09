@@ -22,7 +22,7 @@
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-rows: 50px auto 40px;
     color: #454545;
     font-family: 'Anonymous Pro', monospace;
@@ -312,6 +312,10 @@ a {
 
 
 @media only screen and (max-width: 1000px) {
+    .wrapper {
+        grid-template-rows: 50px auto 90px;
+    }
+
     .header {
         grid-row-start: 1;
         display: grid;
@@ -352,34 +356,34 @@ a {
         display: none;
     }
 
-    .footer {
-        height: 80px;
+    .footer {        
         grid-row-start: 3;
         display: block;
         position: relative;
+        width: 100%;
     }
 
     .copyrighttext {
-        margin: 5px 0 0 5px;
+        margin: 15px 0 0 10px;
     }
 
     .privacypolicy {
-        margin: 5px 0 0 5px;
+        margin: 5px 0 0 10px;
     }
 
     .contact {
-        margin: 5px 0 0 5px;
+        margin: 5px 0 0 10px;
     }
 
     .facebookicon {
         position: absolute;
-        top: 5px;
-        right: 5px;
+        top: 45px;
+        right: 50px;
     }
 
     .twittericon {
         position: absolute;
-        top: 35px;
-        right: 5px;
+        top: 45px;
+        right: 15px;
     }
 }
