@@ -34,5 +34,5 @@ function LayoutMain()
                 sessionStorage.setItem("_path", path);
             }
         });
-    }
+    }    
 }

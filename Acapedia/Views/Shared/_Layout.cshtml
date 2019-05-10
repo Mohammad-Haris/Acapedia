@@ -40,8 +40,10 @@
                 <img id="logoandtext" alt="Acapedia title" src="~/icons/icon-with-title.svg" />
                 <img id="logo" alt="Acapedia title" src="~/icons/icon-main.svg" />
             </a>
-            <a id="donate" href="/Home/Contribute">Contribute</a>
-            <a id="about-info" href="/Home/About">About</a>
+            <div class="main-nav">
+                <a id="contribute" href="/Home/Contribute">Contribute</a>
+                <a id="about-info" href="/Home/About">About</a>
+            </div>
             @await Html.PartialAsync("_LoginPartial")
         </div>
         <div class="content">

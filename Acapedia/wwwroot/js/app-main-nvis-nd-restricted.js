@@ -780,6 +780,17 @@ function AppMain()
         last = new Date().getTime();
     }
 
+    async function HideRMenu()
+    {
+        if (window.screen.width <= 1000 && !document.querySelector(".top-div").classList.contains("hide-menu"))
+        {
+            document.querySelector(".top-div").classList.add("slide-out-left");
+            await Sleep(210);
+            document.querySelector(".top-div").classList.add("hide-menu");
+            document.querySelector(".top-div").classList.remove("slide-out-left");
+        }
+    }
+
     async function ToggleRMenu()
     {
         var menu = document.querySelector(".top-div").classList;
@@ -795,21 +806,10 @@ function AppMain()
             await Sleep(210);
             document.querySelector(".top-div").classList.add("hide-menu");
             document.querySelector(".top-div").classList.remove("slide-out-left");
-        }        
+        }
     }
 
     document.getElementById("hamburger").addEventListener("click", ToggleRMenu);
-
-    async function HideRMenu()
-    {
-        if (window.screen.width <= 1000 && !document.querySelector(".top-div").classList.contains("hide-menu"))
-        {
-            document.querySelector(".top-div").classList.add("slide-out-left");
-            await Sleep(210);
-            document.querySelector(".top-div").classList.add("hide-menu");
-            document.querySelector(".top-div").classList.remove("slide-out-left");
-        }
-    }
 
     window.onload = Init;
     AddEventChildren();

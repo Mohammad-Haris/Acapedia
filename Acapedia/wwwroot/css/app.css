@@ -1047,6 +1047,15 @@ info-content {
         overflow: auto;
     }
 
+    #hamburger {
+        display: block;
+        grid-column-start: 2;
+    }
+
+        #hamburger:before {
+            content: url('../icons/hamburger-20-20.png');
+        }
+
     .top-div {
         display: block;
         height: 100%;
@@ -1110,8 +1119,9 @@ info-content {
     .wiki-page-link {
         grid-row-start: 3;
         display: inline;
-        width: 34%;
+        width: 80%;
         line-height: 25px;
+        margin-left: 0;
     }
 
     .unis-titles {
