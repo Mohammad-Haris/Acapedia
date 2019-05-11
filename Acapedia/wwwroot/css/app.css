@@ -1119,7 +1119,7 @@ info-content {
     .wiki-page-link {
         grid-row-start: 3;
         display: inline;
-        width: 80%;
+        width: 45%;
         line-height: 25px;
         margin-left: 0;
     }
