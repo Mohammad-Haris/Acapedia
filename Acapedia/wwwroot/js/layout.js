@@ -4,13 +4,15 @@ function LayoutMain()
 {
     if (document.getElementById("signed-in-user"))
     {
-        document.getElementById("signed-in-user").addEventListener("click", function ()
-        {
-            document.querySelector(".profile-menu-wrapper").classList.toggle("profile-dropdown-active");
-        });
+        document.getElementById("signed-in-user").addEventListener("click", ProfileMenuDropdown);
 
         let _UserName = document.getElementById("signed-in-user-info").children[0].innerHTML;
         document.getElementById("signed-in-user-info").children[0].innerHTML = _TitleCase(_UserName);
+    }
+
+    function ProfileMenuDropdown()
+    {
+        document.querySelector(".profile-menu-wrapper").classList.toggle("profile-dropdown-active");
     }
 
     function _TitleCase(str)
