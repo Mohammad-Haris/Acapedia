@@ -1,10 +1,10 @@
 ﻿#contact-div {
     text-align: center;
+    margin: 10% auto;
 }
 
 #contact-heading {
     font-size: 25px;
-    padding-top: 120px;
     letter-spacing: 0.0725em;
 }
 
@@ -18,8 +18,4 @@
     padding-top: 30px;
     font-size: 16px;
     letter-spacing: 0.0725em;
-}
-
-.contact {
-    display: none;
 }
