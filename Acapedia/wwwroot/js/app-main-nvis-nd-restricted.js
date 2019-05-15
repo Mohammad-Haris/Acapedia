@@ -19,7 +19,7 @@ function AppMain()
 
     async function CEEvent()
     {
-        let child = this.parentElement.querySelector(".children");
+        let child = this.parentElement.parentElement.querySelector(".children");
 
         if (child.classList.contains("active"))
         {
