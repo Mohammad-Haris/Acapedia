@@ -14,7 +14,7 @@
     grid-column-start: 1;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 110px 20px 50px 5px auto;
+    grid-template-rows: 120px 10px 50px 5px auto;
     border-top: 1px double var(--faded-out-blue);
 }
 
@@ -548,19 +548,23 @@ li {
     display: none;
 }
 
-.is-icon {
-    margin-top: 4px;
+.is-icon-cont {
+    margin-top: 5px;
     float: right;
-    font-size: 20px;
     width: 28px;
     height: 28px;
-    display: grid;
-    justify-items: center;
-    padding: 2px 0 0 2px;
-    letter-spacing: 0px;
+    position: relative;
     cursor: pointer;
-    border-radius: 28px;
+    border-radius: 50%;
     background-color: var(--button-color);
+    text-align: center;
+    line-height: 26px;
+    letter-spacing: 0;
+}
+
+.is-icon {
+    font-size: 18px;
+    padding-left: 2px;
 }
 
 #tabs-nd-content {
