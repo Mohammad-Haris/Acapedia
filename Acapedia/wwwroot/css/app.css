@@ -557,15 +557,14 @@ li {
     cursor: pointer;
     border-radius: 50%;
     background-color: var(--button-color);
+    text-align: center;
+    line-height: 26px;
     letter-spacing: 0;
-    line-height: 0;
 }
 
 .is-icon {
-    font-size: 19px;
-    position: absolute;
-    left: 10px;
-    top: 12px;
+    font-size: 18px;
+    padding-left: 1px;
 }
 
 #tabs-nd-content {
@@ -588,6 +587,10 @@ li {
     box-sizing: border-box;
     height: 100%;
     cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .tab-img-white {
