@@ -14,7 +14,7 @@
     grid-column-start: 1;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 120px 10px 50px 5px auto;
+    grid-template-rows: 120px 10px 35px 5px 50px 5px auto;
     border-top: 1px double var(--faded-out-blue);
 }
 
@@ -212,8 +212,48 @@
             color: var(--dimmed-white);
         }
 
-#ec-buttons {
+#search-div {
     grid-row-start: 3;
+    text-align: center;
+    position: relative;
+}
+
+#search-input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 17px;
+    color: var(--main-blue-color);
+    transition: all 0.3s linear;    
+    background-color: var(--button-color);
+}
+
+    #search-input:focus {
+        border-radius: 2px;
+    }
+
+    #search-input:hover {
+        border-radius: 2px;
+    }
+
+    #search-input::placeholder {
+        color: var(--main-blue-color);
+        opacity: 0.75;
+    }
+
+#search-button {
+    background: url('../icons/search-16-16.png');
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 23.5%;
+    right: 6.5%;
+}
+
+#ec-buttons {
+    grid-row-start: 5;
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 50% 50%;
@@ -291,7 +331,7 @@
         }
 
 #discip-list {
-    grid-row-start: 5;
+    grid-row-start: 7;
     overflow: auto;
 }
 
@@ -316,7 +356,7 @@
     margin: 0;
     width: 100%;
     height: 35px;
-    border-radius: 18px 1px 1px 18px;
+    border-radius: 18px 0 0 18px;
 }
 
     #u-top-level::before {
@@ -497,7 +537,7 @@ li {
         -o-transition: background 0.3s;
         transition: background 0.3s;
         padding: 0 0 5px 10px;
-        border-radius: 18px 1px 1px 18px;
+        border-radius: 18px 0 0 18px;
     }
 
         li .no-child::before {
@@ -527,7 +567,7 @@ li {
     margin: 0;
     width: 100%;
     min-height: 35px;
-    border-radius: 18px 1px 1px 18px;
+    border-radius: 18px 0 0 18px;
 }
 
     .is-parent::before {
@@ -964,11 +1004,6 @@ info-content {
     text-align: left;
     color: var(--dimmed-white);
     width: 90%;
-}
-
-#search-frame {
-    width: 100%;
-    height: 100%;
 }
 
 .animate-none {
