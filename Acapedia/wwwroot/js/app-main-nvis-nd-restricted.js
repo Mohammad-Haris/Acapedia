@@ -811,6 +811,8 @@ function AppMain()
 
     document.getElementById("hamburger").addEventListener("click", ToggleRMenu);
 
+    document.getElementById("tabs-nd-content").addEventListener("click", HideRMenu);    
+
     window.onload = Init;
     AddEventChildren();
     AddEventParent();
