@@ -10,7 +10,7 @@ function AppMain()
 
     function AddEventCEIcon()
     {
-        let toggler = document.getElementsByClassName("is-icon");
+        let toggler = document.getElementsByClassName("is-icon-cont");
         for (let i = 0; i < toggler.length; i++)
         {
             toggler[i].addEventListener("click", CEEvent);
@@ -19,28 +19,28 @@ function AppMain()
 
     async function CEEvent()
     {
-        let child = this.parentElement.parentElement.querySelector(".children");
+        let child = this.parentElement.getElementsByClassName("children");
 
-        if (child.classList.contains("active"))
+        if (child[0].classList.contains("active"))
         {
-            child.classList.add("animate-none");
+            child[0].classList.add("animate-none");
             await Sleep(280);
-            child.classList.remove("active");
+            child[0].classList.remove("active");
         }
         else
         {
-            child.classList.remove("animate-none");
-            child.classList.add("active");
+            child[0].classList.remove("animate-none");
+            child[0].classList.add("active");
         }
 
-        if (this.innerHTML === "+")
+        if (this.getElementsByClassName("is-icon")[0].innerHTML === "+")
         {
-            this.innerHTML = "-";
+            this.getElementsByClassName("is-icon")[0].innerHTML = "-";
         }
 
         else
         {
-            this.innerHTML = "+";
+            this.getElementsByClassName("is-icon")[0].innerHTML = "+";
         }
     }
 
