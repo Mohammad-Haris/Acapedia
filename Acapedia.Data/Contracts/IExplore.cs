@@ -1,7 +1,6 @@
-﻿using Acapedia.Data.Models;
-using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
 using Acapedia.Data.ViewModels.ExploreViewModels;
+using Newtonsoft.Json.Linq;
 
 namespace Acapedia.Data.Contracts
 {
