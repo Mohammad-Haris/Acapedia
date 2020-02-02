@@ -558,13 +558,14 @@ li {
     border-radius: 50%;
     background-color: var(--button-color);
     text-align: center;
-    line-height: 26px;
     letter-spacing: 0;
 }
 
 .is-icon {
     font-size: 18px;
-    padding-left: 1px;
+    position: absolute;
+    top: 3px;
+    left: 10px;
 }
 
 #tabs-nd-content {
