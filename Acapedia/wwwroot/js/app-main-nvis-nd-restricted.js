@@ -33,14 +33,16 @@ function AppMain()
             child[0].classList.add("active");
         }
 
-        if (this.getElementsByClassName("is-icon")[0].innerHTML === "+")
+        if (this.classList.contains("arrow-down-svg"))
         {
-            this.getElementsByClassName("is-icon")[0].innerHTML = "-";
+            this.classList.remove("arrow-down-svg");
+            this.classList.add("arrow-up-svg");
         }
 
         else
         {
-            this.getElementsByClassName("is-icon")[0].innerHTML = "+";
+            this.classList.add("arrow-down-svg");
+            this.classList.remove("arrow-up-svg");
         }
     }
 
@@ -521,10 +523,12 @@ function AppMain()
             }
         }
 
-        let plus = parent.querySelectorAll("span.is-icon");
-        for (let i = 0; i < plus.length; i++)
+        let expanded = parent.querySelectorAll("span.arrow-up-svg");
+
+        for (let i = 0; i < expanded.length; i++)
         {
-            plus[i].innerHTML = "+";
+            expanded[i].classList.remove("arrow-up-svg");
+            expanded[i].classList.add("arrow-down-svg");
         }
     }
 
@@ -546,11 +550,12 @@ function AppMain()
             }
         }
 
-        let plus = parent.querySelectorAll("span.is-icon");
+        let collapsed = parent.querySelectorAll("span.arrow-down-svg");
 
-        for (i = 0; i < plus.length; i++)
+        for (i = 0; i < collapsed.length; i++)
         {
-            plus[i].innerHTML = "-";
+            collapsed[i].classList.remove("arrow-down-svg");
+            collapsed[i].classList.add("arrow-up-svg");
         }
     }
 

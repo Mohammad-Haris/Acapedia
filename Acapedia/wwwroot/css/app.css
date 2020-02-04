@@ -549,23 +549,26 @@ li {
 }
 
 .is-icon-cont {
-    margin-top: 5px;
+    display: inline-block;
+    margin-top: 3.1px;
     float: right;
     width: 28px;
     height: 28px;
-    position: relative;
     cursor: pointer;
-    border-radius: 50%;
-    background-color: var(--button-color);
-    text-align: center;
     letter-spacing: 0;
+    border-radius: 50%;
 }
 
 .is-icon {
     font-size: 18px;
-    position: absolute;
-    top: 3px;
-    left: 10px;
+}
+
+.arrow-down-svg {
+    background-image: url(../icons/arrow-down.svg);
+}
+
+.arrow-up-svg {
+    background-image: url(../icons/arrow-up.svg);
 }
 
 #tabs-nd-content {
@@ -1221,5 +1224,4 @@ info-content {
             opacity: 1;
         }
     }
-
 }
