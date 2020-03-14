@@ -91,10 +91,3 @@
     padding-bottom: 50px;
     letter-spacing: 0.0725em;
 }
-
-.contact {
-    -ms-grid-column: 3;
-    grid-column-start: 3;
-    -ms-grid-row: 3;
-    grid-row-start: 3;
-}
