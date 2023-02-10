@@ -22,10 +22,12 @@ namespace Acapedia.Controllers
 
             foreach (var _Uni in _Unis)
             {
-                var _Juni = new JObject();
-                _Juni.Add("Link", _Uni.LinkUrl);
-                _Juni.Add("Title", _Uni.Title);
-                _Juni.Add("Description", _Uni.Description);
+                var _Juni = new JObject
+                {
+                    { "Link", _Uni.LinkUrl },
+                    { "Title", _Uni.Title },
+                    { "Description", _Uni.Description }
+                };
 
                 _ToClient.Add(_Juni);
             }

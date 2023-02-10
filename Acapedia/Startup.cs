@@ -9,16 +9,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Acapedia
 {
     public class Startup
     {
-        public Startup (IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -28,7 +28,7 @@ namespace Acapedia
             get;
         }
 
-        public void ConfigureServices (IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             // needed to load configuration from appsettings.json
             services.AddOptions();
@@ -37,6 +37,7 @@ namespace Acapedia
             services.AddMemoryCache();
 
             //load general configuration from appsettings.json
+            services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
             services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
 
             // inject counter and rules stores
@@ -70,7 +71,9 @@ namespace Acapedia
                        googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
                    });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddNewtonsoftJson();
+
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
             services.Configure<IdentityOptions>(options =>
                         {
@@ -86,14 +89,14 @@ namespace Acapedia
             services.AddScoped<IExplore, ExploreService>();
         }
 
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseIpRateLimiting();
 
             if (env.IsDevelopment())
             {
                 app.UseStatusCodePagesWithReExecute("/Error");
-                app.UseDatabaseErrorPage();
+                app.UseDeveloperExceptionPage();
             }
             else
             {
@@ -101,17 +104,17 @@ namespace Acapedia
                 app.UseHsts();
             }
 
+            app.UseRouting();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoint =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                endpoint.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

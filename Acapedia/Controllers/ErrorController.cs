@@ -5,7 +5,7 @@ namespace Acapedia.Controllers
 {
     public class ErrorController : Controller
     {
-        public IActionResult Index ()
+        public IActionResult Index()
         {
             string _Path = HttpContext.Request.Path.ToString().ToLower();
 
@@ -18,15 +18,12 @@ namespace Acapedia.Controllers
                 });
             }
 
-            else
-            {
-                var ErrorInfo = new ErrorViewModel();
+            var ErrorInfo = new ErrorViewModel();
 
-                ErrorInfo.StatusCode = HttpContext.Response.StatusCode.ToString();
-                ErrorInfo.Description = Microsoft.AspNetCore.WebUtilities.ReasonPhrases.GetReasonPhrase(HttpContext.Response.StatusCode);
+            ErrorInfo.StatusCode = HttpContext.Response.StatusCode.ToString();
+            ErrorInfo.Description = Microsoft.AspNetCore.WebUtilities.ReasonPhrases.GetReasonPhrase(HttpContext.Response.StatusCode);
 
-                return View(ErrorInfo);
-            }
+            return View(ErrorInfo);
         }
     }
 }
