@@ -776,8 +776,6 @@ info-content {
     grid-template-columns: 100%;
     color: var(--dimmed-white);
     background-color: var(--main-blue-color);
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
 }
 
 #info-heading {
@@ -859,8 +857,6 @@ info-content {
 }
 
 .unis-content {
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
     margin-top: 10px;
     margin-bottom: 50px;
 }
