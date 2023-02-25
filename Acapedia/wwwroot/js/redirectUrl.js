@@ -5,7 +5,7 @@ function redirecturl()
 {
     if (!sessionStorage.getItem("_path"))
     {
-        location.replace("https://acapedia.azurewebsites.net");
+        location.replace("https://acapedia.io");
     }
 
     else
@@ -13,6 +13,6 @@ function redirecturl()
         let _ReplaceUrl = sessionStorage.getItem("_path");
         sessionStorage.clear();
         
-        location.replace("https://acapedia.azurewebsites.net" + _ReplaceUrl);
+        location.replace("https://acapedia.io" + _ReplaceUrl);
     }
 }
