@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <ProjectReference Include="..\Acapedia.Data\Acapedia.Data.csproj" />
   </ItemGroup>
 
